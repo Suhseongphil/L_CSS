@@ -98,57 +98,46 @@
        
     </header>
     <!-- Header Section End -->
-		 <%@ include file ="includes/SideBar.jsp" %>
+		
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
+ <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>목록</span>
-                        </div>
+                    <div class="header__logo">
+                        <h2>L&CSS </h2>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                    	
                         <ul>
-                            <li><a href="#">상품</a></li>
-                            <li><a href="#">카페</a></li>
-                            <li><a href="#">업체</a></li>
-                            <li><a href="#">공동구매</a></li>
-                            <li><a href="#">고객문의</a></li>
-                            
+                        	 
+                            <li class="active"><a href="./index.html">메인</a></li>
+                            <li><a href="./shop-grid.html">상품</a></li>
+                            <li><a href="#">카페</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">업체</a></li>
+                            <li><a href="./contact.html">공동구매</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    검색
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="검색할 내용..">
-                                <button type="submit" class="site-btn">검색</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                           
-                        </div>
-                    </div>
-                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
-                        </div>
-                    </div>
-                </div>
+                    </nav>
+                </div> 
+                <div class="col-lg-3">
+                  
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
             </div>
         </div>
-    </section>
+        </div>
     <!-- Hero Section End -->
-
+<%@ include file ="includes/SideBar.jsp" %>
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
@@ -374,8 +363,9 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                        
-                        <a href="">고객센터</a>
+                        <a href="InquirePage">고객문의</a>
                         
+
                        
                     </div>
                 </div>
@@ -403,4 +393,11 @@
 
 </body>
 
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if(checkMsg.length > 0){
+		alert(checkMsg);
+	}
+	
+</script>
 </html>

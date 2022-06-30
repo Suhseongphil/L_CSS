@@ -43,7 +43,7 @@
     padding: 10px;
     }
     .coral {
-    background-color: coral;
+    background-color:transparent;
     }
     </style>
 
@@ -54,7 +54,7 @@
  <%@ include file ="../includes/TopBar.jsp" %>
     <div class="container">
         <!-- Outer Row -->
-        <div class="row justify-content-center" style="background-image: url('${pageContext.request.contextPath }/resources/css/cff.jpg');"  >
+        <div class="row justify-content-center"   >
 
             <div class="col-xl-5 col-lg-7 col-md-7">
                 <div class="card o-hidden border-0 shadow-lg my-5">
@@ -65,21 +65,21 @@
                             <div class="margin">
                                 <div class="p-5">
                                     <div class="text-center ">
-                                        <h1 class="h4 text-gray-900 mb-4">Login Page</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">로그인</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="post" action="memberLogin">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="mid" name="mid" aria-describedby="emailHelp"
                                                 placeholder="아이디를 입력해주세요...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="비밀번호를 입력해주세요...">
+                                                id="mpw" name="mpw" placeholder="비밀번호를 입력해주세요...">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             로그인
-                                        </a>
+                                        </button>
                                         <hr>
                                         <div class="row">
                                         <div class="col-6">
@@ -124,5 +124,11 @@
     <script src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
 
 </body>
-
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if(checkMsg.length > 0){
+		alert(checkMsg);
+	}
+	
+</script>
 </html>
