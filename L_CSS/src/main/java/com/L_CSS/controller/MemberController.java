@@ -76,5 +76,12 @@ public class MemberController {
 		return mav;
 		
 	}
+	//고객문의 페이지 이동요청
+	@RequestMapping (value="/InquirePage")
+	public String InquirePage() {
+		System.out.println("고객문의 페이지 이동");
+		
+		return "option/Inquire";
+	}
 	
 }
