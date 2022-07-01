@@ -22,14 +22,21 @@
     <link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min2.css">
     <!-- Site CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style2.css">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/responsive.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/responsive2.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/custom.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/custom2.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -43,17 +50,13 @@
     <!-- End Main Top -->
 
     <!-- Start Main Top -->
+     <%@ include file ="../includes/TopBar.jsp" %>
     <header class="main-header">
         <!-- Start Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+        
             <div class="container">
                 <!-- Start Header Navigation -->
-                <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                   
-                </div>
+               
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,64 +66,23 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
-                   
+                <div class="row">
+                   <%@ include file ="../includes/MiddleBar.jsp" %>
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <li class="cart-box">
-                    <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
-                        <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
-                        </li>
-                    </ul>
-                </li>
-            </div>
+          
             <!-- End Side Menu -->
-        </nav>
+       
         <!-- End Navigation -->
     </header>
-    <!-- End Main Top -->
-
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
-
-    <!-- Start All Title Box -->
-   
-    <!-- End All Title Box -->
+    
 
     <div class="cart-box-main" style="text-align: center;">
-        <div class="container" style="background-color: rgb(28, 189, 187) ; width: 50% ; padding-top : 10px;  ">
+        <div class="container" >
             <span  style="text-align: center;">
-                <h1 >고객 센터 &nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" placeholder="검색..">&nbsp&nbsp&nbsp <button>검색</button></h1>  
+                <h3 >고객 센터 &nbsp&nbsp&nbsp&nbsp&nbsp <input  type="text" placeholder="검색..">&nbsp&nbsp&nbsp <button class="btn-sm btn-Info">검색</button></h3>  
             </span>
         </div>  
         </div>
@@ -128,7 +90,11 @@
     <div class="cart-box-main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+           
+           		<%@ include file ="../includes/SideBar.jsp" %>
+       	
+    
+                <div class="col-lg-7">
                     <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
@@ -176,55 +142,18 @@
                                     <td class="quantity-box"> 답변대기 </td>
                                   
                                 </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 30.0</p>
-                                    </td>
-                                    <td class="quantity-box"></td>
-                                   
-                                    <td class="remove-pr">
-                                    
-                                    </td>
-                                </tr>
+                              
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="coupon-box">
-                        
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    
-                </div>
-            </div>
-
-            <div class="row my-5">
-                <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-4 col-sm-12">
-                   
-                </div>
-               
-            </div>
-
+        
         </div>
     </div>
     <!-- End Cart -->
-
+ 
     <!-- Start Instagram Feed  -->
   
     <!-- End Instagram Feed  -->
@@ -239,23 +168,16 @@
     <!-- End copyright  -->
 
     
-
-    <!-- ALL JS FILES -->
-    <script src="${pageContext.request.contextPath }/resources/js/jquery-3.2.1.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/popper.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="${pageContext.request.contextPath }/resources/js/jquery.superslides.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/bootstrap-select.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/inewsticker.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/bootsnav.js."></script>
-    <script src="${pageContext.request.contextPath }/resources/js/images-loded.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/isotope.min.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/baguetteBox.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/form-validator.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/contact-form-script.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+    <!-- ALL JS FILES -->
+
 </body>
 
 </html>

@@ -84,4 +84,15 @@ public class MemberController {
 		return "option/Inquire";
 	}
 	
+	//크롤링 테스트 
+	@RequestMapping(value="/getimg")
+	public ModelAndView getimg() throws IOException {
+		System.out.println("크롤링 시작");
+		ModelAndView mav = new ModelAndView();
+		mav = mvc.getimg();
+		
+		return mav;
+		
+	}
+	
 }

@@ -104,21 +104,21 @@
 											<input class="form-control form-control-user" type="button"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>                                      
                                         	</div>
 											 <div class="col-6 form-group">
-                                        	<input class="form-control form-control-user" type="text" id="sample6_postcode" name="sample6_postcode" placeholder="우편번호">
+                                        	<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" placeholder="우편번호">
                                         	</div>
                                         </div>
 										<div class="row">
                                        		 <div class="col-12">
-											<input class="form-control form-control-user" type="text" id="sample6_address" name="sample6_address" placeholder="주소"><br>
+											<input class="form-control form-control-user" type="text" id="maddr" name="maddr" placeholder="주소"><br>
                                         	</div>
 										</div>
 										
                                         <div class="row form-group">
                                         	<div class="col-6 form-group"> 
-											<input class="form-control form-control-user" type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소">
+											<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" placeholder="상세주소">
                                         	</div>
                                         	<div class="col-6 form-group"> 
-											<input class="form-control form-control-user" type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목">
+											<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" placeholder="참고항목">
                                         	</div>
                                         </div>
                                         <div class="row form-group">
@@ -193,17 +193,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                    document.getElementById("mextraaddress").value = extraAddr;
                 
                 } else {
-                    document.getElementById("sample6_extraAddress").value = '';
+                    document.getElementById("mextraaddress").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('mpostercode').value = data.zonecode;
+                document.getElementById("maddr").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("mdetailaddress").focus();
             }
         }).open();
     }
