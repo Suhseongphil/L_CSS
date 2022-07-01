@@ -17,10 +17,10 @@ public class MemberDto {
 	private	int	mstate;
 	
 	private MultipartFile mfile;
-	private String sample6_postcode;
-	private String sample6_address;
-	private String sample6_detailAddress;
-	private String sample6_extraAddress;
+	private String mpostercode;
+	private String maddr;
+	private String mdetailaddress;
+	private String mextraaddress;
 	
 	
 }

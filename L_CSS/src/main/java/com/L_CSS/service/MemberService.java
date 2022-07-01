@@ -2,10 +2,14 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,13 +17,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MemberDao;
+import com.L_CSS.dao.TestDao;
 import com.L_CSS.dto.MemberDto;
+import com.L_CSS.dto.TestDto;
 
 @Service
 public class MemberService {
 	
 	@Autowired
 	MemberDao mdao;
+	
+	@Autowired
+	TestDao tdao;
 	
 	@Autowired
 	private HttpSession session;
@@ -48,21 +57,22 @@ public class MemberService {
 
 		}
 		
-		if (member.getSample6_extraAddress().length() == 0 && member.getSample6_detailAddress().length() == 0) {
-			member.setMaddress(member.getSample6_postcode() + "_" + member.getSample6_address());
+		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
+			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
 		} else {
-			if (member.getSample6_extraAddress().length() == 0) {
-				member.setMaddress(member.getSample6_postcode() + "_" + member.getSample6_address() + "_" + member.getSample6_detailAddress());
-			} else if (member.getSample6_detailAddress().length() == 0) {
-				member.setMaddress(member.getSample6_postcode() + "_" + member.getSample6_address() + "_" + member.getSample6_extraAddress());
+			if (member.getMextraaddress().length() == 0) {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMdetailaddress());
+			} else if (member.getMdetailaddress().length() == 0) {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress());
 			} else {
-				member.setMaddress(member.getSample6_postcode() + "_" + member.getSample6_address() + "_" + member.getSample6_extraAddress() + "_"
-						+ member.getSample6_detailAddress());
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress() + "_"
+						+ member.getMdetailaddress());
 			}
 		}
 		
 		
-		System.out.println("mprofile : " + mprofile);
+		
+		
 		member.setMprofile(mprofile);
 	
 		int inserMember = mdao.InsertMember(member);
@@ -123,4 +133,59 @@ public class MemberService {
 		mav.setViewName("Main");
 		return mav;
 	}
+	//크롤링 테스트
+	public ModelAndView getimg() throws IOException {
+		System.out.println("getimg");
+		ModelAndView mav = new ModelAndView();
+		
+		String imgurl = "https://www.cofm.co.kr/goods/goods_list.php?cateCd=069&mode=categoryMode";
+		
+		Document doc = Jsoup.connect(imgurl).get();
+		
+		Elements img = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li > div > div> a > img");
+		
+		
+		Elements name = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div > a > div > strong");
+		
+		
+		Elements price = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div> span > strong");
+		
+		ArrayList<TestDto> TestList = new ArrayList<TestDto>();
+		TestDto ts = null;
+		for(int i = 0; i < img.size(); i++) {
+			ts = new TestDto();
+			ts.setName(name.eq(i).text());
+			ts.setImg(img.get(i).attr("data-original"));
+			ts.setPrice(price.eq(i).text());
+			System.out.println(name.eq(i).text());
+			System.out.println(img.get(i).attr("data-original"));
+			System.out.println(price.eq(i).text());
+			TestList.add(ts);
+		}
+		for(int i = 0; i < TestList.size(); i++) {
+			
+			int insert = tdao.insert(TestList.get(i));
+		}
+		
+		return mav;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
