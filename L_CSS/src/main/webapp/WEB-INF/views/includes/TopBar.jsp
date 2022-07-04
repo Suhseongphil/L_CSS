@@ -24,17 +24,17 @@
                            
                             
                             <div class="header__top__right__auth">
-                                <a href="Main"><i class="fa fa-user"> </i> 메인 </a>&nbsp;&nbsp;&nbsp;
+                                <a href="main"><i class="fa fa-user"> </i> 메인 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             <c:choose>
                             <c:when test="${sessionScope.loginId == null }">
                             <div class="header__top__right__auth">
-                                <a href="MemberLogin"><i class="fa fa-user"> </i> 로그인 </a>&nbsp;&nbsp;&nbsp;
+                                <a href="memberLogin"><i class="fa fa-user"> </i> 로그인 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             <div class="header__top__right__auth">
-                               <a href="MemberJoin"> <i class="fa fa-user"></i> 회원가입 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="memberJoin"> <i class="fa fa-user"></i> 회원가입 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             </c:when>
@@ -44,14 +44,14 @@
                                
                             </div>
                             <div class="header__top__right__auth">
-                               <a href="MemberLogout"> <i class="fa fa-user"></i> 로그아웃 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="memberLogout"> <i class="fa fa-user"></i> 로그아웃 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             </c:otherwise>
                             </c:choose>
                            
                             <div class="header__top__right__auth">
-                               <a href="MyCart"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="myCart"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                         </div>

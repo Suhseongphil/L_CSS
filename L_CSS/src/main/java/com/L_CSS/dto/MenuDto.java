@@ -8,7 +8,7 @@ public class MenuDto {
 	private String mucode;
 	private String muname;
 	private String mutype;
-	private String muprice;
+	private int muprice;
 	private String muimg;
 	private String mucfcode;
 	private int mustate;

@@ -1,5 +1,7 @@
 package com.L_CSS.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ public class ProductController {
 	ProductService psv;
 	
 	@RequestMapping (value="/productUpLoad")
-	public ModelAndView productUpLoad() {
+	public ModelAndView productUpLoad() throws IOException {
 		System.out.println("업체 상품 정보 업로드");
 		ModelAndView mav = new ModelAndView();
 		
