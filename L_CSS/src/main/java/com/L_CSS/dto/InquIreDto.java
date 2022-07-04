@@ -3,7 +3,7 @@ package com.L_CSS.dto;
 import lombok.Data;
 
 @Data
-public class InquIerDto {
+public class InquIreDto {
 
 	private	String	iqcode;
 	private	String	iqmid;

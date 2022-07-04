@@ -1,6 +1,6 @@
 package com.L_CSS.dao;
 
-public interface ReviewDao {
+public interface InquIreDao {
 
 	String getmax();
 

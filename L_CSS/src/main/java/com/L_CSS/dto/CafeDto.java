@@ -11,6 +11,7 @@ public class CafeDto {
 	private String cftel;
 	private String cfimg;
 	private String cfstate;
+	private	String	cflink;
 	
 	private String cfpostercode;
 	private String cfaddr;

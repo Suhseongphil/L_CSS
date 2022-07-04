@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.L_CSS.dao.CompanyDao">
-
+	
+	<select id="getmax" resultType="String">
+		select max(cmcode)
+		from COMPANY
+	</select>
+	
   	
   </mapper>
