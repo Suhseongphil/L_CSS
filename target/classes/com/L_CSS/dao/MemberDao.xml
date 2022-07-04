@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.L_CSS.dao.MemberDao">
+  
+  	<insert id="InsertMember">
+  		insert into MEMBER(MID,MPW,MNAME,MEMAIL,MADDRESS,MPROFILE,MTYPE,MSTATE)
+  		VALUES (#{mid},#{mpw},#{mname},#{memail},#{maddress},#{mprofile},#{mtype},#{mstate})
+  	</insert>
+  	
+  	<select id="MemberLogin" resultType="com.L_CSS.dto.MemberDto">
+  		select *
+  		from MEMBER
+  		where MID = #{mid} and MPW = #{mpw}
+  	</select>
+  	
+  	<select id="MemberInfo" resultType="com.L_CSS.dto.MemberDto" >
+  		select *
+  		from MEMBER
+  		where MID = #{loginId}
+  	</select>
+  	
+  	
+  </mapper>

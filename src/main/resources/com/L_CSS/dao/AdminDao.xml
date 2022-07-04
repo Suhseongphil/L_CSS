@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.L_CSS.dao.AdminDao">
+  	
+  	<select id="getMaxCmcode" resultType="String">
+  		SELECT MAX(CMCODE)
+  		FROM COMPANY
+  	</select>
+  	
+  	<insert id="insertCompany">
+  		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE, CMLINK)
+  		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel}, #{cmimg}, 0, #{cmlink})
+  	</insert>
+  
+  </mapper>
