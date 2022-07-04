@@ -17,7 +17,7 @@ public class MemberDto {
 	private	int	mstate;
 	
 	private MultipartFile mfile;
-	private String mpostercode;
+	private String mpostcode;
 	private String maddr;
 	private String mdetailaddress;
 	private String mextraaddress;

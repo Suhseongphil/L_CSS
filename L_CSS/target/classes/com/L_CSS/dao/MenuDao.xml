@@ -9,5 +9,10 @@
 			select max(mucode)
 			from MENU
 		</select>
-  	
+  		
+  		<insert id="insert">
+  			insert into MENU(MUCODE,MUNAME,MUTYPE,MUPRICE,MUIMG,MUCFCODE,MUSTATE)
+  			VALUES (#{mucode},#{muname},#{mutype},#{muprice},#{muimg},#{mucfcode},#{mustate})
+  		
+  		</insert>
   </mapper>

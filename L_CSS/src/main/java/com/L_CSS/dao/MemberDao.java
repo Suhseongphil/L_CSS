@@ -6,10 +6,12 @@ import com.L_CSS.dto.MemberDto;
 
 public interface MemberDao {
 
-	int InsertMember(MemberDto member);
+	int insertMember(MemberDto member);
 
-	MemberDto MemberLogin(@Param("mid")String mid,@Param("mpw")String mpw);
+	MemberDto memberLogin(@Param("mid")String mid,@Param("mpw")String mpw);
 
-	MemberDto MemberInfo(String loginId);
+	MemberDto memberInfo(String loginId);
+
+	
 
 }

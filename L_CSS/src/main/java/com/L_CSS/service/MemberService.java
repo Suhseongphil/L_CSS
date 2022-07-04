@@ -17,9 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MemberDao;
-import com.L_CSS.dao.TestDao;
+
 import com.L_CSS.dto.MemberDto;
-import com.L_CSS.dto.TestDto;
+
 
 @Service
 public class MemberService {
@@ -27,8 +27,7 @@ public class MemberService {
 	@Autowired
 	MemberDao mdao;
 	
-	@Autowired
-	TestDao tdao;
+	
 	
 	@Autowired
 	private HttpSession session;
@@ -58,14 +57,14 @@ public class MemberService {
 		}
 		
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
-			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
+			member.setMaddress(member.getMpostcode() + "_" + member.getMaddr());
 		} else {
 			if (member.getMextraaddress().length() == 0) {
-				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMdetailaddress());
+				member.setMaddress(member.getMpostcode() + "_" + member.getMaddr() + "_" + member.getMdetailaddress());
 			} else if (member.getMdetailaddress().length() == 0) {
-				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress());
+				member.setMaddress(member.getMpostcode() + "_" + member.getMaddr() + "_" + member.getMextraaddress());
 			} else {
-				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress() + "_"
+				member.setMaddress(member.getMpostcode() + "_" + member.getMaddr() + "_" + member.getMextraaddress() + "_"
 						+ member.getMdetailaddress());
 			}
 		}
@@ -75,7 +74,7 @@ public class MemberService {
 		
 		member.setMprofile(mprofile);
 	
-		int inserMember = mdao.InsertMember(member);
+		int inserMember = mdao.insertMember(member);
 		
 		if(inserMember > 0) {
 			ra.addFlashAttribute("msg", "회원가입 되었습니다.");
@@ -94,7 +93,7 @@ public class MemberService {
 		System.out.println(mid);
 		System.out.println(mpw);
 		
-		MemberDto memberLogin = mdao.MemberLogin(mid,mpw);
+		MemberDto memberLogin = mdao.memberLogin(mid,mpw);
 		
 		if(memberLogin != null) {
 			session.setAttribute("loginId", memberLogin.getMid());
@@ -115,7 +114,7 @@ public class MemberService {
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
 		
-		MemberDto MemberInfo = mdao.MemberInfo(loginId);
+		MemberDto MemberInfo = mdao.memberInfo(loginId);
 		
 		mav.addObject("memberInfo", MemberInfo);
 		mav.setViewName("Member/MemberInfo");
@@ -133,43 +132,7 @@ public class MemberService {
 		mav.setViewName("Main");
 		return mav;
 	}
-	//크롤링 테스트
-	public ModelAndView getimg() throws IOException {
-		System.out.println("getimg");
-		ModelAndView mav = new ModelAndView();
-		
-		String imgurl = "https://www.cofm.co.kr/goods/goods_list.php?cateCd=069&mode=categoryMode";
-		
-		Document doc = Jsoup.connect(imgurl).get();
-		
-		Elements img = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li > div > div> a > img");
-		
-		
-		Elements name = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div > a > div > strong");
-		
-		
-		Elements price = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div> span > strong");
-		
-		ArrayList<TestDto> TestList = new ArrayList<TestDto>();
-		TestDto ts = null;
-		for(int i = 0; i < img.size(); i++) {
-			ts = new TestDto();
-			ts.setName(name.eq(i).text());
-			ts.setImg(img.get(i).attr("data-original"));
-			ts.setPrice(price.eq(i).text());
-			System.out.println(name.eq(i).text());
-			System.out.println(img.get(i).attr("data-original"));
-			System.out.println(price.eq(i).text());
-			TestList.add(ts);
-		}
-		for(int i = 0; i < TestList.size(); i++) {
-			
-			int insert = tdao.insert(TestList.get(i));
-		}
-		
-		return mav;
-	}
-
+	
 
 
 

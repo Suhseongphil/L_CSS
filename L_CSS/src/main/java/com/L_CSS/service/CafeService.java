@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CafeDao;
+import com.L_CSS.dto.CafeDto;
 
 @Service
 public class CafeService {
@@ -19,6 +20,7 @@ public class CafeService {
 		String max = cdao.getmax();
 		String cfcode = "CF";
 		
+		CafeDto cf = new CafeDto();
 		if(max == null) {
 			cfcode = cfcode + "001";
 		}else {
@@ -34,6 +36,7 @@ public class CafeService {
 		
 		
 		}
+		
 		
 		
 		

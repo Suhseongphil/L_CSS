@@ -18,24 +18,24 @@ public class MemberController {
 	MemberService mvc;
 	
 	//메인 페이지 이동
-	@RequestMapping (value="/Main")
-	public String Main() {
+	@RequestMapping (value="/main")
+	public String main() {
 		System.out.println("메인 페이지 호출");
 		
 		
 		return "Main";
 	}
 	//회원가입 페이지 이동요청 메소드
-	@RequestMapping (value="/MemberJoin")
-	public String MemberJoin() {
+	@RequestMapping (value="/memberJoin")
+	public String memberJoin() {
 		System.out.println("회원가입 페이지 호출");
 		
 		
 		return "Member/MemberJoin";
 	}
 	//로그인 페이지 이동요청 메소드
-	@RequestMapping (value="/MemberLogin")
-	public String MemberLogin() {
+	@RequestMapping (value="/memberLogin")
+	public String memberLogin() {
 		System.out.println("로그인 페이지 호출");
 		
 		return "Member/MemberLogin";
@@ -67,8 +67,8 @@ public class MemberController {
 		return mav;
 	}
 	//로그아웃 요청
-	@RequestMapping (value = "/MemberLogout")
-	public ModelAndView MemberLogout() {
+	@RequestMapping (value = "/memberLogout")
+	public ModelAndView memberLogout() {
 		System.out.println("로그아웃 요청");
 		ModelAndView mav = new ModelAndView();
 		mav = mvc.memberLogout();
@@ -77,22 +77,13 @@ public class MemberController {
 		
 	}
 	//고객문의 페이지 이동요청
-	@RequestMapping (value="/InquirePage")
-	public String InquirePage() {
+	@RequestMapping (value="/inquirePage")
+	public String inquirePage() {
 		System.out.println("고객문의 페이지 이동");
 		
 		return "option/Inquire";
 	}
 	
-	//크롤링 테스트 
-	@RequestMapping(value="/getimg")
-	public ModelAndView getimg() throws IOException {
-		System.out.println("크롤링 시작");
-		ModelAndView mav = new ModelAndView();
-		mav = mvc.getimg();
-		
-		return mav;
-		
-	}
+	
 	
 }
