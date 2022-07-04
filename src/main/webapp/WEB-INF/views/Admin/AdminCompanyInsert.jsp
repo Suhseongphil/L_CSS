@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InsertInfo_Company</title>
-<script src="${pageContext.request.contextPath }/resources/vendor/jquery/jquery-3.6.0.min.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 <style>
 .container {
 	display: flex;
@@ -101,50 +101,117 @@ span, h1 {
 		</form>
 	</div>
 	<hr>
+	<div>
+		<div class="row text-center borderOn" id="companyList">
+		
+			<div class="col-2">
+				<div class="items">
+					<span class="font-weight-bold">회사이름</span>
+				</div>
+				<div class="items">
+					(주)ICIA
+				</div>
+			</div>
+			<div class="col-5">
+				<div class="items">
+					<span class="font-weight-bold">회사주소</span>
+				</div>
+				<div class="items">
+					incheon
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="items">
+					<span class="font-weight-bold">전화번호</span>
+				</div>
+				<div class="items">
+					010-1111-2222
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="items">
+					<button type="button">수정</button>
+					<button type="button">삭제</button>
+				</div>
+				<div class="items">
+					<button type="button">활동중</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
 </body>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#companySend").on("click", function() {
-			var formData = new FormData();
-			var inputFile = $("input[name = 'cmimgs']");
-			var files = inputFile[0].files;
-			console.log(files);
-			
-			console.log("cmname : "+$("#cmname").val());
 
-			for (var i = 0; i < files.length; i++) {
-				formData.append("cmimgs", files[i]);
+		$.ajax({
+			type : "get",
+			url : "getCompanyInfo",
+			dataType : "json",
+			success : function(company) {
+				console.log("success");
+				/* companyInfoPrint(company); */
 			}
-			formData.append("cmname", $("#cmname").val());
-			formData.append("cmpostcode", $("#sample6_postcode").val());
-			formData.append("cmaddr", $("#sample6_address").val());
-			formData.append("cmdetailaddress", $("#sample6_detailAddress").val());
-			formData.append("cmextraaddress", $("#sample6_extraAddress").val());
-			formData.append("cmtel", $("#cmtel").val());
-			formData.append("cmlink", $("#cmlink").val());
-
-			$.ajax({
-				type : "POST",
-				url : "adminCreateInfo",
-				processData : false,
-				contentType : false,
-				data : formData,
-				success : function(result) {
-					console.log("업로드 성공");
-					$("#cmname").val("");
-					$("#sample6_postcode").val("");
-					$("#sample6_address").val("");
-					$("#sample6_detailAddress").val("");
-					$("#sample6_extraAddress").val("");
-					$("#cmtel").val("");
-					$("#cmlink").val("");
-					$("#cmimgs").val("");
-				}
-			});
-
 		});
 	});
+
+	function companyInfoPrint(company) {
+		var output = "";
+		output = output + "<table border = '1'>";
+	}
+</script>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$("#companySend").on(
+						"click",
+						function() {
+							var formData = new FormData();
+							var inputFile = $("input[name = 'cmimgs']");
+							var files = inputFile[0].files;
+							console.log(files);
+
+							console.log("cmname : " + $("#cmname").val());
+
+							for (var i = 0; i < files.length; i++) {
+								formData.append("cmimgs", files[i]);
+							}
+							formData.append("cmname", $("#cmname").val());
+							formData.append("cmpostcode",
+									$("#sample6_postcode").val());
+							formData.append("cmaddr", $("#sample6_address")
+									.val());
+							formData.append("cmdetailaddress", $(
+									"#sample6_detailAddress").val());
+							formData.append("cmextraaddress", $(
+									"#sample6_extraAddress").val());
+							formData.append("cmtel", $("#cmtel").val());
+							formData.append("cmlink", $("#cmlink").val());
+
+							$.ajax({
+								type : "POST",
+								url : "adminCreateInfo",
+								processData : false,
+								contentType : false,
+								data : formData,
+								success : function(result) {
+									console.log("업로드 성공");
+									$("#cmname").val("");
+									$("#sample6_postcode").val("");
+									$("#sample6_address").val("");
+									$("#sample6_detailAddress").val("");
+									$("#sample6_extraAddress").val("");
+									$("#cmtel").val("");
+									$("#cmlink").val("");
+									$("#cmimgs").val("");
+								}
+							});
+
+						});
+			});
 </script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

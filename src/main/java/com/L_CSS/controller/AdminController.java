@@ -26,7 +26,7 @@ public class AdminController {
 	// 어드민 회사정보 입력 페이지 이동
 	@RequestMapping(value = "/admincompanyInsert")
 	public String admincompanyInsert() {
-		System.out.println("어드민 회사정보 입력");
+		System.out.println("어드민 회사정보 입력 페이지");
 
 		return "Admin/AdminCompanyInsert";
 	}
@@ -37,5 +37,15 @@ public class AdminController {
 		System.out.println("회사정보 입력_어드민");
 
 		adsvc.insertCompany(company);
+	}
+	
+	// 회사 정보 직접 입력
+	@RequestMapping(value = "/getCompanyInfo")
+	public @ResponseBody String getCompanyInfo(){
+		System.out.println("회사정보 출력_어드민");
+
+		String companyInfo = adsvc.getCompany();
+		
+		return companyInfo;
 	}
 }
