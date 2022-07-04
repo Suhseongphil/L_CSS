@@ -3,13 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="com.L_CSS.dao.CafeDao">
-		
-		<select id="getmax"	resultType="String" >
-			select max(cfcode)
-			from CAFE
-		
-		</select>
-		
+  <mapper namespace="com.L_CSS.dao.InquIreDao">
+	
+	<select id="getmax" resultType="String">
+	
+	select max(iqcode)
+	from INQUIRE
   	
+	</select>
   </mapper>
