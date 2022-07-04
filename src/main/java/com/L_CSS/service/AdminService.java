@@ -2,6 +2,7 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.L_CSS.dao.AdminDao;
 import com.L_CSS.dto.CompanyDto;
+import com.google.gson.Gson;
 
 @Service
 public class AdminService {
@@ -75,6 +77,18 @@ public class AdminService {
 		System.out.println(company);
 		
 		adao.insertCompany(company);
+	}
+
+	public String getCompany() {
+		System.out.println("AdminService.getCompany() 호출");
+		
+		ArrayList<CompanyDto> companyList = adao.getCompany();
+		
+		Gson gson = new Gson();
+		
+		String company = gson.toJson(companyList);
+		
+		return company;
 	}
 
 }

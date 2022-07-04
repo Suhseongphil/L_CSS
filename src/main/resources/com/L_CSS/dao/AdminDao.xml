@@ -14,5 +14,9 @@
   		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE, CMLINK)
   		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel}, #{cmimg}, 0, #{cmlink})
   	</insert>
+  	
+  	<select id="getCompany" resultType="com.L_CSS.dto.CompanyDto">
+  		SELECT * FROM COMPANY
+  	</select>
   
   </mapper>
