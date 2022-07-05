@@ -26,16 +26,16 @@ public class MemberController {
 		return "Main";
 	}
 	//회원가입 페이지 이동요청 메소드
-	@RequestMapping (value="/memberJoin")
-	public String memberJoin() {
+	@RequestMapping (value="/Join")
+	public String Join() {
 		System.out.println("회원가입 페이지 호출");
 		
 		
 		return "Member/MemberJoin";
 	}
 	//로그인 페이지 이동요청 메소드
-	@RequestMapping (value="/memberLogin")
-	public String memberLogin() {
+	@RequestMapping (value="/login")
+	public String login() {
 		System.out.println("로그인 페이지 호출");
 		
 		return "Member/MemberLogin";

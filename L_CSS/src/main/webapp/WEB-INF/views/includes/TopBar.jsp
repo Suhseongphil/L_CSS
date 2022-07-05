@@ -30,11 +30,11 @@
                             <c:choose>
                             <c:when test="${sessionScope.loginId == null }">
                             <div class="header__top__right__auth">
-                                <a href="memberLogin"><i class="fa fa-user"> </i> 로그인 </a>&nbsp;&nbsp;&nbsp;
+                                <a href="login"><i class="fa fa-user"> </i> 로그인 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             <div class="header__top__right__auth">
-                               <a href="memberJoin"> <i class="fa fa-user"></i> 회원가입 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="Join"> <i class="fa fa-user"></i> 회원가입 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             </c:when>

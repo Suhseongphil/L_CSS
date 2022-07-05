@@ -9,7 +9,7 @@ public class ProductDto {
 	private	String	pdname;
 	private	String	pdtype;
 	private	int	pdprice;
-	private	String	pdamount;
+	private	int	pdamount;
 	private	String	pdimg;
 	private	String	pdcmcode;
 	private	int	pdstate;
