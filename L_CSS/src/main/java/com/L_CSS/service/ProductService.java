@@ -7,6 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.beans.ImmutableBean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,40 +28,76 @@ public class ProductService {
 		
 		
 		
-		String imgurl = "https://www.cofm.co.kr/goods/goods_list.php?cateCd=069&mode=categoryMode";
+		String imgurl = "http://www.cndgagu.com/shop/shopbrand.html?xcode=042&type=X&mcode=002";
+		
 		
 		Document doc = Jsoup.connect(imgurl).get();
 		
-		Elements img = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li > div > div> a > img");
+		Elements img = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td > div > ul > li > div > a > img");
+		
+		Elements name = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td > div > ul > li.dsc.name");
 		
 		
-		Elements name = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div > a > div > strong");
-		
-		
-		Elements price = doc.select("#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div> span > strong");
-		
+		Elements price = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td> div > ul > li.price");
+		int prices = 0;
 		ArrayList<ProductDto> ProductList = new ArrayList<ProductDto>();
 		ProductDto pd = null;
-		String cfcode ="CM001";
-		String type = "원두";
+		String pdcmcode ="CM003";
+		String type = "의자";
+		String totalImg = null;
+		String imghttp = "http://www.cndgagu.com";
 		
 		for(int i = 0; i < img.size(); i++) {
+			
+			if(price.get(i).text().equals("전화문의")) {
+				
+			}else {
+				totalImg = imghttp + img.get(i).attr("src");
+				String[] priceArr = price.get(i).text().split(":");
+				String[] number = priceArr[1].split("원");
+				
+				String[] number1 = number[0].split(",");
+				String[] number2 = number1[0].split(" ");
+				
+				String str = number2[1] + number1[1];
+				pd = new ProductDto();
+				
+				pd.setPdcmcode(pdcmcode);
+				pd.setPdtype(type);
+				pd.setPdstate(1);
+				pd.setPdamount(10);
+				pd.setPdname(name.eq(i).text());
+				pd.setPdimg(totalImg);
+				prices = Integer.parseInt(str);
+				
+				
+				pd.setPdprice(prices);
+				ProductList.add(pd);
+				
+			}
+		
+		}
+		/*
+		for(int j = 0; j < img.size(); j++) {
 			pd = new ProductDto();
 			
-			
-			int prices = Integer.parseInt(price.eq(i).text().replace(",", ""));
-			
-			pd.setPdcode(cfcode);
+			pd.setPdcmcode(pdcmcode);
 			pd.setPdtype(type);
 			pd.setPdstate(1);
-			pd.setPdname(name.eq(i).text());
-			pd.setPdimg(img.get(i).attr("data-original"));
+			pd.setPdamount(10);
+			pd.setPdname(name.eq(j).text());
+			pd.setPdimg(totalImg);
+			prices = Integer.parseInt(str);
+			
+			
 			pd.setPdprice(prices);
-			System.out.println(name.eq(i).text());
-			System.out.println(img.get(i).attr("data-original"));
-			System.out.println(price.eq(i).text().replace(",", ""));
+			System.out.println(name.eq(j).text());
+			System.out.println(img.get(j).attr("src"));
+			System.out.println(price.eq(j).text().replace(",", ""));
 			ProductList.add(pd);
 		}
+		
+*/
 		System.out.println(ProductList);
 		for(int i = 0; i < ProductList.size(); i++) {
 			
@@ -84,7 +121,7 @@ public class ProductService {
 			}
 			ProductList.get(i).setPdcode(pdcode);
 			
-			if(ProductList.get(i).getPdprice() > 0 ) {
+			if(ProductList.get(i).getPdprice() > 0  ) {
 				
 				int insert = pdao.insert(ProductList.get(i));
 			}

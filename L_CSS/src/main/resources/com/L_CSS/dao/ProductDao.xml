@@ -10,4 +10,10 @@
 		from PRODUCT
 	</select>
   	
+  	<insert id="insert">
+  		insert into PRODUCT (PDCODE , PDNAME,PDTYPE ,PDPRICE,PDAMOUNT,PDIMG,PDCMCODE,PDSTATE )
+  		VALUES (#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+  	
+  	</insert>
+  	
   </mapper>
