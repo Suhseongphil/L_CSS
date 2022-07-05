@@ -1,5 +1,7 @@
 package com.L_CSS.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -9,11 +11,17 @@ public class CafeDto {
 	private String cfname;
 	private String cfaddrsee;
 	private String cftel;
-	private String cfimg;
 	private String cfstate;
-	private	String	cflink;
+	private	String cflink;
 	
-	private String cfpostercode;
+	private	String cfsigimg;
+	private MultipartFile cfsigimgs;
+	
+	private String cfimg;
+	private MultipartFile[] cfimgs;
+	
+	private	String cfaddress;
+	private String cfpostcode;
 	private String cfaddr;
 	private String cfdetailaddress;
 	private String cfextraaddress;

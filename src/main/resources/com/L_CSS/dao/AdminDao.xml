@@ -18,5 +18,18 @@
   	<select id="getCompany" resultType="com.L_CSS.dto.CompanyDto">
   		SELECT * FROM COMPANY
   	</select>
+  	
+  	<insert id="insertCafe">
+  		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK)
+  		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink})
+  	</insert>
+  	<select id="getCafe" resultType="com.L_CSS.dto.CafeDto">
+  		SELECT * FROM CAFE
+  	</select>
+  	
+  	<select id="getMaxCfcode" resultType="String">
+  		SELECT MAX(CFCODE)
+  		FROM CAFE
+  	</select>
   
   </mapper>

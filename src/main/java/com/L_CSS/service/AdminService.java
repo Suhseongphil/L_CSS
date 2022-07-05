@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.L_CSS.dao.AdminDao;
+import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.google.gson.Gson;
 
@@ -20,7 +21,9 @@ public class AdminService {
 	AdminDao adao;
 
 	// 저장경로 ) 본인 로컬주소로 변경!!
-	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
+	private String savePath_cm = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
+	private String savePath_cf = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
+	private String savePath_cfsg = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
 
 	public void insertCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCompany() 호출");
@@ -53,7 +56,7 @@ public class AdminService {
 				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
 
 				multipartFile.transferTo(new File(savePath_cm, imgFile));
-				cmimg = cmimg + "/" +imgFile;
+				cmimg = cmimg + "/" + imgFile;
 			}
 		}
 		company.setCmimg(cmimg);
@@ -66,29 +69,109 @@ public class AdminService {
 				company.setCmaddress(
 						company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmdetailaddress());
 			} else if (company.getCmdetailaddress().length() == 0) {
-				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmextraaddress());
+				company.setCmaddress(
+						company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmextraaddress());
 			} else {
-				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmextraaddress()
-						+ "_" + company.getCmdetailaddress());
+				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_"
+						+ company.getCmextraaddress() + "_" + company.getCmdetailaddress());
 			}
 		}
-		
+
 		// 회사정보 입력
 		System.out.println(company);
-		
+
 		adao.insertCompany(company);
 	}
 
 	public String getCompany() {
 		System.out.println("AdminService.getCompany() 호출");
-		
+
 		ArrayList<CompanyDto> companyList = adao.getCompany();
-		
+
 		Gson gson = new Gson();
-		
+
 		String company = gson.toJson(companyList);
-		
+
 		return company;
+	}
+
+	public void insertCafe(CafeDto cafe) throws IllegalStateException, IOException {
+		System.out.println("AdminService.insertCafe() 호출");
+
+		// 카페코드 생성
+		String max = adao.getMaxCfcode();
+		String cfcode = "CF";
+		if (max == null) {
+			cfcode = cfcode + "001";
+		} else {
+			max = max.substring(2);
+			int maxCode = Integer.parseInt(max) + 1;
+			if (maxCode < 10) {
+				cfcode = cfcode + "00" + maxCode;
+			} else if (maxCode < 100) {
+				cfcode = cfcode + "0" + maxCode;
+			} else {
+				cfcode = cfcode + maxCode;
+			}
+		}
+		cafe.setCfcode(cfcode);
+
+		// 이미지 저장
+		String imgFile = "";
+		String cfimg = "";
+		MultipartFile sgimgFile = cafe.getCfsigimgs();
+		System.out.println("cfimg : " +cfimg);
+		String cfsgimg = "";
+		if (cafe.getCfimgs() != null) {
+			MultipartFile[] imgs = cafe.getCfimgs();
+			for (MultipartFile multipartFile : imgs) {
+				UUID uuid = UUID.randomUUID();
+				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+
+				multipartFile.transferTo(new File(savePath_cf, imgFile));
+				cfimg = cfimg + "/" + imgFile;
+			}
+
+		}
+		System.out.println("cfimg2 : " +cfimg);
+		if (!sgimgFile.isEmpty()) {
+			UUID uuid = UUID.randomUUID();
+			cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
+			sgimgFile.transferTo(new File(savePath_cfsg, cfsgimg));
+		}
+		cafe.setCfsigimg(cfsgimg);
+		cafe.setCfimg(cfimg);
+		System.out.println("cfimg3 : " +cfimg);
+		// 주소
+		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
+			cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr());
+		} else {
+			if (cafe.getCfextraaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfdetailaddress());
+			} else if (cafe.getCfdetailaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress());
+			} else {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress() + "_"
+						+ cafe.getCfdetailaddress());
+			}
+		}
+
+		// 회사정보 입력
+		System.out.println(cafe);
+
+		adao.insertCafe(cafe);
+	}
+
+	public String getCafe() {
+		System.out.println("AdminService.getCafe() 호출");
+
+		ArrayList<CafeDto> cafeList = adao.getCafe();
+
+		Gson gson = new Gson();
+
+		String cafe = gson.toJson(cafeList);
+
+		return cafe;
 	}
 
 }
