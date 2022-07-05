@@ -38,14 +38,26 @@ public class AdminController {
 
 		adsvc.insertCompany(company);
 	}
-	
-	// 회사 정보 직접 입력
-	@RequestMapping(value = "/getCompanyInfo")
-	public @ResponseBody String getCompanyInfo(){
-		System.out.println("회사정보 출력_어드민");
 
+	// 회사정보 리스트
+	@RequestMapping(value = "/getCompanyInfo")
+	public @ResponseBody String getCompanyInfo() {
+//		System.out.println("회사정보 출력_어드민");
 		String companyInfo = adsvc.getCompany();
-		
 		return companyInfo;
 	}
+
+	// 회사 활동상태 변경
+	@RequestMapping(value = "/cmstateModify")
+	public @ResponseBody void cmstateModify(String cmcode, int cmstate) {
+		System.out.println("회사 상태 변경");
+		adsvc.cmstateModify(cmcode, cmstate);
+	}
+	
+	// 회사 정보 삭제
+		@RequestMapping(value = "/companyDelete")
+		public @ResponseBody void companyDelete(String cmcode) {
+			System.out.println("회사 정보 삭제");
+			adsvc.companyDelete(cmcode);
+		}
 }

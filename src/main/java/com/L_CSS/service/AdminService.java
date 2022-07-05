@@ -80,7 +80,7 @@ public class AdminService {
 	}
 
 	public String getCompany() {
-		System.out.println("AdminService.getCompany() 호출");
+//		System.out.println("AdminService.getCompany() 호출");
 		
 		ArrayList<CompanyDto> companyList = adao.getCompany();
 		
@@ -89,6 +89,18 @@ public class AdminService {
 		String company = gson.toJson(companyList);
 		
 		return company;
+	}
+
+	public void cmstateModify(String cmcode, int cmstate) {
+		System.out.println("AdminService.cmstateModify() 호출");
+		
+		adao.cmstateModify(cmcode, cmstate);
+	}
+
+	public void companyDelete(String cmcode) {
+		System.out.println("AdminService.companyDelete() 호출");
+		
+		adao.companyDelete(cmcode);
 	}
 
 }

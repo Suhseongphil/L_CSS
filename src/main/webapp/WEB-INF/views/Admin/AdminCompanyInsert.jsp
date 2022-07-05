@@ -33,6 +33,18 @@
 span, h1 {
 	color: black;
 }
+.bc-blue{
+	background-color: blue;
+}
+.bc-red{
+	background-color: red;
+}
+.c-white{
+	color: white;
+}
+.btn_width{
+	width: 90px;
+}
 </style>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sb-admin-2.css" type="text/css">
@@ -88,6 +100,7 @@ span, h1 {
 						<span class="font-weight-bold">회사 이미지</span>
 					</div>
 					<div class="items">
+
 						<input type="file" id="cmimgs" name="cmimgs" multiple="multiple">
 					</div>
 				</div>
@@ -101,67 +114,11 @@ span, h1 {
 		</form>
 	</div>
 	<hr>
-	<div>
-		<div class="row text-center borderOn" id="companyList">
-		
-			<div class="col-2">
-				<div class="items">
-					<span class="font-weight-bold">회사이름</span>
-				</div>
-				<div class="items">
-					(주)ICIA
-				</div>
-			</div>
-			<div class="col-5">
-				<div class="items">
-					<span class="font-weight-bold">회사주소</span>
-				</div>
-				<div class="items">
-					incheon
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="items">
-					<span class="font-weight-bold">전화번호</span>
-				</div>
-				<div class="items">
-					010-1111-2222
-				</div>
-			</div>
-			<div class="col-2">
-				<div class="items">
-					<button type="button">수정</button>
-					<button type="button">삭제</button>
-				</div>
-				<div class="items">
-					<button type="button">활동중</button>
-				</div>
-			</div>
-			
-		</div>
+	<div id="companyList">
+
 	</div>
 
 </body>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$.ajax({
-			type : "get",
-			url : "getCompanyInfo",
-			dataType : "json",
-			success : function(company) {
-				console.log("success");
-				/* companyInfoPrint(company); */
-			}
-		});
-	});
-
-	function companyInfoPrint(company) {
-		var output = "";
-		output = output + "<table border = '1'>";
-	}
-</script>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -207,11 +164,124 @@ span, h1 {
 									$("#cmtel").val("");
 									$("#cmlink").val("");
 									$("#cmimgs").val("");
+									getCompanyInfo();
 								}
 							});
-
 						});
 			});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		getCompanyInfo();
+	});
+	
+	function getCompanyInfo(){
+		$.ajax({
+			type : "get",
+			url : "getCompanyInfo",
+			dataType : "json",
+			success : function(company) {
+				console.log(company);
+				companyInfoPrint(company);
+			}
+		});
+	}
+
+	function companyInfoPrint(company) {
+		var output = "";
+
+		for (var i = 0; i < company.length; i++) {
+			output += "<br>";
+			output += "<div class=\"row text-center borderOn\">";
+			output += "<div class=\"col-2\"><div class=\"items\">";
+			if (company[i].cmimg != null) {
+				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
+				output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/"
+						+ company[i].cmimg.split("/")[1] + "\">";
+			} else {
+				output += "<div class=\"items\">이미지없음</div>";
+			}
+			output += "</div></div>";
+
+			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<span class=\"font-weight-bold\">회사코드</span></div>";
+			output += "<div class=\"items\">"+ company[i].cmcode +"</div></div>";
+			
+			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<span class=\"font-weight-bold\">회사이름</span></div>";
+			output += "<div class=\"items\">"+ company[i].cmname +"</div></div>";
+			
+			output += "<div class=\"col-4\"><div class=\"items\">";
+			output += "<span class=\"font-weight-bold\">회사주소</span></div>";
+			output += "<div class=\"items\">"+ company[i].cmaddress +"</div></div>";
+			
+			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<span class=\"font-weight-bold\">전화번호</span></div>";
+			output += "<div class=\"items\">"+ company[i].cmtel +"</div></div>";
+
+			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<span class=\"font-weight-bold\">회사링크</span></div>";
+			output += "<div class=\"items\">"+ company[i].cmlink +"</div></div>";
+			
+			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<button type=\"button\" onclick=\"cmModify("+ company[i].cmcode +")\">수정</button>&nbsp;";
+			output += "<button type=\"button\" onclick=\"cmDelete("+ company[i].cmcode +")\">삭제</button>";
+			output += "</div><div class=\"items\">";
+			
+			if(company[i].cmstate == 0){
+				output += "<button class=\"bc-blue c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ company[i].cmcode +"')\">활동중</button>";			
+			}else{
+				output += "<button class=\"bc-red c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ company[i].cmcode +"')\">활동중지</button>";
+			}
+			
+			output += "</div></div></div>";
+		}
+
+		$("#companyList").html(output);
+	}
+</script>
+
+<script type="text/javascript">
+	function stateChange(selObj, cmcode){
+		
+		if($(selObj).text() == "활동중"){
+			$(selObj).text("활동중지");
+			$(selObj).removeClass("bc-blue");
+			$(selObj).addClass("bc-red");
+			var cmstate = '1';
+		}else{
+			$(selObj).text("활동중");
+			$(selObj).removeClass("bc-red");
+			$(selObj).addClass("bc-blue");
+			var cmstate = '0';
+		}
+		
+		$.ajax({
+			type : "get",
+			url : "cmstateModify",
+			data : {"cmcode" : cmcode, "cmstate" : cmstate },
+			async : false,
+			success : function(result){
+				console.log("success");
+			}
+		});
+	}
+	
+	function cmDelete(cmcode){
+		
+		$.ajax({
+			type : "get",
+			url : "companyDelete",
+			data : {"cmcode" : cmcode},
+			async : false,
+			success : function(result){
+				console.log("success");
+				getCompanyInfo();
+			}
+		});
+		
+	}
 </script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
