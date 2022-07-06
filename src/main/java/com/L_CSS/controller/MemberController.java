@@ -17,16 +17,8 @@ public class MemberController {
 	@Autowired
 	MemberService mvc;
 	
-	//메인 페이지 이동
-	@RequestMapping (value="/Main")
-	public String Main() {
-		System.out.println("메인 페이지 호출");
-		
-		
-		return "Main";
-	}
 	//회원가입 페이지 이동요청 메소드
-	@RequestMapping (value="/MemberJoin")
+	@RequestMapping (value="/memberJoinPage")
 	public String MemberJoin() {
 		System.out.println("회원가입 페이지 호출");
 		
@@ -34,7 +26,7 @@ public class MemberController {
 		return "Member/MemberJoin";
 	}
 	//로그인 페이지 이동요청 메소드
-	@RequestMapping (value="/MemberLogin")
+	@RequestMapping (value="/memberLoginPage")
 	public String MemberLogin() {
 		System.out.println("로그인 페이지 호출");
 		
@@ -67,7 +59,7 @@ public class MemberController {
 		return mav;
 	}
 	//로그아웃 요청
-	@RequestMapping (value = "/MemberLogout")
+	@RequestMapping (value = "/memberLogout")
 	public ModelAndView MemberLogout() {
 		System.out.println("로그아웃 요청");
 		ModelAndView mav = new ModelAndView();
@@ -77,7 +69,7 @@ public class MemberController {
 		
 	}
 	//고객문의 페이지 이동요청
-	@RequestMapping (value="/InquirePage")
+	@RequestMapping (value="/inquirePage")
 	public String InquirePage() {
 		System.out.println("고객문의 페이지 이동");
 		

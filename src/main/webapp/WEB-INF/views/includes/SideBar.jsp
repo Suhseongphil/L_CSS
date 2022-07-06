@@ -18,7 +18,7 @@
                             <li><a href="#">카페</a></li>
                             <li><a href="#">업체</a></li>
                             <li><a href="#">공동구매</a></li>
-                            <li><a href="InquirePage">고객문의</a></li>
+                            <li><a href="inquirePage">고객문의</a></li>
                             
                         </ul>
                     </div>
