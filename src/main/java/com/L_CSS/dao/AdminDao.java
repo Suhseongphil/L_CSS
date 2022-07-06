@@ -27,4 +27,6 @@ public interface AdminDao {
 
 	String getMaxCfcode();
 
+	void updateCompany(CompanyDto company);
+
 }

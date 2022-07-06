@@ -16,7 +16,7 @@
   	</insert>
   	
   	<select id="getCompany" resultType="com.L_CSS.dto.CompanyDto">
-  		SELECT * FROM COMPANY
+  		SELECT * FROM COMPANY ORDER BY CMCODE DESC
   	</select>
   	
   	<update id="cmstateModify">
@@ -29,6 +29,12 @@
   		DELETE COMPANY
   		WHERE CMCODE = #{cmcode}
   	</delete>
+  	
+  	<update id="updateCompany">
+  		UPDATE COMPANY
+  		SET CMNAME = #{cmname}, CMADDRESS = #{cmaddress}, CMTEL = #{cmtel}, CMLINK= #{cmlink}, CMIMG=#{cmimg}
+  		WHERE CMCODE = #{cmcode}
+  	</update>
   	
   	<insert id="insertCafe">
   		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK)

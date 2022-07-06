@@ -64,6 +64,14 @@ public class AdminController {
 		adsvc.companyDelete(cmcode);
 	}
 
+	// 회사 정보 수정
+	@RequestMapping(value = "/adminCompanyModify")
+	public @ResponseBody void adminCompanyModify(CompanyDto company) throws IllegalStateException, IOException {
+		System.out.println("회사정보 수정_어드민");
+		
+		adsvc.updateCompany(company);
+	}
+
 	// 카페 정보 직접 입력
 	@RequestMapping(value = "/adminCreateCafeInfo")
 	public @ResponseBody void adminCreateCafeInfo(CafeDto cafe) throws IllegalStateException, IOException {
