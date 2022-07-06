@@ -21,9 +21,8 @@ public class AdminService {
 	AdminDao adao;
 
 	// 저장경로 ) 본인 로컬주소로 변경!!
-	private String savePath_cm = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
-	private String savePath_cf = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
-	private String savePath_cfsg = "C:/05/springwork/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
+	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
+	private String savePath_cf = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
 
 	public void insertCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCompany() 호출");
@@ -94,6 +93,19 @@ public class AdminService {
 
 		return company;
 	}
+	
+	public void cmstateModify(String cmcode, int cmstate) {
+		System.out.println("AdminService.cmstateModify() 호출");
+		
+		adao.cmstateModify(cmcode, cmstate);
+	}
+
+	public void companyDelete(String cmcode) {
+		System.out.println("AdminService.companyDelete() 호출");
+		
+		adao.companyDelete(cmcode);
+	}
+
 
 	public void insertCafe(CafeDto cafe) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCafe() 호출");
@@ -119,9 +131,6 @@ public class AdminService {
 		// 이미지 저장
 		String imgFile = "";
 		String cfimg = "";
-		MultipartFile sgimgFile = cafe.getCfsigimgs();
-		System.out.println("cfimg : " +cfimg);
-		String cfsgimg = "";
 		if (cafe.getCfimgs() != null) {
 			MultipartFile[] imgs = cafe.getCfimgs();
 			for (MultipartFile multipartFile : imgs) {
@@ -133,15 +142,17 @@ public class AdminService {
 			}
 
 		}
-		System.out.println("cfimg2 : " +cfimg);
+		cafe.setCfimg(cfimg);
+		
+		MultipartFile sgimgFile = cafe.getCfsigimgs();
+		String cfsgimg = "";
 		if (!sgimgFile.isEmpty()) {
 			UUID uuid = UUID.randomUUID();
 			cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
-			sgimgFile.transferTo(new File(savePath_cfsg, cfsgimg));
+			sgimgFile.transferTo(new File(savePath_cf, cfsgimg));
 		}
 		cafe.setCfsigimg(cfsgimg);
-		cafe.setCfimg(cfimg);
-		System.out.println("cfimg3 : " +cfimg);
+		
 		// 주소
 		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
 			cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr());

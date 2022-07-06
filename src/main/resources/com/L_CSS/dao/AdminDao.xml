@@ -19,6 +19,17 @@
   		SELECT * FROM COMPANY
   	</select>
   	
+  	<update id="cmstateModify">
+  		UPDATE COMPANY
+  		SET CMSTATE = #{cmstate}
+  		WHERE CMCODE = #{cmcode}
+  	</update>
+  	
+  	<delete id="companyDelete">
+  		DELETE COMPANY
+  		WHERE CMCODE = #{cmcode}
+  	</delete>
+  	
   	<insert id="insertCafe">
   		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK)
   		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink})
