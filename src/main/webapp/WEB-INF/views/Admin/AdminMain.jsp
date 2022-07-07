@@ -28,7 +28,8 @@
 .borderOn {
 	border: solid 1px black;
 }
-.bc-white{
+
+.bc-white {
 	background-color: white;
 }
 </style>
@@ -53,6 +54,14 @@
 						<a href="admincafeInsert">카페정보 입력페이지</a>
 					</div>
 				</div>
+			</div>
+			<div class="container text-center borderOn bc-white">
+				<div class="col-6">
+					<div class="items">
+						<a href="adminmenuInsert">메뉴 정보 입력페이지</a>
+					</div>
+				</div>
+
 			</div>
 		</form>
 	</div>
