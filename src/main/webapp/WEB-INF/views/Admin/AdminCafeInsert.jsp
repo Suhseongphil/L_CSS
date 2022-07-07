@@ -152,26 +152,6 @@ span, h1 {
 </body>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-
-		$.ajax({
-			type : "get",
-			url : "getCafeInfo",
-			dataType : "json",
-			success : function(cafe) {
-				console.log("success");
-				/* companyInfoPrint(company); */
-			}
-		});
-	});
-
-	function cafeInfoPrint(cafe) {
-		var output = "";
-		output = output + "<table border = '1'>";
-	}
-</script>
-
-<script type="text/javascript">
 	$(document).ready(
 			function() {
 				$("#cafeSend").on(
@@ -240,7 +220,6 @@ span, h1 {
 			url : "getCafeInfo",
 			dataType : "json",
 			success : function(cafe) {
-				console.log(cafe);
 				cafeInfoPrint(cafe);
 			}
 		});
@@ -291,8 +270,7 @@ span, h1 {
 			output += "<button type=\"button\" onclick=\"cfModifyForm(this, '"
 					+ cafe[i].cfcode + "')\">수정</button>&nbsp;";
 			output += "<button type=\"button\" onclick=\"cfDelete('"
-					+ cafe[i].cfcode + "','" + cafe[i].cfimg
-					+ "')\">삭제</button>";
+					+ cafe[i].cfcode + "','" + cafe[i].cfimg + "', '"+cafe[i].cfsigimg+"')\">삭제</button>";
 			output += "</div><div class=\"items\">";
 
 			if (cafe[i].cfstate == 0) {
@@ -310,8 +288,10 @@ span, h1 {
 			output += "<div id=\""+cafe[i].cfcode+"\" class=\"dp_none\">";
 			output += "<div class=\"row text-center borderOn\">"; // 맨위
 
-			output += "<div class=\"col-2\"><div class=\"items\">";
-			output += "<input type=\"file\" name=\"imgMod_"+cafe[i].cfcode+"\" >";
+			output += "<div class=\"col-2\"><div class=\"items\">카페이미지";
+			output += "<input type=\"file\" name=\"imgMod_"+cafe[i].cfcode+"\"></div>";
+			output += "<div class=\"items\">시그니처이미지";
+			output += "<input type=\"file\" name=\"sigimgMod_"+cafe[i].cfcode+"\">";
 			output += "</div></div>";
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
@@ -340,7 +320,7 @@ span, h1 {
 			output += "</div></div>";
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<button class=\"btn_width\" type=\"button\" onclick=\"cmModify('"
+			output += "<button class=\"btn_width\" type=\"button\" onclick=\"cfModify('"
 					+ cafe[i].cfcode + "')\">수정완료</button>";
 			output += "</div></div>";
 
@@ -367,38 +347,51 @@ span, h1 {
 			$(selObj).addClass("bc-blue");
 			var cfstate = '0';
 		}
-/* 
+
 		$.ajax({
 			type : "get",
-			url : "cmstateModify",
+			url : "cfstateModify",
 			data : {
-				"cmcode" : cmcode,
-				"cmstate" : cmstate
+				"cfcode" : cfcode,
+				"cfstate" : cfstate
 			},
 			async : false,
 			success : function(result) {
 				console.log("success");
 			}
 		});
-*/
+		
 	}
 
-	function cfDelete(cfcode, cfimg) {
+	function cfDelete(cfcode, cfimg, cfsigimg) {
 
-		var cmimg_split = cmimg.split("/")[1];
+		var cfimg_split = cfimg.split("/");
+		
+		var cfdeleteimg = new Array();
+		
+		for(var i = 1 ; i < cfimg_split.length ; i++){
+			console.log(cfimg_split[i]);
+			cfdeleteimg.push(cfimg_split[i]);
+		}
+		
+		console.log("==================");
+		console.log(cfdeleteimg);
+		/* 
 		$.ajax({
 			type : "get",
-			url : "companyDelete",
+			url : "cafeDelete",
 			data : {
-				"cmcode" : cmcode,
-				"cmimg" : cmimg_split
+				"cfcode" : cfcode,
+				"cfsigimg" : cfsigimg,
+				"cfdeleteimg" : cfdeleteimg
 			},
 			async : false,
 			success : function(result) {
 				console.log("success");
-				getCompanyInfo();
+				getCafeInfo();
 			}
 		});
+ */
 	}
 
 	function cfModifyForm(selBtn, cmcode) {
@@ -412,6 +405,8 @@ span, h1 {
 	}
 
 	function cfModify(cmcode) {
+		alert("구현중");
+/*		
 		var formData = new FormData();
 		var inputFile = $("input[name = 'imgMod_" + cmcode + "']");
 		var files = inputFile[0].files;
@@ -443,7 +438,7 @@ span, h1 {
 				getCompanyInfo();
 			}
 		});
-
+ */
 	}
 </script>
 

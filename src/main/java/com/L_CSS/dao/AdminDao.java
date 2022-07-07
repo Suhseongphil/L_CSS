@@ -29,4 +29,6 @@ public interface AdminDao {
 
 	void updateCompany(CompanyDto company);
 
+	void cfstateModify(@Param("cfcode")String cfcode, @Param("cfstate")int cfstate);
+
 }

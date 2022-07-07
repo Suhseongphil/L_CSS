@@ -215,8 +215,8 @@ public class AdminService {
 		adao.insertCafe(cafe);
 	}
 
-	public String getCafe() {
-		System.out.println("AdminService.getCafe() 호출");
+	public String getCafeInfo() {
+		System.out.println("AdminService.getCafeInfo() 호출");
 
 		ArrayList<CafeDto> cafeList = adao.getCafe();
 
@@ -225,6 +225,19 @@ public class AdminService {
 		String cafe = gson.toJson(cafeList);
 
 		return cafe;
+	}
+
+	public void cfstateModify(String cfcode, int cfstate) {
+		System.out.println("AdminService.cfstateModify() 호출");
+
+		adao.cfstateModify(cfcode, cfstate);
+		
+	}
+
+	public void cafeDelete(CafeDto delCafe) {
+		System.out.println("AdminService.cafeDelete() 호출");
+		System.out.println(delCafe.getCfdeleteimg());
+		
 	}
 
 }
