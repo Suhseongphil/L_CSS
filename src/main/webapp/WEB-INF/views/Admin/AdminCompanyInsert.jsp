@@ -232,7 +232,7 @@ span, h1 {
 			output += "<span class=\"font-weight-bold\">회사코드</span></div>";
 			output += "<div class=\"items\">"+ company[i].cmcode +"</div></div>";
 			
-			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">회사이름</span></div>";
 			output += "<div class=\"items\">"+ company[i].cmname +"</div></div>";
 			
@@ -244,7 +244,7 @@ span, h1 {
 			output += "<span class=\"font-weight-bold\">전화번호</span></div>";
 			output += "<div class=\"items\">"+ company[i].cmtel +"</div></div>";
 
-			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<div class=\"col-3\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">회사링크</span></div>";
 			output += "<div class=\"items\">"+ company[i].cmlink +"</div></div>";
 			
@@ -275,7 +275,7 @@ span, h1 {
 			output += "<input class=\"input_width\" id=\"codeMod_"+company[i].cmcode+"\" readonly type=\"text\" value=\""+ company[i].cmcode +"\">";
 			output += "</div></div>";
 			
-			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<input class=\"input_width3\" id=\"nameMod_"+company[i].cmcode+"\" type=\"text\" value=\""+ company[i].cmname +"\">";
 			output += "</div></div>";
 			
@@ -291,12 +291,12 @@ span, h1 {
 			output += "<input class=\"input_width\" id=\"telMod_"+company[i].cmcode+"\" type=\"text\" value=\""+ company[i].cmtel +"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<div class=\"col-3\"><div class=\"items\">";
 			output += "<input class=\"input_width\" id=\"linkMod_"+company[i].cmcode+"\" type=\"text\" value=\""+ company[i].cmlink +"\">";
 			output += "</div></div>";
 			
 			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<button class=\"btn_width\" type=\"button\" onclick=\"cmModify('"+ company[i].cmcode +"')\">수정완료</button>";		
+			output += "<button class=\"btn_width\" type=\"button\" onclick=\"cmModify('"+ company[i].cmcode +"', '"+company[i].cmimg+"')\">수정완료</button>";		
 			output += "</div></div>";
 			
 			output += "<input type=\"hidden\" id=\"stateMod_"+company[i].cmcode+"\" value=\""+company[i].cmstate+"\">"
@@ -337,7 +337,6 @@ span, h1 {
 	function cmDelete(cmcode, cmimg){
 		
 		var cmimg_split = cmimg.split("/")[1];
-		
 		$.ajax({
 			type : "get",
 			url : "companyDelete",
@@ -360,11 +359,16 @@ span, h1 {
 		}
 	}
 	
-	function cmModify(cmcode){
+	function cmModify(cmcode, cmimg){
 		var formData = new FormData();
 		var inputFile = $("input[name = 'imgMod_"+cmcode+"']");
 		var files = inputFile[0].files;
 		console.log(files);
+		
+		if(cmimg != "undefined"){
+			var cmimg_split = cmimg.split("/")[1];
+			formData.append("cmimg", cmimg_split);
+		}
 
 		for (var i = 0; i < files.length; i++) {
 			formData.append("cmimgs", files[i]);
@@ -378,7 +382,7 @@ span, h1 {
 		formData.append("cmtel", $("#telMod_"+ cmcode).val());
 		formData.append("cmlink", $("#linkMod_"+ cmcode).val());
 		formData.append("cmstate", $("#stateMod_"+ cmcode).val());
-
+		
 		$.ajax({
 			type : "POST",
 			url : "adminCompanyModify",
@@ -390,7 +394,6 @@ span, h1 {
 				getCompanyInfo();
 			}
 		}); 
-
 	}
 </script>
 

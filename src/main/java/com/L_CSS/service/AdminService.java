@@ -102,13 +102,19 @@ public class AdminService {
 
 	public void companyDelete(String cmcode, String cmimg) {
 		System.out.println("AdminService.companyDelete() 호출");
-		File file = new File(savePath_cm+"/"+cmimg);
+		File file = new File(savePath_cm + "/" + cmimg);
 		file.delete();
 		adao.companyDelete(cmcode);
 	}
 
 	public void updateCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.updateCompany() 호출");
+
+		// 기존 이미지 삭제
+		if (company.getCmimg() != null) {
+			File file = new File(savePath_cm + "/" + company.getCmimg());
+			file.delete();
+		}
 
 		// 이미지 저장
 		String imgFile = "";
