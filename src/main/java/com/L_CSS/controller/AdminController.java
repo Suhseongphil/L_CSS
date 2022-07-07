@@ -68,7 +68,7 @@ public class AdminController {
 	@RequestMapping(value = "/adminCompanyModify")
 	public @ResponseBody void adminCompanyModify(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("회사정보 수정_어드민");
-		
+
 		adsvc.updateCompany(company);
 	}
 
@@ -95,5 +95,13 @@ public class AdminController {
 		System.out.println("어드민 카페정보 입력 페이지");
 
 		return "Admin/AdminCafeInsert";
+	}
+
+	// 어드민 메뉴정보 입력 페이지 이동
+	@RequestMapping(value = "/adminmenuInsert")
+	public String adminmenuInsert() {
+		System.out.println("어드민 메뉴정보 입력 페이지");
+
+		return "Admin/AdminMenuInsert";
 	}
 }
