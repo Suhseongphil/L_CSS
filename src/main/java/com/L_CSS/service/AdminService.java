@@ -100,9 +100,10 @@ public class AdminService {
 		adao.cmstateModify(cmcode, cmstate);
 	}
 
-	public void companyDelete(String cmcode) {
+	public void companyDelete(String cmcode, String cmimg) {
 		System.out.println("AdminService.companyDelete() 호출");
-
+		File file = new File(savePath_cm+"/"+cmimg);
+		file.delete();
 		adao.companyDelete(cmcode);
 	}
 
