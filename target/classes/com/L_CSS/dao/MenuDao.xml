@@ -9,5 +9,27 @@
 			select max(mucode)
 			from MENU
 		</select>
-  	
+  		
+  		<insert id="insertMenu">
+  		insert into MENU (MUCODE,MUNAME,MUTYPE,MUPRICE,MUIMG,MUCFCODE,MUSTATE)
+  		values (#{mucode},#{muname},#{mutype},#{muprice},#{muimg},#{mucfcode},1)
+  		</insert>
+  		
+  		<select id="getMenu" resultType="com.L_CSS.dto.MenuDto">
+  			select * 
+  			from MENU
+  			order by mucode
+  		</select>
+  		
+  		<update id="updateState">
+  			update MENU
+  			set MUSTATE = #{mustate}
+  			where MUCODE = #{mucode}
+  		</update>
+  		
+  		<delete id="deleteMenu">
+  			delete MENU
+  			where MUCODE = #{mucode}
+  		
+  		</delete>
   </mapper>

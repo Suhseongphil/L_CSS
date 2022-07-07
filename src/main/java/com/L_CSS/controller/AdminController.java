@@ -31,6 +31,13 @@ public class AdminController {
 
 		return "Admin/AdminCompanyInsert";
 	}
+	// 어드민 메뉴정보 입력 페이지 이동
+		@RequestMapping(value = "/adminmenuInsert")
+		public String adminmenuInsert() {
+			System.out.println("어드민 메뉴정보 입력 페이지");
+
+			return "Admin/AdminMenuInsert";
+		}
 
 	// 회사 정보 직접 입력
 	@RequestMapping(value = "/adminCreateInfo")

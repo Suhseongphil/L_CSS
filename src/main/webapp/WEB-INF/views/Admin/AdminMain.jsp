@@ -54,6 +54,14 @@
 					</div>
 				</div>
 			</div>
+			<div class="container text-center borderOn bc-white">
+				<div class="col-6">
+					<div class="items">
+						<a href="adminmenuInsert">메뉴 정보 입력페이지</a>
+					</div>
+				</div>
+				
+			</div>
 		</form>
 	</div>
 </body>
