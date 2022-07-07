@@ -14,11 +14,14 @@ public class CafeDto {
 	private String cfstate;
 	private	String cflink;
 	
-	private	String cfsigimg;
-	private MultipartFile cfsigimgs;
-	
 	private String cfimg;
 	private MultipartFile[] cfimgs;
+	
+	// 이미지를 지우기위한 배열
+	private String[] cfdeleteimg;
+	
+	private	String cfsigimg;
+	private MultipartFile cfsigimgs;
 	
 	private	String cfaddress;
 	private String cfpostcode;

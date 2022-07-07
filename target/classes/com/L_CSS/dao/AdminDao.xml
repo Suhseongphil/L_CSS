@@ -48,5 +48,11 @@
   		SELECT MAX(CFCODE)
   		FROM CAFE
   	</select>
+  	
+  	<update id="cfstateModify">
+  		UPDATE CAFE
+  		SET CFSTATE = #{cfstate}
+  		WHERE CFCODE = #{cfcode}
+  	</update>
   
   </mapper>

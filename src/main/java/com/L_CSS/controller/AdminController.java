@@ -84,7 +84,7 @@ public class AdminController {
 	public @ResponseBody String getCafeInfo() {
 		System.out.println("카페정보 출력_어드민");
 
-		String cafeInfo = adsvc.getCafe();
+		String cafeInfo = adsvc.getCafeInfo();
 
 		return cafeInfo;
 	}
@@ -103,5 +103,19 @@ public class AdminController {
 		System.out.println("어드민 메뉴정보 입력 페이지");
 
 		return "Admin/AdminMenuInsert";
+	}
+
+	// 카페 활동상태 변경
+	@RequestMapping(value = "/cfstateModify")
+	public @ResponseBody void cfstateModify(String cfcode, int cfstate) {
+		System.out.println("회사 상태 변경");
+		adsvc.cfstateModify(cfcode, cfstate);
+	}
+
+	// 카페 정보 삭제
+	@RequestMapping(value = "/cafeDelete")
+	public @ResponseBody void cafeDelete(CafeDto delCafe) {
+		System.out.println("카페 정보 삭제");
+		adsvc.cafeDelete(delCafe);
 	}
 }
