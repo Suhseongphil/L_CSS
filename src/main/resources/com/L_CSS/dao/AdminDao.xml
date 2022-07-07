@@ -41,7 +41,7 @@
   		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink})
   	</insert>
   	<select id="getCafe" resultType="com.L_CSS.dto.CafeDto">
-  		SELECT * FROM CAFE
+  		SELECT * FROM CAFE ORDER BY CFCODE DESC
   	</select>
   	
   	<select id="getMaxCfcode" resultType="String">
