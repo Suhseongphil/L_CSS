@@ -9,7 +9,12 @@
 		select max(PDCODE)
 		from PRODUCT
 	</select>
+	<insert id="inserttbList">
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+	</insert>
 	<insert id="insertcmList">
 		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
+	
+	
 </mapper>

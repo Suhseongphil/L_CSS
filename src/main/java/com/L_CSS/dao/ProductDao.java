@@ -6,6 +6,8 @@ public interface ProductDao {
 
 	String getmax();
 
+	void inserttbList(ProductDto productDto);
+
 	void insertcmList(ProductDto productDto);
 
 }
