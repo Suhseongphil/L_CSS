@@ -15,6 +15,9 @@
 	<insert id="insertcmList">
 		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
+	<insert id="inserthdList">
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+	</insert>
 	
 	
 </mapper>

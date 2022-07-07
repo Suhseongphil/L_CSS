@@ -10,4 +10,6 @@ public interface ProductDao {
 
 	void insertcmList(ProductDto productDto);
 
+	void inserthdList(ProductDto productDto);
+
 }
