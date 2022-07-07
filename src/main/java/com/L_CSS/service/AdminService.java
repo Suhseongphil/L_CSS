@@ -21,8 +21,8 @@ public class AdminService {
 	AdminDao adao;
 
 	// 저장경로 ) 본인 로컬주소로 변경!!
-	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
-	private String savePath_cf = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
+	private String savePath_cm = "C:/Users/user/git/L_CSS1/src/main/webapp/resources/fileUpLoad/CompanyFile";
+	private String savePath_cf = "C:/Users/user/git/L_CSS1/src/main/webapp/resources/fileUpLoad/CafeFile";
 
 	public void insertCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCompany() 호출");
