@@ -191,12 +191,14 @@ public class ProductService {
 		return mav;
 	}
 	//종이컵홀더 추가
+	//그라인더 추가
+	//제빙기 추가
 	public ModelAndView gethd() throws IOException {
 		ModelAndView mav = new ModelAndView();
 		
 		
 		
-		String hdUrl = "https://smartstore.naver.com/lianbean/category/cd7f8738144e4c88b14366214e749823?cp=2";
+		String hdUrl = "https://smartstore.naver.com/lianbean/category/519a8a7978b24a5e8fc3c69e29e436bd?cp=1";
 		
 		Document doc = Jsoup.connect(hdUrl).get();
 		
@@ -212,7 +214,7 @@ public class ProductService {
 		System.out.println(hd_price1.size());
 		System.out.println(hd_price1.text());
 		
-		ArrayList<ProductDto> hdList = new ArrayList<ProductDto>();
+		ArrayList<ProductDto> grinderList = new ArrayList<ProductDto>();
 		
 		int insertCount = 0;
 		String[] str = null;
@@ -240,7 +242,7 @@ public class ProductService {
 			
 			
 			pd.setPdcode(pdcode);
-			pd.setPdtype("컵홀더");
+			pd.setPdtype("그라인더");
 			pd.setPdamount(10);
 			pd.setPdstate(1);
 			pd.setPdcmcode("CM006");
@@ -250,11 +252,11 @@ public class ProductService {
 			str2 = str[0] + str[1];
 			
 			int num = Integer.parseInt(str2);
-			System.out.println("가격 : " + num);
+			//System.out.println("가격 : " + num);
 			pd.setPdprice(num);
-			hdList.add(pd);
+			grinderList.add(pd);
 			
-			pdao.inserthdList(hdList.get(i));
+			pdao.inserthdList(grinderList.get(i));
 			insertCount++;
 			
 			
