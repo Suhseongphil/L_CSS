@@ -43,4 +43,13 @@ public class ProductController {
 		
 		return mav;
 	}
+	@RequestMapping(value="/gethd")
+	public ModelAndView gethd() throws IOException {
+		System.out.println("종이컵홀더 상품 업로드");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = psv.gethd();
+		
+		return mav;
+	}
 }

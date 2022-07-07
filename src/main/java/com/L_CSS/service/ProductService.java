@@ -190,6 +190,83 @@ public class ProductService {
 			 
 		return mav;
 	}
+	//종이컵홀더 추가
+	public ModelAndView gethd() throws IOException {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		
+		String hdUrl = "https://smartstore.naver.com/lianbean/category/cd7f8738144e4c88b14366214e749823?cp=2";
+		
+		Document doc = Jsoup.connect(hdUrl).get();
+		
+		Elements hd_img = doc.select("#CategoryProducts > ul > li > a > div._2Yq8Q_jTJv > div > div > img");
+		System.out.println(hd_img.size());
+		System.out.println(hd_img.attr("src"));
+		
+		Elements hd_name = doc.select("#CategoryProducts > ul > li > a > strong");
+		System.out.println(hd_name.size());
+		System.out.println(hd_name.text());
+		
+		Elements hd_price1 = doc.select("#CategoryProducts > ul > li > a > div._23DThs7PLJ > strong > span.nIAdxeTzhx");
+		System.out.println(hd_price1.size());
+		System.out.println(hd_price1.text());
+		
+		ArrayList<ProductDto> hdList = new ArrayList<ProductDto>();
+		
+		int insertCount = 0;
+		String[] str = null;
+		String str2 = "0";
+		for(int i = 0; i < hd_price1.size(); i++) {
+			ProductDto pd = new ProductDto();
+			String max = pdao.getmax();
+			String pdcode = "PD";
+			
+			if(max == null) {
+				pdcode = pdcode + "001";
+			}else {
+				max = max.substring(2);
+				int maxCode = Integer.parseInt(max)+1;		
+				if(maxCode < 10) {
+					pdcode = pdcode + "00" + maxCode;
+			}else if(maxCode < 100) {
+				pdcode = pdcode+ "0"+ maxCode;
+			}else {
+				pdcode = pdcode + maxCode;
+			}
+			
+				
+			}
+			
+			
+			pd.setPdcode(pdcode);
+			pd.setPdtype("컵홀더");
+			pd.setPdamount(10);
+			pd.setPdstate(1);
+			pd.setPdcmcode("CM006");
+			pd.setPdimg(hd_img.get(i).attr("src"));
+			pd.setPdname(hd_name.get(i).text());
+			str = hd_price1.get(i).text().split(",");
+			str2 = str[0] + str[1];
+			
+			int num = Integer.parseInt(str2);
+			System.out.println("가격 : " + num);
+			pd.setPdprice(num);
+			hdList.add(pd);
+			
+			pdao.inserthdList(hdList.get(i));
+			insertCount++;
+			
+			
+		}
+	
+		
+		
+		System.out.println(insertCount + "개 제품 추가");
+		
+			 
+		return mav;
+	}
 	
 	
 }
