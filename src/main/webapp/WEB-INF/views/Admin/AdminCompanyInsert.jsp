@@ -250,7 +250,7 @@ span, h1 {
 			
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<button type=\"button\" onclick=\"cmModifyForm(this, '"+ company[i].cmcode +"')\">수정</button>&nbsp;";
-			output += "<button type=\"button\" onclick=\"cmDelete('"+ company[i].cmcode +"')\">삭제</button>";
+			output += "<button type=\"button\" onclick=\"cmDelete('"+ company[i].cmcode +"','"+ company[i].cmimg +"')\">삭제</button>";
 			output += "</div><div class=\"items\">";
 			
 			if(company[i].cmstate == 0){
@@ -334,12 +334,14 @@ span, h1 {
 		});
 	}
 	
-	function cmDelete(cmcode){
+	function cmDelete(cmcode, cmimg){
+		
+		var cmimg_split = cmimg.split("/")[1];
 		
 		$.ajax({
 			type : "get",
 			url : "companyDelete",
-			data : {"cmcode" : cmcode},
+			data : {"cmcode" : cmcode, "cmimg" : cmimg_split},
 			async : false,
 			success : function(result){
 				console.log("success");
