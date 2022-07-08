@@ -231,6 +231,7 @@ span, h1 {
 		for (var i = 0; i < cafe.length; i++) {
 			output += "<br>";
 			output += "<div class=\"row text-center borderOn\">"; // 맨위
+
 			output += "<div class=\"col-2\"><div class=\"items\">";
 			if (cafe[i].cfimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
@@ -241,36 +242,36 @@ span, h1 {
 			}
 			output += "</div></div>";
 
+			output += "<div class=\"col-2\"><div class=\"items\">";
+			output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/"+ cafe[i].cfsigimg + "\">";
+			output += "</div></div>";
+
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">카페코드</span></div>";
-			output += "<div class=\"items\">" + cafe[i].cfcode
-					+ "</div></div>";
+			output += "<div class=\"items\">" + cafe[i].cfcode + "</div></div>";
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">카페이름</span></div>";
-			output += "<div class=\"items\">" + cafe[i].cfname
-					+ "</div></div>";
+			output += "<div class=\"items\">" + cafe[i].cfname + "</div></div>";
 
-			output += "<div class=\"col-3\"><div class=\"items\">";
+			output += "<div class=\"col-2\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">카페주소</span></div>";
 			output += "<div class=\"items\">" + cafe[i].cfaddress
 					+ "</div></div>";
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">전화번호</span></div>";
-			output += "<div class=\"items\">" + cafe[i].cftel
-					+ "</div></div>";
+			output += "<div class=\"items\">" + cafe[i].cftel + "</div></div>";
 
-			output += "<div class=\"col-3\"><div class=\"items\">";
+			output += "<div class=\"col-2\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">카페링크</span></div>";
-			output += "<div class=\"items\">" + cafe[i].cflink
-					+ "</div></div>";
+			output += "<div class=\"items\">" + cafe[i].cflink + "</div></div>";
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<button type=\"button\" onclick=\"cfModifyForm(this, '"
 					+ cafe[i].cfcode + "')\">수정</button>&nbsp;";
 			output += "<button type=\"button\" onclick=\"cfDelete('"
-					+ cafe[i].cfcode + "','" + cafe[i].cfimg + "', '"+cafe[i].cfsigimg+"')\">삭제</button>";
+					+ cafe[i].cfcode + "')\">삭제</button>";
 			output += "</div><div class=\"items\">";
 
 			if (cafe[i].cfstate == 0) {
@@ -294,15 +295,15 @@ span, h1 {
 			output += "<input type=\"file\" name=\"sigimgMod_"+cafe[i].cfcode+"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<div class=\"col-1\"><div class=\"items\"><span class=\"font-weight-bold\">카페코드</span></div><div class=\"items\">";
 			output += "<input class=\"input_width\" id=\"codeMod_"+cafe[i].cfcode+"\" readonly type=\"text\" value=\""+ cafe[i].cfcode +"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<input class=\"input_width3\" id=\"nameMod_"+cafe[i].cfcode+"\" type=\"text\" value=\""+ cafe[i].cfname +"\">";
+			output += "<div class=\"col-1\"><div class=\"items\"><span class=\"font-weight-bold\">카페이름</span></div><div class=\"items\">";
+			output += "<input class=\"input_width\" id=\"nameMod_"+cafe[i].cfcode+"\" type=\"text\" value=\""+ cafe[i].cfname +"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-3\"><div class=\"items\">";
+			output += "<div class=\"col-3\"><div class=\"items\"><span class=\"font-weight-bold\">카페주소</span></div><div class=\"items\">";
 			output += "<input type=\"button\" onclick=\"sample6_execDaumPostcode2('"
 					+ cafe[i].cfcode + "')\" value=\"우편번호 찾기\">";
 			output += "<br><input class=\"input_width2\" type=\"text\" id=\"sample6_postcode"+cafe[i].cfcode+"\" name=\"cmPostCode\" placeholder=\"우편번호\">";
@@ -311,15 +312,15 @@ span, h1 {
 			output += "<input class=\"input_width2\" type=\"text\" id=\"sample6_extraAddress"+cafe[i].cfcode+"\" name=\"cmExtraAddress\" placeholder=\"참고항목\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<div class=\"col-2\"><div class=\"items\"><span class=\"font-weight-bold\">전화번호</span></div><div class=\"items\">";
 			output += "<input class=\"input_width\" id=\"telMod_"+cafe[i].cfcode+"\" type=\"text\" value=\""+ cafe[i].cftel +"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-3\"><div class=\"items\">";
+			output += "<div class=\"col-2\"><div class=\"items\"><span class=\"font-weight-bold\">카페링크</span></div><div class=\"items\">";
 			output += "<input class=\"input_width\" id=\"linkMod_"+cafe[i].cfcode+"\" type=\"text\" value=\""+ cafe[i].cflink +"\">";
 			output += "</div></div>";
 
-			output += "<div class=\"col-1\"><div class=\"items\">";
+			output += "<div class=\"col-1\"><br><div class=\"items\">";
 			output += "<button class=\"btn_width\" type=\"button\" onclick=\"cfModify('"
 					+ cafe[i].cfcode + "')\">수정완료</button>";
 			output += "</div></div>";
@@ -360,30 +361,16 @@ span, h1 {
 				console.log("success");
 			}
 		});
-		
+
 	}
 
-	function cfDelete(cfcode, cfimg, cfsigimg) {
+	function cfDelete(cfcode) {
 
-		var cfimg_split = cfimg.split("/");
-		
-		var cfdeleteimg = new Array();
-		
-		for(var i = 1 ; i < cfimg_split.length ; i++){
-			console.log(cfimg_split[i]);
-			cfdeleteimg.push(cfimg_split[i]);
-		}
-		
-		console.log("==================");
-		console.log(cfdeleteimg);
-		/* 
 		$.ajax({
 			type : "get",
 			url : "cafeDelete",
 			data : {
-				"cfcode" : cfcode,
-				"cfsigimg" : cfsigimg,
-				"cfdeleteimg" : cfdeleteimg
+				"cfcode" : cfcode
 			},
 			async : false,
 			success : function(result) {
@@ -391,7 +378,7 @@ span, h1 {
 				getCafeInfo();
 			}
 		});
- */
+
 	}
 
 	function cfModifyForm(selBtn, cmcode) {
@@ -404,41 +391,48 @@ span, h1 {
 		}
 	}
 
-	function cfModify(cmcode) {
-		alert("구현중");
-/*		
+	function cfModify(cfcode) {
+
 		var formData = new FormData();
-		var inputFile = $("input[name = 'imgMod_" + cmcode + "']");
+		var inputFile = $("input[name = 'imgMod_" + cfcode + "']");
 		var files = inputFile[0].files;
 		console.log(files);
 
 		for (var i = 0; i < files.length; i++) {
-			formData.append("cmimgs", files[i]);
+			formData.append("cfimgs", files[i]);
 		}
-		formData.append("cmcode", $("#codeMod_" + cmcode).val());
-		formData.append("cmname", $("#nameMod_" + cmcode).val());
-		formData.append("cmpostcode", $("#sample6_postcode" + cmcode).val());
-		formData.append("cmaddr", $("#sample6_address" + cmcode).val());
-		formData.append("cmdetailaddress", $("#sample6_detailAddress" + cmcode)
+		
+		var inputFile2 = $("input[name = 'sigimgMod_" + cfcode + "']");
+		var files2 = inputFile2[0].files;
+		console.log(files2);
+		
+		formData.append("cfsigimgs", files2[0]);
+		
+		
+		formData.append("cfcode", $("#codeMod_" + cfcode).val());
+		formData.append("cfname", $("#nameMod_" + cfcode).val());
+		formData.append("cfpostcode", $("#sample6_postcode" + cfcode).val());
+		formData.append("cfaddr", $("#sample6_address" + cfcode).val());
+		formData.append("cfdetailaddress", $("#sample6_detailAddress" + cfcode)
 				.val());
-		formData.append("cmextraaddress", $("#sample6_extraAddress" + cmcode)
+		formData.append("cfextraaddress", $("#sample6_extraAddress" + cfcode)
 				.val());
-		formData.append("cmtel", $("#telMod_" + cmcode).val());
-		formData.append("cmlink", $("#linkMod_" + cmcode).val());
-		formData.append("cmstate", $("#stateMod_" + cmcode).val());
+		formData.append("cftel", $("#telMod_" + cfcode).val());
+		formData.append("cflink", $("#linkMod_" + cfcode).val());
+		formData.append("cfstate", $("#stateMod_" + cfcode).val());
 
 		$.ajax({
 			type : "POST",
-			url : "adminCompanyModify",
+			url : "adminCafeModify",
 			processData : false,
 			contentType : false,
 			data : formData,
 			success : function(result) {
 				console.log("업로드 성공");
-				getCompanyInfo();
+				getCafeInfo();
 			}
 		});
- */
+
 	}
 </script>
 

@@ -31,4 +31,10 @@ public interface AdminDao {
 
 	void cfstateModify(@Param("cfcode")String cfcode, @Param("cfstate")int cfstate);
 
+	CafeDto getDelCfimg(String cfcode);
+
+	void deleteCafe(String cfcode);
+
+	void updateCafe(CafeDto cafe);
+
 }

@@ -21,8 +21,8 @@ public class AdminService {
 	AdminDao adao;
 
 	// 저장경로 ) 본인 로컬주소로 변경!!
-	private String savePath_cm = "C:/Users/user/git/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
-	private String savePath_cf = "C:/Users/user/git/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
+	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
+	private String savePath_cf = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
 
 	public void insertCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCompany() 호출");
@@ -231,13 +231,93 @@ public class AdminService {
 		System.out.println("AdminService.cfstateModify() 호출");
 
 		adao.cfstateModify(cfcode, cfstate);
-		
+
 	}
 
-	public void cafeDelete(CafeDto delCafe) {
-		System.out.println("AdminService.cafeDelete() 호출");
-		System.out.println(delCafe.getCfdeleteimg());
-		
+	public void deleteCafe(String cfcode) {
+		System.out.println("AdminService.deleteCafe() 호출");
+
+		CafeDto deleteCfimg = adao.getDelCfimg(cfcode);
+
+		if (deleteCfimg.getCfimg() != null) {
+			for (int i = 1; i < deleteCfimg.getCfimg().split("/").length; i++) {
+				File file = new File(savePath_cf + "/" + deleteCfimg.getCfimg().split("/")[i]);
+				file.delete();
+			}
+		}
+
+		if (deleteCfimg.getCfsigimg() != null) {
+			File file = new File(savePath_cf + "/" + deleteCfimg.getCfsigimg());
+			file.delete();
+		}
+
+		adao.deleteCafe(cfcode);
+
+	}
+
+	public void updateCafe(CafeDto cafe) throws IllegalStateException, IOException {
+		System.out.println("AdminService.updateCafe() 호출");
+
+		CafeDto deleteCfimg = adao.getDelCfimg(cafe.getCfcode());
+
+		// 기존이미지삭제
+		if (deleteCfimg.getCfimg() != null) {
+			for (int i = 1; i < deleteCfimg.getCfimg().split("/").length; i++) {
+				File file = new File(savePath_cf + "/" + deleteCfimg.getCfimg().split("/")[i]);
+				file.delete();
+				System.out.println(i+"번째 카페 이미지 삭제 성공");
+			}
+		}
+		if (deleteCfimg.getCfsigimg() != null) {
+			File file = new File(savePath_cf + "/" + deleteCfimg.getCfsigimg());
+			file.delete();
+			System.out.println("시그니처 이미지 삭제 성공");
+		}
+
+		// 이미지 저장
+		String imgFile = "";
+		String cfimg = "";
+		if (cafe.getCfimgs() != null) {
+			MultipartFile[] imgs = cafe.getCfimgs();
+			for (MultipartFile multipartFile : imgs) {
+				UUID uuid = UUID.randomUUID();
+				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+
+				multipartFile.transferTo(new File(savePath_cf, imgFile));
+				cfimg = cfimg + "/" + imgFile;
+			}
+
+		}
+		cafe.setCfimg(cfimg);
+
+		MultipartFile sgimgFile = cafe.getCfsigimgs();
+		String cfsgimg = "";
+		if (!sgimgFile.isEmpty()) {
+			UUID uuid = UUID.randomUUID();
+			cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
+			sgimgFile.transferTo(new File(savePath_cf, cfsgimg));
+		}
+		cafe.setCfsigimg(cfsgimg);
+
+		// 주소
+		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
+			cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr());
+		} else {
+			if (cafe.getCfextraaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfdetailaddress());
+			} else if (cafe.getCfdetailaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress());
+			} else {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress() + "_"
+						+ cafe.getCfdetailaddress());
+			}
+		}
+
+		// 카페정보 입력
+		System.out.println(cafe);
+
+		adao.updateCafe(cafe);
+
 	}
 
 }
