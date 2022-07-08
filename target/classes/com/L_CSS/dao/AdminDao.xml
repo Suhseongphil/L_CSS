@@ -2,57 +2,73 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.L_CSS.dao.AdminDao">
-  	
-  	<select id="getMaxCmcode" resultType="String">
-  		SELECT MAX(CMCODE)
-  		FROM COMPANY
-  	</select>
-  	
-  	<insert id="insertCompany">
-  		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE, CMLINK)
-  		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel}, #{cmimg}, 0, #{cmlink})
-  	</insert>
-  	
-  	<select id="getCompany" resultType="com.L_CSS.dto.CompanyDto">
-  		SELECT * FROM COMPANY ORDER BY CMCODE DESC
-  	</select>
-  	
-  	<update id="cmstateModify">
-  		UPDATE COMPANY
-  		SET CMSTATE = #{cmstate}
-  		WHERE CMCODE = #{cmcode}
-  	</update>
-  	
-  	<delete id="companyDelete">
-  		DELETE COMPANY
-  		WHERE CMCODE = #{cmcode}
-  	</delete>
-  	
-  	<update id="updateCompany">
-  		UPDATE COMPANY
-  		SET CMNAME = #{cmname}, CMADDRESS = #{cmaddress}, CMTEL = #{cmtel}, CMLINK= #{cmlink}, CMIMG=#{cmimg}
-  		WHERE CMCODE = #{cmcode}
-  	</update>
-  	
-  	<insert id="insertCafe">
-  		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK)
-  		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink})
-  	</insert>
-  	<select id="getCafe" resultType="com.L_CSS.dto.CafeDto">
-  		SELECT * FROM CAFE ORDER BY CFCODE DESC
-  	</select>
-  	
-  	<select id="getMaxCfcode" resultType="String">
-  		SELECT MAX(CFCODE)
-  		FROM CAFE
-  	</select>
-  	
-  	<update id="cfstateModify">
-  		UPDATE CAFE
-  		SET CFSTATE = #{cfstate}
-  		WHERE CFCODE = #{cfcode}
-  	</update>
-  
-  </mapper>
+
+<mapper namespace="com.L_CSS.dao.AdminDao">
+
+	<select id="getMaxCmcode" resultType="String">
+		SELECT MAX(CMCODE)
+		FROM COMPANY
+	</select>
+
+	<insert id="insertCompany">
+		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE, CMLINK)
+		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel}, #{cmimg}, 0, #{cmlink})
+	</insert>
+
+	<select id="getCompany" resultType="com.L_CSS.dto.CompanyDto">
+		SELECT * FROM COMPANY ORDER BY CMCODE DESC
+	</select>
+
+	<update id="cmstateModify">
+		UPDATE COMPANY
+		SET CMSTATE = #{cmstate}
+		WHERE CMCODE = #{cmcode}
+	</update>
+
+	<delete id="companyDelete">
+		DELETE COMPANY
+		WHERE CMCODE = #{cmcode}
+	</delete>
+
+	<update id="updateCompany">
+		UPDATE COMPANY
+		SET CMNAME = #{cmname}, CMADDRESS = #{cmaddress}, CMTEL = #{cmtel}, CMLINK= #{cmlink}, CMIMG=#{cmimg}
+		WHERE CMCODE = #{cmcode}
+	</update>
+
+	<insert id="insertCafe">
+		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK)
+		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink})
+	</insert>
+	<select id="getCafe" resultType="com.L_CSS.dto.CafeDto">
+		SELECT * FROM CAFE ORDER BY CFCODE DESC
+	</select>
+
+	<select id="getMaxCfcode" resultType="String">
+		SELECT MAX(CFCODE)
+		FROM CAFE
+	</select>
+
+	<update id="cfstateModify">
+		UPDATE CAFE
+		SET CFSTATE = #{cfstate}
+		WHERE CFCODE = #{cfcode}
+	</update>
+
+	<select id="getDelCfimg" resultType="com.L_CSS.dto.CafeDto">
+		SELECT * FROM CAFE
+		WHERE CFCODE = #{cfcode}
+	</select>
+
+	<delete id="deleteCafe">
+		DELETE CAFE
+		WHERE CFCODE = #{cfcode}
+	</delete>
+
+	<update id="updateCafe">
+		UPDATE CAFE
+		SET CFNAME = #{cfname}, CFADDRESS = #{cfaddress}, CFTEL = #{cftel}, CFLINK= #{cflink}, CFIMG=#{cfimg}, CFSIGIMG = #{cfsigimg}
+		WHERE CFCODE = #{cfcode}
+	</update>
+
+</mapper>
