@@ -114,8 +114,17 @@ public class AdminController {
 
 	// 카페 정보 삭제
 	@RequestMapping(value = "/cafeDelete")
-	public @ResponseBody void cafeDelete(CafeDto delCafe) {
+	public @ResponseBody void cafeDelete(String cfcode) {
 		System.out.println("카페 정보 삭제");
-		adsvc.cafeDelete(delCafe);
+
+		adsvc.deleteCafe(cfcode);
+	}
+
+	// 회사 정보 수정
+	@RequestMapping(value = "/adminCafeModify")
+	public @ResponseBody void adminCafeModify(CafeDto cafe) throws IllegalStateException, IOException {
+		System.out.println("카페정보 수정_어드민");
+
+		adsvc.updateCafe(cafe);
 	}
 }
