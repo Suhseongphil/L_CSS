@@ -193,75 +193,114 @@ public class ProductService {
 	//종이컵홀더 추가
 	//그라인더 추가
 	//제빙기 추가
+	//아이스컵 추가
+	//아이스컵 뚜껑 추가
+	//스트로우 추가
+	//냅킨 추가
+	//종이컵 추가
+	//종이컵 뚜껑 추가
+	//소스 추가
+	//시럽 추가
+	//원두 추가
+	//의자 추가
+	
 	public ModelAndView gethd() throws IOException {
 		ModelAndView mav = new ModelAndView();
 		
 		
 		
-		String hdUrl = "https://smartstore.naver.com/lianbean/category/519a8a7978b24a5e8fc3c69e29e436bd?cp=1";
+		String hdUrl = "http://www.cndgagu.com/shop/shopbrand.html?xcode=042&type=X&mcode=002";
 		
 		Document doc = Jsoup.connect(hdUrl).get();
 		
-		Elements hd_img = doc.select("#CategoryProducts > ul > li > a > div._2Yq8Q_jTJv > div > div > img");
+		Elements hd_img = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td > div > ul > li > div > a > img");
 		System.out.println(hd_img.size());
 		System.out.println(hd_img.attr("src"));
 		
-		Elements hd_name = doc.select("#CategoryProducts > ul > li > a > strong");
+		Elements hd_name = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td > div > ul > li.dsc.name");
 		System.out.println(hd_name.size());
 		System.out.println(hd_name.text());
 		
-		Elements hd_price1 = doc.select("#CategoryProducts > ul > li > a > div._23DThs7PLJ > strong > span.nIAdxeTzhx");
+		Elements hd_price1 = doc.select("#productClass > div.page-body > div.prd-list > table > tbody > tr > td > div > ul > li.price");
 		System.out.println(hd_price1.size());
 		System.out.println(hd_price1.text());
 		
-		ArrayList<ProductDto> grinderList = new ArrayList<ProductDto>();
+		ArrayList<ProductDto> hdList = new ArrayList<ProductDto>();
 		
 		int insertCount = 0;
 		String[] str = null;
+		String[] str1 = null;
+		String[] str3 = null;
+		String[] str4 = null;
 		String str2 = "0";
 		for(int i = 0; i < hd_price1.size(); i++) {
 			ProductDto pd = new ProductDto();
-			String max = pdao.getmax();
-			String pdcode = "PD";
 			
-			if(max == null) {
-				pdcode = pdcode + "001";
+			if(hd_price1.get(i).text().equals("전화문의")) {
+				pd.setPdprice(00);
 			}else {
-				max = max.substring(2);
-				int maxCode = Integer.parseInt(max)+1;		
-				if(maxCode < 10) {
-					pdcode = pdcode + "00" + maxCode;
-			}else if(maxCode < 100) {
-				pdcode = pdcode+ "0"+ maxCode;
-			}else {
-				pdcode = pdcode + maxCode;
-			}
-			
 				
+				str =  hd_price1.get(i).text().split(":");
+				
+				System.out.println(str[1]);
+				
+				str1 = str[1].split("원");
+				System.out.println(str1[0]);
+				str3 = str1[0].split(" ");
+				
+				str4 = str3[1].split(",");
+				
+				
+				
+				String max = pdao.getmax();
+				String pdcode = "PD";
+				
+				if(max == null) {
+					pdcode = pdcode + "001";
+				}else {
+					max = max.substring(2);
+					int maxCode = Integer.parseInt(max)+1;		
+					if(maxCode < 10) {
+						pdcode = pdcode + "00" + maxCode;
+					}else if(maxCode < 100) {
+						pdcode = pdcode+ "0"+ maxCode;
+					}else {
+						pdcode = pdcode + maxCode;
+					}
+					
+					
+				}
+				
+				
+				pd.setPdcode(pdcode);
+				pd.setPdtype("의자");
+				pd.setPdamount(10);
+				pd.setPdstate(1);
+				pd.setPdcmcode("CM003");
+				pd.setPdimg(hd_img.get(i).attr("src"));
+				pd.setPdname(hd_name.get(i).text());
+				str2 = str4[0] + str4[1];
+				System.out.println("str3[0]"+str3[0]);
+				System.out.println("str3[1]"+str3[1]);
+				System.out.println("str2 :" + str2);
+				
+				
+				
+				int num = Integer.parseInt(str2);
+				//System.out.println("가격 : " + num);
+				hdList.add(pd);
+				pd.setPdprice(num);
+				
+				insertCount++;
 			}
 			
-			
-			pd.setPdcode(pdcode);
-			pd.setPdtype("그라인더");
-			pd.setPdamount(10);
-			pd.setPdstate(1);
-			pd.setPdcmcode("CM006");
-			pd.setPdimg(hd_img.get(i).attr("src"));
-			pd.setPdname(hd_name.get(i).text());
-			str = hd_price1.get(i).text().split(",");
-			str2 = str[0] + str[1];
-			
-			int num = Integer.parseInt(str2);
-			//System.out.println("가격 : " + num);
-			pd.setPdprice(num);
-			grinderList.add(pd);
-			
-			pdao.inserthdList(grinderList.get(i));
-			insertCount++;
 			
 			
 		}
-	
+		for(int i =0; i < hdList.size(); i++) {
+			
+			pdao.inserthdList(hdList.get(i));
+		}
 		
 		
 		System.out.println(insertCount + "개 제품 추가");
