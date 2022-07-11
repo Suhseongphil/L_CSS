@@ -10,4 +10,9 @@
 		from CART
 	</select>
   	
+  	<select id="selectMyCart" resultType="com.L_CSS.dto.CartDto">
+  		select *
+  		from CART
+  		where CTMID = #{loginId}
+  	</select>
   </mapper>

@@ -10,5 +10,10 @@
 		from COMPANY
 	</select>
 	
+	<select id="selectCompanyList" resultType="com.L_CSS.dto.CompanyDto">
+		select *
+		from COMPANY
+	
+	</select>
   	
   </mapper>
