@@ -18,7 +18,7 @@
 	<select id="getMenu" resultType="com.L_CSS.dto.MenuDto">
 		select *
 		from MENU
-		order by mucode
+		order by mucode desc
 	</select>
 
 	<update id="updateState">

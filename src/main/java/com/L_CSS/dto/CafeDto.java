@@ -9,7 +9,7 @@ public class CafeDto {
 	
 	private String cfcode;
 	private String cfname;
-	private String cfaddrsee;
+	
 	private String cftel;
 	private String cfstate;
 	private	String cflink;
