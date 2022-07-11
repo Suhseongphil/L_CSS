@@ -73,14 +73,14 @@
   </div>
   <div class="row">
 <%@ include file ="../includes/SideBar.jsp" %>
-	<c:forEach items="${selectCafeList}" var="caList">
+	<c:forEach items="${selestCompanyList}" var="comList">
 	<div class="row">
   	<div class="col-6 col-md-4 section-container-spacer">
     <img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
-    <h2>${caList.cfname }</h2>
-    <img alt="" style="width: 130px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${caList.cfimg.split('/')[1]}">
-    <p>주소 : ${caList.cfaddress } / 대표메뉴</p>
-    <p>${caList.cftel }</p>
+    <h2>${comList.cmname }</h2>
+    <img alt="" style="width: 130px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
+    <p>주소 : ${comList.cmaddress } / 대표메뉴</p>
+    <p>${comList.cmtel }</p>
     <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
 	</div>
   	</div>

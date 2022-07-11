@@ -24,4 +24,14 @@ public class CompanyController {
 		return mav;
 	}
 	
+	@RequestMapping (value="/companyList")
+	public ModelAndView companyList() {
+		System.out.println("업체 리스트 ");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = csv.companyList();
+		
+		
+		return mav;
+	}
 }

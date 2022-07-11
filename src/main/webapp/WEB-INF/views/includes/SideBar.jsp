@@ -16,7 +16,7 @@
                         <ul>
                             <li><a href="#">상품</a></li>
                             <li><a href="cafeList">카페</a></li>
-                            <li><a href="#">업체</a></li>
+                            <li><a href="companyList">업체</a></li>
                             <li><a href="#">공동구매</a></li>
                             <li><a href="inquirePage">고객문의</a></li>
                             

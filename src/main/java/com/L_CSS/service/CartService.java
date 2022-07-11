@@ -1,11 +1,14 @@
 package com.L_CSS.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CartDao;
+import com.L_CSS.dto.CartDto;
 
 @Service
 public class CartService {
@@ -36,5 +39,17 @@ public class CartService {
 		}
 		System.out.println(ctcode);
 		return null;
+	}
+	//나의 장바구니 호출
+	public ModelAndView myCart(String loginId) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("myCart()호출");
+		ArrayList<CartDto>myCart = cdao.selectMyCart(loginId);
+		System.out.println(myCart);
+		
+		mav.addObject("myCart",myCart);
+		mav.setViewName("option/MyCart");
+		
+		return mav;
 	}
 }
