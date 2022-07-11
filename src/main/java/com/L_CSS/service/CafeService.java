@@ -1,10 +1,13 @@
 package com.L_CSS.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CafeDao;
+import com.L_CSS.dto.CafeDto;
 
 @Service
 public class CafeService {
@@ -36,7 +39,18 @@ public class CafeService {
 		}
 		
 		
-		
 		return null;
+	}
+
+	//카페 목록 요청
+	public ModelAndView cafeList() {
+		System.out.println("cafeList()호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<CafeDto> selectCafeList = cdao.selectCafeList();
+		mav.addObject("selectCafeList",selectCafeList);
+		mav.setViewName("Cafe/CafeList");
+		System.out.println(selectCafeList);
+		
+		return mav;
 	}
 }
