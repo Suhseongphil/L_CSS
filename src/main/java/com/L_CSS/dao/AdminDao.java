@@ -36,5 +36,9 @@ public interface AdminDao {
 	void deleteCafe(String cfcode);
 
 	void updateCafe(CafeDto cafe);
+	
+	ArrayList<String> getMucode();
+	
+	void updateMucode(@Param("mucode")String mucode, @Param("modcode")String modcode);
 
 }

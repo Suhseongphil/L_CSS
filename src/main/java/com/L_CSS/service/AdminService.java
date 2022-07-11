@@ -319,5 +319,21 @@ public class AdminService {
 		adao.updateCafe(cafe);
 
 	}
+	
+	public void mucodeModify() {
+		System.out.println("AdminService.tscodeModify() 호출");
+
+		ArrayList<String> mucodes = adao.getMucode();
+
+		for (int i = 0; i < mucodes.size(); i++) {
+			System.out.println(mucodes.get(i));
+			String modcode = mucodes.get(i).substring(2);
+			modcode = "MU0" + modcode;
+			System.out.println(modcode);
+
+			adao.updateMucode(mucodes.get(i), modcode);
+		}
+
+	}
 
 }

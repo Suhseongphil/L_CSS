@@ -29,13 +29,15 @@ public class MenuService {
 		String mucode = "MU";
 
 		if (max == null) {
-			mucode = mucode + "001";
+			mucode = mucode + "0001";
 		} else {
 			max = max.substring(2);
 			int maxCode = Integer.parseInt(max) + 1;
 			if (maxCode < 10) {
-				mucode = mucode + "00" + maxCode;
+				mucode = mucode + "000" + maxCode;
 			} else if (maxCode < 100) {
+				mucode = mucode + "00" + maxCode;
+			}else if (maxCode < 1000) {
 				mucode = mucode + "0" + maxCode;
 			} else {
 				mucode = mucode + maxCode;
