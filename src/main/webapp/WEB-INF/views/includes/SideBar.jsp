@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.tocollapse {
+	display: none;
+	}
+</style>
+
 </head>
 <body>
  	    <div class="col-lg-3">
@@ -16,14 +22,15 @@
                         <ul>
                             <li><a href="#">상품</a></li>
                             <li><a href="#">카페</a></li>
+                            
                             <li><a href="#">업체</a></li>
                             <li><a href="#">공동구매</a></li>
                             <li><a href="inquirePage">고객문의</a></li>
-                            
                         </ul>
                     </div>
                 </div>
               
      
 </body>
+
 </html>

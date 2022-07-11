@@ -212,7 +212,7 @@ public class ProductService {
 		
 		
 		
-		String hdUrl = "https://smartstore.naver.com/bestmall0233/category/8484b8d67f33465fb73307f3a8bb6d57?cp=1";
+		String hdUrl = "https://smartstore.naver.com/coffeecg/category/c8c445db54ae4690ac55df6001a23ac8?cp=1	";
 		
 		Document doc = Jsoup.connect(hdUrl).get();
 		
@@ -252,17 +252,20 @@ public class ProductService {
 			}
 			
 			
+				
 			}
 			
 			
 			pd.setPdcode(pdcode);
-			pd.setPdtype("의자");
+			pd.setPdtype("원두");
 			pd.setPdamount(10);
 			pd.setPdstate(1);
-			pd.setPdcmcode("CM010");
+			pd.setPdcmcode("CM001");
 			pd.setPdimg(hd_img.get(i).attr("src"));
 			pd.setPdname(hd_name.get(i).text());
 			str = hd_price1.get(i).text().split(",");
+			    
+			
 			str2 = str[0] + str[1];
 			
 			int num = Integer.parseInt(str2);
@@ -275,10 +278,10 @@ public class ProductService {
 			
 			
 		}
-	
-		
-		
 		System.out.println(insertCount + "개 제품 추가");
+		
+		
+		
 		
 			 
 		return mav;
