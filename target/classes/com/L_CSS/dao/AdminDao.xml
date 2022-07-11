@@ -70,5 +70,15 @@
 		SET CFNAME = #{cfname}, CFADDRESS = #{cfaddress}, CFTEL = #{cftel}, CFLINK= #{cflink}, CFIMG=#{cfimg}, CFSIGIMG = #{cfsigimg}
 		WHERE CFCODE = #{cfcode}
 	</update>
+	
+	<select id="getMucode" resultType="String">
+		SELECT MUCODE FROM MENU ORDER BY MUCODE ASC
+	</select>
+	
+	<update id="updateMucode">
+		UPDATE MENU
+		SET MUCODE = #{modcode}
+		WHERE MUCODE = #{mucode}
+	</update>
 
 </mapper>

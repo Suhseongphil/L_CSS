@@ -127,4 +127,12 @@ public class AdminController {
 
 		adsvc.updateCafe(cafe);
 	}
+
+	// 메뉴코드 수정 실행시키지말것!!!!!
+	@RequestMapping(value = "/mucodeModify")
+	public void mucodeModify() {
+		System.out.println("메뉴수정");
+
+		adsvc.mucodeModify();
+	}
 }
