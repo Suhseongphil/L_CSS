@@ -1,5 +1,7 @@
 package com.L_CSS.controller;
 
+import java.lang.annotation.Repeatable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,15 @@ public class CafeController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav = csv.CafeUpLoad();
+		return mav;
+	}
+	//카페 목록 요청
+	@RequestMapping(value="/cafeList")
+	public ModelAndView cafeList() {
+		System.out.println("카페 목록 요청");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = csv.cafeList();
 		return mav;
 	}
 	

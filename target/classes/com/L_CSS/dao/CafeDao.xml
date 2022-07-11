@@ -11,5 +11,9 @@
 		
 		</select>
 		
-  	
+  		<select id="selectCafeList" resultType="com.L_CSS.dto.CafeDto">
+  			select *
+  			from CAFE
+  		</select>
+  		
   </mapper>
