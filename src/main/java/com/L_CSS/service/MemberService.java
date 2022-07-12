@@ -170,6 +170,29 @@ public class MemberService {
 		return mav;
 	}
 
+	public ModelAndView memberKakaoLogin(MemberDto member, RedirectAttributes ra) {
+		System.out.println("MemberService.memberKakaoLogin() 호출");
+		ModelAndView mav = new ModelAndView();
+		
+		MemberDto kakaoMember = mdao.selectMemberKakao(member.getMid());
+		System.out.println(kakaoMember);
+		if( kakaoMember != null ) {
+			//로그인 처리
+			session.setAttribute("loginId", kakaoMember.getMid());
+			session.setAttribute("loginProfile", kakaoMember.getMprofile());
+			ra.addFlashAttribute("msg", "카카오 계정으로 로그인 되었습니다.");
+			mav.setViewName("redirect:/");
+			
+		} else {
+			//회원가입 처리
+			member.setMpw("1234");
+			mdao.insertMemberKakao(member);
+			ra.addFlashAttribute("msg", "회원정보가 등록 되었습니다. 다시 로그인 해주세요!");
+			mav.setViewName("redirect:/MemberLoginPage");
+		}
+		
+		return mav;
+	}
 
 
 

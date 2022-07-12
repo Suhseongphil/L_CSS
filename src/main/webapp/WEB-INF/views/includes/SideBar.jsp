@@ -10,6 +10,7 @@
 .disply{
 display: none;
 }
+.pointer {cursor:pointer;}
 
 </style>
 <body>
@@ -22,7 +23,7 @@ display: none;
                         <ul>
                             
                              
-                            <li> <span onclick="productCategory()" >상품</span> 
+                            <li class="pointer"> <span onclick="productCategory()" >상품</span> 
                             	<ul id="productNone" class ="disply">
                             		<li> <a href="cafeList">원두</a></li>
                             		<li onclick="sauceCategory()">시럽&소스&파우더
@@ -69,7 +70,7 @@ display: none;
                             
                             
                             
-                            <li> <span onclick="cafeCategory()" >카페</span> 
+                            <li class="pointer"> <span onclick="cafeCategory()" >카페</span> 
                             	<ul id="cafeNone" class ="disply">
                             		<li> <a href="cafeList">카페목록</a></li>
                             		<li>카페메뉴</li>

@@ -45,6 +45,7 @@
     .coral {
     background-color:transparent;
     }
+   
     </style>
 
 </head>
@@ -77,21 +78,14 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="mpw" name="mpw" placeholder="비밀번호를 입력해주세요...">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary  btn-user btn-block">
                                             로그인
                                         </button>
                                         <hr>
-                                        <div class="row">
-                                        <div class="col-6">
-                                        <a href="index.html" class="btn btn-danger btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> 카카오 로그인
+                                        <div>
+                                        <a href="javascript:void(0)" id ="kakaoLoginBtn"  class="btn  btn-user btn-block">
+                                             카카오 로그인
                                         </a>
-                                        </div>
-                                        <div class="col-6">
-                                        <a href="index.html" class="btn btn-danger btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> 네이버 로그인
-                                        </a>
-                                        </div>
                                         </div>
                                     </form>
                                     <hr>
@@ -131,4 +125,48 @@
 	}
 	
 </script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('64856a428ca540a734c1fe5835afab32'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+</script>
+
+<script type="text/javascript">
+	Kakao.Auth.createLoginButton({
+		  container: '#kakaoLoginBtn',
+		  size: 'large',
+		  success: function(response) {
+		    console.log(response);
+		    Kakao.API.request({
+		    	  url: '/v2/user/me',
+		    	  success: function(res) {
+		    	    console.log(res);
+		    	    console.log("res.id : " + res.id);
+		    	    console.log("res.kakao_account.email : " + res.kakao_account.email);
+		    	    console.log("res.kakao_account.profile.nickname : " + res.kakao_account.profile.nickname);
+		    	    console.log("res.kakao_account.profile.profile_image_url : " + res.kakao_account.profile.profile_image_url);
+		    	    memberKakaoLogin(res.id, res.kakao_account.email, res.kakao_account.profile.nickname, res.kakao_account.profile.profile_image_url);
+		    	  },
+		    	  fail: function(error) {
+		    	    console.error(error)
+		    	  }
+		    	});
+		  },
+		  fail: function(error) {
+		    console.log(error);
+		  },
+		});
+	</script>
+	<script type="text/javascript">
+		function memberKakaoLogin(mid,memail,mname,mprofile){
+			console.log(mid);
+			console.log(memail);
+			console.log(mname);
+			console.log(mprofile);
+			location.href = "memberKakaoLogin?mid="+mid+"&memail="+memail+"&mname="+mname+"&mprofile="+mprofile;
+			
+		}
+	</script>
+
+
 </html>
