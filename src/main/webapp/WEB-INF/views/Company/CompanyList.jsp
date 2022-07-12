@@ -40,6 +40,18 @@
     border-radius: 70%;
     overflow: hidden;
   }
+  .item display{
+  	display: flex;
+  	flex-direction: column;
+  	
+  }
+  .item{
+  padding-bottom: 30px;
+  }
+  .px{
+  padding-bottom: 30px;
+  }
+  
   </style>
 <body>
 
@@ -68,24 +80,34 @@
 <div class="row">
  <%@ include file ="../includes/MiddleBar.jsp" %>
   <div class="col-xs-12 section-container-spacer">
-    <h3>카페 목록</h3>
+    <h3>업체 목록</h3>
     
   </div>
-  <div class="row">
+  
 <%@ include file ="../includes/SideBar.jsp" %>
+	<div class="item display">
 	<c:forEach items="${selestCompanyList}" var="comList">
-	<div class="row">
-  	<div class="col-6 col-md-4 section-container-spacer">
+  	<div class="row px">
+	<c:choose>
+	<c:when test="${comList.cmimg == null }">
+	    <img  alt="" style="width: 200px; padding-right: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
+	</c:when>
+	<c:otherwise>
+    <img alt="" style="width: 200px; padding-right: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
+	</c:otherwise>
+	</c:choose>
     <img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
+  	
+  	<div class="item">
     <h2>${comList.cmname }</h2>
-    <img alt="" style="width: 130px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
-    <p>주소 : ${comList.cmaddress } / 대표메뉴</p>
+    <p>주소 : ${comList.cmaddress }</p>
     <p>${comList.cmtel }</p>
     <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
 	</div>
   	</div>
 	</c:forEach>
-</div>
+  	</div>
+
 </div>
 
 
