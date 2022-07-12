@@ -19,5 +19,8 @@
 		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 	
-	
+	<select id="selectPro" resultType="com.L_CSS.dto.ProductDto">
+		select * 
+		from PRODUCT
+	</select>
 </mapper>

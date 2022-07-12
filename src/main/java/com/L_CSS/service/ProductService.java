@@ -283,6 +283,16 @@ public class ProductService {
 			 
 		return mav;
 	}
+	//상품 목록 출력	
+	public ModelAndView selectProduct() {
+		System.out.println("selectProduct()호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<ProductDto>selectPro = pdao.selectPro();
+		mav.addObject("selectPro",selectPro);
+		mav.setViewName("Shop/ShopMain");
+		
+		return mav;
+	}
 	
 	
 }
