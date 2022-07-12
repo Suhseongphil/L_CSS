@@ -12,4 +12,8 @@ public interface MemberDao {
 
 	MemberDto MemberInfo(String loginId);
 
+	MemberDto selectMemberKakao(String mid);
+
+	void insertMemberKakao(MemberDto member);
+
 }
