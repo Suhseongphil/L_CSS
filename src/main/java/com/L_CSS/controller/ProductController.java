@@ -52,4 +52,14 @@ public class ProductController {
 		
 		return mav;
 	}
+	//상품목록 출력
+	@RequestMapping(value="/shopMain")
+	public ModelAndView shopMain() {
+		System.out.println("상품 목록 출력");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = psv.selectProduct();
+		
+		return mav;
+	}
 }
