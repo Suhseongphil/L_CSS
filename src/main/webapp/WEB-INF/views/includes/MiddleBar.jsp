@@ -19,7 +19,7 @@
                         <ul>
                         	 
                             <li class="active"><a href="./index.html">메인</a></li>
-                            <li><a href="./shop-grid.html">상품</a></li>
+                            <li><a href="shopMain">상품</a></li>
                             <li><a href="#">카페</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>

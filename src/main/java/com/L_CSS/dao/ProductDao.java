@@ -1,5 +1,7 @@
 package com.L_CSS.dao;
 
+import java.util.ArrayList;
+
 import com.L_CSS.dto.ProductDto;
 
 public interface ProductDao {
@@ -11,5 +13,7 @@ public interface ProductDao {
 	void insertcmList(ProductDto productDto);
 
 	void inserthdList(ProductDto productDto);
+
+	ArrayList<ProductDto> selectPro();
 
 }
