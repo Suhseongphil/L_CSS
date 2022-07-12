@@ -40,6 +40,14 @@
     border-radius: 70%;
     overflow: hidden;
   }
+  .display{
+  display: flex;
+  }
+  .flex-item{
+  			width: 30%;
+            height: 30%;
+            margin: 10px;
+  }
   </style>
 <body>
 
@@ -71,21 +79,45 @@
     <h3>카페 목록</h3>
     
   </div>
-  <div class="row">
+  <div class="display">
 <%@ include file ="../includes/SideBar.jsp" %>
+	<table>
+	
 	<c:forEach items="${selectCafeList}" var="caList">
-	<div class="row">
-  	<div class="col-6 col-md-4 section-container-spacer">
-    <img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
-    <h2>${caList.cfname }</h2>
-    <img alt="" style="width: 130px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${caList.cfimg.split('/')[1]}">
-    <p>주소 : ${caList.cfaddress } / 대표메뉴</p>
-    <p>${caList.cftel }</p>
-    <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
+  	<tr >
+  		<td style="padding-bottom: 30px;">
+  		<c:choose>
+  		<c:when test="${caList.cfimg == null}">
+  		 <img alt="" style="width: 200px; height: 200px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
+  		</c:when>
+  		<c:otherwise>
+    <img alt="" style="width: 200px; height: 200px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${caList.cfimg.split('/')[1]}">
+  		</c:otherwise>
+  		</c:choose>
+  		</td>
+  		<td>
+    	<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${caList.cfname }</h4>
+    	
+  		</td>
+  		<td>
+   			 <p>주소 : ${caList.cfaddress } / 대표메뉴</p>
+   			 <p>${caList.cftel }</p>
+  		</td>
+  		<td>
+  		<div class="flex-item">
+   	 	<img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
+   		 <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
 	</div>
-  	</div>
+  		
+  		</td>
+  	</tr>
+  	
+  	
+  	
 	</c:forEach>
-</div>
+	</table>
+  	</div>
+
 </div>
 
 
