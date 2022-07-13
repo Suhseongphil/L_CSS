@@ -25,11 +25,11 @@ public class CompanyController {
 	}
 	
 	@RequestMapping (value="/companyList")
-	public ModelAndView companyList() {
+	public ModelAndView companyList(String page) {
 		System.out.println("업체 리스트 ");
 		ModelAndView mav = new ModelAndView();
 		
-		mav = csv.companyList();
+		mav = csv.companyList(page);
 		
 		
 		return mav;
