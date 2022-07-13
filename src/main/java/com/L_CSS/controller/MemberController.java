@@ -86,5 +86,18 @@ public class MemberController {
 		return mav;
 		
 	}
+
+
+	//카카오 로그인
+	@RequestMapping(value = "/memberKakaoLogin")
+	public ModelAndView memberKakaoLogin(MemberDto member, RedirectAttributes ra) {
+		System.out.println("카카오로 로그인 요청");
+		System.out.println(member);
+		
+		ModelAndView mav = mvc.memberKakaoLogin(member, ra);
+		
+		return mav;
+	}
+	
 	
 }

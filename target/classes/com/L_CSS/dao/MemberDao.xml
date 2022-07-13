@@ -22,5 +22,14 @@
   		where MID = #{loginId}
   	</select>
   	
+  	<select id="selectMemberKakao" resultType="com.L_CSS.dto.MemberDto">
+  		SELECT MID, MPROFILE FROM MEMBER WHERE MID = #{mid}
+  	</select>
+  	
+  	<insert id="insertMemberKakao">
+  	INSERT INTO MEMBER(MID, MPW, MNAME, MEMAIL, MPROFILE,MTYPE, MSTATE)
+  	 VALUES(#{mid},#{mpw},#{mname},#{memail},#{mprofile},3,0)
+  	</insert>
+  	
   	
   </mapper>

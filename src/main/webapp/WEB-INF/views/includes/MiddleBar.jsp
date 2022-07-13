@@ -17,17 +17,22 @@
                     	
                         <ul>
                         	 
-                            <li class="active"><a href="./index.html">메인</a></li>
+                            <li class="active"><a href="./main">메인</a></li>
                             <li><a href="shopMain">상품</a></li>
                             <li><a href="#">카페</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="./cafeList">카페목록</a></li>
+                                    <li><a href="./#">카페메뉴</a></li>
+                                    <li><a href="./#">추천 카페</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">업체</a></li>
+                            <li><a href="./blog.html">업체</a>
+                            	<ul class="header__menu__dropdown">
+                                    <li><a href="./cafeList">업체목록</a></li>
+                                    <li><a href="./#">우수업체</a></li>
+                                </ul>
+                            	</li>
+                            
                             <li><a href="./contact.html">공동구매</a></li>
                         </ul>
                     </nav>
