@@ -132,12 +132,9 @@
                            
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/001.jpg">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -345,7 +342,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <h2>L&CSS</h2>
+                            L&CSS
                         </div>
                         <ul>
                             <li>회사주소: 인천일보아카데미</li>

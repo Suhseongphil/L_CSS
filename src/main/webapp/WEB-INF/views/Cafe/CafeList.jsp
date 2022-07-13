@@ -14,13 +14,11 @@
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
   
-  
-
-
-
   <title>Title page</title>  
 
-<link href="${pageContext.request.contextPath }/resources/css/main.82cfd66e.css" rel="stylesheet"></head>
+<link href="${pageContext.request.contextPath }/resources/css/main.82cfd66e.css" rel="stylesheet">
+
+</head>
  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
@@ -89,7 +87,6 @@
 </div>
 
 
-
 </main>
 
 <script>
@@ -99,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 
-<script type="text/javascript" src="./main.85741bff.js"></script></body>
+<script type="text/javascript" src="./main.85741bff.js"></script>
+
+</body>
 
 </html>
