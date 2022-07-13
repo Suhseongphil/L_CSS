@@ -51,7 +51,7 @@
 				</div>
 				<div class="col-6">
 					<div class="items">
-						<a href="admincafeInsert">카페정보 입력페이지</a>
+						<a href="admincafeInsert">&nbsp;&nbsp;&nbsp;&nbsp;카페정보 입력페이지</a>
 					</div>
 				</div>
 			</div>

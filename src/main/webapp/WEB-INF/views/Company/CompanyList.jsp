@@ -84,7 +84,6 @@
     
   </div>
   
-<%@ include file ="../includes/SideBar.jsp" %>
 	<div class="item display">
 	<c:forEach items="${selestCompanyList}" var="comList">
   	<div class="row px">

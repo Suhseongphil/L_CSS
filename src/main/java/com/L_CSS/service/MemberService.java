@@ -32,18 +32,22 @@ public class MemberService {
 	
 	@Autowired
 	private HttpSession session;
-	private String savePath = "C:\\Users\\user\\git\\L_CSS\\L_CSS\\src\\main\\webapp\\resources\\mprofileUpLoad";
+	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
 	//회원가입 요청 메소드
 	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
 		System.out.println("memberJoin ()호출");
 		System.out.println(member);
 		ModelAndView mav = new ModelAndView();
 		
+		String email = member.getMemail()+"@"+member.getEmailDomain();
+		
 		
 		MultipartFile mfile = member.getMfile();
-
+		
+		member.setMemail(email);
 		System.out.println(mfile.isEmpty()); // 첨부파일이 있는지없는지 비교해주는 방법
 		String mprofile = "";
+		String bsfile = "BS.jpg";
 		if (!mfile.isEmpty()) {
 			System.out.println("첨부파일 있음");
 
@@ -55,7 +59,11 @@ public class MemberService {
 			// 프로필 이미지 파일 저장
 			mfile.transferTo(new File(savePath, mprofile));
 
+		}else {
+			mprofile = bsfile;
+			
 		}
+			
 		
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
 			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
@@ -79,7 +87,7 @@ public class MemberService {
 		
 		if(inserMember > 0) {
 			ra.addFlashAttribute("msg", "회원가입 되었습니다.");
-			mav.setViewName("redirect:/Main");
+			mav.setViewName("redirect:/");
 		}else {
 			ra.addFlashAttribute("msg", "회원가입 실패하였습니다.");
 			mav.setViewName("redirect:/memberJoin");
