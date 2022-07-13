@@ -54,7 +54,6 @@
 	<section class="hero">
 		<div class="container">
 			<div class="row">
-				<%@ include file="includes/SideBar.jsp"%>
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">

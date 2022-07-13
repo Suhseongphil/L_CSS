@@ -89,10 +89,23 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="mpwCheck" name="mpwCheck" >
                                         </div>
-                                        <div class="form-group">
                                              <label>이메일</label>
+                                        <div class="row">
+                                             <div class= "col-5 form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="memail" name="memail" >
+                                                </div>
+                                                @
+                                                <div class= "col-6 form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="emailDomain" name="emailDomain" >
+                                                <select id="domainSelect">
+                    								<option value="">직접입력</option>
+                    								<option value="Naver.com">네이버</option>
+                    								<option value="Daum.net">다음</option>
+                    								<option value="Google.com">구글</option>
+               									 </select> 
+                                                </div>   
                                         </div>
                                         <div class="form-group">
                                              <label>프로필 이미지</label>
@@ -158,6 +171,17 @@
     <script src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
 
 </body>
+<script type="text/javascript">
+
+	$("#domainSelect").change(function() {
+	
+	var selDomain = $("#domainSelect").val();
+	$("#emailDomain").val(selDomain);
+	});
+
+
+</script>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {

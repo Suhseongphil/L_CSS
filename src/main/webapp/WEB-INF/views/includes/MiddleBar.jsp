@@ -26,9 +26,9 @@
                                     <li><a href="./#">추천 카페</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">업체</a>
+                            <li><a href="./#">업체</a>
                             	<ul class="header__menu__dropdown">
-                                    <li><a href="./cafeList">업체목록</a></li>
+                                    <li><a href="./companyList">업체목록</a></li>
                                     <li><a href="./#">우수업체</a></li>
                                 </ul>
                             	</li>
