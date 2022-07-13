@@ -14,6 +14,11 @@
   		<select id="selectCafeList" resultType="com.L_CSS.dto.CafeDto">
   			select *
   			from CAFE
+  			where CFNUM between #{start} and #{end}
   		</select>
   		
+  		<select id="TotalCount" resultType="int">
+  			select count(cfcode)
+  			from CAFE
+  		</select>
   </mapper>

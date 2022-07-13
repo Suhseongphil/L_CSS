@@ -40,14 +40,19 @@
     border-radius: 70%;
     overflow: hidden;
   }
-  .display{
-  display: flex;
+ 
+ .item display{
+  	display: flex;
+  	flex-direction: column;
+  	
   }
-  .flex-item{
-  			width: 30%;
-            height: 30%;
-            margin: 10px;
+  .item{
+  padding-bottom: 30px;
   }
+  .px{
+  padding-bottom: 30px;
+  }
+  
   </style>
 <body>
 
@@ -79,43 +84,68 @@
     <h3>카페 목록</h3>
     
   </div>
-  <div class="display">
+  
 <%@ include file ="../includes/SideBar.jsp" %>
-	<table>
+	<div class="item display">
 	
-	<c:forEach items="${selectCafeList}" var="caList">
-  	<tr >
-  		<td style="padding-bottom: 30px;">
-  		<c:choose>
-  		<c:when test="${caList.cfimg == null}">
-  		 <img alt="" style="width: 200px; height: 200px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
-  		</c:when>
-  		<c:otherwise>
-    <img alt="" style="width: 200px; height: 200px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${caList.cfimg.split('/')[1]}">
-  		</c:otherwise>
-  		</c:choose>
-  		</td>
-  		<td>
-    	<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${caList.cfname }</h4>
-    	
-  		</td>
-  		<td>
-   			 <p>주소 : ${caList.cfaddress } / 대표메뉴</p>
-   			 <p>${caList.cftel }</p>
-  		</td>
-  		<td>
-  		<div class="flex-item">
-   	 	<img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
-   		 <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
+	<c:forEach items="${selectCafeList}" var="cfList">
+  	<div class="row px">
+	<c:choose>
+	<c:when test="${cfList.cfimg == null }">
+	    <img  alt="" style="width: 200px; height: 200px;  padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
+	</c:when>
+	<c:otherwise>
+    <img alt="" style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${cfList.cfimg.split('/')[1]}">
+	</c:otherwise>
+	</c:choose>
+    <img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
+  	
+  	<div class="item">
+    <h2>${cfList.cfname }</h2>
+    <p>주소 : ${cfList.cfaddress }</p>
+    <p>${cfList.cftel }</p>
+    
 	</div>
-  		
-  		</td>
-  	</tr>
-  	
-  	
-  	
+  	</div>
 	</c:forEach>
-	</table>
+  		<div style="font-size: 20px;">
+  		<c:choose>
+       			
+       				<c:when test="${pagedto.page <= 1 }">
+       					[이전]
+       				</c:when>
+       			
+       				<c:otherwise>	
+       						<a href="cafeList?page=${pagedto.page - 1}">[이전]</a>
+       				</c:otherwise>
+       			
+       			</c:choose>
+       			
+       			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }" var="num" step="1">
+       				<c:choose>
+       					<c:when test="${pagedto.page == num }">
+       							<span style="font-size:20px;">${num }</span>
+       					</c:when>
+       					
+       					<c:otherwise>
+       					
+			       				<a href="cafeList?page=${num}"> ${num } </a>&nbsp;&nbsp;
+       					</c:otherwise>
+       				</c:choose>
+       			</c:forEach>
+       			
+       			<c:choose>
+       			
+       				<c:when test="${pagedto.page >= pagedto.maxPate }">
+       					[다음]
+       				</c:when>
+       			
+       				<c:otherwise>	
+       						<a href="cafeList?page=${pagedto.page + 1}">[다음]</a>
+       				</c:otherwise>
+       			
+       			</c:choose>
+       			</div>
   	</div>
 
 </div>
@@ -123,7 +153,6 @@
 
 
 </main>
-
 <script>
 document.addEventListener("DOMContentLoaded", function (event) {
   navbarToggleSidebar();

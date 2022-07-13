@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CompanyDao;
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.PageDto;
 
 @Service
 public class CompanyService {
@@ -41,11 +42,40 @@ public class CompanyService {
 		return null;
 	}
 	//업체 리스트 출력
-	public ModelAndView companyList() {
+	public ModelAndView companyList(String page) {
 		System.out.println("companyList()호출");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<CompanyDto> selestCompanyList = cdao.selectCompanyList();
+		int TotalCount = cdao.TotalCount();
+		int page2 = 1;
 		
+		if(page != null) {
+			page2 = Integer.parseInt(page);
+		};
+		
+		//한페이지에 보여줄 글 개수
+		int pageCount = 5;
+		//한페이지에 보여줄 페이지 번호 개수
+		int pageNumCount = 5;
+		
+		int startRow = (page2 - 1) * pageCount +1;
+		int endRow = page2 * pageCount;
+		
+		int maxPage = (int)(Math.ceil((double)TotalCount/pageCount));
+		int startPage = (int)(Math.ceil((double)page2/pageCount));
+		
+		int endPage = startPage + pageNumCount-1;
+		
+		if(endPage > maxPage) {
+			endPage = maxPage;
+		}
+		ArrayList<CompanyDto> selestCompanyList = cdao.selectCompanyList(startRow,endRow);
+		
+		PageDto pagedto = new PageDto();
+		pagedto.setPage(page2);
+		pagedto.setMaxPate(maxPage);
+		pagedto.setStartPage(startPage);
+		pagedto.setEndPage(endPage);
+		mav.addObject("pagedto",pagedto);
 		mav.addObject("selestCompanyList",selestCompanyList);
 		mav.setViewName("Company/CompanyList");
 		
