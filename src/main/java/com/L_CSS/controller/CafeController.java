@@ -25,7 +25,7 @@ public class CafeController {
 	}
 	//카페 목록 요청
 	@RequestMapping(value="/cafeList")
-	public @ResponseBody ModelAndView cafeList(String page) {
+	public  ModelAndView cafeList(String page) {
 		System.out.println("카페 목록 요청");
 		System.out.println(page);
 		ModelAndView mav = new ModelAndView();

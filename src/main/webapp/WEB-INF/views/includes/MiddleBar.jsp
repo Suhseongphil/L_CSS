@@ -21,7 +21,7 @@
                             <li><a href="shopMain">상품</a></li>
                             <li><a href="#">카페</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./cafeList">카페목록</a></li>
+                                    <li><a href="cafeList">카페목록</a></li>
                                     <li><a href="./#">카페메뉴</a></li>
                                     <li><a href="./#">추천 카페</a></li>
                                 </ul>
