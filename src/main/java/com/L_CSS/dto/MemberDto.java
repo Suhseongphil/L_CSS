@@ -15,6 +15,7 @@ public class MemberDto {
 	private String mprofile;
 	private int mtype;
 	private	int	mstate;
+	private String emailDomain;
 	
 	private MultipartFile mfile;
 	private String mpostercode;
