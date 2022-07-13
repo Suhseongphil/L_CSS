@@ -90,10 +90,10 @@
   	<div class="row px">
 	<c:choose>
 	<c:when test="${comList.cmimg == null }">
-	    <img  alt="" style="width: 200px; padding-right: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
+	    <img  alt="" style="width: 200px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
 	</c:when>
 	<c:otherwise>
-    <img alt="" style="width: 200px; padding-right: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
+    <img alt="" style="width: 200px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
 	</c:otherwise>
 	</c:choose>
     <img class="img-responsive" alt="" src="./assets/images/img-12.jpg">
@@ -106,6 +106,44 @@
 	</div>
   	</div>
 	</c:forEach>
+		<div style="font-size: 20px;">
+  		<c:choose>
+       			
+       				<c:when test="${pagedto.page <= 1 }">
+       					[이전]
+       				</c:when>
+       			
+       				<c:otherwise>	
+       						<a href="companyList?page=${pagedto.page - 1}">[이전]</a>
+       				</c:otherwise>
+       			
+       			</c:choose>
+       			
+       			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }" var="num" step="1">
+       				<c:choose>
+       					<c:when test="${pagedto.page == num }">
+       							<span style="font-size:20px;">${num }</span>
+       					</c:when>
+       					
+       					<c:otherwise>
+       					
+			       				<a href="companyList?page=${num}"> ${num } </a>&nbsp;&nbsp;
+       					</c:otherwise>
+       				</c:choose>
+       			</c:forEach>
+       			
+       			<c:choose>
+       			
+       				<c:when test="${pagedto.page >= pagedto.maxPate }">
+       					[다음]
+       				</c:when>
+       			
+       				<c:otherwise>	
+       						<a href="companyList?page=${pagedto.page + 1}">[다음]</a>
+       				</c:otherwise>
+       			
+       			</c:choose>
+       			</div>
   	</div>
 
 </div>

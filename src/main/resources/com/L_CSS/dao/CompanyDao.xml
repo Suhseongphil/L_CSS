@@ -13,7 +13,11 @@
 	<select id="selectCompanyList" resultType="com.L_CSS.dto.CompanyDto">
 		select *
 		from COMPANY
+		where CMNUM between #{start} and #{end}
 	
 	</select>
-  	
+  	<select id="TotalCount" resultType="int">
+  			select count(cmcode)
+  			from COMPANY
+  		</select>
   </mapper>
