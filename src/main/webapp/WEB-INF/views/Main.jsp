@@ -54,7 +54,8 @@
 	<section class="hero">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-12">
+					<!-- 
 					<div class="hero__search">
 						<div class="hero__search__form">
 							<form action="#">
@@ -67,6 +68,7 @@
 							</form>
 						</div>
 					</div>
+					 -->
 					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/banner.jpg">
 						<div class="hero__text2">
 							<span>BEENS FRESH</span>
