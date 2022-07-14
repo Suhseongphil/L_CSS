@@ -22,13 +22,7 @@
     <link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min2.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style2.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/responsive2.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/custom2.css">
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -43,6 +37,17 @@
     <![endif]-->
 
 </head>
+<style>
+.but_css{
+height: 20px; 
+width: 20px; 
+border: none; 
+font-size: 10;
+font-weight:800;
+text-align: center;
+}
+
+</style>
 
 <body>
     <!-- Start Main Top -->
@@ -114,12 +119,9 @@
                                        ${ctList.pdprice }
                                     </td>
                                     <td class="shoping__cart__quantity">
-                                        <div class="quantity">
+                                        <div id="amounList" >
+                                       <button></button>
                                         
-                                        
-                                            <div class="pro-qty">
-                                                <input id="conut" type="text" value="${ctList.pdamount}">
-                                            </div>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
@@ -194,6 +196,60 @@
 
 </body>
 	<script type="text/javascript">
+	$(document).ready(function() {
+		myCart();
+	});
+	
+	function myCart(){
+		$.ajax({
+			type : "get",
+			url : "myCart",
+			dataType : "json",
+			success : function(mycart) {
+				cartPrint(mycart);
+			}
+		});
+	}
+	
+	function cartPrint(mycart){
 		
+	}
+	
+	
+	function updateMinus(ctamount,ctcode){
+			
+			console.log("빼기")
+			console.log(ctamount);
+			console.log(ctcode);
+			$.ajax({
+				type : "get",
+				url : "updateMinus",
+				data : {"ctamount" : ctamount , "ctcode" : ctcode},
+				dataType : "json",
+				async : false,
+				success : function(result){
+					console.log(result);
+					amountPrint(result);
+				}
+			
+			});
+			
+			
+		}
+		function amountPrint(result){
+			var output = "";
+			for (var i =0; i < result.length; i++){
+				output += "<button class=\"but_css\" onclick=\"updateMinus(${result.ctamount},'${result.ctcode}')\" >-</button>"
+				output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value=\"${result.ctamount}\">"
+				output += " <button class=\"but_css\" onclick=\"updatePlus(${result.ctamount},'${result.ctcode}')\" >+</button>"
+			}
+			$("#amounList").html(output);
+
+		}
+		function updatePlus(ctamount,ctcode){
+			console.log("더하기")
+			console.log(ctamount);
+			console.log(ctcode);
+		}
 	</script>
 </html>

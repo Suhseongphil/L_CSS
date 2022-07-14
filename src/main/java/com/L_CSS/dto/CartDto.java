@@ -9,9 +9,10 @@ public class CartDto {
 	private	String	ctcfcmcode;
 	private	String	ctmupdcode;
 	
-	private String pdprice;
+	
 	private String pdname;
-	private int pdamount;
+	private int ctamount;
+				
 	private String pdimg;
 	private int total;
 	
