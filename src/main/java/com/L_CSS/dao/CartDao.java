@@ -15,6 +15,8 @@ public interface CartDao {
 
 	int updateMinus(@Param("amount")int amount, @Param("ctcode")String ctcode);
 
+	int updatePlus(@Param("amount")int amount, @Param("ctcode")String ctcode);
+
 
 	
 

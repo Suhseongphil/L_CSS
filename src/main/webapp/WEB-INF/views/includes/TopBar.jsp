@@ -54,7 +54,7 @@
                             </c:choose>
                            
                             <div class="header__top__right__auth">
-                               <a href="myCart"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="myCartPage"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>

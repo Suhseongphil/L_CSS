@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -107,32 +108,14 @@ text-align: center;
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${myCart}" var="ctList">
                             
-                                <tr>
+                            
+                                <tr id="myCartList">
                               	 
-                                    <td class="shoping__cart__item">
-                                        <img style="width:100px;" src="${ctList.pdimg }" alt="">
-                                        <h5>${ctList.pdname }</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                       ${ctList.pdprice }
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div id="amounList" >
-                                       <button></button>
-                                        
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        ${ctList.pdprice} 
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
+                                    
                                 </tr>
                                
-                            </c:forEach>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -206,6 +189,7 @@ text-align: center;
 			url : "myCart",
 			dataType : "json",
 			success : function(mycart) {
+				console.log(mycart);
 				cartPrint(mycart);
 			}
 		});
@@ -213,43 +197,85 @@ text-align: center;
 	
 	function cartPrint(mycart){
 		
+		
+		var output = "";
+		for(var i = 0; i < mycart.length; i++){
+			
+			
+			output += "<td class=\"shoping__cart__item\">";
+			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">";	
+			output += "<h5>" + mycart[i].pdname + "</h5>";
+			output += "</td>";
+			
+			output += "<td class=\"shoping__cart__price\">";
+			output += "<h5>" + mycart[i].pdprice + "</h5>";
+			output += "</td>";
+			
+			output += "<td class=\"shoping__cart__quantity\">";
+			output += "<div id=\"amounList\" >";					 
+			output += "<button class=\"but_css\" onclick=\"updateMinus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">-</button>"
+			output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value="+mycart[i].ctamount+ ">";
+			output += "<button class=\"but_css\" onclick=\"updatePlus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">+</button>"
+			output += "</div>";
+			output += "</td>";
+			
+			output += "<td class=\"shoping__cart__total\">";
+			output += "<h5 id=\"totalPrice\"></h5>";
+			output += "</td>";
+			
+			output += "<td class=\"shoping__cart__item__close\">";
+			output += "<span class=\"icon_close\"></span>";
+			output += "</td>";
+			
+			
+		}
+		$("#myCartList").html(output);
+		console.log("호출2");
 	}
-	
-	
-	function updateMinus(ctamount,ctcode){
+
+
+	function updateMinus(ctcode,ctamount){
 			
 			console.log("빼기")
-			console.log(ctamount);
 			console.log(ctcode);
+			console.log(ctamount);
 			$.ajax({
 				type : "get",
 				url : "updateMinus",
-				data : {"ctamount" : ctamount , "ctcode" : ctcode},
+				data : {"ctcode" : ctcode , "ctamount" : ctamount },
 				dataType : "json",
 				async : false,
-				success : function(result){
-					console.log(result);
-					amountPrint(result);
+				success : function(mycart){
+					console.log(mycart);
+					myCart();
 				}
 			
 			});
 			
 			
 		}
-		function amountPrint(result){
-			var output = "";
-			for (var i =0; i < result.length; i++){
-				output += "<button class=\"but_css\" onclick=\"updateMinus(${result.ctamount},'${result.ctcode}')\" >-</button>"
-				output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value=\"${result.ctamount}\">"
-				output += " <button class=\"but_css\" onclick=\"updatePlus(${result.ctamount},'${result.ctcode}')\" >+</button>"
-			}
-			$("#amounList").html(output);
-
-		}
-		function updatePlus(ctamount,ctcode){
+		
+		function updatePlus(ctcode,ctamount){
 			console.log("더하기")
-			console.log(ctamount);
 			console.log(ctcode);
+			console.log(ctamount);
+			
+			$.ajax({
+				type : "get",
+				url : "updatePlus",
+				data : {"ctcode" : ctcode , "ctamount" : ctamount },
+				dataType : "json",
+				async : false,
+				success : function(mycart){
+					console.log(mycart);
+					console.log(mycart[1].cttotal);
+					$("#totalPrice").text(mycart[1].cttotal);
+					
+					//myCart();
+					
+				}
+			
+			});
 		}
 	</script>
 </html>

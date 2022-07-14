@@ -29,15 +29,15 @@ public class CartController {
 	}
 	//장바구니 이동 요청
 	@RequestMapping(value="/myCart")
-	public ModelAndView myCart() {
-		System.out.println("장바구니 페이지요청");
+	public @ResponseBody String myCart() {
+		System.out.println("장바구니 리스트요청");
 		
-		ModelAndView mav = new ModelAndView();
+		
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println(loginId);
-		mav = csv.myCart(loginId);
+		String myCartList  = csv.myCart(loginId);
 		
-		return mav;
+		return myCartList;
 	}
 	//장바구니 수량 빼기
 	@RequestMapping(value="/updateMinus")
@@ -49,6 +49,25 @@ public class CartController {
 		String updateMinus = csv.updateMinus(ctamount,ctcode,loginId);
 		
 		return updateMinus;
+		
+	}
+	//장바구니 수량 더하기
+	@RequestMapping(value="/updatePlus")
+	public @ResponseBody String updatePlus(String ctamount,String ctcode) {
+		System.out.println("장바구니 더하기");
+		System.out.println(ctamount);
+		System.out.println(ctcode);
+		String loginId = (String)session.getAttribute("loginId");
+		String updatePlus = csv.updatePlus(ctamount,ctcode,loginId);
+		
+		return updatePlus;
+		
+	}
+	//장바구니 페이지 이동
+	@RequestMapping(value="/myCartPage")
+	public String myCartPage() {
+		System.out.println("장바구니 페이지이동 요청");
+		return "option/MyCart";
 		
 	}
 }
