@@ -125,12 +125,23 @@ public class MemberService {
 		
 		MemberDto MemberInfo = mdao.MemberInfo(loginId);
 		
+		String[] mpost = MemberInfo.getMaddress().split("_");
+		
+		
+		System.out.println(mpost[2]);
+		System.out.println(mpost[3]);
+		MemberInfo.setMpostercode(mpost[0]);
+		MemberInfo.setMaddr(mpost[1]);
+		MemberInfo.setMaddr2(mpost[2]+"  "+ mpost[3]);
+		
 		mav.addObject("memberInfo", MemberInfo);
 		mav.setViewName("Member/MemberInfo");
 		
 		
 		return mav;
 	}
+	
+
 	//로그아웃 요청
 	public ModelAndView memberLogout() {
 		System.out.println("memberLogout()요청");
@@ -202,6 +213,7 @@ public class MemberService {
 		return mav;
 	}
 
+	
 
 
 
