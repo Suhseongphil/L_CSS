@@ -16,4 +16,6 @@ public interface MemberDao {
 
 	void insertMemberKakao(MemberDto member);
 
+	MemberDto MyInfoResult(@Param("loginId")String loginId,@Param("mpw") String mpw);
+
 }
