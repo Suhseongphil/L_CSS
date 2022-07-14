@@ -20,6 +20,7 @@ public class MemberDto {
 	private MultipartFile mfile;
 	private String mpostercode;
 	private String maddr;
+	private String maddr2;
 	private String mdetailaddress;
 	private String mextraaddress;
 	

@@ -43,7 +43,7 @@
                             </c:when>
                             <c:otherwise>
                                 <div class="header__top__right__auth">
-                                <a href="memberInfo"><i class="fa fa-user"> </i> 내정보 </a>&nbsp;&nbsp;&nbsp;
+                                <a href="myInfo"><i class="fa fa-user"> </i> 내정보 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             <div class="header__top__right__auth">
@@ -54,7 +54,7 @@
                             </c:choose>
                            
                             <div class="header__top__right__auth">
-                               <a href="myCart"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="myCartPage"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
