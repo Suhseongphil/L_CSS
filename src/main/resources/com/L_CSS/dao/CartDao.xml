@@ -27,4 +27,10 @@
   		set ctamount = #{amount}+1
   		where ctcode = #{ctcode}
   	</update>
+  	
+  	<update id="updateTotal">
+  		update cart
+  		set cttotal = #{cttotal}
+  		where ctcode = #{ctcode}
+  	</update>
   </mapper>
