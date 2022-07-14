@@ -51,13 +51,14 @@ public class MemberController {
 	}
 	//내정보 페이지 
 	@RequestMapping (value="/memberInfo")
-	public ModelAndView memberInfo() {
+	public ModelAndView memberInfo(String mpw,RedirectAttributes ra) {
 		System.out.println("내정보 페이지 요청");
 		ModelAndView mav = new ModelAndView();
-		mav = mvc.memberInfo();
+		mav = mvc.memberInfo(mpw,ra);
 		
 		return mav;
 	}
+	
 	//내정보 확인 페이지
 	
 		@RequestMapping (value="/myInfo")
@@ -65,6 +66,14 @@ public class MemberController {
 			System.out.println("정보확인 페이지 호출");
 			
 			return "Member/MyInfo";
+		}
+		
+	//내정보 수정 페이지
+		@RequestMapping(value= "/memberModify")
+		public String memberModify() {
+			System.out.println("내정보수정페이지 호출");
+			
+			return "Member/MemberModify";
 		}
 	
 	//로그아웃 요청

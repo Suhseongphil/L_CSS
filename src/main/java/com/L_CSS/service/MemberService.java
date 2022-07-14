@@ -117,25 +117,35 @@ public class MemberService {
 	}
 	
 	//내정보 페이지 요청
-	public ModelAndView memberInfo() {
+	public ModelAndView memberInfo(String mpw, RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("memberInfo ()호출");
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
-		
-		MemberDto MemberInfo = mdao.MemberInfo(loginId);
-		
-		String[] mpost = MemberInfo.getMaddress().split("_");
+		System.out.println(mpw);
 		
 		
-		System.out.println(mpost[2]);
-		System.out.println(mpost[3]);
-		MemberInfo.setMpostercode(mpost[0]);
-		MemberInfo.setMaddr(mpost[1]);
-		MemberInfo.setMaddr2(mpost[2]+"  "+ mpost[3]);
+		MemberDto MyInfoResult = mdao.MyInfoResult(loginId,mpw);
 		
-		mav.addObject("memberInfo", MemberInfo);
-		mav.setViewName("Member/MemberInfo");
+		if(MyInfoResult != null) {
+			MemberDto MemberInfo = mdao.MemberInfo(loginId);
+			String[] mpost = MemberInfo.getMaddress().split("_");
+			
+			
+			System.out.println(mpost[2]);
+			System.out.println(mpost[3]);
+			MemberInfo.setMpostercode(mpost[0]);
+			MemberInfo.setMaddr(mpost[1]);
+			MemberInfo.setMaddr2(mpost[2]+"  "+ mpost[3]);
+			
+			mav.addObject("memberInfo", MemberInfo);
+			mav.setViewName("Member/MemberInfo");
+			
+		}else {
+			ra.addFlashAttribute("msg", "비밀번호가 틀렸습니다.");
+			mav.setViewName("redirect:/");
+		}
+		
 		
 		
 		return mav;

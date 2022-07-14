@@ -31,5 +31,11 @@
   	 VALUES(#{mid},#{mpw},#{mname},#{memail},#{mprofile},3,0)
   	</insert>
   	
+  	<select id="MyInfoResult" resultType="com.L_CSS.dto.MemberDto" >
+  	SELECT *
+  	FROM MEMBER
+  	WHERE MID = #{loginId} AND MPW =#{mpw}
+  	</select>
+  	
   	
   </mapper>

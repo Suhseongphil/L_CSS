@@ -45,6 +45,9 @@
     .coral {
     background-color:transparent;
     }
+    .font-weight {
+    font-weight:bolder;
+    }
    
     </style>
 
@@ -68,10 +71,9 @@
                                     <div class="text-center ">
                                         <h1 class="h4 text-gray-900 mb-4">비밀번호 확인</h1>
                                     </div>
-                                    <form class="user" method="post" action="memberLogin">
+                                    <form class="user" method="post" action="memberInfo">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="mid" name="mid" >
+                                            <p class ="font-weight">아이디&nbsp;&nbsp;:&nbsp;&nbsp;${sessionScope.loginId}</p>
                                                 
                                         </div>
                                         <div class="form-group">
