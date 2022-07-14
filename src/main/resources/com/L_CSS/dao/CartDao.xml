@@ -18,7 +18,13 @@
   	</select>
   	<update id="updateMinus">
   		update cart
-  		set ctamount = #{amount}
+  		set ctamount = #{amount}-1
+  		where ctcode = #{ctcode}
+  	</update>
+  	
+  	<update id="updatePlus">
+  		update cart
+  		set ctamount = #{amount}+1
   		where ctcode = #{ctcode}
   	</update>
   </mapper>

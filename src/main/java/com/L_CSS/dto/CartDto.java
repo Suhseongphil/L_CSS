@@ -9,11 +9,11 @@ public class CartDto {
 	private	String	ctcfcmcode;
 	private	String	ctmupdcode;
 	
-	
+	private int pdprice;
 	private String pdname;
 	private int ctamount;
 				
 	private String pdimg;
-	private int total;
+	private int cttotal;
 	
 }
