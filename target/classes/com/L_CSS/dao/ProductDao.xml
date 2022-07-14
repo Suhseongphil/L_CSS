@@ -18,9 +18,15 @@
 	<insert id="inserthdList">
 		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
-	
+
 	<select id="selectPro" resultType="com.L_CSS.dto.ProductDto">
-		select * 
+		select *
 		from PRODUCT
+	</select>
+
+	<select id="getProduct" resultType="com.L_CSS.dto.ProductDto">
+		SELECT P.*
+		FROM (SELECT ROWNUM AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type}) P
+		WHERE P.RN = #{i}
 	</select>
 </mapper>

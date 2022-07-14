@@ -2,6 +2,8 @@ package com.L_CSS.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.L_CSS.dto.ProductDto;
 
 public interface ProductDao {
@@ -15,5 +17,7 @@ public interface ProductDao {
 	void inserthdList(ProductDto productDto);
 
 	ArrayList<ProductDto> selectPro();
+
+	ProductDto getProduct(@Param("type")String type, @Param("i")int i);
 
 }
