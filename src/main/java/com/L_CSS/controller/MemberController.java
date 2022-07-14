@@ -58,6 +58,15 @@ public class MemberController {
 		
 		return mav;
 	}
+	//내정보 확인 페이지
+	
+		@RequestMapping (value="/myInfo")
+		public String MyInfo() {
+			System.out.println("정보확인 페이지 호출");
+			
+			return "Member/MyInfo";
+		}
+	
 	//로그아웃 요청
 	@RequestMapping (value = "/memberLogout")
 	public ModelAndView MemberLogout() {
