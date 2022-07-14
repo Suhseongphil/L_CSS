@@ -119,7 +119,6 @@
     <section class="hero">
         <div class="container">
             <div class="row">
-                <%@ include file="../includes/SideBar.jsp"%>
                 <div class="col-lg-4">
                   	
                     <div class="hero__item set-bg" >
