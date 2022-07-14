@@ -227,9 +227,6 @@
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
-
-
-
 </body>
 
 <script type="text/javascript">

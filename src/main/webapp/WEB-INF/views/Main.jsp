@@ -12,6 +12,17 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
+<style>
+   body{
+      background-image: url('https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F0b%2F1c%2F61%2F0b1c6148fb76c8312ea7c3c8454fce62.jpg&type=ofullfill340_600_png');
+      background-size: cover;
+      background-repeat: no-repeat;
+     
+   }
+   
+</style>
+
+
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -28,6 +39,7 @@
 </head>
 
 <body>
+		
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -55,28 +67,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<!-- 
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<div class="hero__search__categories">
-									검색
-									<span class="arrow_carrot-down"></span>
-								</div>
-								<input type="text" placeholder="검색할 내용..">
-								<button type="submit" class="site-btn2">검색</button>
-							</form>
-						</div>
+					<div class="hero__search">						
 					</div>
-					 -->
-					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/banner.jpg">
-						<div class="hero__text2">
-							<span>BEENS FRESH</span>
-							<h2>
-								BEENS <br />FAST MATCHING
-							</h2>
-							<p>Free Matching System</p>
-							<a href="#" class="mainshop-btn">SHOP NOW</a>
+					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/002.jpg">
 						</div>
 					</div>
 				</div>
