@@ -4,16 +4,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Gowun+Batang:wght@700&family=Hahmlet:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+   .h2{
+      font-family: 'Edu TAS Beginner', cursive;
+      font-family: 'Gowun Batang', serif;
+      font-family: 'Hahmlet', serif;
+      font-family: 'Nanum Pen Script', cursive;
+   }
+   
+</style>
 </head>
 <body>
-	   <div class="col-lg-3">
-                    <div class="header__logo">
-                        <h2>L&CSS </h2>
+	   <div class="col-lg-2">
+                    <div class="header__logo" style="text-align: center;">
+                        <h2>L&CSS</h2>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <nav class="header__menu">
+                <div class="col-lg-9">
+                    <nav class="header__menu" style="text-align: right;">
                     	
                         <ul>
                         	 
