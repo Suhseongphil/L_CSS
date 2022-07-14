@@ -214,7 +214,7 @@ span, h1 {
 		getCafeInfo();
 	});
 
-	function getCafeInfo() {
+	function getCafeInfo(){
 		$.ajax({
 			type : "get",
 			url : "getCafeInfo",
@@ -227,7 +227,7 @@ span, h1 {
 
 	function cafeInfoPrint(cafe) {
 		var output = "";
-
+		
 		for (var i = 0; i < cafe.length; i++) {
 			output += "<br>";
 			output += "<div class=\"row text-center borderOn\">"; // 맨위
