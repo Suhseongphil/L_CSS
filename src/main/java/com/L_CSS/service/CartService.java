@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CartDao;
 import com.L_CSS.dto.CartDto;
+import com.google.gson.Gson;
 
 @Service
 public class CartService {
@@ -51,5 +52,18 @@ public class CartService {
 		mav.setViewName("option/MyCart");
 		
 		return mav;
+	}
+	//장바구니 수량 빼기
+	public String updateMinus(String ctamount, String ctcode, String loginId) {
+		System.out.println("updateMinus()호출");
+		int amount = Integer.parseInt(ctamount)-1;
+		int updateMinus = cdao.updateMinus(amount,ctcode);
+		//수량 10 9  98
+		Gson gson = new Gson();
+		ArrayList<CartDto>myCart = cdao.selectMyCart(loginId);
+		//8  가격 바뀐 8 가격 * 8 통합 총가격 setTotal(int)
+		String update = gson.toJson(myCart);
+		return update;
+		
 	}
 }
