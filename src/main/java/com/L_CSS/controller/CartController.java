@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +27,7 @@ public class CartController {
 		
 		return mav;
 	}
+	//장바구니 이동 요청
 	@RequestMapping(value="/myCart")
 	public ModelAndView myCart() {
 		System.out.println("장바구니 페이지요청");
@@ -36,5 +38,17 @@ public class CartController {
 		mav = csv.myCart(loginId);
 		
 		return mav;
+	}
+	//장바구니 수량 빼기
+	@RequestMapping(value="/updateMinus")
+	public @ResponseBody String updateMinus(String ctamount,String ctcode) {
+		System.out.println("장바구니 수량 빼기");
+		System.out.println(ctamount);
+		System.out.println(ctcode);
+		String loginId = (String)session.getAttribute("loginId");
+		String updateMinus = csv.updateMinus(ctamount,ctcode,loginId);
+		
+		return updateMinus;
+		
 	}
 }

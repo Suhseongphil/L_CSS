@@ -16,4 +16,9 @@
 		where ct.ctcfcmcode = cm.cmcode and ct.ctmupdcode = pd.pdcode
 		and CTMID = #{loginId}
   	</select>
+  	<update id="updateMinus">
+  		update cart
+  		set ctamount = #{amount}
+  		where ctcode = #{ctcode}
+  	</update>
   </mapper>
