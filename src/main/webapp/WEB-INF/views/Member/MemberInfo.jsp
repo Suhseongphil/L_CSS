@@ -125,10 +125,11 @@
                         <div class="hero__text2">
                             <span>내정보</span> <br> <br>           
                             <p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
-                            <p>비밀번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpw }</p>
                             <p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
                             <p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
-                            <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddress }</p>
+                            <p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
+                            <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }</p>
+           					<button class="btn btn-primary">정보수정</button>
                         </div>
                     </div>
                     

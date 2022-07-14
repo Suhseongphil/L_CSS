@@ -43,7 +43,7 @@
                             </c:when>
                             <c:otherwise>
                                 <div class="header__top__right__auth">
-                                <a href="memberInfo"><i class="fa fa-user"> </i> 내정보 </a>&nbsp;&nbsp;&nbsp;
+                                <a href="myInfo"><i class="fa fa-user"> </i> 내정보 </a>&nbsp;&nbsp;&nbsp;
                                
                             </div>
                             <div class="header__top__right__auth">
