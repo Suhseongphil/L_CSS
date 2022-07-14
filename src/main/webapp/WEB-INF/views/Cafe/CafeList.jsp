@@ -85,7 +85,6 @@
     
   </div>
   
-<%@ include file ="../includes/SideBar.jsp" %>
 	<div class="item display">
 	
 	<c:forEach items="${selectCafeList}" var="cfList">
@@ -158,6 +157,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   navbarToggleSidebar();
   navActivePage();
 });
+
 </script>
 
 <script type="text/javascript" src="./main.85741bff.js"></script></body>

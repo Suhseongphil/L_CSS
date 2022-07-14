@@ -22,13 +22,7 @@
     <link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min2.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style2.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/responsive2.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/custom2.css">
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -43,6 +37,17 @@
     <![endif]-->
 
 </head>
+<style>
+.but_css{
+height: 20px; 
+width: 20px; 
+border: none; 
+font-size: 10;
+font-weight:800;
+text-align: center;
+}
+
+</style>
 
 <body>
     <!-- Start Main Top -->
@@ -79,74 +84,85 @@
     </header>
     
 
-    <div class="cart-box-main" style="text-align: center;">
-        <div class="container" >
-            <span  style="text-align: center;">
-                <h3 >장바구니 &nbsp&nbsp&nbsp&nbsp&nbsp <input  type="text" placeholder="검색..">&nbsp&nbsp&nbsp <button class="btn-sm btn-Info">검색</button></h3>  
-            </span>
-        </div>  
-        </div>
     <!-- Start Cart  -->
     <div class="cart-box-main">
         <div class="container">
             <div class="row">
            
-           		<%@ include file ="../includes/SideBar.jsp" %>
-       	
-    
-                <div class="col-lg-7">
-                    <div class="table-main table-responsive">
-                        <table class="table">
+
+               <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
                             <thead>
                                 <tr>
-                                    <th>번호</th>
-                                    <th>상품 이름</th>
-                                    <th>주문 수량</th>
-                                    <th>주문 금약</th>
-                                    
+                                	
+                                    <th class="shoping__product">이름</th>
+                                    <th>가격</th>
+                                    <th>수량</th>
+                                    <th>총가격</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${myCart}" var="ctList">
+                            
                                 <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-								</a>
+                              	 
+                                    <td class="shoping__cart__item">
+                                        <img style="width:100px;" src="${ctList.pdimg }" alt="">
+                                        <h5>${ctList.pdname }</h5>
                                     </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
+                                    <td class="shoping__cart__price">
+                                       ${ctList.pdprice }
                                     </td>
-                                    <td class="price-pr">
-                                        <p>$ 80.0</p>
+                                    <td class="shoping__cart__quantity">
+                                        <div id="amounList" >
+                                       <button></button>
+                                        
+                                        </div>
                                     </td>
-                                    <td class="quantity-box"></td>
-                                    
-                                    <td class="remove-pr">
-                              
+                                    <td class="shoping__cart__total">
+                                        ${ctList.pdprice} 
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <span class="icon_close"></span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                       kifsa
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									배송관련
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>배송이 안옵니다</p>
-                                    </td>
-                                    <td class="quantity-box"> 답변대기 </td>
-                                  
-                                </tr>
-                              
+                               
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="#" class="primary-btn cart-btn">더 쇼핑하기</a>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            새로고침</a>
+                    </div>
+                </div>
+             
+                <div class="col-lg-6" >
+                    <div class="shoping__checkout">
+                        <h5>전체 가격</h5>
+                        <ul>
+                            <li>전체 금액 <span>$454.98</span>
+                            	<br> 할인 금액 <span>&nbsp;&nbsp;&nbsp;&nbsp; 0.0</span>
+                            </li>
+                            
+                            <li>결제 금액 <span>$454.98</span></li>
+                        </ul>
+                        <a href="#" class="primary-btn">결제하기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
             </div>
 
         
@@ -168,7 +184,7 @@
     <!-- End copyright  -->
 
     
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
@@ -179,5 +195,61 @@
     <!-- ALL JS FILES -->
 
 </body>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		myCart();
+	});
+	
+	function myCart(){
+		$.ajax({
+			type : "get",
+			url : "myCart",
+			dataType : "json",
+			success : function(mycart) {
+				cartPrint(mycart);
+			}
+		});
+	}
+	
+	function cartPrint(mycart){
+		
+	}
+	
+	
+	function updateMinus(ctamount,ctcode){
+			
+			console.log("빼기")
+			console.log(ctamount);
+			console.log(ctcode);
+			$.ajax({
+				type : "get",
+				url : "updateMinus",
+				data : {"ctamount" : ctamount , "ctcode" : ctcode},
+				dataType : "json",
+				async : false,
+				success : function(result){
+					console.log(result);
+					amountPrint(result);
+				}
+			
+			});
+			
+			
+		}
+		function amountPrint(result){
+			var output = "";
+			for (var i =0; i < result.length; i++){
+				output += "<button class=\"but_css\" onclick=\"updateMinus(${result.ctamount},'${result.ctcode}')\" >-</button>"
+				output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value=\"${result.ctamount}\">"
+				output += " <button class=\"but_css\" onclick=\"updatePlus(${result.ctamount},'${result.ctcode}')\" >+</button>"
+			}
+			$("#amounList").html(output);
 
+		}
+		function updatePlus(ctamount,ctcode){
+			console.log("더하기")
+			console.log(ctamount);
+			console.log(ctcode);
+		}
+	</script>
 </html>

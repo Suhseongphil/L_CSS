@@ -8,4 +8,12 @@ public class CartDto {
 	private	String	ctmid;
 	private	String	ctcfcmcode;
 	private	String	ctmupdcode;
+	
+	
+	private String pdname;
+	private int ctamount;
+				
+	private String pdimg;
+	private int total;
+	
 }

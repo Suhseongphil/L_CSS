@@ -66,13 +66,10 @@
 	<section class="hero">
 		<div class="container">
 			<div class="row">
-	
 				<div class="col-lg-12">
-					<div class="hero__search">
-						
+					<div class="hero__search">						
 					</div>
 					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/002.jpg">
-							
 						</div>
 					</div>
 				</div>

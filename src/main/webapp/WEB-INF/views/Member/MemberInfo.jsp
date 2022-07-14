@@ -18,13 +18,14 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 </head>
 <style>
  .imgClass {
@@ -106,71 +107,28 @@
     </header>
     <!-- Header Section End -->
 		 <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <h2>L&CSS </h2>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                    	
-                        <ul>
-                        	 
-                            <li class="active"><a href="./index.html">메인</a></li>
-                            <li><a href="./shop-grid.html">상품</a></li>
-                            <li><a href="#">카페</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">업체</a></li>
-                            <li><a href="./contact.html">공동구매</a></li>
-                        </ul>
-                    </nav>
-                </div> 
-                <div class="col-lg-3">
-                  
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-        </div>
+		<div class="row">
+			<%@ include file="../includes/MiddleBar.jsp"%>
+			<div class="col-lg-3"></div>
+			<div class="humberger__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</div>
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>목록</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">상품</a></li>
-                            <li><a href="#">카페</a></li>
-                            <li><a href="#">업체</a></li>
-                            <li><a href="#">공동구매</a></li>
-                            <li><a href="InquirePage">고객문의</a></li>
-                            
-                        </ul>
-                    </div>
-                </div>
                 <div class="col-lg-4">
                   	
                     <div class="hero__item set-bg" >
-                        <div class="hero__text">
-                            <span>내정보</span> <br>            
-                            <p>${memberInfo.mid } </p>
-                            <p>${memberInfo.mpw }</p>
-                            <p>${memberInfo.mname }</p>
-                            <p>${memberInfo.memail }</p>
-                            <p>${memberInfo.maddress }</p>
+                        <div class="hero__text2">
+                            <span>내정보</span> <br> <br>           
+                            <p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
+                            <p>비밀번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpw }</p>
+                            <p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
+                            <p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
+                            <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddress }</p>
                         </div>
                     </div>
                     
@@ -179,7 +137,7 @@
                   	
                     <div class="hero__item set-bg" >
                         <div class="hero__text">
-                           <img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/mprofileUpLoad/${memberInfo.mprofile}">
+                           <img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
                         </div>
                     </div>
                     
@@ -260,15 +218,14 @@
 
     <!-- Js Plugins -->
     <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-
-
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
 
