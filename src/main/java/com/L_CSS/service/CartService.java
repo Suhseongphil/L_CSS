@@ -49,23 +49,8 @@ public class CartService {
 		System.out.println(myCart);
 		Gson gson = new Gson();
 		String cart = gson.toJson(myCart);
-		CartDto total = null;
-		int count = 0;
-		int price = 0;
-		int toTal = 0;
-		for(int i = 0; i < myCart.size(); i++) {
-			total = new CartDto();
-			count = myCart.get(i).getCtamount();
-			price = myCart.get(i).getPdprice();
-			System.out.println(count);
-			System.out.println(price);
-			toTal = count * price;
-			System.out.println(toTal);
-			total.setCttotal(toTal);
-			
-		}
-		 
-		myCart.add(total);	
+		
+		
 		System.out.println(myCart);
 		return cart;
 	}
@@ -77,23 +62,25 @@ public class CartService {
 		
 		Gson gson = new Gson();
 		ArrayList<CartDto>myCart = cdao.selectMyCart(loginId);
-		CartDto total = null;
+		
 		int count = 0; //제품 장바구니 
 		int price = 0; //제품 가격
 		int toTal = 0; // 총가격 
+		String ctctcode = null;
 		for(int i = 0; i < myCart.size(); i++) {
-			total = new CartDto();
+			
 			count = myCart.get(i).getCtamount();
 			price = myCart.get(i).getPdprice();
-			System.out.println(count);
-			System.out.println(price);
+			ctctcode = myCart.get(i).getCtcode();
+			System.out.println(i+"]"+ ctctcode);
+			System.out.println(i+"]"+count);
+			System.out.println(i+"]"+price);
 			toTal = count * price;
 			System.out.println(toTal);
-			total.setCttotal(toTal);
+			int updateTotal = cdao.updateTotal(ctctcode,toTal);
 			
 		}
 		
-		myCart.add(total);	
 		String update = gson.toJson(myCart);
 		System.out.println(update);
 		return update;
@@ -107,22 +94,24 @@ public class CartService {
 		
 		Gson gson = new Gson();
 		ArrayList<CartDto>myCart = cdao.selectMyCart(loginId);
-		CartDto total = null;
+		
 		int count = 0;
 		int price = 0;
 		int toTal = 0;
+		String ctctcode = null;
 		for(int i = 0; i < myCart.size(); i++) {
-			total = new CartDto();
+			
 			count = myCart.get(i).getCtamount();
 			price = myCart.get(i).getPdprice();
+			ctctcode = myCart.get(i).getCtcode();
 			System.out.println(count);
 			System.out.println(price);
 			toTal = count * price;
 			System.out.println(toTal);
-			total.setCttotal(toTal);
+			
+			int updateTotal = cdao.updateTotal(ctctcode,toTal);
 					
 		}
-		myCart.add(total);
 		String update = gson.toJson(myCart);
 		return update;
 		

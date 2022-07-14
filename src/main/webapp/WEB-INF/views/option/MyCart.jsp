@@ -130,18 +130,8 @@ text-align: center;
                     </div>
                 </div>
              
-                <div class="col-lg-6" >
-                    <div class="shoping__checkout">
-                        <h5>전체 가격</h5>
-                        <ul>
-                            <li>전체 금액 <span>$454.98</span>
-                            	<br> 할인 금액 <span>&nbsp;&nbsp;&nbsp;&nbsp; 0.0</span>
-                            </li>
-                            
-                            <li>결제 금액 <span>$454.98</span></li>
-                        </ul>
-                        <a href="#" class="primary-btn">결제하기</a>
-                    </div>
+                <div id="checkOut" class="col-lg-6" >
+                   
                 </div>
             </div>
         </div>
@@ -197,11 +187,13 @@ text-align: center;
 	
 	function cartPrint(mycart){
 		
+		var totalPrice = 0;
+		var maxPrice = 0;
 		
 		var output = "";
 		for(var i = 0; i < mycart.length; i++){
 			
-			
+			output += "<tr>"
 			output += "<td class=\"shoping__cart__item\">";
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">";	
 			output += "<h5>" + mycart[i].pdname + "</h5>";
@@ -220,17 +212,42 @@ text-align: center;
 			output += "</td>";
 			
 			output += "<td class=\"shoping__cart__total\">";
-			output += "<h5 id=\"totalPrice\"></h5>";
+			output += "<h5>" + mycart[i].cttotal + "</h5>";
 			output += "</td>";
 			
 			output += "<td class=\"shoping__cart__item__close\">";
 			output += "<span class=\"icon_close\"></span>";
 			output += "</td>";
-			
-			
+			output += "</tr>"
+			totalPrice = mycart[i].cttotal;
+			maxPrice = maxPrice + totalPrice;
 		}
+		
 		$("#myCartList").html(output);
+		var sumPrice = 0;
 		console.log("호출2");
+		var output2 = "";
+		
+		output2 += "<div class=\"shoping__checkout\">";
+		output2 += "<h5>전체 가격</h5>";
+		output2 += "<ul>";
+		output2 += "<li>전체 금액 <span>"+maxPrice+"</span>";
+		output2 += "<li> 할인 금액 <span>0</span>";
+		output2 += "</li>";
+		output2 += "<li>결제 금액 <span>"+maxPrice+"</span></li>";
+		output2 += "</ul>";
+		output2 += " <a href=\"#\" class=\"primary-btn\">결제하기</a>";
+		output2 += "</div>";
+		
+        
+       $("#checkOut").html(output2);    
+            	
+          
+            
+            
+        
+        
+    
 	}
 
 
@@ -268,11 +285,7 @@ text-align: center;
 				async : false,
 				success : function(mycart){
 					console.log(mycart);
-					console.log(mycart[1].cttotal);
-					$("#totalPrice").text(mycart[1].cttotal);
-					
-					//myCart();
-					
+					myCart();
 				}
 			
 			});
