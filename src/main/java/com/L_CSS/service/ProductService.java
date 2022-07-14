@@ -18,6 +18,11 @@ public class ProductService {
 
 	@Autowired
 	ProductDao pdao;
+	
+	public ModelAndView mainProduct() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	// 업체 상품 업로드
 	public ModelAndView productUpLoad() {
@@ -293,6 +298,5 @@ public class ProductService {
 		
 		return mav;
 	}
-	
 	
 }

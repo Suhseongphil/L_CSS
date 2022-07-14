@@ -42,21 +42,14 @@
 
 	<!-- Hero Section Begin -->
 	<div class="container">
-		<div class="row">
 			<%@ include file="includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
-		</div>
 	</div>
 	<!-- Hero Section End -->
 	<section class="hero">
 		<div class="container">
 			<div class="row">
-				<%@ include file="includes/SideBar.jsp"%>
-				<div class="col-lg-9">
-					<div class="hero__search">
+				<div class="col-lg-12">
+					<!-- <div class="hero__search">
 						<div class="hero__search__form">
 							<form action="#">
 								<div class="hero__search__categories">
@@ -68,7 +61,7 @@
 							</form>
 						</div>
 					</div>
-					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/banner.jpg">
+ -->					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/banner/L_CSS_Banner_2.jpeg">
 						<div class="hero__text2">
 							<span>BEENS FRESH</span>
 							<h2>
@@ -129,7 +122,7 @@
 	</section>
 	<!-- Categories Section End -->
 
-	<!-- Featured Section Begin -->
+	<!-- 상품종류 시작 -->
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
@@ -141,14 +134,15 @@
 						<ul>
 							<li class="active" data-filter="*">모든상품</li>
 							<li data-filter=".oranges">원두&커피</li>
-							<li data-filter=".fresh-meat">시럽&파우더</li>
-							<li data-filter=".vegetables">커피머신&제빙기</li>
+							<li data-filter=".fresh-meat">소스&파우더</li>
+							<li data-filter=".vegetables">머신&제빙기</li>
 							<li data-filter=".fastfood">테이블&의자</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="row featured__filter">
+			
 				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/featured/feature-1.jpg">
@@ -178,6 +172,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
@@ -207,6 +202,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
@@ -236,6 +232,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
@@ -265,6 +262,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
@@ -294,9 +292,10 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
 					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
+						<div class="featured__item__pic set-bg" data-setbg="">
 							<ul class="featured__item__pic__hover">
 								<li>
 									<a href="#">
@@ -323,6 +322,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
@@ -352,6 +352,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
@@ -381,10 +382,11 @@
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section>
-	<!-- Featured Section End -->
+	<!-- 상품종류 끝  -->
 
 	<!-- Banner Begin -->
 

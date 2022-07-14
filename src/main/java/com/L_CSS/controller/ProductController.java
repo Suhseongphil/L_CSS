@@ -15,6 +15,16 @@ public class ProductController {
 	@Autowired
 	ProductService psv;
 	
+	// 메인 페이지 이동
+	@RequestMapping(value = "/main")
+	public ModelAndView Main() {
+		System.out.println("메인 페이지 호출");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = psv.mainProduct();
+		return mav;
+	}
+	
 	@RequestMapping (value="/productUpLoad")
 	public ModelAndView productUpLoad() {
 		System.out.println("업체 상품 정보 업로드");
