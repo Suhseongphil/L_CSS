@@ -61,12 +61,16 @@ text-align: center;
   .divpadding{
   padding-top: 36px;
   }
-  .center{
-  text-align : center;
-  }
-  h7{
-  text-align : center;
-  }
+  textarea{
+    width: 300px;
+    height: 300px;
+    border: none;
+    resize: none;
+    padding-bottom: 10px;
+}
+h5{
+    padding-bottom: 10px;
+}
 </style>
 
 <body>
@@ -111,63 +115,55 @@ text-align: center;
            
 
                <!--<section class="shoping-cart spad">  -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                    
-                            <div class="item display" style="padding-top:30px;">
-												<div class="row" style="padding-bottom: 20px; text-align: center; ">
-													<div class="col-6">
-														<h5>문의유형</h5>
-													</div>
-													<div class="col-2">
-														<h5>문의제목</h5>
-													</div>
-													<div class="col-2">
-														<h5>시간</h5>
-													</div>
-													<div class="col-2">
-														<h5>상태</h5>	
-													</div>
-												</div>
-										
-											
-												
-												
-												<div id="myInqurreList" class="item">
-													
-
-												</div>
-												
-											
-									</div>
-                                
-                                
-                               
-                            
-                         
-                    </div>
-                </div>
+        
+            <form action="insertInquire" method="post" enctype="multipart/form-data">
+            
+    <div class="row">
+        
+            <div class="col-6">
+                <h5>작성자 : ${sessionScope.loginId} <input type="hidden"  id="iqmid" name="iqmid" value="${sessionScope.loginId}"> <br></h5>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        
-                        <a href="insertInquirePage" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            문의작성</a>
-                    </div>
-                </div>
-             
-              
+        
+	</div>
+        <div class="row">
+            <div class="col-12">
+                <h5>제목 : <input type="text" id="iqtitle" name="iqtitle"></h5>
             </div>
         </div>
-    <!--</section>  -->
+        <div class="row">
+            <div class="col-4">
+                <h5>카테고리</h5>
+              </div>  
+                <div class="col-8">
+                <select name="iqcategory" id="iqcategory">
+                                    <option value="결제오류">결제오류</option>
+                                    <option value="배송관련">배송관련</option>
+                                    <option value="상품관련">상품관련</option>
+                                    <option value="기타">기타</option>
+                                    
+                                 </select>
+            
+           	</div>
             </div>
-
-        
+        <div class="row">
+            <div class="col-4" >
+                <h5>문의내용 <br><br> <textarea name="iqcomment" id="iqcomment" placeholder="내용을 입력해주세요.." ></textarea></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div  class="col-4">
+                <h5>첨부파일 : <input type="file" name="iqfile" id="iqdile" ></h5>
+            </div>
+        </div>
+       	<button>작성하기</button>
+	
+  </form>
         </div>
     </div>
+        </div>
+    <!--</section>  -->
+   
+    
     <!-- End Cart -->
  
     <!-- Start Instagram Feed  -->
@@ -197,62 +193,92 @@ text-align: center;
 </body>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		myInquire();
+		myCart();
 	});
 	
-	function myInquire(){
+	function myCart(){
 		$.ajax({
 			type : "get",
-			url : "myInquire",
+			url : "myCart",
 			dataType : "json",
-			success : function(myInquire) {
-				console.log(myInquire);
-				InquirePrint(myInquire);
+			success : function(mycart) {
+				console.log(mycart);
+				cartPrint(mycart);
 			}
 		});
 	}
 	
-	function InquirePrint(myInquire){
+	function cartPrint(mycart){
 		
+		var totalPrice = 0;
+		var maxPrice = 0;
 		
-		console.log(myInquire);
 		var output = "";
-		for(var i = 0; i < myInquire.length; i++){
+		for(var i = 0; i < mycart.length; i++){
 			
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6 center\">"
-			
-			output += "<h7 style=\"padding-top: 36px;\">" + myInquire[i].iqcategory + "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			output += "<div class=\"col-6\">"
+			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
+			output += "<h7>" + mycart[i].pdname + "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2 divpadding \">"
-			output += "<h5>" + myInquire[i].iqtitle + "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			output += "<h5>" + mycart[i].pdprice + "원</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 			
 			//output += "<td class=\"shoping__cart__quantity\">";
-			
-					
-			output += "<div class=\"col-2 divpadding \">"
-			output += "<h5>" + myInquire[i].iqdate + "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			//output += "</td>";
+			output += "<div class=\"col-2 divpadding\">"
+			output += "<div id=\"amounList\" >";				
+			output += "<button class=\"but_css\" onclick=\"updateMinus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">-</button>&nbsp;&nbsp;"
+			output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value="+mycart[i].ctamount+ ">&nbsp;&nbsp;";
+			output += "<button class=\"but_css\" onclick=\"updatePlus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">+</button>&nbsp;&nbsp;"
 			output += "</div>";
-			
-			
+			output += "</div>";
 			//output += "</td>";
 			
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + myInquire[i].iqstate + " &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
-			output += "</div>";
-			output += "</div>";
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
 			
+			output += "</div>";
+			//output += "</td>";
+			
+			//output += "<td class=\"shoping__cart__item__close\">";
+			//output += "</td>";
+			//output += "</tr>"
+			output += "</div>";
+			totalPrice = mycart[i].cttotal;
+			maxPrice = maxPrice + totalPrice;
 		}
 		
-		$("#myInqurreList").html(output);
+		$("#myCartList").html(output);
+		var sumPrice = 0;
+		console.log("호출2");
+		var output2 = "";
+		
+		output2 += "<div class=\"shoping__checkout\">";
+		output2 += "<h5>전체 가격</h5>";
+		output2 += "<ul>";
+		output2 += "<li>전체 금액 <span>"+maxPrice+"&nbsp;원</span>";
+		output2 += "<li> 할인 금액 <span>0</span>";
+		output2 += "</li>";
+		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
+		output2 += "</ul>";
+		output2 += " <a href=\"#\" class=\"primary-btn\">결제하기</a>";
+		output2 += "</div>";
+		
+        
+       $("#checkOut").html(output2);    
+            	
+          
+            
+            
+        
+        
     
 	}
 

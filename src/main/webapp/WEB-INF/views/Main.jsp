@@ -14,16 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-<style>
-body {
-	background-image: url('https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F0b%2F1c%2F61%2F0b1c6148fb76c8312ea7c3c8454fce62.jpg&type=ofullfill340_600_png');
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-</style>
-
-
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
@@ -69,7 +59,7 @@ body {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="hero__search"></div>
-					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/002.jpg"></div>
+					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg"></div>
 				</div>
 			</div>
 		</div>

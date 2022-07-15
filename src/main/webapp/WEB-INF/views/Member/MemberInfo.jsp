@@ -107,6 +107,7 @@
     </header>
     <!-- Header Section End -->
 		 <div class="container">
+		 
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
@@ -119,7 +120,7 @@
     <section class="hero">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-7">
                   	
                     <div class="hero__item set-bg" >
                         <div class="hero__text2">
@@ -129,9 +130,21 @@
                             <p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
                             <p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
                             <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }</p>
-           					<a href ="memberModify" class="btn btn-primary">정보수정</a>
+           					<button type="button" id="show" class="btn btn-primary">정보수정</button>
                         </div>
+                        <div class="background">
+                        	<div class="window">
+                        		<div class="popup">
+                        		<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
+                            	<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
+                        		<button type="button" id="save" class="btn btn-primary">정보수정</button>
+                        		<button type="button" id="close" class="btn btn-primary">취소</button>
+                        		</div>
+                        	</div>
+                        </div>
+                        
                     </div>
+                    
                     
                 </div>
                  <div class="col-lg-5">
@@ -145,6 +158,7 @@
                 </div>
             </div>
         </div>
+        
     </section>
     <!-- Hero Section End -->
 
@@ -237,4 +251,19 @@
 	}
 	
 </script>
+
+<script>
+function show () {
+	  document.querySelector(".background").className = "background show";
+	}
+
+	function close () { 
+	  document.querySelector(".background").className = "background";
+	}
+
+	document.querySelector("#show").addEventListener('click', show);
+	document.querySelector("#close").addEventListener('click', close);
+</script>
+
+
 </html>
