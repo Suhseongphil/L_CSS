@@ -47,7 +47,8 @@
 
 /* header__menu */
 .header__menu2 {
-	padding: 24px 0;
+	padding: 10px 0;
+	margin-right: +15px;
 }
 
 .header__menu2 ul li {
@@ -134,11 +135,11 @@
 }
 
 .featured__item__text2 h6 a {
-	color: white;
+	color: black;
 }
 
 .featured__item__text2 h5 {
-	color: white;
+	color: black;
 	font-weight: 700;
 }
 

@@ -1573,6 +1573,7 @@ pre code {
     .col-lg-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
+        height:45px;
         max-width: 50%
     }
 

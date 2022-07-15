@@ -21,9 +21,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                            
-                           	<div class="header__top__right__auth">
-                                <a href="admin"><i class="fa fa-user"> </i> 관리자 </a>&nbsp;&nbsp;&nbsp;
-                            </div>
+                           	
                             
                             <div class="header__top__right__auth">
                                 <a href="main"><i class="fa fa-user"> </i> 메인 </a>&nbsp;&nbsp;&nbsp;
