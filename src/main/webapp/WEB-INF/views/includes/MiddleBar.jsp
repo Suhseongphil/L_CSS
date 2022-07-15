@@ -58,6 +58,7 @@
 				<li>
 					<a href="./contact.html">공동구매</a>
 				</li>
+				
 			</ul>
 		</nav>
 	</div>
