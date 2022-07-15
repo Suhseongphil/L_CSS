@@ -22,13 +22,7 @@
     <link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min2.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style2.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/responsive2.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/custom2.css">
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -37,12 +31,37 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
+<style>
+.but_css{
+height: 20px; 
+width: 20px; 
+border: none; 
+font-size: 10;
+font-weight:800;
+text-align: center;
+}
+ .item display{
+  	display: flex;
+  	flex-direction: column;
+  	
+  }
+  .item{
+  padding-bottom: 30px;
+  }
+  .px{
+  padding-bottom: 30px;
+  }
+  .divpadding{
+  padding-top: 36px;
+  }
+</style>
 
 <body>
     <!-- Start Main Top -->
@@ -79,74 +98,67 @@
     </header>
     
 
-    <div class="cart-box-main" style="text-align: center;">
-        <div class="container" >
-            <span  style="text-align: center;">
-                <h3 >고객 센터 &nbsp&nbsp&nbsp&nbsp&nbsp <input  type="text" placeholder="검색..">&nbsp&nbsp&nbsp <button class="btn-sm btn-Info">검색</button></h3>  
-            </span>
-        </div>  
-        </div>
     <!-- Start Cart  -->
     <div class="cart-box-main">
         <div class="container">
             <div class="row">
            
-           		<%@ include file ="../includes/SideBar.jsp" %>
-       	
-    
-                <div class="col-lg-7">
-                    <div class="table-main table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>작성자</th>
-                                    <th>문의 카테고리</th>
-                                    <th>문의 제목</th>
-                                    <th>문의 상태</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-									<img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
-								</a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									Lorem ipsum dolor sit amet
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 80.0</p>
-                                    </td>
-                                    <td class="quantity-box"></td>
-                                    
-                                    <td class="remove-pr">
-                              
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                       kifsa
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-									배송관련
-								</a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>배송이 안옵니다</p>
-                                    </td>
-                                    <td class="quantity-box"> 답변대기 </td>
-                                  
-                                </tr>
-                              
-                            </tbody>
-                        </table>
+
+               <!--<section class="shoping-cart spad">  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                    
+                            <div class="item display" style="padding-top:30px;">
+												<div class="row" style="padding-bottom: 20px; text-align: center; ">
+													<div class="col-6">
+														<h5>문의제목</h5>
+													</div>
+													<div class="col-2">
+														<h5>문의내용</h5>
+													</div>
+													<div class="col-2">
+														<h5>답변상태</h5>
+													</div>
+													<div class="col-2">
+														<h5>문의취소</h5>	
+													</div>
+												</div>
+										
+											
+												
+												
+												<div id="myCartList" class="item">
+													
+
+												</div>
+												
+											
+									</div>
+                                
+                                
+                               
+                            
+                         
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="#" class="primary-btn cart-btn">더 쇼핑하기</a>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                            새로고침</a>
+                    </div>
+                </div>
+             
+                <div id="checkOut" class="col-lg-6" >
+                   
+                </div>
+            </div>
+        </div>
+    <!--</section>  -->
             </div>
 
         
@@ -168,7 +180,7 @@
     <!-- End copyright  -->
 
     
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
@@ -179,5 +191,136 @@
     <!-- ALL JS FILES -->
 
 </body>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		myCart();
+	});
+	
+	function myCart(){
+		$.ajax({
+			type : "get",
+			url : "myCart",
+			dataType : "json",
+			success : function(mycart) {
+				console.log(mycart);
+				cartPrint(mycart);
+			}
+		});
+	}
+	
+	function cartPrint(mycart){
+		
+		var totalPrice = 0;
+		var maxPrice = 0;
+		
+		var output = "";
+		for(var i = 0; i < mycart.length; i++){
+			
+			//output += "<tr>"
+			//output += "<td class=\"shoping__cart__item\">";
+			output += "<div class=\"row px\">";
+			output += "<div class=\"col-6\">"
+			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
+			output += "<h7>" + mycart[i].pdname + "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			//output += "</td>";
+			output += "</div>";
+			//output += "<td class=\"shoping__cart__price\">";
+			output += "<div class=\"col-2 divpadding \">"
+			output += "<h5>" + mycart[i].pdprice + "원</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			//output += "</td>";
+			output += "</div>";
+			
+			//output += "<td class=\"shoping__cart__quantity\">";
+			output += "<div class=\"col-2 divpadding\">"
+			output += "<div id=\"amounList\" >";				
+			output += "<button class=\"but_css\" onclick=\"updateMinus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">-</button>&nbsp;&nbsp;"
+			output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value="+mycart[i].ctamount+ ">&nbsp;&nbsp;";
+			output += "<button class=\"but_css\" onclick=\"updatePlus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">+</button>&nbsp;&nbsp;"
+			output += "</div>";
+			output += "</div>";
+			//output += "</td>";
+			
+			//output += "<td class=\"shoping__cart__total\">";
+			output += "<div class=\"col-2 divpadding\">"
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
+			
+			output += "</div>";
+			//output += "</td>";
+			
+			//output += "<td class=\"shoping__cart__item__close\">";
+			//output += "</td>";
+			//output += "</tr>"
+			output += "</div>";
+			totalPrice = mycart[i].cttotal;
+			maxPrice = maxPrice + totalPrice;
+		}
+		
+		$("#myCartList").html(output);
+		var sumPrice = 0;
+		console.log("호출2");
+		var output2 = "";
+		
+		output2 += "<div class=\"shoping__checkout\">";
+		output2 += "<h5>전체 가격</h5>";
+		output2 += "<ul>";
+		output2 += "<li>전체 금액 <span>"+maxPrice+"&nbsp;원</span>";
+		output2 += "<li> 할인 금액 <span>0</span>";
+		output2 += "</li>";
+		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
+		output2 += "</ul>";
+		output2 += " <a href=\"#\" class=\"primary-btn\">결제하기</a>";
+		output2 += "</div>";
+		
+        
+       $("#checkOut").html(output2);    
+            	
+          
+            
+            
+        
+        
+    
+	}
 
+
+	function updateMinus(ctcode,ctamount){
+			
+			console.log("빼기")
+			console.log(ctcode);
+			console.log(ctamount);
+			$.ajax({
+				type : "get",
+				url : "updateMinus",
+				data : {"ctcode" : ctcode , "ctamount" : ctamount },
+				dataType : "json",
+				async : false,
+				success : function(mycart){
+					console.log(mycart);
+					myCart();
+				}
+			
+			});
+			
+			
+		}
+		
+		function updatePlus(ctcode,ctamount){
+			console.log("더하기")
+			console.log(ctcode);
+			console.log(ctamount);
+			
+			$.ajax({
+				type : "get",
+				url : "updatePlus",
+				data : {"ctcode" : ctcode , "ctamount" : ctamount },
+				dataType : "json",
+				async : false,
+				success : function(mycart){
+					console.log(mycart);
+					myCart();
+				}
+			
+			});
+		}
+	</script>
 </html>
