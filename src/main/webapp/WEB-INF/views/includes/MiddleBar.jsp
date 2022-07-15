@@ -18,13 +18,13 @@
 </head>
 <body>
 	<div class="col-lg-3">
-		<div class="header__logo">
+		<div class="header__logo" style="text-align: center;" >
 			<h2>L&CSS</h2>
 		</div>
 	</div>
 
 	<div class="col-lg-9">
-		<nav class="header__menu2">
+		<nav class="header__menu2"  style="text-align: right;">
 			<ul>
 				<li class="active">
 					<a href="main">메인</a>
