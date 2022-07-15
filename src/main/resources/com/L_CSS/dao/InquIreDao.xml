@@ -11,4 +11,14 @@
 	from INQUIRE
   	
 	</select>
+	
+	<insert id="insertInquire">
+		insert into INQUIRE values(#{iqcode},#{iqmid},#{iqcategory},#{iqtitle},#{iqcomment},#{iqimg},0,SYSDATE)
+	</insert>
+  	
+  	<select id="selectInquire" resultType="com.L_CSS.dto.InquIreDto">
+  	select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE ,'YYYY-MM-DD') AS IQDATE
+  	from INQUIRE
+  	where iqmid = #{loginId}
+  	</select>
   </mapper>
