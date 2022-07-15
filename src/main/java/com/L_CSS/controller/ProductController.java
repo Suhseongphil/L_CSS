@@ -16,7 +16,7 @@ public class ProductController {
 	ProductService psv;
 
 	// 메인 페이지 이동
-	@RequestMapping(value = "/main")
+	@RequestMapping(value = "/")
 	public ModelAndView Main() {
 		System.out.println("메인 페이지 호출");
 		ModelAndView mav = new ModelAndView();

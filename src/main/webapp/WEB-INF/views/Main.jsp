@@ -85,9 +85,9 @@ body {
 						<ul>
 							<li class="active" data-filter="*">모든상품</li>
 							<li data-filter=".beens">원두&커피</li>
-							<li data-filter=".fresh-meat">시럽&파우더</li>
-							<li data-filter=".vegetables">커피머신&제빙기</li>
-							<li data-filter=".fastfood">테이블&의자</li>
+							<li data-filter=".sauce">소스&파우더</li>
+							<li data-filter=".machine">커피머신&제빙기</li>
+							<li data-filter=".table">테이블&의자</li>
 						</ul>
 					</div>
 				</div>
@@ -98,22 +98,12 @@ body {
 				<c:forEach items="${productList}" var="product">
 
 					<c:choose>
-					
+
 						<c:when test="${product.pdtype == '원두' }">
 							<div class="col-lg-3 col-md-4 col-sm-6 mix beens">
 								<div class="featured__item">
 									<div class="featured__item__pic set-bg" data-setbg="${product.pdimg}">
 										<ul class="featured__item__pic__hover">
-											<li>
-												<a href="#">
-													<i class="fa fa-heart"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fa fa-retweet"></i>
-												</a>
-											</li>
 											<li>
 												<a href="#">
 													<i class="fa fa-shopping-cart"></i>
@@ -125,203 +115,85 @@ body {
 										<h6>
 											<a href="#">${product.pdname }</a>
 										</h6>
-										<h5>${product.pdprice} 원</h5>
+										<h5>${product.pdprice}원</h5>
+									</div>
+								</div>
+							</div>
+						</c:when>
+
+						<c:when test="${product.pdtype == '소스' || product.pdtype == '파우더'}">
+							<div class="col-lg-3 col-md-4 col-sm-6 mix sauce">
+								<div class="featured__item">
+									<div class="featured__item__pic set-bg" data-setbg="${product.pdimg}">
+										<ul class="featured__item__pic__hover">
+											<li>
+												<a href="#">
+													<i class="fa fa-shopping-cart"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="featured__item__text2">
+										<h6>
+											<a href="#">${product.pdname }</a>
+										</h6>
+										<h5>${product.pdprice}원</h5>
 									</div>
 								</div>
 							</div>
 						</c:when>
 						
-						<c:when test="${product.pdtype == '소스' }">
-						
+						<c:when test="${product.pdtype == '머신' || product.pdtype == '제빙기'}">
+							<div class="col-lg-3 col-md-4 col-sm-6 mix machine">
+								<div class="featured__item">
+									<div class="featured__item__pic set-bg" data-setbg="${product.pdimg}">
+										<ul class="featured__item__pic__hover">
+											<li>
+												<a href="#">
+													<i class="fa fa-shopping-cart"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="featured__item__text2">
+										<h6>
+											<a href="#">${product.pdname }</a>
+										</h6>
+										<h5>${product.pdprice}원</h5>
+									</div>
+								</div>
+							</div>
 						</c:when>
 						
+						<c:when test="${product.pdtype == '테이블' || product.pdtype == '의자'}">
+							<div class="col-lg-3 col-md-4 col-sm-6 mix table">
+								<div class="featured__item">
+									<div class="featured__item__pic set-bg" data-setbg="${product.pdimg}">
+										<ul class="featured__item__pic__hover">
+											<li>
+												<a href="#">
+													<i class="fa fa-shopping-cart"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="featured__item__text2">
+										<h6>
+											<a href="#">${product.pdname }</a>
+										</h6>
+										<h5>${product.pdprice}원</h5>
+									</div>
+								</div>
+							</div>
+						</c:when>
+
 					</c:choose>
 
 				</c:forEach>
-
-				<!-- <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+<!-- 
+				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
-							<ul class="featured__item__pic__hover">
-								<li>
-									<a href="#">
-										<i class="fa fa-heart"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-retweet"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-shopping-cart"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
 							<ul class="featured__item__pic__hover">
 								<li>
 									<a href="#">
@@ -382,6 +254,20 @@ body {
 					</div>
 					<div class="col-lg-3">
 						<div class="categories__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-4.jpg">
+							<h5>
+								<a href="#">drink fruits</a>
+							</h5>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="categories__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-5.jpg">
+							<h5>
+								<a href="#">drink fruits</a>
+							</h5>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="categories__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-5.jpg">
 							<h5>
 								<a href="#">drink fruits</a>
 							</h5>
