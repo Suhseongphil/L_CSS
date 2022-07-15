@@ -54,14 +54,76 @@
 		</div>
 	</div>
 	<!-- Hero Section End -->
-	
+
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-				
-				</div>
+
+
+				<form action="adminCreateCafeInfo" enctype="multipart/form-data">
+
+					<div class="col-1">
+
+						<span class="font-weight-bold">카페이름</span>
+
+
+						<input class="input_width" type="text" id="cfname" name="cfname" placeholder="카페 이름">
+
+					</div>
+					<div class="col-2">
+
+						<span class="font-weight-bold">주소</span>
+
+						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+						<br>
+						<input type="text" id="sample6_postcode" name="cfPostCode" placeholder="우편번호">
+						<input type="text" id="sample6_address" name="cfAddr" placeholder="주소">
+						<br>
+						<input type="text" id="sample6_detailAddress" name="cfDetailAddress" placeholder="상세주소">
+						<input type="text" id="sample6_extraAddress" name="cfExtraAddress" placeholder="참고항목">
+
+					</div>
+					<div class="col-2">
+
+						<span class="input_width font-weight-bold">카페 전화번호</span>
+
+
+						<input type="text" id="cftel" name="cftel" placeholder="전화번호 - 포함">
+
+					</div>
+					<div class="col-2">
+
+						<span class="input_width font-weight-bold">카페링크</span>
+
+						<input type="text" id="cflink" name="cflink">
+
+					</div>
+					<div class="col-2">
+
+						<span class="font-weight-bold">카페 이미지</span>
+
+
+						<input type="file" id="cfimgs" name="cfimgs" multiple="multiple">
+
+					</div>
+					<div class="col-2">
+
+						<span class="font-weight-bold">시그니처 이미지</span>
+
+						<input type="file" id="cfsigimgs" name="cfsigimgs">
+
+					</div>
+					<div class="col-1">
+
+
+						<button type="button" id="cafeSend">입력</button>
+
+					</div>
+
+				</form>
+
+
 			</div>
 		</div>
 	</section>

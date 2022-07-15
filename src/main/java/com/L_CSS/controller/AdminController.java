@@ -94,7 +94,7 @@ public class AdminController {
 	public String admincafeInsert() {
 		System.out.println("어드민 카페정보 입력 페이지");
 
-		return "Admin/AdminCafeInsert";
+		return "Admin/AdminCafe";
 	}
 
 	// 어드민 메뉴정보 입력 페이지 이동

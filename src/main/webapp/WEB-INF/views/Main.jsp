@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+</code>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +118,9 @@ body {
 										<h6>
 											<a href="#">${product.pdname }</a>
 										</h6>
-										<h5>${product.pdprice}원</h5>
+										<h5>
+											<fmt:formatNumber value="${product.pdprice}" pattern="#,###" /> 원
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -137,12 +142,14 @@ body {
 										<h6>
 											<a href="#">${product.pdname }</a>
 										</h6>
-										<h5>${product.pdprice}원</h5>
+										<h5>
+											<fmt:formatNumber value="${product.pdprice}" pattern="#,###" /> 원
+										</h5>
 									</div>
 								</div>
 							</div>
 						</c:when>
-						
+
 						<c:when test="${product.pdtype == '머신' || product.pdtype == '제빙기'}">
 							<div class="col-lg-3 col-md-4 col-sm-6 mix machine">
 								<div class="featured__item">
@@ -159,12 +166,14 @@ body {
 										<h6>
 											<a href="#">${product.pdname }</a>
 										</h6>
-										<h5>${product.pdprice}원</h5>
+										<h5>
+											<fmt:formatNumber value="${product.pdprice}" pattern="#,###" /> 원
+										</h5>
 									</div>
 								</div>
 							</div>
 						</c:when>
-						
+
 						<c:when test="${product.pdtype == '테이블' || product.pdtype == '의자'}">
 							<div class="col-lg-3 col-md-4 col-sm-6 mix table">
 								<div class="featured__item">
@@ -181,7 +190,9 @@ body {
 										<h6>
 											<a href="#">${product.pdname }</a>
 										</h6>
-										<h5>${product.pdprice}원</h5>
+										<h5>
+											<fmt:formatNumber value="${product.pdprice}" pattern="#,###" /> 원
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -190,7 +201,7 @@ body {
 					</c:choose>
 
 				</c:forEach>
-<!-- 
+				<!-- 
 				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 					<div class="featured__item">
 						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
