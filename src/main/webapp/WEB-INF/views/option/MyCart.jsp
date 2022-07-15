@@ -47,7 +47,20 @@ font-size: 10;
 font-weight:800;
 text-align: center;
 }
-
+ .item display{
+  	display: flex;
+  	flex-direction: column;
+  	
+  }
+  .item{
+  padding-bottom: 30px;
+  }
+  .px{
+  padding-bottom: 30px;
+  }
+  .divpadding{
+  padding-top: 36px;
+  }
 </style>
 
 <body>
@@ -91,33 +104,43 @@ text-align: center;
             <div class="row">
            
 
-               <section class="shoping-cart spad">
+               <!--<section class="shoping-cart spad">  -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                	
-                                    <th class="shoping__product">이름</th>
-                                    <th>가격</th>
-                                    <th>수량</th>
-                                    <th>총가격</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            
-                            
-                                <tr id="myCartList">
-                              	 
-                                    
-                                </tr>
+                    
+                            <div class="item display" style="padding-top:30px;">
+												<div class="row" style="padding-bottom: 20px; text-align: center; ">
+													<div class="col-6">
+														<h5>이름</h5>
+													</div>
+													<div class="col-2">
+														<h5>가격</h5>
+													</div>
+													<div class="col-2">
+														<h5>수량</h5>
+													</div>
+													<div class="col-2">
+														<h5>총가격</h5>	
+													</div>
+												</div>
+										
+											
+												
+												
+												<div id="myCartList" class="item">
+													
+
+												</div>
+												
+											
+									</div>
+                                
+                                
                                
                             
-                            </tbody>
-                        </table>
+                         
                     </div>
                 </div>
             </div>
@@ -135,7 +158,7 @@ text-align: center;
                 </div>
             </div>
         </div>
-    </section>
+    <!--</section>  -->
             </div>
 
         
@@ -193,32 +216,41 @@ text-align: center;
 		var output = "";
 		for(var i = 0; i < mycart.length; i++){
 			
-			output += "<tr>"
-			output += "<td class=\"shoping__cart__item\">";
-			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">";	
-			output += "<h5>" + mycart[i].pdname + "</h5>";
-			output += "</td>";
-			
-			output += "<td class=\"shoping__cart__price\">";
-			output += "<h5>" + mycart[i].pdprice + "</h5>";
-			output += "</td>";
-			
-			output += "<td class=\"shoping__cart__quantity\">";
-			output += "<div id=\"amounList\" >";					 
-			output += "<button class=\"but_css\" onclick=\"updateMinus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">-</button>"
-			output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value="+mycart[i].ctamount+ ">";
-			output += "<button class=\"but_css\" onclick=\"updatePlus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">+</button>"
+			//output += "<tr>"
+			//output += "<td class=\"shoping__cart__item\">";
+			output += "<div class=\"row px\">";
+			output += "<div class=\"col-6\">"
+			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";	
+			output += "<h7>" + mycart[i].pdname + "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			//output += "</td>";
 			output += "</div>";
-			output += "</td>";
+			//output += "<td class=\"shoping__cart__price\">";
+			output += "<div class=\"col-2 divpadding \">"
+			output += "<h5>" + mycart[i].pdprice + "원</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			//output += "</td>";
+			output += "</div>";
 			
-			output += "<td class=\"shoping__cart__total\">";
-			output += "<h5>" + mycart[i].cttotal + "</h5>";
-			output += "</td>";
+			//output += "<td class=\"shoping__cart__quantity\">";
+			output += "<div class=\"col-2 divpadding\">"
+			output += "<div id=\"amounList\" >";				
+			output += "<button class=\"but_css\" onclick=\"updateMinus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">-</button>&nbsp;&nbsp;"
+			output += "<input style=\"width:50px;\" id=\"conut\" type=\"text\" value="+mycart[i].ctamount+ ">&nbsp;&nbsp;";
+			output += "<button class=\"but_css\" onclick=\"updatePlus('"+mycart[i].ctcode+"','"+mycart[i].ctamount+"')\">+</button>&nbsp;&nbsp;"
+			output += "</div>";
+			output += "</div>";
+			//output += "</td>";
 			
-			output += "<td class=\"shoping__cart__item__close\">";
-			output += "<span class=\"icon_close\"></span>";
-			output += "</td>";
-			output += "</tr>"
+			//output += "<td class=\"shoping__cart__total\">";
+			output += "<div class=\"col-2 divpadding\">"
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
+			
+			output += "</div>";
+			//output += "</td>";
+			
+			//output += "<td class=\"shoping__cart__item__close\">";
+			//output += "</td>";
+			//output += "</tr>"
+			output += "</div>";
 			totalPrice = mycart[i].cttotal;
 			maxPrice = maxPrice + totalPrice;
 		}
@@ -231,10 +263,10 @@ text-align: center;
 		output2 += "<div class=\"shoping__checkout\">";
 		output2 += "<h5>전체 가격</h5>";
 		output2 += "<ul>";
-		output2 += "<li>전체 금액 <span>"+maxPrice+"</span>";
+		output2 += "<li>전체 금액 <span>"+maxPrice+"&nbsp;원</span>";
 		output2 += "<li> 할인 금액 <span>0</span>";
 		output2 += "</li>";
-		output2 += "<li>결제 금액 <span>"+maxPrice+"</span></li>";
+		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
 		output2 += "</ul>";
 		output2 += " <a href=\"#\" class=\"primary-btn\">결제하기</a>";
 		output2 += "</div>";
