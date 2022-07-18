@@ -17,6 +17,10 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Gowun+Batang:wght@700&family=Hahmlet:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
 <!-- Css Styles -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
@@ -59,7 +63,11 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="hero__search"></div>
-					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg"></div>
+					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg">
+						<div class="center" id="text_ls">
+        					<a href="#"><span data-attr="Buy">Buy</span><span data-attr="Now">Now</span></a>
+    					</div>
+					</div>
 				</div>
 			</div>
 		</div>
