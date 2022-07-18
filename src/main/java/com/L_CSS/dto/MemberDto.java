@@ -16,13 +16,22 @@ public class MemberDto {
 	private int mtype;
 	private	int	mstate;
 	private String emailDomain;
+	private String mtel;
 	
+	
+	private String memail2;
 	private MultipartFile mfile;
 	private String mpostercode;
 	private String maddr;
 	private String maddr2;
 	private String mdetailaddress;
 	private String mextraaddress;
+	
+	private String mpostercode3;
+	private String maddr3;
+	private String mdetailaddress3;
+	private String mextraaddress3;
+	
 	
 	
 }
