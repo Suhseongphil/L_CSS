@@ -39,9 +39,7 @@ public class MemberService {
 		System.out.println("memberJoin ()호출");
 		System.out.println(member);
 		ModelAndView mav = new ModelAndView();
-		String email2 = member.getMemail();
 		String email = member.getMemail() + "@" + member.getEmailDomain();
-		member.setMemail2(email2);
 		MultipartFile mfile = member.getMfile();
 
 		member.setMemail(email);
@@ -63,15 +61,7 @@ public class MemberService {
 			mprofile = bsfile;
 
 		}
-		String maddr3 = member.getMaddr();
-		String mdetailaddress3 = member.getMdetailaddress();
-		String mextraaddress3 = member.getMextraaddress();
-		String mprostercode3 = member.getMpostercode();
 		
-		member.setMaddr3(maddr3);
-		member.setMdetailaddress3(mdetailaddress3);
-		member.setMextraaddress3(mextraaddress3);
-		member.setMpostercode3(mprostercode3);
 
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
 			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
@@ -88,6 +78,7 @@ public class MemberService {
 		}
 
 		member.setMprofile(mprofile);
+		
 
 		int inserMember = mdao.InsertMember(member);
 
@@ -141,14 +132,19 @@ public class MemberService {
 			String[] mpost = MemberInfo.getMaddress().split("_");
 			String[] email = MemberInfo.getMemail().split("@");
 			
+			System.out.println("mpost.length : " + mpost.length);
+			if(mpost.length != 4) {
+				
+				MemberInfo.setMaddr2(mpost[2]);
+				MemberInfo.setMextraaddress3(mpost[2]);
 			
-			System.out.println(mpost[2]);
-			System.out.println(mpost[3]);
+			}else {
+				System.out.println(mpost[3]);
+				MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
+				MemberInfo.setMdetailaddress3(mpost[3]);
+			}
 			MemberInfo.setMpostercode(mpost[0]);
 			MemberInfo.setMaddr(mpost[1]);
-			MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
-			MemberInfo.setMdetailaddress3(mpost[3]);
-			MemberInfo.setMextraaddress3(mpost[2]);
 			
 			System.out.println(email[0]);
 			System.out.println(email[1]);
@@ -242,6 +238,35 @@ public class MemberService {
 		}
 
 		return mav;
+	}
+
+	public  void memberModify(MemberDto member, RedirectAttributes ra)  throws IllegalStateException, IOException {
+		System.out.println("MemberService.memberModify() 호출");
+		System.out.println("수정할 회원 정보");
+		
+		String email = member.getMemail2() + "@" + member.getEmailDomain();
+		member.setMemail(email);
+		System.out.println(member.getMemail());
+		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
+			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
+		} else {
+			if (member.getMextraaddress().length() == 0) {
+				member.setMaddress(
+						member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMdetailaddress());
+			} else if (member.getMdetailaddress().length() == 0) {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress());
+			} else {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress()
+						+ "_" + member.getMdetailaddress());
+			}
+			
+		}
+		
+		
+		System.out.println(member);
+		
+		mdao.memberUpdate(member);
+		
 	}
 
 }

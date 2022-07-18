@@ -18,4 +18,6 @@ public interface MemberDao {
 
 	MemberDto MyInfoResult(@Param("loginId")String loginId,@Param("mpw") String mpw);
 
+	void memberUpdate(MemberDto member);
+
 }

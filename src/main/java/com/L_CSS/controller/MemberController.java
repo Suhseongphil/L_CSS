@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -68,13 +69,7 @@ public class MemberController {
 			return "Member/MyInfo";
 		}
 		
-	//내정보 수정 페이지
-		@RequestMapping(value= "/memberModify")
-		public String memberModify() {
-			System.out.println("내정보수정페이지 호출");
-			
-			return "Member/MemberModify";
-		}
+	
 	
 	//로그아웃 요청
 	@RequestMapping (value = "/memberLogout")
@@ -115,6 +110,16 @@ public class MemberController {
 		ModelAndView mav = mvc.memberKakaoLogin(member, ra);
 		
 		return mav;
+	}
+	
+	//내정보수정
+	@RequestMapping(value= "/memberModify")
+	public @ResponseBody void memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+		System.out.println("회원정보 수정 요청");
+		
+		mvc.memberModify(member,ra); 
+		
+				
 	}
 	
 	

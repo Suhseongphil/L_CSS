@@ -37,5 +37,11 @@
   	WHERE MID = #{loginId} AND MPW =#{mpw}
   	</select>
   	
+  	<update id="memberUpdate">
+  	UPDATE MEMBER
+  	SET MPW = #{mpw}, MEMAIL = #{memail}, MADDRESS= #{maddress}, MTEL = #{mtel}
+  	WHERE MID = #{mid}
+  	</update>
+  	
   	
   </mapper>
