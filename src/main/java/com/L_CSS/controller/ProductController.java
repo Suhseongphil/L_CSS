@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.service.ProductService;
 
@@ -20,7 +21,7 @@ public class ProductController {
 	public ModelAndView Main() {
 		System.out.println("메인 페이지 호출");
 		ModelAndView mav = new ModelAndView();
-
+		
 		mav = psv.mainProduct();
 		
 		return mav;

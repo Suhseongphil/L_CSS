@@ -9,16 +9,21 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.client.support.HttpAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.L_CSS.dto.CartDto;
 import com.L_CSS.service.CartService;
 
 @Controller
@@ -84,7 +89,19 @@ public class CartController {
 	@RequestMapping(value="/kokopayTest")
 	public @ResponseBody String kokopayTest() {
 		System.out.println("카카오페이 테스트");
+		String loginId = (String)session.getAttribute("loginId");
+		ArrayList<CartDto>cartList = csv.selectCart(loginId);
+		String name = null;
+		int price = 0;
+		int sum = 0;
+		
+		for(int i = 0; i < cartList.size(); i++) {
+			name = cartList.get(i).getPdname();
+			price = cartList.get(i).getCttotal();
+			sum = sum + price; 
+		}
 		try {
+			
 			//카카오 페이api 주소 
 			URL http = new URL("https://kapi.kakao.com/v1/payment/ready");
 			//서버를 연결해줄때 사용하는 클래스
@@ -94,7 +111,7 @@ public class CartController {
 			httpConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 			//내가 서버에 전해줄 내용이 있는지 없는지  있으면 true 없다면false
 			httpConnection.setDoOutput(true);
-			String parem = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=초코파이&quantity=5&total_amount=500&tax_free_amount=100&approval_url=http://localhost:8080/kokopay&cancel_url=http://localhost:8080/cancel&fail_url=http://localhost:8080/fail";
+			String parem = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name="+URLEncoder.encode(name,"UTF-8")+"&quantity=5&total_amount="+sum+"&tax_free_amount=100&approval_url=http://localhost:8080/controller/&cancel_url=http://localhost:8080/controller/myCartPage&fail_url=http://localhost:8080/controller/myCartPage";
 			//데이터를 주는클래스
 			OutputStream stream = httpConnection.getOutputStream();
 			//데이터 주는 클래스
@@ -117,15 +134,17 @@ public class CartController {
 			InputStreamReader readerClass = new InputStreamReader(returnStream);
 			//형변환을 해주는 클래스
 			BufferedReader buffeClass = new BufferedReader(readerClass);
+			
 			return buffeClass.readLine();
 			
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
 }

@@ -116,7 +116,7 @@ public class MemberService {
 			if (memberLogin != null) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
-				mav.setViewName("Main");
+				mav.setViewName("redirect:/main");
 			} else {
 				ra.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
 				mav.setViewName("redirect:/MemberLogin");
@@ -178,7 +178,7 @@ public class MemberService {
 
 		session.invalidate();
 
-		mav.setViewName("Main");
+		mav.setViewName("redirect:/main");
 		return mav;
 	}
 
