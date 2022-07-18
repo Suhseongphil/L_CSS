@@ -370,8 +370,8 @@
 
 <script type="text/javascript">
 	var checkMsg = '${msg}'
-	if (checkMsg.length > 0) {
-		alert(checkMsg);
+	if (checkMsg == "1") {
+		alert("결제가 완료되었습니다.");
 	}
 </script>
 </html>

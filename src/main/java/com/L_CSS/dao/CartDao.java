@@ -18,6 +18,8 @@ public interface CartDao {
 	int updatePlus(@Param("amount")int amount, @Param("ctcode")String ctcode);
 
 	int updateTotal(@Param("ctcode")String ctctcode, @Param("cttotal")int toTal);
+
+	ArrayList<CartDto> selectCart(String loginId);
 	
 
 }
