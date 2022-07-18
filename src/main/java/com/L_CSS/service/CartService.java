@@ -126,5 +126,10 @@ public class CartService {
 		return update;
 		
 	}
+	public ArrayList<CartDto> selectCart(String loginId) {
+		System.out.println("카카오페이 결제 내역 가져오기");
+		ArrayList<CartDto>selectCart = cdao.selectCart(loginId);
+		return selectCart;
+	}
 	
 }

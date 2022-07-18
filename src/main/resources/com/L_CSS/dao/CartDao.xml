@@ -33,4 +33,10 @@
   		set cttotal = #{cttotal}
   		where ctcode = #{ctcode}
   	</update>
+  	<select id="selectCart" resultType="com.L_CSS.dto.CartDto">
+  		select *
+		from cart ct , company cm , product pd
+		where ct.ctcfcmcode = cm.cmcode and ct.ctmupdcode = pd.pdcode
+		and CTMID = #{loginId}
+  	</select>
   </mapper>
