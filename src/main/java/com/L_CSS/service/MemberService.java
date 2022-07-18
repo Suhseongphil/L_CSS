@@ -39,9 +39,9 @@ public class MemberService {
 		System.out.println("memberJoin ()호출");
 		System.out.println(member);
 		ModelAndView mav = new ModelAndView();
-
+		String email2 = member.getMemail();
 		String email = member.getMemail() + "@" + member.getEmailDomain();
-
+		member.setMemail2(email2);
 		MultipartFile mfile = member.getMfile();
 
 		member.setMemail(email);
@@ -63,6 +63,15 @@ public class MemberService {
 			mprofile = bsfile;
 
 		}
+		String maddr3 = member.getMaddr();
+		String mdetailaddress3 = member.getMdetailaddress();
+		String mextraaddress3 = member.getMextraaddress();
+		String mprostercode3 = member.getMpostercode();
+		
+		member.setMaddr3(maddr3);
+		member.setMdetailaddress3(mdetailaddress3);
+		member.setMextraaddress3(mextraaddress3);
+		member.setMpostercode3(mprostercode3);
 
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
 			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
@@ -128,14 +137,29 @@ public class MemberService {
 
 		if (MyInfoResult != null) {
 			MemberDto MemberInfo = mdao.MemberInfo(loginId);
+			
 			String[] mpost = MemberInfo.getMaddress().split("_");
-
+			String[] email = MemberInfo.getMemail().split("@");
+			
+			
 			System.out.println(mpost[2]);
 			System.out.println(mpost[3]);
 			MemberInfo.setMpostercode(mpost[0]);
 			MemberInfo.setMaddr(mpost[1]);
 			MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
+			MemberInfo.setMdetailaddress3(mpost[3]);
+			MemberInfo.setMextraaddress3(mpost[2]);
+			
+			System.out.println(email[0]);
+			System.out.println(email[1]);
+			
+			
+			
+			MemberInfo.setEmailDomain(email[1]);
+			MemberInfo.setMemail2(email[0]);
 
+			
+			
 			mav.addObject("memberInfo", MemberInfo);
 			mav.setViewName("Member/MemberInfo");
 
