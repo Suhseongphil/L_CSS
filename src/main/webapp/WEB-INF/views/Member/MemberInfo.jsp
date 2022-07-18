@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -25,7 +26,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 </head>
 <style>
  .imgClass {
@@ -34,6 +34,52 @@
     border-radius: 70%;
     overflow: hidden;
   }
+  .background2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.show2 {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.window2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.popup2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  
+  /* 임시 지정 */
+  width: 700px;
+  height: 700px;
+  
+  /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show2 .popup2 {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
 </style>
 <body>
     <!-- Page Preloder -->
@@ -132,18 +178,10 @@
                             <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }</p>
            					<button type="button" id="show" class="btn btn-primary">정보수정</button>
                         </div>
-                        <div class="background">
-                        	<div class="window">
-                        		<div class="popup">
-                        		<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
-                            	<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
-                        		<button type="button" id="save" class="btn btn-primary">정보수정</button>
-                        		<button type="button" id="close" class="btn btn-primary">취소</button>
-                        		</div>
-                        	</div>
                         </div>
                         
-                    </div>
+                        
+                    
                     
                     
                 </div>
@@ -158,6 +196,41 @@
                 </div>
             </div>
         </div>
+        <div class="background2">
+                        	<div class="window2">
+                        		<div class="popup2">
+                        		<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
+                            	<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
+                            	<p>비밀번호 : <input type="password" id ="mpw" value="${memberInfo.mpw }"></p>
+                            	<p>전화번호 : <input type="text" id ="mtel" value="${memberInfo.mtel }"></p>
+                            	<p>이메일 : <input type="text" id ="memail" value="${memberInfo.memail2 }">@<input type="text" id=memailDomain value="${memberInfo.emailDomain }"></p>
+                            	<div class="row form-group">
+                                        	<div class="col-6 form-group">
+											<input class="form-control form-control-user" type="button"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>                                      
+                                        	</div>
+											 <div class="col-6 form-group">
+                                        	<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value ="${memberInfo.mpostercode }" placeholder="우편번호">
+                                        	</div>
+                                        </div>
+										<div class="row">
+                                       		 <div class="col-12">
+											<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소"><br>
+                                        	</div>
+										</div>
+										
+                                        <div class="row form-group">
+                                        	<div class="col-6 form-group"> 
+											<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress3 }" placeholder="상세주소">
+                                        	</div>
+                                        	<div class="col-6 form-group"> 
+											<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress3 }" placeholder="참고항목">
+                                        	</div>
+                                        </div>
+                        		<button type="button" id="save" class="btn btn-primary">정보수정</button>
+                        		<button type="button" id="close" class="btn btn-primary">취소</button>
+                        		</div>
+                        	</div>
+                        </div>
         
     </section>
     <!-- Hero Section End -->
@@ -232,6 +305,7 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
@@ -240,7 +314,6 @@
 	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
 
@@ -254,11 +327,11 @@
 
 <script>
 function show () {
-	  document.querySelector(".background").className = "background show";
+	  document.querySelector(".background2").className = "background2 show2";
 	}
 
 	function close () { 
-	  document.querySelector(".background").className = "background";
+	  document.querySelector(".background2").className = "background2";
 	}
 
 	document.querySelector("#show").addEventListener('click', show);
