@@ -61,6 +61,10 @@ text-align: center;
   .divpadding{
   padding-top: 36px;
   }
+  .btn_none{
+  border: none;
+  background: #f5f5f5;
+  }
 </style>
 
 <body>
@@ -268,7 +272,7 @@ text-align: center;
 		output2 += "</li>";
 		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
 		output2 += "</ul>";
-		output2 += " <button onclick=\"kokopay()\" class=\"primary-btn\">결제하기</button>";
+		output2 += " <button class=\"btn_none\" onclick=\"kokopay()\" ><img alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/kokopay.png\"></button>";
 		output2 += "</div>";
 		
         
@@ -324,6 +328,7 @@ text-align: center;
 		}
 		function kokopay(){
 			console.log("카카오페이 테스트");
+			
 			$.ajax({
 				
 				url : "kokopayTest",
@@ -332,12 +337,19 @@ text-align: center;
 				success : function(data){
 					
 					var keydate = data.next_redirect_pc_url;
+					
 					window.open(keydate);
+					
+					
 				}
 			
 			});
 			
+					
+			
 			
 		}
+		
 	</script>
+	
 </html>
