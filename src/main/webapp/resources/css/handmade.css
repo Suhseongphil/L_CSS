@@ -12,6 +12,17 @@
 	border: none;
 }
 
+.insert-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: saddlebrown;
+	border: none;
+}
+
 .mainshop-btn {
 	display: inline-block;
 	font-size: 14px;
@@ -21,6 +32,41 @@
 	font-weight: 700;
 	background: saddlebrown;
 	letter-spacing: 2px;
+}
+
+.bc-blue {
+	background-color: blue;
+}
+
+.bc-red {
+	background-color: red;
+}
+
+.c-white {
+	color: white;
+}
+
+.btn_width {
+	width: 90px;
+}
+
+.input_width {
+	width: 100%;
+	padding: 1;
+	border-width: 1;
+}
+.input_width2 {
+	width: 35%;
+	padding: 1;
+	border-width: 1;
+}
+.input_width3 {
+	width: 60%;
+	padding: 1;
+	border-width: 1;
+}
+.dp_none{
+	display:none;
 }
 
 

@@ -1,24 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+<!-- Css Styles -->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
@@ -28,132 +27,178 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 </head>
 <style>
- .imgClass {
-    width: 300px;
-    height: 300px; 
-    border-radius: 70%;
-    overflow: hidden;
-  }
-  .background2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  
-  /* 숨기기 */
-  z-index: -1;
-  opacity: 0;
+.imgClass {
+	width: 300px;
+	height: 300px;
+	border-radius: 70%;
+	overflow: hidden;
+}
+
+.background2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* 숨기기 */
+	z-index: -1;
+	opacity: 0;
 }
 
 .show2 {
-  opacity: 1;
-  z-index: 1000;
-  transition: all .5s;
+	opacity: 1;
+	z-index: 1000;
+	transition: all .5s;
 }
 
 .window2 {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .popup2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-  
-  /* 임시 지정 */
-  width: 700px;
-  height: 700px;
-  
-  /* 초기에 약간 아래에 배치 */
-  transform: translate(-50%, -40%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	/* 임시 지정 */
+	width: 700px;
+	height: 700px;
+	/* 초기에 약간 아래에 배치 */
+	transform: translate(-50%, -40%);
 }
 
 .show2 .popup2 {
-  transform: translate(-50%, -50%);
-  transition: all .5s;
+	transform: translate(-50%, -50%);
+	transition: all .5s;
 }
 </style>
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">카페</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">업체</a></li>
-                <li><a href="./contact.html">공동구매</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
+	<!-- Humberger Begin -->
+	<div class="humberger__menu__overlay"></div>
+	<div class="humberger__menu__wrapper">
+		<div class="humberger__menu__logo">
+			<a href="#">
+				<img src="img/logo.png" alt="">
+			</a>
+		</div>
+		<div class="humberger__menu__cart">
+			<ul>
+				<li>
+					<a href="#">
+						<i class="fa fa-heart"></i>
+						<span>1</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-shopping-bag"></i>
+						<span>3</span>
+					</a>
+				</li>
+			</ul>
+			<div class="header__cart__price">
+				item:
+				<span>$150.00</span>
+			</div>
+		</div>
+		<div class="humberger__menu__widget">
+			<div class="header__top__right__language">
+				<img src="img/language.png" alt="">
+				<div>English</div>
+				<span class="arrow_carrot-down"></span>
+				<ul>
+					<li>
+						<a href="#">Spanis</a>
+					</li>
+					<li>
+						<a href="#">English</a>
+					</li>
+				</ul>
+			</div>
+			<div class="header__top__right__auth">
+				<a href="#">
+					<i class="fa fa-user"></i> Login
+				</a>
+			</div>
+		</div>
+		<nav class="humberger__menu__nav mobile-menu">
+			<ul>
+				<li class="active">
+					<a href="./index.html">Home</a>
+				</li>
+				<li>
+					<a href="./shop-grid.html">Shop</a>
+				</li>
+				<li>
+					<a href="#">카페</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="./shop-details.html">Shop Details</a>
+						</li>
+						<li>
+							<a href="./shoping-cart.html">Shoping Cart</a>
+						</li>
+						<li>
+							<a href="./checkout.html">Check Out</a>
+						</li>
+						<li>
+							<a href="./blog-details.html">Blog Details</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="./blog.html">업체</a>
+				</li>
+				<li>
+					<a href="./contact.html">공동구매</a>
+				</li>
+			</ul>
+		</nav>
+		<div id="mobile-menu-wrap"></div>
+		<div class="header__top__right__social">
+			<a href="#">
+				<i class="fa fa-facebook"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-twitter"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-linkedin"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-pinterest-p"></i>
+			</a>
+		</div>
+		<div class="humberger__menu__contact">
+			<ul>
+				<li>
+					<i class="fa fa-envelope"></i> hello@colorlib.com
+				</li>
+				<li>Free Shipping for all Order of $99</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Humberger End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <%@ include file ="../includes/TopBar.jsp" %>
-       
-    </header>
-    <!-- Header Section End -->
-		 <div class="container">
-		 
+	<!-- Header Section Begin -->
+	<header class="header">
+		<%@ include file="../includes/TopBar.jsp"%>
+
+	</header>
+	<!-- Header Section End -->
+	<div class="container">
+
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
@@ -162,151 +207,173 @@
 			</div>
 		</div>
 	</div>
-    <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7">
-                  	
-                    <div class="hero__item set-bg" >
-                        <div class="hero__text2">
-                            <span>내정보</span> <br> <br>           
-                            <p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
-                            <p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
-                            <p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
-                            <p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
-                            <p>주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }</p>
-           					<button type="button" id="show" class="btn btn-primary">정보수정</button>
-                        </div>
-                        </div>
-                        
-                        
-                    
-                    
-                    
-                </div>
-                 <div class="col-lg-5">
-                  	
-                    <div class="hero__item set-bg" >
-                        <div class="hero__text">
-                           <img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="background2">
-                        	<div class="window2">
-                        		<div class="popup2">
-                        		<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid } </p>
-                            	<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
-                            	<p>비밀번호 : <input type="password" id ="mpw" value="${memberInfo.mpw }"></p>
-                            	<p>전화번호 : <input type="text" id ="mtel" value="${memberInfo.mtel }"></p>
-                            	<p>이메일 : <input type="text" id ="memail" value="${memberInfo.memail2 }">@<input type="text" id=memailDomain value="${memberInfo.emailDomain }"></p>
-                            	<div class="row form-group">
-                                        	<div class="col-6 form-group">
-											<input class="form-control form-control-user" type="button"  onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>                                      
-                                        	</div>
-											 <div class="col-6 form-group">
-                                        	<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value ="${memberInfo.mpostercode }" placeholder="우편번호">
-                                        	</div>
-                                        </div>
-										<div class="row">
-                                       		 <div class="col-12">
-											<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소"><br>
-                                        	</div>
-										</div>
-										
-                                        <div class="row form-group">
-                                        	<div class="col-6 form-group"> 
-											<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress3 }" placeholder="상세주소">
-                                        	</div>
-                                        	<div class="col-6 form-group"> 
-											<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress3 }" placeholder="참고항목">
-                                        	</div>
-                                        </div>
-                        		<button type="button" id="save" class="btn btn-primary">정보수정</button>
-                        		<button type="button" id="close" class="btn btn-primary">취소</button>
-                        		</div>
-                        	</div>
-                        </div>
-        
-    </section>
-    <!-- Hero Section End -->
+	<!-- Hero Section Begin -->
+	<section class="hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
 
-    <!-- Categories Section Begin -->
-    
-    <!-- Categories Section End -->
+					<div class="hero__item set-bg">
+						<div class="hero__text2">
+							<span>내정보</span>
+							<br> <br>
+							<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
+							<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
+							<p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
+							<p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
+							<p>
+								주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }
+							</p>
+							<button type="button" id="show" class="btn btn-primary">정보수정</button>
+						</div>
+					</div>
 
-    <!-- Featured Section Begin -->
-    
-    <!-- Featured Section End -->
 
-    <!-- Banner Begin -->
-  
-    <!-- Banner End -->
 
-    <!-- Latest Product Section Begin -->
-   
-    <!-- Latest Product Section End -->
 
-    <!-- Blog Section Begin -->
-   
-    <!-- Blog Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <h2>L&CSS</h2>
-                        </div>
-                        <ul>
-                            <li>회사주소: 인천일보아카데미</li>
-                            <li>전화번호: 032-111-1111</li>
-                            <li>이메일 :  #</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>프로젝트</h6>
-                        <ul>
-                            <li><a href="#">팀장 : 서성필</a></li>
-                            <li><a href="#">엔지니어 : 송영오</a></li>
-                            <li><a href="#">엔지니어 : 천호태</a></li>
-                            <li><a href="#">엔지니어 : 이상윤</a></li>
-                            
-                        </ul>
-                     
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                       
-                        <a href="InquirePage">고객문의</a>
-                        
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+				</div>
+				<div class="col-lg-5">
 
-    <!-- Js Plugins -->
+					<div class="hero__item set-bg">
+						<div class="hero__text">
+							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="background2">
+			<div class="window2">
+				<div class="popup2">
+					<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
+					<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
+					<p>
+						비밀번호 :
+						<input type="password" id="mpw" value="${memberInfo.mpw }">
+					</p>
+					<p>
+						전화번호 :
+						<input type="text" id="mtel" value="${memberInfo.mtel }">
+					</p>
+					<p>
+						이메일 :
+						<input type="text" id="memail" value="${memberInfo.memail2 }">
+						@
+						<input type="text" id=memailDomain value="${memberInfo.emailDomain }">
+					</p>
+					<div class="row form-group">
+						<div class="col-6 form-group">
+							<input class="form-control form-control-user" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+							<br>
+						</div>
+						<div class="col-6 form-group">
+							<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value="${memberInfo.mpostercode }" placeholder="우편번호">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소">
+							<br>
+						</div>
+					</div>
+
+					<div class="row form-group">
+						<div class="col-6 form-group">
+							<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress3 }" placeholder="상세주소">
+						</div>
+						<div class="col-6 form-group">
+							<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress3 }" placeholder="참고항목">
+						</div>
+					</div>
+					<button type="button" id="save" class="btn btn-primary">정보수정</button>
+					<button type="button" id="close" class="btn btn-primary">취소</button>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<!-- Hero Section End -->
+
+	<!-- Categories Section Begin -->
+
+	<!-- Categories Section End -->
+
+	<!-- Featured Section Begin -->
+
+	<!-- Featured Section End -->
+
+	<!-- Banner Begin -->
+
+	<!-- Banner End -->
+
+	<!-- Latest Product Section Begin -->
+
+	<!-- Latest Product Section End -->
+
+	<!-- Blog Section Begin -->
+
+	<!-- Blog Section End -->
+
+	<!-- Footer Section Begin -->
+	<footer class="footer spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__about__logo">
+							<h2>L&CSS</h2>
+						</div>
+						<ul>
+							<li>회사주소: 인천일보아카데미</li>
+							<li>전화번호: 032-111-1111</li>
+							<li>이메일 : #</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+					<div class="footer__widget">
+						<h6>프로젝트</h6>
+						<ul>
+							<li>
+								<a href="#">팀장 : 서성필</a>
+							</li>
+							<li>
+								<a href="#">엔지니어 : 송영오</a>
+							</li>
+							<li>
+								<a href="#">엔지니어 : 천호태</a>
+							</li>
+							<li>
+								<a href="#">엔지니어 : 이상윤</a>
+							</li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="footer__widget">
+
+						<a href="InquirePage">고객문의</a>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer__copyright"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+
+	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-    <script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
@@ -319,19 +386,18 @@
 
 <script type="text/javascript">
 	var checkMsg = '${msg}'
-	if(checkMsg.length > 0){
+	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}
-	
 </script>
 
 <script>
-function show () {
-	  document.querySelector(".background2").className = "background2 show2";
+	function show() {
+		document.querySelector(".background2").className = "background2 show2";
 	}
 
-	function close () { 
-	  document.querySelector(".background2").className = "background2";
+	function close() {
+		document.querySelector(".background2").className = "background2";
 	}
 
 	document.querySelector("#show").addEventListener('click', show);
