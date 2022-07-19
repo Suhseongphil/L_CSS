@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -13,18 +17,38 @@
 
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
 </head>
 <style>
 .imgClass {
@@ -88,28 +112,18 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#">
-				<img src="img/logo.png" alt="">
+			<a href="#"> <img src="img/logo.png" alt="">
 			</a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li>
-					<a href="#">
-						<i class="fa fa-heart"></i>
-						<span>1</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-shopping-bag"></i>
-						<span>3</span>
-					</a>
-				</li>
+				<li><a href="#"> <i class="fa fa-heart"></i> <span>1</span>
+				</a></li>
+				<li><a href="#"> <i class="fa fa-shopping-bag"></i> <span>3</span>
+				</a></li>
 			</ul>
 			<div class="header__cart__price">
-				item:
-				<span>$150.00</span>
+				item: <span>$150.00</span>
 			</div>
 		</div>
 		<div class="humberger__menu__widget">
@@ -118,73 +132,41 @@
 				<div>English</div>
 				<span class="arrow_carrot-down"></span>
 				<ul>
-					<li>
-						<a href="#">Spanis</a>
-					</li>
-					<li>
-						<a href="#">English</a>
-					</li>
+					<li><a href="#">Spanis</a></li>
+					<li><a href="#">English</a></li>
 				</ul>
 			</div>
 			<div class="header__top__right__auth">
-				<a href="#">
-					<i class="fa fa-user"></i> Login
+				<a href="#"> <i class="fa fa-user"></i> Login
 				</a>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li class="active">
-					<a href="./index.html">Home</a>
-				</li>
-				<li>
-					<a href="./shop-grid.html">Shop</a>
-				</li>
-				<li>
-					<a href="#">카페</a>
+				<li class="active"><a href="./index.html">Home</a></li>
+				<li><a href="./shop-grid.html">Shop</a></li>
+				<li><a href="#">카페</a>
 					<ul class="header__menu__dropdown">
-						<li>
-							<a href="./shop-details.html">Shop Details</a>
-						</li>
-						<li>
-							<a href="./shoping-cart.html">Shoping Cart</a>
-						</li>
-						<li>
-							<a href="./checkout.html">Check Out</a>
-						</li>
-						<li>
-							<a href="./blog-details.html">Blog Details</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="./blog.html">업체</a>
-				</li>
-				<li>
-					<a href="./contact.html">공동구매</a>
-				</li>
+						<li><a href="./shop-details.html">Shop Details</a></li>
+						<li><a href="./shoping-cart.html">Shoping Cart</a></li>
+						<li><a href="./checkout.html">Check Out</a></li>
+						<li><a href="./blog-details.html">Blog Details</a></li>
+					</ul></li>
+				<li><a href="./blog.html">업체</a></li>
+				<li><a href="./contact.html">공동구매</a></li>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
-			<a href="#">
-				<i class="fa fa-facebook"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-twitter"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-linkedin"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-pinterest-p"></i>
+			<a href="#"> <i class="fa fa-facebook"></i>
+			</a> <a href="#"> <i class="fa fa-twitter"></i>
+			</a> <a href="#"> <i class="fa fa-linkedin"></i>
+			</a> <a href="#"> <i class="fa fa-pinterest-p"></i>
 			</a>
 		</div>
 		<div class="humberger__menu__contact">
 			<ul>
-				<li>
-					<i class="fa fa-envelope"></i> hello@colorlib.com
-				</li>
+				<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
 				<li>Free Shipping for all Order of $99</li>
 			</ul>
 		</div>
@@ -215,8 +197,7 @@
 
 					<div class="hero__item set-bg">
 						<div class="hero__text2">
-							<span>내정보</span>
-							<br> <br>
+							<span>내정보</span> <br> <br>
 							<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
 							<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
 							<p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
@@ -237,7 +218,8 @@
 
 					<div class="hero__item set-bg">
 						<div class="hero__text">
-							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
+							<img class="imgClass" alt=""
+								src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
 						</div>
 					</div>
 
@@ -246,53 +228,74 @@
 		</div>
 		<div class="background2">
 			<div class="window2">
-				<div class="popup2">
-					<p>
-						아이디&nbsp;&nbsp;:&nbsp;&nbsp;
-						<input type="hidden" id="mid" name="mid" value="${memberInfo.mid }">${memberInfo.mid }
-					</p>
-					<p id="mname">이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
-					<p>
-						비밀번호&nbsp;&nbsp;:&nbsp;&nbsp;
-						<input type="password" id="mpw" value="${memberInfo.mpw }">
-					</p>
-					<p>
-						전화번호&nbsp;&nbsp;:&nbsp;&nbsp;
-						<input type="text" id="mtel" value="${memberInfo.mtel }">
-					</p>
-					<p>
-						이메일&nbsp;&nbsp;:&nbsp;&nbsp;
-						<input type="text" id="memail" value="${memberInfo.memail2 }">
-						@
-						<input type="text" id=memailDomain value="${memberInfo.emailDomain }">
-					</p>
-					<div class="row form-group">
-						<div class="col-6 form-group">
-							<input class="form-control form-control-user" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-							<br>
+				<form class="user" action="memberModify" method="post"
+					enctype="multipart/form-data">
+					<div class="popup2">
+						<p>
+							아이디&nbsp;&nbsp;:&nbsp;&nbsp; <input type="text" id="mid"
+								style="border: none;" readonly="readonly" name="mid"
+								value="${memberInfo.mid }">
+						</p>
+						<p>
+							이름&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text"
+								style="border: none;" readonly="readonly" id="mname"
+								name="mname" value="${memberInfo.mname }">
+						</p>
+						<p>
+							비밀번호&nbsp;&nbsp;:&nbsp;&nbsp; <input type="password" id="mpw"
+								name="mpw" value="${memberInfo.mpw }">
+						</p>
+						<p>
+							전화번호&nbsp;&nbsp;:&nbsp;&nbsp; <input type="text" id="mtel"
+								name="mtel" value="${memberInfo.mtel }">
+						</p>
+						<p>
+							이메일&nbsp;&nbsp;:&nbsp;&nbsp; <input type="text" id="memail"
+								name="memail" value="${memberInfo.memail }"> @ <input
+								type="text" id=emailDomain name="emailDomain"
+								value="${memberInfo.emailDomain }">
+								<select dir="rtl" id="domainSelect">
+								<option value="">직접입력</option>
+								<option value="Naver.com">네이버</option>
+								<option value="Daum.net">다음</option>
+								<option value="Google.com">구글</option>
+							</select>
+						</p>
+						<div class="row form-group">
+							<div class="col-6 form-group">
+								<input class="form-control form-control-user" type="button"
+									onclick="sample6_execDaumPostcode()" value="우편번호 찾기"> <br>
+							</div>
+							<div class="col-6 form-group">
+								<input class="form-control form-control-user" type="text"
+									id="mpostercode" name="mpostercode"
+									value="${memberInfo.mpostercode }" placeholder="우편번호">
+							</div>
 						</div>
-						<div class="col-6 form-group">
-							<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value="${memberInfo.mpostercode }" placeholder="우편번호">
+						<div class="row">
+							<div class="col-12">
+								<input class="form-control form-control-user" type="text"
+									id="maddr" name="maddr" value="${memberInfo.maddr }"
+									placeholder="주소"> <br>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소">
-							<br>
-						</div>
-					</div>
 
-					<div class="row form-group">
-						<div class="col-6 form-group">
-							<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress3 }" placeholder="상세주소">
+						<div class="row form-group">
+							<div class="col-6 form-group">
+								<input class="form-control form-control-user" type="text"
+									id="mdetailaddress" name="mdetailaddress"
+									value="${memberInfo.mdetailaddress }" placeholder="상세주소">
+							</div>
+							<div class="col-6 form-group">
+								<input class="form-control form-control-user" type="text"
+									id="mextraaddress" name="mextraaddress"
+									value="${memberInfo.mextraaddress }" placeholder="참고항목">
+							</div>
 						</div>
-						<div class="col-6 form-group">
-							<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress3 }" placeholder="참고항목">
-						</div>
+						<button type="submit" id="update" class="btn btn-primary">정보수정</button>
+						<button type="button" id="close" class="btn btn-primary">취소</button>
 					</div>
-					<button type="button" id="update" onclick="update()" class="btn btn-primary">정보수정</button>
-					<button type="button" id="close" class="btn btn-primary">취소</button>
-				</div>
+				</form>
 			</div>
 		</div>
 
@@ -339,18 +342,10 @@
 					<div class="footer__widget">
 						<h6>프로젝트</h6>
 						<ul>
-							<li>
-								<a href="#">팀장 : 서성필</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 송영오</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 천호태</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 이상윤</a>
-							</li>
+							<li><a href="#">팀장 : 서성필</a></li>
+							<li><a href="#">엔지니어 : 송영오</a></li>
+							<li><a href="#">엔지니어 : 천호태</a></li>
+							<li><a href="#">엔지니어 : 이상윤</a></li>
 
 						</ul>
 
@@ -375,15 +370,23 @@
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
 
@@ -408,45 +411,17 @@
 </script>
 
 <script type="text/javascript">
-	function update() {
-		var mid = $("#mid").val();
-		var mpw = $("#mpw").val();
-		var mtel = $("#mtel").val();
-		var memail = $("#memail").val();
-		var memailDomain = $("#memailDomain").val();
-		var mpostercode = $("#mpostercode").val();
-		var maddr = $("#maddr").val();
-		var mdetailaddress = $("#mdetailaddress").val();
-		var mextraaddress = $("#mextraaddress").val();
+	$("#domainSelect").change(function() {
 
-		$.ajax({
-			url : "memberModify",
-			type : "get",
-			data : {
-				"mid" : mid,
-				"mpw" : mpw,
-				"mtel" : mtel,
-				"memail2" : memail,
-				"emailDomain" : memailDomain,
-				"mpostercode" : mpostercode,
-				"maddr" : maddr,
-				"mdetailaddress" : mdetailaddress,
-				"mextraaddress" : mextraaddress
-			},
-			async : false,
-			success : function(result) {
-
-				console.log("업데이트 성공");
-				alert("정보가 수정 되었습니다.");
-
-			}
-		});
-	}
+		var selDomain = $("#domainSelect").val();
+		$("#emailDomain").val(selDomain);
+	});
 </script>
 
 
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
 		new daum.Postcode({

@@ -18,7 +18,6 @@ public class MemberDto {
 	private String emailDomain;
 	private String mtel;
 
-	private String memail2;
 	private MultipartFile mfile;
 	private String mpostercode;
 	private String maddr;
@@ -26,9 +25,5 @@ public class MemberDto {
 	private String mdetailaddress;
 	private String mextraaddress;
 
-	private String mpostercode3;
-	private String maddr3;
-	private String mdetailaddress3;
-	private String mextraaddress3;
 
 }

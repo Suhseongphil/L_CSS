@@ -101,14 +101,15 @@ public class MemberController {
 	   }
 	   
 	   //내정보수정
-	   @RequestMapping(value= "/memberModify")
-	   public @ResponseBody void memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
-	      System.out.println("회원정보 수정 요청");
-	      
-	      mvc.memberModify(member,ra); 
-	      
-	            
-	   }
+	  @RequestMapping(value= "/memberModify")
+	  public ModelAndView memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+		  System.out.println("내정보 수정 요청");
+		  System.out.println(member);
+		  
+		  ModelAndView mav = mvc.memberModify(member, ra);
+		  
+		  return mav;
+	  }
 	
 	
 }

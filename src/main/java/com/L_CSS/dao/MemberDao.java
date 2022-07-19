@@ -1,6 +1,7 @@
 package com.L_CSS.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dto.MemberDto;
 
@@ -18,6 +19,6 @@ public interface MemberDao {
 
 	MemberDto MyInfoResult(@Param("loginId") String loginId, @Param("mpw") String mpw);
 
-	void memberUpdate(MemberDto member);
+	int memberUpdate(MemberDto member);
 
 }

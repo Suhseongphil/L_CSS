@@ -92,7 +92,7 @@
                                     <div class="atag">
                                         <a class="small" href="#">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   	
-                                        <a class="small" href="MemberJoin">회원가입</a>
+                                        <a class="small" href="memberJoinPage">회원가입</a>
                                        
                                     </div>
                                 </div>
