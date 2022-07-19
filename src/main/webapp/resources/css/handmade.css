@@ -184,7 +184,7 @@ a span:nth-child(1):before {
     position: absolute;
     top: 0;
     left: 0;
-    background: #ff3636;
+    background: #8b4513;
     padding: 15px;
     transition: 0.5S;
     transform-origin: top;
@@ -226,7 +226,7 @@ a span:nth-child(2):after {
     position: absolute;
     top: 0;
     left: 0;
-    background: #ff3636;
+    background: #8b4513;
     padding: 15px;
     transition: 0.5S;
     transform-origin: top;
