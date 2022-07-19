@@ -17,4 +17,6 @@ public interface MenuDao {
 	int updateState(@Param("mucode") String mucode, @Param("mustate") int mustate);
 
 	int deleteMenu(String mucode);
+
+	ArrayList<MenuDto> MenuInfo(String cfcode);
 }

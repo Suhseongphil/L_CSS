@@ -29,4 +29,9 @@
 		FROM (SELECT ROWNUM AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type}) P
 		WHERE P.RN = #{i}
 	</select>
+	<select id="proInfo" resultType="com.L_CSS.dto.ProductDto" >
+		select * 
+		from PRODUCT
+		where PDCMCODE = #{cmcode}
+	</select>
 </mapper>

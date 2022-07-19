@@ -20,4 +20,11 @@
   			select count(cmcode)
   			from COMPANY
   		</select>
+  		
+  		<select id="ComInfo" resultType="com.L_CSS.dto.CompanyDto">
+		select *
+		from COMPANY
+		where CMCODE = #{comcode}
+	
+	</select>
   </mapper>

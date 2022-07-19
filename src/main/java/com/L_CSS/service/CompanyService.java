@@ -7,15 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CompanyDao;
+import com.L_CSS.dao.ProductDao;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.PageDto;
+import com.L_CSS.dto.ProductDto;
 
 @Service
 public class CompanyService {
 
 	@Autowired
 	CompanyDao cdao;
-
+	@Autowired
+	ProductDao pdao;
 	//업체 업로드 
 	public ModelAndView comPanyUpLoad() {
 		
@@ -79,6 +82,18 @@ public class CompanyService {
 		mav.addObject("selestCompanyList",selestCompanyList);
 		mav.setViewName("Company/CompanyList");
 		
+		return mav;
+	}
+	//업체 상세보기
+	public ModelAndView companyInfo(String cmcode) {
+		System.out.println("companyInfo()호출");
+		CompanyDto comInfo = cdao.ComInfo(cmcode);
+		ArrayList<ProductDto> proInfo = pdao.proInfo(cmcode);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("comInfo", comInfo);
+		mav.addObject("proInfo", proInfo);
+		System.out.println("출력  : " + proInfo);
+		mav.setViewName("Company/CompanyInfo");
 		return mav;
 	}
 }
