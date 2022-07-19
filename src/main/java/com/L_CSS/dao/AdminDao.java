@@ -38,6 +38,8 @@ public interface AdminDao {
 	void updateCafe(CafeDto cafe);
 	
 	ArrayList<String> getMucode();
+
+	String getCompanyImg(String cmcode);
 	
 
 }
