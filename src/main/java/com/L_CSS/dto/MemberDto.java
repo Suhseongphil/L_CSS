@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class MemberDto {
-	
+
 	private String mid;
 	private String mpw;
 	private String mname;
@@ -14,11 +14,10 @@ public class MemberDto {
 	private String maddress;
 	private String mprofile;
 	private int mtype;
-	private	int	mstate;
+	private int mstate;
 	private String emailDomain;
 	private String mtel;
-	
-	
+
 	private String memail2;
 	private MultipartFile mfile;
 	private String mpostercode;
@@ -26,12 +25,10 @@ public class MemberDto {
 	private String maddr2;
 	private String mdetailaddress;
 	private String mextraaddress;
-	
+
 	private String mpostercode3;
 	private String maddr3;
 	private String mdetailaddress3;
 	private String mextraaddress3;
-	
-	
-	
+
 }
