@@ -33,5 +33,14 @@ public class CafeController {
 		mav = csv.cafeList(page);
 		return mav;
 	}
+	//카페 상세보기 요청
+	@RequestMapping(value="/cafeInfo")
+	public ModelAndView cafeInfo(String cfcode) {
+		System.out.println("카페 상세보기 요청");
+		System.out.println(cfcode);
+		ModelAndView mav = new ModelAndView();
+		mav = csv.cafeInfo(cfcode);
+		return mav;
+	}
 	
 }

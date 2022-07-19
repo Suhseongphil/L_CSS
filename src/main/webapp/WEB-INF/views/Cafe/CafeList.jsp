@@ -103,7 +103,7 @@
 								<div class="blog__item__text">
 									<h2>${cfList.cfname }</h2>
 									<p>주소 : ${cfList.cfaddress }</p>
-									<p>${cfList.cftel }</p>
+									<p>${cfList.cftel } <a type="button" href="cafeInfo?cfcode=${cfList.cfcode}"><button>상세보기</button></a></p>
 								</div>
 							</div>
 						</div>
@@ -150,7 +150,8 @@
 		});
 	</script>
 
-	<script type="text/javascript" src="./main.85741bff.js"></script>
+
 </body>
+
 
 </html>
