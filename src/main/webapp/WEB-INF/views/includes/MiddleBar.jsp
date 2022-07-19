@@ -19,12 +19,12 @@
 	<div class="col-lg-9">
 		<nav class="header__menu2"  style="text-align: left;">
 			<ul>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
 				<li class="active">
 					<a href="main">메인</a>
 				</li>
 				<li>
-					<a href="#">상품</a>
+					<a href="shopMain">상품</a>
 				</li>
 				<li>
 					<a href="#">카페</a>

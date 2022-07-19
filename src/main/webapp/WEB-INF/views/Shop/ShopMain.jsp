@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+	<link rel="stylesheet"
+   href="${pageContext.request.contextPath }/resources/css/handmade.css"
+   type="text/css">
 <body>
 <header class="header">
         <%@ include file ="../includes/TopBar.jsp" %>
@@ -55,7 +58,7 @@
                 <div class="container" style="padding-left: 10px;">
                 	
                 	
-	                <%@ include file ="../includes/SideBar.jsp" %>
+	               
                 	
                 	
                 <div class="col-lg-7 col-md-3">
