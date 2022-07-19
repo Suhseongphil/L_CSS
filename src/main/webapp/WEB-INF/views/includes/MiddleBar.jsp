@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="col-lg-9">
-		<nav class="header__menu2"  style="text-align: left;">
+		<nav class="header__menu2"  style="padding-left: 50px;">
 			<ul>
 			
 				<li class="active">
