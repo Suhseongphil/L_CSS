@@ -152,7 +152,7 @@ text-align: center;
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="#" class="primary-btn cart-btn">더 쇼핑하기</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right">
                             새로고침</a>
                     </div>
                 </div>
@@ -246,7 +246,7 @@ text-align: center;
 			
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<input type=\"checkbox\" id=\"check\" name=\"check\" value=\"'"+mycart[i].ctcode+"'\" ></h5>";
 			
 			output += "</div>";
 			//output += "</td>";
@@ -349,6 +349,11 @@ text-align: center;
 			
 			
 		}
+		$("input[name=check]:checked").each(function(){
+	        var test = $(this).val();
+	        console.log("체크된 값 : " + test);
+		});
+		
 		
 	</script>
 	
