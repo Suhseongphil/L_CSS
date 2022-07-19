@@ -47,6 +47,63 @@
 	margin-left: 25%;
 }
 
+.cafeMod-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 15px 6px;
+	background: indigo;
+	border: none;
+}
+.cafeDelete-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 15px 6px;
+	background: purple;
+	border: none;
+}
+
+.cafeStateMod-blue-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 39px 6px;
+	background: blue;
+	border: none;
+	margin-top:2px;
+}
+
+.cafeStateMod-red-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 33px 6px;
+	background: red;
+	border: none;
+	margin-top:2px;
+}
+
+.cafeModInsert-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 7px 33px 6px;
+	background: saddlebrown;
+	border: none;
+	margin-top:30%;
+}
+
 .cafeInsert {
 	border: 3px solid gray;
 	padding: 10px 10px;
@@ -54,14 +111,6 @@
 
 .cafeInsert span, input{
 	font-size: 14px;
-}
-
-.bc-blue {
-	background-color: blue;
-}
-
-.bc-red {
-	background-color: red;
 }
 
 .dp_none {

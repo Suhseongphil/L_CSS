@@ -55,6 +55,9 @@
 
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
+		<div class="text-center">
+			<h1>회사 정보 입력</h1>
+		</div>
 		<div class="container">
 			<form action="adminCreateCafeInfo" enctype="multipart/form-data">
 
@@ -93,7 +96,8 @@
 							<span class="font-weight-bold">카페 이미지</span>
 							<br>
 							<input type="file" id="cfimgs" name="cfimgs" multiple="multiple">
-							<br><br>
+							<br>
+							<br>
 							<span class="font-weight-bold">시그니처 이미지</span>
 							<br>
 							<input type="file" id="cfsigimgs" name="cfsigimgs">
@@ -283,19 +287,21 @@
 			output += "<span class=\"font-weight-bold\">전화번호 : </span>";
 			output += "<span>" + cafe[i].cftel + "</span><br>";
 			output += "<span class=\"font-weight-bold\">카페링크 : </span>";
-			if(cafe[i].cflink=="없음"){
-				output +="<span></span><br>";
-			}else{
-			output += "<a href=\"" + cafe[i].cflink + "\" style=\"font-size:14px;\">"
-					+ cafe[i].cflink + "</a><br>";
-			}					
+			if (cafe[i].cflink == "없음") {
+				output += "<span></span><br>";
+			} else {
+				output += "<a href=\"" + cafe[i].cflink + "\" style=\"font-size:14px;\">"
+						+ cafe[i].cflink + "</a><br>";
+			}
 			output += "<span class=\"font-weight-bold\">카페주소 : </span>";
 			output += "<span>" + cafe[i].cfaddress + "</span>";
 			output += "</div></div>";
 
 			output += "<div class=\"col-2\"><div style=\"margin-top:30%;\">";
-			output += "<button class=\"cafeMod-btn\" type=\"button\" onclick=\"cfModifyForm(this, '" + cafe[i].cfcode + "')\">수정</button>&nbsp;";
-			output += "<button class=\"cafeDelete-btn\" type=\"button\" onclick=\"cfDelete('" + cafe[i].cfcode + "')\">삭제</button>";
+			output += "<button class=\"cafeMod-btn\" type=\"button\" onclick=\"cfModifyForm(this, '"
+					+ cafe[i].cfcode + "')\">수정</button>&nbsp;";
+			output += "<button class=\"cafeDelete-btn\" type=\"button\" onclick=\"cfDelete('"
+					+ cafe[i].cfcode + "')\">삭제</button>";
 
 			if (cafe[i].cfstate == 0) {
 				output += "<button class=\"cafeStateMod-blue-btn\" type=\"button\" onclick=\"stateChange(this,'"
@@ -330,12 +336,12 @@
 			output += "<input type=\"text\" id=\"sample6_postcode"+cafe[i].cfcode+"\" name=\"cmPostCode\" value=\""+ cafe[i].cfpostcode +"\">";
 			output += "<input type=\"text\" id=\"sample6_address"+cafe[i].cfcode+"\" name=\"cmAddr\" value=\""+ cafe[i].cfaddr +"\">";
 			output += "<br><input style=\"margin-left:64px;\" type=\"text\" id=\"sample6_detailAddress"+cafe[i].cfcode+"\" name=\"cmDetailAddress\" value=\""+ cafe[i].cfdetailaddress +"\">";
-			if(cafe[i].cfextraaddress == null){
+			if (cafe[i].cfextraaddress == null) {
 				output += "<input type=\"text\" id=\"sample6_extraAddress"+cafe[i].cfcode+"\" name=\"cmExtraAddress\">";
-			}else{
-				output += "<input type=\"text\" id=\"sample6_extraAddress"+cafe[i].cfcode+"\" name=\"cmExtraAddress\" value=\""+ cafe[i].cfextraaddress +"\">";			
+			} else {
+				output += "<input type=\"text\" id=\"sample6_extraAddress"+cafe[i].cfcode+"\" name=\"cmExtraAddress\" value=\""+ cafe[i].cfextraaddress +"\">";
 			}
-			
+
 			output += "<input type=\"button\" onclick=\"sample6_execDaumPostcode2('"
 					+ cafe[i].cfcode + "')\" value=\"우편번호 찾기\">";
 			output += "</div>";

@@ -279,37 +279,42 @@ public class AdminService {
 				file.delete();
 				System.out.println(i + "번째 카페 이미지 삭제 성공");
 			}
+			
+			// 이미지 저장
+			String imgFile = "";
+			String cfimg = "";
+			if (cafe.getCfimgs() != null) {
+				MultipartFile[] imgs = cafe.getCfimgs();
+				for (MultipartFile multipartFile : imgs) {
+					UUID uuid = UUID.randomUUID();
+					imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+
+					multipartFile.transferTo(new File(savePath_cf, imgFile));
+					cfimg = cfimg + "/" + imgFile;
+				}
+
+			}
+			cafe.setCfimg(cfimg);
+		}else {
+			cafe.setCfimg(deleteCfimg.getCfimg());
 		}
 		if (deleteCfimg.getCfsigimg() != null) {
 			File file = new File(savePath_cf + "/" + deleteCfimg.getCfsigimg());
 			file.delete();
 			System.out.println("시그니처 이미지 삭제 성공");
-		}
-
-		// 이미지 저장
-		String imgFile = "";
-		String cfimg = "";
-		if (cafe.getCfimgs() != null) {
-			MultipartFile[] imgs = cafe.getCfimgs();
-			for (MultipartFile multipartFile : imgs) {
+			
+			MultipartFile sgimgFile = cafe.getCfsigimgs();
+			String cfsgimg = "";
+			if (!sgimgFile.isEmpty()) {
 				UUID uuid = UUID.randomUUID();
-				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
-
-				multipartFile.transferTo(new File(savePath_cf, imgFile));
-				cfimg = cfimg + "/" + imgFile;
+				cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
+				sgimgFile.transferTo(new File(savePath_cf, cfsgimg));
 			}
-
+			cafe.setCfsigimg(cfsgimg);
+		}else {
+			cafe.setCfsigimg(deleteCfimg.getCfsigimg());
 		}
-		cafe.setCfimg(cfimg);
 
-		MultipartFile sgimgFile = cafe.getCfsigimgs();
-		String cfsgimg = "";
-		if (!sgimgFile.isEmpty()) {
-			UUID uuid = UUID.randomUUID();
-			cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
-			sgimgFile.transferTo(new File(savePath_cf, cfsgimg));
-		}
-		cafe.setCfsigimg(cfsgimg);
 
 		// 주소
 		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
