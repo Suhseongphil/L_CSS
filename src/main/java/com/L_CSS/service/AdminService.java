@@ -87,6 +87,24 @@ public class AdminService {
 
 		ArrayList<CompanyDto> companyList = adao.getCompany();
 
+		for (int i = 0; i < companyList.size(); i++) {
+			if (companyList.get(i).getCmaddress() != null) {
+				String[] cfaddress_split = companyList.get(i).getCmaddress().split("_");
+				if (cfaddress_split.length >= 1) {
+					companyList.get(i).setCmpostcode(cfaddress_split[0]);
+					if (cfaddress_split.length >= 2) {
+						companyList.get(i).setCmaddr(cfaddress_split[1]);
+						if (cfaddress_split.length >= 3) {
+							companyList.get(i).setCmdetailaddress(cfaddress_split[2]);
+							if (cfaddress_split.length == 4) {
+								companyList.get(i).setCmextraaddress(cfaddress_split[3]);
+							}
+						}
+					}
+				}
+			}
+		}
+
 		Gson gson = new Gson();
 
 		String company = gson.toJson(companyList);
@@ -100,25 +118,29 @@ public class AdminService {
 		adao.cmstateModify(cmcode, cmstate);
 	}
 
-	public void companyDelete(String cmcode, String cmimg) {
+	public void companyDelete(String cmcode) {
 		System.out.println("AdminService.companyDelete() 호출");
-		File file = new File(savePath_cm + "/" + cmimg);
-		file.delete();
+		String cmimg = adao.getCompanyImg(cmcode);
+		if (cmimg != null) {
+			File file = new File(savePath_cm + cmimg);
+			file.delete();
+		}
 		adao.companyDelete(cmcode);
 	}
 
 	public void updateCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.updateCompany() 호출");
 
-		// 기존 이미지 삭제
-		if (company.getCmimg() != null) {
-			File file = new File(savePath_cm + "/" + company.getCmimg());
-			file.delete();
-		}
+		// 기존 이미지 가져오기
+		String cmimg = adao.getCompanyImg(company.getCmcode());
 
-		// 이미지 저장
-		String imgFile = "";
+		// 기존 이미지 삭제
 		if (company.getCmimgs() != null) {
+			File file = new File(savePath_cm + cmimg);
+			file.delete();
+
+			// 이미지 저장
+			String imgFile = "";
 			MultipartFile[] imgs = company.getCmimgs();
 			for (MultipartFile multipartFile : imgs) {
 				UUID uuid = UUID.randomUUID();
@@ -126,9 +148,10 @@ public class AdminService {
 
 				multipartFile.transferTo(new File(savePath_cm, imgFile));
 			}
+			company.setCmimg(imgFile);
+		} else {
+			company.setCmimg(cmimg);
 		}
-		System.out.println("imgFile : " + imgFile);
-		company.setCmimg(imgFile);
 
 		// 주소
 		if (company.getCmextraaddress().length() == 0 && company.getCmdetailaddress().length() == 0) {
@@ -221,13 +244,15 @@ public class AdminService {
 		ArrayList<CafeDto> cafeList = adao.getCafe();
 
 		for (int i = 0; i < cafeList.size(); i++) {
-			String[] cfaddress_split = cafeList.get(i).getCfaddress().split("_");
-			cafeList.get(i).setCfpostcode(cfaddress_split[0]);
-			cafeList.get(i).setCfaddr(cfaddress_split[1]);
-			if (cfaddress_split.length >= 3) {
-				cafeList.get(i).setCfdetailaddress(cfaddress_split[2]);
-				if (cfaddress_split.length == 4) {
-					cafeList.get(i).setCfextraaddress(cfaddress_split[3]);
+			if (cafeList.get(i).getCfaddress() != null) {
+				String[] cfaddress_split = cafeList.get(i).getCfaddress().split("_");
+				cafeList.get(i).setCfpostcode(cfaddress_split[0]);
+				cafeList.get(i).setCfaddr(cfaddress_split[1]);
+				if (cfaddress_split.length >= 3) {
+					cafeList.get(i).setCfdetailaddress(cfaddress_split[2]);
+					if (cfaddress_split.length == 4) {
+						cafeList.get(i).setCfextraaddress(cfaddress_split[3]);
+					}
 				}
 			}
 		}
@@ -279,7 +304,7 @@ public class AdminService {
 				file.delete();
 				System.out.println(i + "번째 카페 이미지 삭제 성공");
 			}
-			
+
 			// 이미지 저장
 			String imgFile = "";
 			String cfimg = "";
@@ -295,14 +320,14 @@ public class AdminService {
 
 			}
 			cafe.setCfimg(cfimg);
-		}else {
+		} else {
 			cafe.setCfimg(deleteCfimg.getCfimg());
 		}
 		if (deleteCfimg.getCfsigimg() != null) {
 			File file = new File(savePath_cf + "/" + deleteCfimg.getCfsigimg());
 			file.delete();
 			System.out.println("시그니처 이미지 삭제 성공");
-			
+
 			MultipartFile sgimgFile = cafe.getCfsigimgs();
 			String cfsgimg = "";
 			if (!sgimgFile.isEmpty()) {
@@ -311,10 +336,9 @@ public class AdminService {
 				sgimgFile.transferTo(new File(savePath_cf, cfsgimg));
 			}
 			cafe.setCfsigimg(cfsgimg);
-		}else {
+		} else {
 			cafe.setCfsigimg(deleteCfimg.getCfsigimg());
 		}
-
 
 		// 주소
 		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
