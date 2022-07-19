@@ -8,7 +8,7 @@ public interface MemberDao {
 
 	int InsertMember(MemberDto member);
 
-	MemberDto MemberLogin(@Param("mid")String mid,@Param("mpw")String mpw);
+	MemberDto MemberLogin(@Param("mid") String mid, @Param("mpw") String mpw);
 
 	MemberDto MemberInfo(String loginId);
 
@@ -16,6 +16,8 @@ public interface MemberDao {
 
 	void insertMemberKakao(MemberDto member);
 
-	MemberDto MyInfoResult(@Param("loginId")String loginId,@Param("mpw") String mpw);
+	MemberDto MyInfoResult(@Param("loginId") String loginId, @Param("mpw") String mpw);
+
+	void memberUpdate(MemberDto member);
 
 }

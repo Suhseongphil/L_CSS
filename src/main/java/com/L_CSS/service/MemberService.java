@@ -2,14 +2,10 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,18 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MemberDao;
-import com.L_CSS.dao.TestDao;
 import com.L_CSS.dto.MemberDto;
-import com.L_CSS.dto.TestDto;
 
 @Service
 public class MemberService {
 
 	@Autowired
 	MemberDao mdao;
-
-	@Autowired
-	TestDao tdao;
 
 	@Autowired
 	private HttpSession session;
@@ -39,9 +30,7 @@ public class MemberService {
 		System.out.println("memberJoin ()호출");
 		System.out.println(member);
 		ModelAndView mav = new ModelAndView();
-		String email2 = member.getMemail();
 		String email = member.getMemail() + "@" + member.getEmailDomain();
-		member.setMemail2(email2);
 		MultipartFile mfile = member.getMfile();
 
 		member.setMemail(email);
@@ -63,15 +52,6 @@ public class MemberService {
 			mprofile = bsfile;
 
 		}
-		String maddr3 = member.getMaddr();
-		String mdetailaddress3 = member.getMdetailaddress();
-		String mextraaddress3 = member.getMextraaddress();
-		String mprostercode3 = member.getMpostercode();
-		
-		member.setMaddr3(maddr3);
-		member.setMdetailaddress3(mdetailaddress3);
-		member.setMextraaddress3(mextraaddress3);
-		member.setMpostercode3(mprostercode3);
 
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
 			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
@@ -116,7 +96,7 @@ public class MemberService {
 			if (memberLogin != null) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
-				mav.setViewName("redirect:/main");
+				mav.setViewName("Main");
 			} else {
 				ra.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
 				mav.setViewName("redirect:/MemberLogin");
@@ -137,29 +117,30 @@ public class MemberService {
 
 		if (MyInfoResult != null) {
 			MemberDto MemberInfo = mdao.MemberInfo(loginId);
-			
+
 			String[] mpost = MemberInfo.getMaddress().split("_");
 			String[] email = MemberInfo.getMemail().split("@");
-			
-			
-			System.out.println(mpost[2]);
-			System.out.println(mpost[3]);
+
+			System.out.println("mpost.length : " + mpost.length);
+			if (mpost.length != 4) {
+
+				MemberInfo.setMaddr2(mpost[2]);
+				MemberInfo.setMextraaddress3(mpost[2]);
+
+			} else {
+				System.out.println(mpost[3]);
+				MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
+				MemberInfo.setMdetailaddress3(mpost[3]);
+			}
 			MemberInfo.setMpostercode(mpost[0]);
 			MemberInfo.setMaddr(mpost[1]);
-			MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
-			MemberInfo.setMdetailaddress3(mpost[3]);
-			MemberInfo.setMextraaddress3(mpost[2]);
-			
+
 			System.out.println(email[0]);
 			System.out.println(email[1]);
-			
-			
-			
+
 			MemberInfo.setEmailDomain(email[1]);
 			MemberInfo.setMemail2(email[0]);
 
-			
-			
 			mav.addObject("memberInfo", MemberInfo);
 			mav.setViewName("Member/MemberInfo");
 
@@ -178,45 +159,7 @@ public class MemberService {
 
 		session.invalidate();
 
-		mav.setViewName("redirect:/main");
-		return mav;
-	}
-
-	// 크롤링 테스트
-	public ModelAndView getimg() throws IOException {
-		System.out.println("getimg");
-		ModelAndView mav = new ModelAndView();
-
-		String imgurl = "https://www.cofm.co.kr/goods/goods_list.php?cateCd=069&mode=categoryMode";
-
-		Document doc = Jsoup.connect(imgurl).get();
-
-		Elements img = doc.select(
-				"#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li > div > div> a > img");
-
-		Elements name = doc.select(
-				"#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div > a > div > strong");
-
-		Elements price = doc.select(
-				"#content > div > div > div.cboth.cg-main > div.goods-list > div > div > ul > li> div > div> span > strong");
-
-		ArrayList<TestDto> TestList = new ArrayList<TestDto>();
-		TestDto ts = null;
-		for (int i = 0; i < img.size(); i++) {
-			ts = new TestDto();
-			ts.setName(name.eq(i).text());
-			ts.setImg(img.get(i).attr("data-original"));
-			ts.setPrice(price.eq(i).text());
-			System.out.println(name.eq(i).text());
-			System.out.println(img.get(i).attr("data-original"));
-			System.out.println(price.eq(i).text());
-			TestList.add(ts);
-		}
-		for (int i = 0; i < TestList.size(); i++) {
-
-			int insert = tdao.insert(TestList.get(i));
-		}
-
+		mav.setViewName("Main");
 		return mav;
 	}
 
@@ -242,6 +185,34 @@ public class MemberService {
 		}
 
 		return mav;
+	}
+
+	public void memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+		System.out.println("MemberService.memberModify() 호출");
+		System.out.println("수정할 회원 정보");
+
+		String email = member.getMemail2() + "@" + member.getEmailDomain();
+		member.setMemail(email);
+		System.out.println(member.getMemail());
+		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
+			member.setMaddress(member.getMpostercode() + "_" + member.getMaddr());
+		} else {
+			if (member.getMextraaddress().length() == 0) {
+				member.setMaddress(
+						member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMdetailaddress());
+			} else if (member.getMdetailaddress().length() == 0) {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress());
+			} else {
+				member.setMaddress(member.getMpostercode() + "_" + member.getMaddr() + "_" + member.getMextraaddress()
+						+ "_" + member.getMdetailaddress());
+			}
+
+		}
+
+		System.out.println(member);
+
+		mdao.memberUpdate(member);
+
 	}
 
 }
