@@ -15,6 +15,8 @@ public interface CafeDao {
 
 	int TotalCount();
 
+	CafeDto CafeInfo(String cfcode);
+
 
 
 }

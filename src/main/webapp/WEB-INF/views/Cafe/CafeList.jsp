@@ -76,7 +76,7 @@
 								<div class="blog__item__text">
 									<h2>${cfList.cfname }</h2>
 									<p>주소 : ${cfList.cfaddress }</p>
-									<p>${cfList.cftel }</p>
+									<p>${cfList.cftel } <a type="button" href="cafeInfo?cfcode=${cfList.cfcode}"><button>상세보기</button></a></p>
 								</div>
 							</div>
 						</div>
@@ -114,6 +114,13 @@
 			</div>
 		</div>
 	</main>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event) {
+			navbarToggleSidebar();
+			navActivePage();
+		});
+	</script>
 </body>
+
 
 </html>

@@ -85,4 +85,13 @@ public class CafeService {
 		
 		return mav;
 	}
+	//카페 상세보기 요청
+	public ModelAndView cafeInfo(String cfcode) {
+		System.out.println("cafeInfo()호출");
+		ModelAndView mav = new ModelAndView();
+		CafeDto cafeInfo = cdao.CafeInfo(cfcode);
+		mav.addObject("cafeInfo", cafeInfo);
+		mav.setViewName("Cafe/CafeInfo");
+		return mav;
+	}
 }

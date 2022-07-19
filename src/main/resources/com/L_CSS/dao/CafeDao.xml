@@ -21,4 +21,10 @@
   			select count(cfcode)
   			from CAFE
   		</select>
+  		
+  		<select id="CafeInfo" resultType="com.L_CSS.dto.CafeDto">
+  			select * 
+  			from CAFE
+  			where CFCODE = #{cfcode}
+  		</select>
   </mapper>
