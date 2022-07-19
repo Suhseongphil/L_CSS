@@ -2,6 +2,7 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -140,7 +141,7 @@ public class MemberService {
 
 			MemberInfo.setEmailDomain(email[1]);
 			MemberInfo.setMemail2(email[0]);
-
+			
 			mav.addObject("memberInfo", MemberInfo);
 			mav.setViewName("Member/MemberInfo");
 
@@ -212,6 +213,7 @@ public class MemberService {
 		System.out.println(member);
 
 		mdao.memberUpdate(member);
+		
 
 	}
 

@@ -23,7 +23,7 @@ public class CompanyController {
 		
 		return mav;
 	}
-	
+	//업체리스트
 	@RequestMapping (value="/companyList")
 	public ModelAndView companyList(String page) {
 		System.out.println("업체 리스트 ");
@@ -32,6 +32,15 @@ public class CompanyController {
 		mav = csv.companyList(page);
 		
 		
+		return mav;
+	}
+	@RequestMapping(value="/compnayInfo")
+	public ModelAndView compnayInfo(String cmcode) {
+		System.out.println("업체 상세정보 호출");
+		System.out.println(cmcode);
+		ModelAndView mav = new ModelAndView();
+		
+		mav = csv.companyInfo(cmcode);
 		return mav;
 	}
 }

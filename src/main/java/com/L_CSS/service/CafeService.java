@@ -1,5 +1,6 @@
 package com.L_CSS.service;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CafeDao;
+import com.L_CSS.dao.MenuDao;
 import com.L_CSS.dto.CafeDto;
+import com.L_CSS.dto.MenuDto;
 import com.L_CSS.dto.PageDto;
 
 @Service
@@ -15,7 +18,8 @@ public class CafeService {
 	
 	@Autowired
 	CafeDao cdao;
-	
+	@Autowired
+	MenuDao mdao;
 	
 	//카페 업로드 요청
 	public ModelAndView CafeUpLoad() {
@@ -90,7 +94,9 @@ public class CafeService {
 		System.out.println("cafeInfo()호출");
 		ModelAndView mav = new ModelAndView();
 		CafeDto cafeInfo = cdao.CafeInfo(cfcode);
+		ArrayList<MenuDto>menuInfo = mdao.MenuInfo(cfcode);
 		mav.addObject("cafeInfo", cafeInfo);
+		mav.addObject("menuInfo", menuInfo);
 		mav.setViewName("Cafe/CafeInfo");
 		return mav;
 	}

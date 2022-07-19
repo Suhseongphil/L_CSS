@@ -102,7 +102,7 @@
     <h2>${comList.cmname }</h2>
     <p>주소 : ${comList.cmaddress }</p>
     <p>${comList.cmtel }</p>
-    <a href="./contact.html" class="btn btn-primary" title="">상세보기</a>
+    <a href="compnayInfo?cmcode=${comList.cmcode}" class="btn btn-primary" title="">상세보기</a>
 	</div>
   	</div>
 	</c:forEach>

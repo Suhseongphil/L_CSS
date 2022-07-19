@@ -14,4 +14,6 @@ public interface CompanyDao {
 
 	int TotalCount();
 
+	CompanyDto ComInfo(String cmcode);
+
 }

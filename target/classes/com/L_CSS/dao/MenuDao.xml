@@ -32,5 +32,11 @@
 		where MUCODE = #{mucode}
 
 	</delete>
+	
+	<select id="MenuInfo" resultType="com.L_CSS.dto.MenuDto">
+		select * 
+		from MENU
+		where MUCFCODE = #{cfcode}
+	</select>
 
 </mapper>

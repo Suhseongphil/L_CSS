@@ -20,4 +20,6 @@ public interface ProductDao {
 
 	ProductDto getProduct(@Param("type")String type, @Param("i")int i);
 
+	ArrayList<ProductDto> proInfo(String cmcode);
+
 }
