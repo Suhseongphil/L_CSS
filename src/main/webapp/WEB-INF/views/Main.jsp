@@ -70,7 +70,6 @@
 				</div>
 			</div>
 		</div>
-		</div>
 	</section>
 
 	<!-- Featured Section Begin -->

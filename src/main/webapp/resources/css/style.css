@@ -75,7 +75,8 @@ h6 {
 }
 
 p {
-	font-size: 16px;
+	
+	font-size: 20px;
 	font-family: "Cairo", sans-serif;
 	color: #6f6f6f;
 	font-weight: 400;
@@ -2278,7 +2279,7 @@ ol {
 }
 
 .blog__item__pic img {
-	min-width: 100%;
+	min-width: 60%;
 }
 
 .blog__item__text {
