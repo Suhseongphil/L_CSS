@@ -20,13 +20,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                           
-                           	
-                            
-                            <div class="header__top__right__auth">
-                                <a href="main"><i class="fa fa-user"> </i> 메인 </a>&nbsp;&nbsp;&nbsp;
-                               
-                            </div>
+                         
                             <c:choose>
                             <c:when test="${sessionScope.loginId == null }">
                             <div class="header__top__right__auth">

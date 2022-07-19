@@ -17,8 +17,9 @@
 	</div>
 
 	<div class="col-lg-9">
-		<nav class="header__menu2"  style="text-align: right;">
+		<nav class="header__menu2"  style="text-align: left;">
 			<ul>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<li class="active">
 					<a href="main">메인</a>
 				</li>
