@@ -126,12 +126,12 @@ public class MemberService {
 			if (mpost.length != 4) {
 
 				MemberInfo.setMaddr2(mpost[2]);
-				MemberInfo.setMextraaddress3(mpost[2]);
+				MemberInfo.setMextraaddress(mpost[2]);
 
 			} else {
 				System.out.println(mpost[3]);
 				MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
-				MemberInfo.setMdetailaddress3(mpost[3]);
+				MemberInfo.setMdetailaddress(mpost[3]);
 			}
 			MemberInfo.setMpostercode(mpost[0]);
 			MemberInfo.setMaddr(mpost[1]);
@@ -140,7 +140,7 @@ public class MemberService {
 			System.out.println(email[1]);
 
 			MemberInfo.setEmailDomain(email[1]);
-			MemberInfo.setMemail2(email[0]);
+			MemberInfo.setMemail(email[0]);
 			
 			mav.addObject("memberInfo", MemberInfo);
 			mav.setViewName("Member/MemberInfo");
@@ -188,11 +188,11 @@ public class MemberService {
 		return mav;
 	}
 
-	public void memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+	public ModelAndView memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
 		System.out.println("MemberService.memberModify() 호출");
 		System.out.println("수정할 회원 정보");
-
-		String email = member.getMemail2() + "@" + member.getEmailDomain();
+		ModelAndView mav = new ModelAndView();
+		String email = member.getMemail() + "@" + member.getEmailDomain();
 		member.setMemail(email);
 		System.out.println(member.getMemail());
 		if (member.getMextraaddress().length() == 0 && member.getMdetailaddress().length() == 0) {
@@ -212,9 +212,18 @@ public class MemberService {
 
 		System.out.println(member);
 
-		mdao.memberUpdate(member);
+		int updateResult = mdao.memberUpdate(member);
 		
-
+		if (updateResult > 0) {
+			ra.addFlashAttribute("msg", "수정되었습니다.");
+			mav.setViewName("Member/MyInfo");
+		} else {
+			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
+			mav.setViewName("redirect:/");
+		}
+		return mav;
 	}
+		
+		
 
 }
