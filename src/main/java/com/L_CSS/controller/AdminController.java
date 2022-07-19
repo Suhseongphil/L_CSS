@@ -29,7 +29,7 @@ public class AdminController {
 	public String admincompanyInsert() {
 		System.out.println("어드민 회사정보 입력 페이지");
 
-		return "Admin/AdminCompanyInsert";
+		return "Admin/AdminCompany";
 	}
 
 	// 회사 정보 직접 입력
@@ -120,7 +120,7 @@ public class AdminController {
 		adsvc.deleteCafe(cfcode);
 	}
 
-	// 회사 정보 수정
+	// 카페 정보 수정
 	@RequestMapping(value = "/adminCafeModify")
 	public @ResponseBody void adminCafeModify(CafeDto cafe) throws IllegalStateException, IOException {
 		System.out.println("카페정보 수정_어드민");
