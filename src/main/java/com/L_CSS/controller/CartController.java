@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.support.HttpAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -87,8 +89,12 @@ public class CartController {
 	}
 	//카카오페이 테스트
 	@RequestMapping(value="/kokopayTest")
-	public @ResponseBody String kokopayTest() {
+	public  String kokopayTest() {
 		System.out.println("카카오페이 테스트");
+		
+		
+		
+		
 		String loginId = (String)session.getAttribute("loginId");
 		ArrayList<CartDto>cartList = csv.selectCart(loginId);
 		String name = null;
@@ -146,5 +152,11 @@ public class CartController {
 		}
 		return null;
 	}
-	
+	/*
+	@RequestMapping(value="/paymentInsert")
+	public @ResponseBody String paymentInsert() {
+		System.out.println("결제 정보 입력");
+		return null;
+	}
+	*/
 }

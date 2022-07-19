@@ -156,10 +156,11 @@ text-align: center;
                             새로고침</a>
                     </div>
                 </div>
-             
+             	<form action="kokopayTest" method="post">
                 <div id="checkOut" class="col-lg-6" >
-                   
                 </div>
+             	</form>
+                   
             </div>
         </div>
     <!--</section>  -->
@@ -246,7 +247,7 @@ text-align: center;
 			
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<input type=\"checkbox\" id=\"check\" name=\"check\" value=\"'"+mycart[i].ctcode+"'\" ></h5>";
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<input   type=\"checkbox\" id=\"check\" name=\"check[]\" value=\"'"+mycart[i].ctcode+"'\" ></h5>";
 			
 			output += "</div>";
 			//output += "</td>";
@@ -272,10 +273,10 @@ text-align: center;
 		output2 += "</li>";
 		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
 		output2 += "</ul>";
-		output2 += " <button class=\"btn_none\" onclick=\"kokopay()\" ><img alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/kokopay.png\"></button>";
+		output2 += " <button class=\"btn_none\" type=\"submit\" ><img alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/kokopay.png\"></button>";
 		output2 += "</div>";
 		
-        
+        /* onclick=\"checkbox()\" */
        $("#checkOut").html(output2);    
             	
           
@@ -326,9 +327,35 @@ text-align: center;
 			
 			});
 		}
+		/*
+		function checkbox(){
+			
+				var checkArr = [];
+			$("input[name=check]:checked").each(function(){
+				var chc = $(this).val();
+				console.log(chc);
+				checkArr.push(chc);
+				console.log("배열" + checkArr[0]);
+				console.log("배열" + checkArr[1]);
+				
+				$.ajax({
+					type : "post",
+					url : "paymentInsert",
+					data : {"checkArr" : checkArr},
+					dataType : "json",
+					asyne : false,
+					success : function(paymentInsert){
+						console.log(paymentInsert)
+					}
+				});
+
+				
+			});
+		}
+		
+		
 		function kokopay(){
 			console.log("카카오페이 테스트");
-			
 			$.ajax({
 				
 				url : "kokopayTest",
@@ -349,12 +376,9 @@ text-align: center;
 			
 			
 		}
-		$("input[name=check]:checked").each(function(){
-	        var test = $(this).val();
-	        console.log("체크된 값 : " + test);
-		});
 		
 		
+		*/
 	</script>
 	
 </html>
