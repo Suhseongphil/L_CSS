@@ -54,7 +54,6 @@
 
 <body>
 
-
    <main class="" id="main-collapse">
       <%@ include file="../includes/TopBar.jsp"%>
       <div class="row">
@@ -88,6 +87,26 @@
                </div>
             </div>
          </section>
+         <section class="blog-details spad">
+				<div class="container">
+					<div class="row">
+						<c:forEach items="${menuInfo }" var="muList" begin="0" end="5">
+							<div class="col-lg-8 col-md-7 order-md-1 order-1">
+								<div class="blog__details__text">
+
+									<img style="width: 150px;" src="${muList.muimg }" alt="">
+
+									<p>${muList.muname }</p>
+									<h3>${muList.muprice }</h3>
+									<p>${muList.mutype }</p>
+								</div>
+								<div class="blog__details__content"></div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+			</section>
+         
       </div>
    </main>
 </body>
