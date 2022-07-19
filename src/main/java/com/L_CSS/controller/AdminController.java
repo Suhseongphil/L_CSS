@@ -59,9 +59,9 @@ public class AdminController {
 
 	// 회사 정보 삭제
 	@RequestMapping(value = "/companyDelete")
-	public @ResponseBody void companyDelete(String cmcode, String cmimg) {
+	public @ResponseBody void companyDelete(String cmcode) {
 		System.out.println("회사 정보 삭제");
-		adsvc.companyDelete(cmcode, cmimg);
+		adsvc.companyDelete(cmcode);
 	}
 
 	// 회사 정보 수정
