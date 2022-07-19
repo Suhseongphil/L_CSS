@@ -220,6 +220,18 @@ public class AdminService {
 
 		ArrayList<CafeDto> cafeList = adao.getCafe();
 
+		for (int i = 0; i < cafeList.size(); i++) {
+			String[] cfaddress_split = cafeList.get(i).getCfaddress().split("_");
+			cafeList.get(i).setCfpostcode(cfaddress_split[0]);
+			cafeList.get(i).setCfaddr(cfaddress_split[1]);
+			if (cfaddress_split.length >= 3) {
+				cafeList.get(i).setCfdetailaddress(cfaddress_split[2]);
+				if (cfaddress_split.length == 4) {
+					cafeList.get(i).setCfextraaddress(cfaddress_split[3]);
+				}
+			}
+		}
+
 		Gson gson = new Gson();
 
 		String cafe = gson.toJson(cafeList);
@@ -265,7 +277,7 @@ public class AdminService {
 			for (int i = 1; i < deleteCfimg.getCfimg().split("/").length; i++) {
 				File file = new File(savePath_cf + "/" + deleteCfimg.getCfimg().split("/")[i]);
 				file.delete();
-				System.out.println(i+"번째 카페 이미지 삭제 성공");
+				System.out.println(i + "번째 카페 이미지 삭제 성공");
 			}
 		}
 		if (deleteCfimg.getCfsigimg() != null) {
@@ -317,22 +329,6 @@ public class AdminService {
 		System.out.println(cafe);
 
 		adao.updateCafe(cafe);
-
-	}
-	
-	public void mucodeModify() {
-		System.out.println("AdminService.tscodeModify() 호출");
-
-		ArrayList<String> mucodes = adao.getMucode();
-
-		for (int i = 0; i < mucodes.size(); i++) {
-			System.out.println(mucodes.get(i));
-			String modcode = mucodes.get(i).substring(2);
-			modcode = "MU0" + modcode;
-			System.out.println(modcode);
-
-			adao.updateMucode(mucodes.get(i), modcode);
-		}
 
 	}
 

@@ -12,6 +12,17 @@
 	border: none;
 }
 
+.insert-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: saddlebrown;
+	border: none;
+}
+
 .mainshop-btn {
 	display: inline-block;
 	font-size: 14px;
@@ -23,6 +34,43 @@
 	letter-spacing: 2px;
 }
 
+.cafeInsert-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: saddlebrown;
+	border: none;
+	margin-top: 30%;
+	margin-left: 25%;
+}
+
+.cafeInsert {
+	border: 3px solid gray;
+	padding: 10px 10px;
+}
+
+.cafeInsert span, input{
+	font-size: 14px;
+}
+
+.bc-blue {
+	background-color: blue;
+}
+
+.bc-red {
+	background-color: red;
+}
+
+.dp_none {
+	display: none;
+}
+
+.btn_width {
+	width: 90px;
+}
 
 /* hero */
 .hero__text2 span {
@@ -184,7 +232,7 @@ a span:nth-child(1):before {
     position: absolute;
     top: 0;
     left: 0;
-    background: #ff3636;
+    background: #8b4513;
     padding: 15px;
     transition: 0.5S;
     transform-origin: top;
@@ -226,7 +274,7 @@ a span:nth-child(2):after {
     position: absolute;
     top: 0;
     left: 0;
-    background: #ff3636;
+    background:#8b4513;
     padding: 15px;
     transition: 0.5S;
     transform-origin: top;
@@ -239,7 +287,7 @@ a:hover span:nth-child(2):after {
 .cafe_item{
 	margin-bottom: 60px;
 }
-..box {
+.box {
 	width: 150px;
 	height: 150px;
 	border-radius: 70%;

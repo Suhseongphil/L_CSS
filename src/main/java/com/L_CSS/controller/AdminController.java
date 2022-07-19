@@ -79,7 +79,7 @@ public class AdminController {
 		adsvc.insertCafe(cafe);
 	}
 
-	// 카페 출력 입력
+	// 카페 출력
 	@RequestMapping(value = "/getCafeInfo")
 	public @ResponseBody String getCafeInfo() {
 		System.out.println("카페정보 출력_어드민");
@@ -128,11 +128,4 @@ public class AdminController {
 		adsvc.updateCafe(cafe);
 	}
 
-	// 메뉴코드 수정 실행시키지말것!!!!!
-	@RequestMapping(value = "/mucodeModify")
-	public void mucodeModify() {
-		System.out.println("메뉴수정");
-
-		adsvc.mucodeModify();
-	}
 }

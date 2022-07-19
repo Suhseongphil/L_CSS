@@ -39,6 +39,5 @@ public interface AdminDao {
 	
 	ArrayList<String> getMucode();
 	
-	void updateMucode(@Param("mucode")String mucode, @Param("modcode")String modcode);
 
 }

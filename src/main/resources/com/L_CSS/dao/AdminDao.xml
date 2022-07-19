@@ -74,11 +74,5 @@
 	<select id="getMucode" resultType="String">
 		SELECT MUCODE FROM MENU ORDER BY MUCODE ASC
 	</select>
-	
-	<update id="updateMucode">
-		UPDATE MENU
-		SET MUCODE = #{modcode}
-		WHERE MUCODE = #{mucode}
-	</update>
 
 </mapper>
