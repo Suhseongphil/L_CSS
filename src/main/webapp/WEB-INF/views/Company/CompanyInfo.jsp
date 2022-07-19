@@ -62,7 +62,7 @@
 					<div class="row">
 
 						<div class="col-lg-8 col-md-7 order-md-1 order-1">
-							<div class="blog__details__text">
+							<div class="blog__item__pic">
 								<c:choose>
 									<c:when test="${comInfo.cmimg == null }">
 										<img alt="" style="width: 50%;"
