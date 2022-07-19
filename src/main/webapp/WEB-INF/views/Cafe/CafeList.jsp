@@ -70,7 +70,7 @@
 		</nav>
 	</header>
 	-->
-	
+
 	<main class="" id="main-collapse">
 		<%@ include file="../includes/TopBar.jsp"%>
 		<div class="row">
@@ -143,14 +143,7 @@
 		</div>
 
 	</main>
-	<script>
-		document.addEventListener("DOMContentLoaded", function(event) {
-			navbarToggleSidebar();
-			navActivePage();
-		});
-	</script>
 
-	<script type="text/javascript" src="./main.85741bff.js"></script>
 </body>
 
 </html>
