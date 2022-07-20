@@ -30,13 +30,18 @@
 					<a href="main">메인</a>
 				</li>
 				<li>
+					<a href="#">회원</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="adminMember">회원관리</a>
+						</li>
+					</ul>
+				</li>
+				<li>
 					<a href="#">카페</a>
 					<ul class="header__menu__dropdown">
 						<li>
 							<a href="admincafeInsert">카페관리</a>
-						</li>
-						<li>
-							<a href="adminmenuInsert">메뉴관리</a>
 						</li>
 					</ul>
 				</li>
