@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.L_CSS.dao.AdminDao;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.MemberDto;
 import com.google.gson.Gson;
 
 @Service
@@ -359,6 +360,17 @@ public class AdminService {
 
 		adao.updateCafe(cafe);
 
+	}
+
+	public String getMemberInfo() {
+		System.out.println("AdminService.getMemberInfo() 호출");
+		
+		ArrayList<MemberDto> memberList = adao.getMemberInfo();
+		
+		Gson gson = new Gson();
+		String memberList_ajax = gson.toJson(memberList);
+		
+		return memberList_ajax;
 	}
 
 }

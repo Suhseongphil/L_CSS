@@ -128,4 +128,22 @@ public class AdminController {
 		adsvc.updateCafe(cafe);
 	}
 
+	// 어드민 회원 페이지 이동
+	@RequestMapping(value = "/adminMember")
+	public String adminMember() {
+		System.out.println("어드민 페이지 호출");
+
+		return "Admin/AdminMember";
+	}
+
+	// 회원 정보 출력
+	@RequestMapping(value = "/getMemberInfo")
+	public @ResponseBody String getMemberInfo(CafeDto cafe) {
+		System.out.println("회원정보 가져오기");
+
+		String memberList = adsvc.getMemberInfo();
+		
+		return memberList;
+	}
+
 }

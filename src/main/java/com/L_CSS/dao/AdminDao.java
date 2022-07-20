@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.MemberDto;
 
 public interface AdminDao {
 
@@ -40,6 +41,8 @@ public interface AdminDao {
 	ArrayList<String> getMucode();
 
 	String getCompanyImg(String cmcode);
+
+	ArrayList<MemberDto> getMemberInfo();
 	
 
 }
