@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.L_CSS.dao.CartDao;
+import com.L_CSS.dao.OrderDao;
 import com.L_CSS.dao.ReservationDao;
 import com.L_CSS.dto.CartDto;
+import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.ReservationDto;
 
 @Service
@@ -18,6 +21,8 @@ public class ReservationService {
 	ReservationDao rdao;
 	@Autowired
 	CartDao cdao;
+	@Autowired
+	OrderDao odao;
 	public ModelAndView reservationUpLoad() {
 		
 		String max = rdao.getmax();
@@ -97,6 +102,16 @@ public class ReservationService {
 			mav.setViewName("redirect:/myCartPage");
 		}
 		
+		return mav;
+	}
+	//주문목록 확인
+	public ModelAndView selectReserv(String loginId) {
+		System.out.println("selectReserv ()호출");
+		ModelAndView mav  = new ModelAndView();
+		ArrayList<OrderDto>OrderList = odao.OrderList(loginId);
+		System.out.println(OrderList);
+		mav.addObject("OrderList",OrderList);
+		mav.setViewName("option/orderhistory");
 		return mav;
 	}
 	

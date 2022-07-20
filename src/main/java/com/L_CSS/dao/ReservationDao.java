@@ -10,4 +10,6 @@ public interface ReservationDao {
 
 	int insertReTable(ReservationDto reserv);
 
+	
+
 }
