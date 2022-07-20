@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -96,6 +97,7 @@ public class MemberService {
 			if (memberLogin != null) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
+				session.setAttribute("loginState", memberLogin.getMstate());
 				mav.setViewName("Main");
 			} else {
 				ra.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");

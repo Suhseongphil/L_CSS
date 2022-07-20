@@ -24,6 +24,90 @@
 		<nav class="header__menu2"  style="padding-left: 50px; margin-top: 10px;">
 			<ul>
 			
+				<c:choose>
+				<c:when test="${sessionScope.loginState == 1 }">
+				<li class="active">
+					<a href="main">메인</a>
+				</li>
+				<li>
+					<a href="shopMain">상품</a>
+				</li>
+				<li>
+					<a href="#">카페</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="mycafeInsert">내 카페등록</a>
+						</li>
+						<li>
+							<a href="cafeList">내 카페정보</a>
+						</li>
+						<li>
+							<a href="cafeList">카페목록</a>
+						</li>
+						<li>
+							<a href="#">추천 카페</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">업체</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="companyList">업체목록</a>
+						</li>
+						<li>
+							<a href="#">우수업체</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="./contact.html">공동구매</a>
+				</li>
+				
+				</c:when>
+				<c:when test="${sessionScope.loginState == 2 }">
+				<li class="active">
+					<a href="main">메인</a>
+				</li>
+				<li>
+					<a href="shopMain">상품</a>
+				</li>
+				<li>
+					<a href="#">카페</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="cafeList">카페목록</a>
+						</li>
+						<li>
+							<a href="#">추천 카페</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">업체</a>
+					<ul class="header__menu__dropdown">
+						<li>
+							<a href="companyList">내 업체등록</a>
+						</li>
+						<li>
+							<a href="companyList">내 업체정보</a>
+						</li>
+						<li>
+							<a href="companyList">업체목록</a>
+						</li>
+						<li>
+							<a href="#">우수업체</a>
+						</li>
+						
+					</ul>
+				</li>
+
+				<li>
+					<a href="./contact.html">공동구매</a>
+				</li>
+				</c:when>
+				<c:otherwise>
 				<li class="active">
 					<a href="main">메인</a>
 				</li>
@@ -56,6 +140,8 @@
 				<li>
 					<a href="./contact.html">공동구매</a>
 				</li>
+				</c:otherwise>
+				</c:choose>
 				
 			</ul>
 		</nav>
