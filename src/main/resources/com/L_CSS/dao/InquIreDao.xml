@@ -21,4 +21,10 @@
   	from INQUIRE
   	where iqmid = #{loginId}
   	</select>
+  	<select id="searchList" resultType="com.L_CSS.dto.InquIreDto">
+  		select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE ,'YYYY-MM-DD') AS IQDATE
+  		from INQUIRE
+  		where iqtitle = #{text}
+  		
+  	</select>
   </mapper>
