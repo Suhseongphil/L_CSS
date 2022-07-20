@@ -101,4 +101,14 @@ public class InquIreService {
 		
 		return inquire;
 	}
+	//검색기능
+	public ModelAndView searchText(String iqcategory, String searchText) {
+		System.out.println("serchText()호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<InquIreDto>searchList = Idao.searchList(iqcategory,searchText);
+		
+		
+		return mav;
+	}
+	
 }
