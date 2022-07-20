@@ -94,6 +94,9 @@
 							<a href="companyList">내 업체정보</a>
 						</li>
 						<li>
+							<a href="companyList">주문목록</a>
+						</li>
+						<li>
 							<a href="companyList">업체목록</a>
 						</li>
 						<li>
@@ -142,6 +145,7 @@
 				</li>
 				</c:otherwise>
 				</c:choose>
+				
 				
 			</ul>
 		</nav>
