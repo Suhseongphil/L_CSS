@@ -138,12 +138,27 @@ public class AdminController {
 
 	// 회원 정보 출력
 	@RequestMapping(value = "/getMemberInfo")
-	public @ResponseBody String getMemberInfo(CafeDto cafe) {
+	public @ResponseBody String getMemberInfo() {
 		System.out.println("회원정보 가져오기");
 
 		String memberList = adsvc.getMemberInfo();
-		
+
 		return memberList;
+	}
+
+	// 회원 활동상태 변경
+	@RequestMapping(value = "/memberStateModify")
+	public @ResponseBody void memberStateModify(String mid, int mstate) {
+		System.out.println("회원 상태 변경");
+		adsvc.memberStateModify(mid, mstate);
+	}
+
+	// 회원 정보 삭제
+	@RequestMapping(value = "/memberDelete")
+	public @ResponseBody void memberDelete(String mid) {
+		System.out.println("회원 정보 삭제");
+
+		adsvc.deleteMember(mid);
 	}
 
 }

@@ -43,6 +43,12 @@ public interface AdminDao {
 	String getCompanyImg(String cmcode);
 
 	ArrayList<MemberDto> getMemberInfo();
+
+	void memberStateModify(String mid, int mstate);
+
+	MemberDto getDeleteMemberInfo(String mid);
+
+	void deleteMember(String mid);
 	
 
 }
