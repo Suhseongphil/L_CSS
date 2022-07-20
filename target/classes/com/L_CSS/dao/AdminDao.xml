@@ -83,4 +83,20 @@
 	<select id="getMemberInfo" resultType="com.L_CSS.dto.MemberDto">
 		SELECT * FROM MEMBER
 	</select>
+	
+	<update id="memberStateModify">
+		UPDATE MEMBER
+		SET MSTATE = #{mstate}
+		WHERE MID = #{mid}
+	</update>
+	
+	<select id="getDeleteMemberInfo" resultType="com.L_CSS.dto.MemberDto">
+		SELECT * FROM MEMBER
+		WHERE MID = #{mid}
+	</select>
+	
+	<delete id="deleteMember">
+		DELETE MEMBER
+		WHERE MID = #{mid}
+	</delete>
 </mapper>

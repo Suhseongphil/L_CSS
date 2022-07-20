@@ -24,6 +24,7 @@ public class AdminService {
 	// 저장경로 ) 본인 로컬주소로 변경!!
 	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
 	private String savePath_cf = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
+	private String savePath_mb = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/MemberFrofile";
 
 	public void insertCompany(CompanyDto company) throws IllegalStateException, IOException {
 		System.out.println("AdminService.insertCompany() 호출");
@@ -364,13 +365,35 @@ public class AdminService {
 
 	public String getMemberInfo() {
 		System.out.println("AdminService.getMemberInfo() 호출");
-		
+
 		ArrayList<MemberDto> memberList = adao.getMemberInfo();
-		
+
 		Gson gson = new Gson();
 		String memberList_ajax = gson.toJson(memberList);
-		
+
 		return memberList_ajax;
+	}
+
+	public void memberStateModify(String mid, int mstate) {
+		System.out.println("AdminService.memberStateModify() 호출");
+
+		adao.memberStateModify(mid, mstate);
+	}
+
+	public void deleteMember(String mid) {
+		System.out.println("AdminService.deleteMember() 호출");
+		// 삭제할 정보
+		MemberDto memberInfo = adao.getDeleteMemberInfo(mid);
+		if (memberInfo != null) {
+			// 기존이미지 삭제
+			if (memberInfo.getMprofile() != null) {
+				if (memberInfo.getMtype() != 3) {
+					File file = new File(savePath_mb + "/" + memberInfo.getMprofile());
+					file.delete();
+				}
+			}
+			adao.deleteMember(mid);
+		}
 	}
 
 }
