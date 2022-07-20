@@ -30,9 +30,7 @@
 
 <body>
 
-<div id="preloder">
-		<div class="loader"></div>
-	</div>
+
 
 	<!-- Header Section Begin -->
 	<header class="header">
@@ -44,7 +42,7 @@
 	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
-			<%@ include file="../includes/AdminMiddleBar.jsp"%>
+			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
 			<div class="humberger__open">
 				<i class="fa fa-bars"></i>
@@ -54,60 +52,99 @@
 	<!-- Hero Section End -->
 
 	<!-- Featured Section Begin -->
-	<section class="featured spad">
-		<div class="container">
-			<form action="createCafeInfo" enctype="multipart/form-data">
+	<div class="container">
+		<!-- Outer Row -->
+		<div class="row justify">
 
-				<div class="row cafeInsert">
+			<div class="col-xl-7 col-lg-8 col-md-7">
+				<div class="card o-hidden border-0 shadow-lg my-5">
 
-					<div class="row">
+					<div class="card-body p-0">
+						<!-- Nested Row within Card Body -->
+						<div class="margin">
+							<div class="margin">
+								<div class="p-5">
+									<div class="text-center ">
+										<h1 class="h4 text-gray-900 mb-4" style="font-weight: bold;">카페등록</h1>
+									</div>
+									<form class="user" action="CafeUpLoad" method="post" enctype="multipart/form-data">
+										<div class="row form-group">
+										<div class="col-6 form-group">
+											<label>카페이름</label>
+											<input type="text" class="form-control form-control-user" id="cfname" name="cfname" aria-describedby="emailHelp">
+										</div>
+										<div class="col-6 form-group">
+											<label>전화번호</label>
+											<input type="text" class="form-control form-control-user" id="cftel" name="cftel" placeholder="전화번호 - 포함">
+										</div>
+										</div>
+										<div class="form-group">
+											<label>카페링크</label>
+											<input type="text" class="form-control form-control-user" id="cflink" name="cflink">
+										</div>
+										<div class="row form-group">
+										<div class="col-6 form-group">
+											<label>카페 이미지</label>
+											<input type="file" class="form-control form-control-user" id="cfimgs" name="cfimgs">
+										</div>
+										<div class="col-6 form-group">
+											<label>시그니처 이미지</label>
+											<input type="file" class="form-control form-control-user" id="cfsigimgs" name="cfsigimgs">
+										</div>
+										</div>
+										<div class="row form-group">
+											<div class="col-6 form-group">
+												<input class="btn text-white  btn-user btn-block" style="background-color: #000000;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+												<br>
+											</div>
+											<div class="col-6 form-group">
+												<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" placeholder="우편번호">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<input class="form-control form-control-user" type="text" id="maddr" name="maddr" placeholder="주소">
+												<br>
+											</div>
+										</div>
 
-						<div class="col-2">
-							<span class="font-weight-bold">카페이름</span>
+										<div class="row form-group">
+											<div class="col-6 form-group">
+												<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" placeholder="상세주소">
+											</div>
+											<div class="col-6 form-group">
+												<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" placeholder="참고항목">
+											</div>
+										</div>
+										
+										<button type="submit" class="btn text-white  btn-user btn-block" style="background-color: #000000;">카페추가</button>
+										<hr>
 
-							<br>
-							<input type="text" id="cfname" name="cfname" placeholder="카페 이름">
+									</form>
+									<hr>
+
+								</div>
+							</div>
 						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">주소</span>
-							<br>
-							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-							<br>
-							<input type="text" id="sample6_postcode" name="cfPostCode" placeholder="우편번호">
-							<input type="text" id="sample6_address" name="cfAddr" placeholder="주소">
-							<br>
-							<input type="text" id="sample6_detailAddress" name="cfDetailAddress" placeholder="상세주소">
-							<input type="text" id="sample6_extraAddress" name="cfExtraAddress" placeholder="참고항목">
-						</div>
-						<div class="col-2">
-							<span class="input_width font-weight-bold">카페 전화번호</span>
-							<br>
-							<input type="text" id="cftel" name="cftel" placeholder="전화번호 - 포함">
-						</div>
-						<div class="col-2">
-							<span class="input_width font-weight-bold">카페링크</span>
-							<br>
-							<input type="text" id="cflink" name="cflink">
-						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">카페 이미지</span>
-							<br>
-							<input type="file" id="cfimgs" name="cfimgs" multiple="multiple">
-							<br><br>
-							<span class="font-weight-bold">시그니처 이미지</span>
-							<br>
-							<input type="file" id="cfsigimgs" name="cfsigimgs">
-						</div>
-						<div class="col-2">
-							<button class="cafeInsert-btn" type="button" id="cafeSend">카페추가</button>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="col-lg-4">
+
+					<div class="hero__item set-bg">
+						<div class="hero__text">
+							<p>카페이미지</p>
+							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
 						</div>
 					</div>
 
-
 				</div>
-			</form>
+
 		</div>
-	</section>
+
+	</div>
 
 
 
