@@ -272,7 +272,7 @@
 			if (company[i].cmlink == "없음") {
 				output += "<span></span><br>";
 			} else {
-				output += "<a href=\"" + company[i].cmlink + "\" style=\"font-size:14px;\">"
+				output += "<a href=\"" + company[i].cmlink + "\" style=\"font-size:14px; color:blue;\">"
 						+ company[i].cmlink + "</a><br>";
 			}
 			output += "<span class=\"font-weight-bold\">회사주소 : </span>";
