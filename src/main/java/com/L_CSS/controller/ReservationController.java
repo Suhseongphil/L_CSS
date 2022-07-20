@@ -36,4 +36,36 @@ public class ReservationController {
 		mav = rsv.reservInsert(ctcode,loginId,reserv);
 		return mav;
 	}
+	//주문 목록 확인
+	
+	@RequestMapping(value="/orderhistory")
+	public ModelAndView orderhistory() {
+		System.out.println("주문목록 확인 ");
+		String loginId = (String)session.getAttribute("loginId");
+		ModelAndView mav  = new ModelAndView();
+		mav = rsv.selectReserv(loginId);
+		
+		
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

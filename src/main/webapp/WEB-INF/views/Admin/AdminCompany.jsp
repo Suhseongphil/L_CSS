@@ -54,7 +54,7 @@
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="text-center">
-			<h1>회사 정보 입력</h1>
+			<h2>회사 정보 입력</h2>
 		</div>
 		<div class="container">
 			<form action="adminCreateInfo" enctype="multipart/form-data">
@@ -105,6 +105,9 @@
 	<!-- Featured Section End -->
 
 	<section class="featured spad">
+		<div class="text-center">
+			<h2>회사 리스트</h2>
+		</div>
 		<div class="container" id="companyList"></div>
 	</section>
 	<!-- Footer Section Begin -->
@@ -380,7 +383,6 @@
 
 	function cmDelete(cmcode) {
 
-		
 		$.ajax({
 			type : "get",
 			url : "companyDelete",

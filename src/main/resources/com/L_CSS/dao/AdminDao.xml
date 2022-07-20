@@ -70,7 +70,7 @@
 		SET CFNAME = #{cfname}, CFADDRESS = #{cfaddress}, CFTEL = #{cftel}, CFLINK= #{cflink}, CFIMG=#{cfimg}, CFSIGIMG = #{cfsigimg}
 		WHERE CFCODE = #{cfcode}
 	</update>
-	
+
 	<select id="getMucode" resultType="String">
 		SELECT MUCODE FROM MENU ORDER BY MUCODE ASC
 	</select>
@@ -78,5 +78,9 @@
 	<select id="getCompanyImg" resultType="String">
 		SELECT CMIMG FROM COMPANY
 		WHERE CMCODE = #{cmcode}
+	</select>
+
+	<select id="getMemberInfo" resultType="com.L_CSS.dto.MemberDto">
+		SELECT * FROM MEMBER
 	</select>
 </mapper>
