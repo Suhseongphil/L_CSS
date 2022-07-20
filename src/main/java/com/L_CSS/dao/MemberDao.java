@@ -1,7 +1,6 @@
 package com.L_CSS.dao;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dto.MemberDto;
 

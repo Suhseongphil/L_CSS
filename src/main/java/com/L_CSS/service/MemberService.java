@@ -2,7 +2,6 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -132,6 +131,7 @@ public class MemberService {
 				System.out.println(mpost[3]);
 				MemberInfo.setMaddr2(mpost[2] + "  " + mpost[3]);
 				MemberInfo.setMdetailaddress(mpost[3]);
+				MemberInfo.setMextraaddress(mpost[2]);
 			}
 			MemberInfo.setMpostercode(mpost[0]);
 			MemberInfo.setMaddr(mpost[1]);
@@ -141,7 +141,7 @@ public class MemberService {
 
 			MemberInfo.setEmailDomain(email[1]);
 			MemberInfo.setMemail(email[0]);
-			
+
 			mav.addObject("memberInfo", MemberInfo);
 			mav.setViewName("Member/MemberInfo");
 
@@ -188,7 +188,8 @@ public class MemberService {
 		return mav;
 	}
 
-	public ModelAndView memberModify(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+	public ModelAndView memberModify(MemberDto member, RedirectAttributes ra)
+			throws IllegalStateException, IOException {
 		System.out.println("MemberService.memberModify() 호출");
 		System.out.println("수정할 회원 정보");
 		ModelAndView mav = new ModelAndView();
@@ -213,7 +214,7 @@ public class MemberService {
 		System.out.println(member);
 
 		int updateResult = mdao.memberUpdate(member);
-		
+
 		if (updateResult > 0) {
 			ra.addFlashAttribute("msg", "수정되었습니다.");
 			mav.setViewName("Member/MyInfo");
@@ -223,7 +224,5 @@ public class MemberService {
 		}
 		return mav;
 	}
-		
-		
 
 }
