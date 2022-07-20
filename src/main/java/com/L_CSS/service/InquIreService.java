@@ -106,9 +106,30 @@ public class InquIreService {
 		System.out.println("serchText()호출");
 		ModelAndView mav = new ModelAndView();
 		ArrayList<InquIreDto>searchList = Idao.searchList(iqcategory,searchText);
-		
-		
+		System.out.println(searchList);
+		mav.addObject("searchList",searchList);
+		mav.setViewName("option/searchInquire");
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

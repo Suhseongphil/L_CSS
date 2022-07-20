@@ -24,7 +24,11 @@
   	<select id="searchList" resultType="com.L_CSS.dto.InquIreDto">
   		select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE ,'YYYY-MM-DD') AS IQDATE
   		from INQUIRE
-  		where iqtitle = #{text}
-  		
+  		<if test="search == 'iqtitle'">
+	  		where IQTITLE LIKE '%' || #{text} || '%' 
+  		</if>
+  		<if test="search == 'iqcomment'">
+  		where IQCOMMENT LIKE '%' || #{text} || '%' 
+  		</if>
   	</select>
   </mapper>

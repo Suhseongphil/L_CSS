@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,26 +9,49 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <title>회원가입 페이지</title>
 
 <!-- Custom fonts for this template-->
-<link href="${pageContext.request.contextPath }/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath }/resources/vendor/fontawesome-free/css/all.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="${pageContext.request.contextPath }/resources/css/sb-admin-2.min.css" rel="stylesheet">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
 <style type="text/css">
 .margin {
 	margin: auto;
@@ -41,10 +65,6 @@
 .bord {
 	padding: 10px;
 }
-
-.coral {
-	background-color: coral;
-}
 </style>
 
 </head>
@@ -54,121 +74,124 @@
 	<%@ include file="../includes/TopBar.jsp"%>
 	<div class="container">
 		<!-- Outer Row -->
-		<div class="row justify-content-center">
 
-			<div class="col-xl-5 col-lg-7 col-md-7">
-				<div class="card o-hidden border-0 shadow-lg my-5">
-
-					<div class="card-body p-0">
-						<!-- Nested Row within Card Body -->
-						<div class="margin coral">
-							<div class="margin">
-								<div class="p-5">
-									<div class="text-center ">
-										<h1 class="h4 text-gray-900 mb-4" style="font-weight: bold;">회원가입</h1>
-									</div>
-									<form class="user" action="memberJoin" method="post" enctype="multipart/form-data">
-										<div class="form-group">
-											<label>아이디</label>
-											<input type="text" class="form-control form-control-user" id="mid" name="mid" aria-describedby="emailHelp">
-										</div>
-										<div class="form-group">
-											<label>이름</label>
-											<input type="text" class="form-control form-control-user" id="mname" name="mname">
-										</div>
-										<div class="form-group">
-											<label>비밀번호</label>
-											<input type="password" class="form-control form-control-user" id="mpw" name="mpw">
-										</div>
-										<div class="form-group">
-											<label>비밀번호 확인</label>
-											<input type="password" class="form-control form-control-user" id="mpwCheck" name="mpwCheck">
-										</div>
-										<div class="form-group">
-											<label>전화번호</label>
-											<input type="text" class="form-control form-control-user" id="mtel" name="mtel">
-										</div>
-										<label>이메일</label>
-										<div class="row">
-											<div class="col-5 form-group">
-												<input type="text" class="form-control form-control-user" id="memail" name="memail">
-											</div>
-											@
-											<div class="col-6 form-group">
-												<input type="text" class="form-control form-control-user" id="emailDomain" name="emailDomain">
-												<select id="domainSelect">
-													<option value="">직접입력</option>
-													<option value="Naver.com">네이버</option>
-													<option value="Daum.net">다음</option>
-													<option value="Google.com">구글</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group">
-											<label>프로필 이미지</label>
-											<input type="file" class="form-control form-control-user" id="mfile" name="mfile">
-										</div>
-										<div class="row form-group">
-											<div class="col-6 form-group">
-												<input class="form-control form-control-user" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-												<br>
-											</div>
-											<div class="col-6 form-group">
-												<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" placeholder="우편번호">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12">
-												<input class="form-control form-control-user" type="text" id="maddr" name="maddr" placeholder="주소">
-												<br>
-											</div>
-										</div>
-
-										<div class="row form-group">
-											<div class="col-6 form-group">
-												<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" placeholder="상세주소">
-											</div>
-											<div class="col-6 form-group">
-												<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" placeholder="참고항목">
-											</div>
-										</div>
-										<div class="row form-group">
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="radio" name="mstate" value="0">
-											개인 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="radio" name="mstate" value="1">
-											카페 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="radio" name="mstate" value="2">
-											업체 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</div>
-										<button type="submit" class="btn btn-primary btn-user btn-block">회원가입</button>
-										<hr>
-
-									</form>
-									<hr>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+		<div class="container">
+			<div class="row">
+				<%@ include file="../includes/MiddleBar.jsp"%>
 			</div>
-
 		</div>
 
+		<div class="col-xl-6 col-lg-7" style="margin-left: 280px;">
+			<div class="card o-hidden border-0 shadow-lg my-5">
+
+				<div class="card-body p-0">
+					<!-- Nested Row within Card Body -->
+
+					<div class="p-5" >
+						<div class="text-center ">
+							<h1 class="h4 text-gray-900 mb-4" style="font-weight: bold;">회원가입</h1>
+						</div>
+						<form class="user" action="memberJoin" method="post"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label>아이디</label> <input type="text"
+									class="form-control form-control-user" id="mid" name="mid"
+									aria-describedby="emailHelp">
+							</div>
+							<div class="form-group">
+								<label>이름</label> <input type="text"
+									class="form-control form-control-user" id="mname" name="mname">
+							</div>
+							<div class="form-group">
+								<label>비밀번호</label> <input type="password"
+									class="form-control form-control-user" id="mpw" name="mpw">
+							</div>
+							<div class="form-group">
+								<label>비밀번호 확인</label> <input type="password"
+									class="form-control form-control-user" id="mpwCheck"
+									name="mpwCheck">
+							</div>
+							<div class="form-group">
+								<label>전화번호</label> <input type="text"
+									class="form-control form-control-user" id="mtel" name="mtel">
+							</div>
+							<label>이메일</label>
+							<div class="row">
+								<div class="col-5 form-group">
+									<input type="text" class="form-control form-control-user"
+										id="memail" name="memail">
+								</div>
+								@
+								<div class="col-6 form-group">
+									<input type="text" class="form-control form-control-user"
+										id="emailDomain" name="emailDomain"> <select
+										id="domainSelect" style="margin-top: 10px;">
+										<option value="">직접입력</option>
+										<option value="Naver.com">네이버</option>
+										<option value="Daum.net">다음</option>
+										<option value="Google.com">구글</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>프로필 이미지</label> <input type="file"
+									class="form-control form-control-user" id="mfile" name="mfile">
+							</div>
+							<div class="row form-group">
+								<div class="col-6 form-group">
+									<input class="form-control form-control-user" type="button"
+										onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+									<br>
+								</div>
+								<div class="col-6 form-group">
+									<input class="form-control form-control-user" type="text"
+										id="mpostercode" name="mpostercode" placeholder="우편번호">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<input class="form-control form-control-user" type="text"
+										id="maddr" name="maddr" placeholder="주소"> <br>
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-6 form-group">
+									<input class="form-control form-control-user" type="text"
+										id="mdetailaddress" name="mdetailaddress" placeholder="상세주소">
+								</div>
+								<div class="col-6 form-group">
+									<input class="form-control form-control-user" type="text"
+										id="mextraaddress" name="mextraaddress" placeholder="참고항목">
+								</div>
+							</div>
+							<div class="row form-group">
+								<input type="radio" name="mstate" value="0"
+									style="margin-left: 70px;"> 개인 <input type="radio"
+									name="mstate" value="1" style="margin-left: 90px;"> 카페
+								<input type="radio" name="mstate" value="2"
+									style="margin-left: 100px;"> 업체
+							</div>
+							<button type="submit" class="btn btn-primary btn-user btn-block">회원가입</button>
+							<hr>
+						</form>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
 	<!-- Bootstrap core JavaScript-->
-	<script src="${pageContext.request.contextPath }/resources/vendor/jquery/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	<script
+		src="${pageContext.request.contextPath }/resources/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Core plugin JavaScript-->
-	<script src="${pageContext.request.contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+	<script
+		src="${pageContext.request.contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!-- Custom scripts for all pages-->
-	<script src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
-
+	<script
+		src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
 </body>
 <script type="text/javascript">
 	$("#domainSelect").change(function() {
@@ -178,7 +201,8 @@
 	});
 </script>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
 		new daum.Postcode({
