@@ -356,3 +356,8 @@ a:hover span:nth-child(2):after {
 .px {
 	padding-bottom: 30px;
 }
+.hero__item3 {
+	height: 750px;
+	display: flex;
+	padding-left: 75px;
+}

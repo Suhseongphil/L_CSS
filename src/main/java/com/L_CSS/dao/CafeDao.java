@@ -17,6 +17,8 @@ public interface CafeDao {
 
 	CafeDto CafeInfo(String cfcode);
 
+	int insertMyCafe(CafeDto cafe);
+
 
 
 }
