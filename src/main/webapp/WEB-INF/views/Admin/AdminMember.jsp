@@ -155,30 +155,54 @@
 			output += "<div class=\"col-3\">";
 			if (member[i].mprofile != null) {
 				if(member[i].mtype==3){
-					output += "<img style=\"width:150px; height:80px; margin-bottom:2px;\" alt=\"\" src=\""+ member[i].mprofile + "\">";
+					output += "<img style=\"width:200px; height:150px; margin-bottom:2px;\" alt=\"\" src=\""+ member[i].mprofile + "\">";
 				}else{					
-				output += "<img style=\"width:150px; height:80px; margin-bottom:2px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/"
+				output += "<img style=\"width:200px; height:150px; margin-bottom:2px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/"
 						+ member[i].mprofile + "\">";
 				}
 			} else {
-				output += "<span>이미지없음</span>";
+				output += "<span></span>";
 			}
 			output += "</div>";
 
-			output += "<div class=\"col-7\"><div style=\"margin-top:2%;\">";
+			output += "<div class=\"col-7\"><div style=\"margin-top:3px;\">";
 			output += "<span class=\"font-weight-bold\">아이디 : </span>";
 			output += "<span>" + member[i].mid + "</span><br>";
 			output += "<span class=\"font-weight-bold\">이름 : </span>";
 			output += "<span>" + member[i].mname + "</span><br>";
 			output += "<span class=\"font-weight-bold\">전화번호 : </span>";
-			output += "<span>" + member[i].mtel + "</span><br>";
+			if(member[i].mtel != null){
+				output += "<span>" + member[i].mtel + "</span><br>";			
+			}else{
+				output += "<br>";
+			}
 			output += "<span class=\"font-weight-bold\">이메일 : </span>";
-			output += "<span>" + member[i].memail + "</span><br>";
+			if(member[i].memail != null || member[i].memail != "undefined"){
+				output += "<span>" + member[i].memail + "</span><br>";			
+			}else{
+				output += "<br>";
+			}
 			output += "<span class=\"font-weight-bold\">주소 : </span>";
-			output += "<span>" + member[i].maddress + "</span>";
+			if(member[i].maddress != null){
+				output += "<span>" + member[i].maddress + "</span><br>";			
+			}else{
+				output += "<br>";
+			}
+			output += "<span class=\"font-weight-bold\">유형 : </span>";
+			output += "<span>"; 
+			if(member[i].mtype == 0){
+				output += "일반사용자";
+			}else if(member[i].mtype == 1){
+				output += "카페";
+			}else if(member[i].mtype == 2){
+				output += "회사/업체";
+			}else if(member[i].mtype == 3){
+				output += "카카오";
+			}
+			output += "</span>";
 			output += "</div></div>";
 
-			output += "<div class=\"col-2\"><div style=\"margin-top:30%;\">";
+			output += "<div class=\"col-2\"><div style=\"margin-top:20%;\">";
 
 			if (member[i].mstate == 0) {
 				output += "<button class=\"cafeStateMod-blue-btn\" type=\"button\" onclick=\"stateChange(this,'"
@@ -187,7 +211,7 @@
 				output += "<button class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"stateChange(this,'"
 						+ member[i].mid + "')\">활동중지</button>";
 			}
-			output += "<button class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"memberDelete('"
+			output += "<button style=\"display:none;\" class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"memberDelete('"
 				+ member[i].mid + "')\">회원탈퇴</button>";
 
 			output += "</div></div>";
@@ -234,12 +258,12 @@
 			type : "get",
 			url : "memberDelete",
 			data : {
-				"cfcode" : cfcode
+				"mid" : mid
 			},
 			async : false,
 			success : function(result) {
 				console.log("success");
-				getCafeInfo();
+				getMemberInfo();
 			}
 		});
 

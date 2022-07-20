@@ -57,4 +57,23 @@ public class InquIreController {
 		String selectInquire = isv.selectInquire(loginId);
 		return selectInquire;
 	}
-}
+	//검색기능 추가
+	@RequestMapping(value="/searchText")
+	public  ModelAndView searchText(String iqcategory,String searchText ) {
+		System.out.println("검색기능");
+		ModelAndView mav = new ModelAndView();
+		System.out.println(iqcategory);
+		System.out.println(searchText);
+		mav  = isv.searchText(iqcategory,searchText);
+		return mav;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	}
+
