@@ -106,16 +106,16 @@
 			<section class="blog-details spad">
 				<div class="container">
 					<div class="row">
-						<c:forEach items="${menuInfo}" var="muList" begin="0" end="5">
-							<div class="col-lg-8 col-md-7 order-md-1 order-1">
-								<div class="blog__details__text">
+						<c:forEach items="${menuInfo}" var="muList">
+							<div class="col-lg-2 col-md-2">
+								<div class="blog__details__text" style="margin: 30px;">
 								
 									
 									<img style="width: 150px; width: 80px; height: 80px;"
 										src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }"
 										alt="">
 
-									<p style="margin-right: 700px;">${muList.muname}</p>
+									<p style="font-weight: 100px;">${muList.muname}</p>
 									<h3>${muList.muprice}</h3>
 									<!--<p style="margin-right: 700px;">${muList.mutype}</p>-->
 								</div>

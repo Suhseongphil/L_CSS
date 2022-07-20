@@ -69,7 +69,7 @@
 										<div class="blog__item__pic">
 											<a href="compnayInfo?cmcode=${comList.cmcode }"> <img
 												alt=""
-												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px;"
+												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px; margin-left: 30px;"
 												src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
 											</a>
 										</div>
@@ -78,7 +78,7 @@
 										<div class="blog__item__pic">
 											<a href="compnayInfo?cmcode=${comList.cmcode }"> <img
 												alt=""
-												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px;"
+												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px; margin-left: 30px;"
 												src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comList.cmimg.split('/')[1]}">
 											</a>
 										</div>

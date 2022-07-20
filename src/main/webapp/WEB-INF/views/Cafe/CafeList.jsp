@@ -56,7 +56,7 @@
 		<%@ include file="../includes/TopBar.jsp"%>
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-xs-12 section-container-spacer">
+			<div class="col-xs-12 section-container-spacer" style="margin-top: 20px;">
 				<h3>카페 목록</h3>
 			</div>
 
@@ -69,7 +69,7 @@
 									<c:when test="${cfList.cfimg == null }">
 										<div class="blog__item__pic">
 											<a href="cafeInfo?cfcode=${cfList.cfcode}"> <img alt=""
-												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px;"
+												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px; margin-left: 30px;"
 												src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
 											</a>
 										</div>
@@ -77,7 +77,7 @@
 									<c:otherwise>
 										<div class="blog__item__pic">
 											<a href="cafeInfo?cfcode=${cfList.cfcode}"> <img alt=""
-												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px;"
+												style="width: 200px; height: 200px; padding-right: 30px; padding-left: 30px; margin-left: 30px;"
 												src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${cfList.cfimg.split('/')[1]}">
 											</a>
 										</div>

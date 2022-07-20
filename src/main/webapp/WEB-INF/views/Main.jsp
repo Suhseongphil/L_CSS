@@ -63,8 +63,10 @@
 				<div class="col-lg-12">
 					<div class="hero__search"></div>
 					<div class="hero__item set-bg" data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg">
-						<div class="center" id="text_ls">
-        					<a href="#"><span data-attr="Buy">Buy</span><span data-attr="Now">Now</span></a>
+						<div class="center">
+        					<a href="#" style="font-family:text_ls;" >
+        					<span data-attr="Buy">Buy</span><span data-attr="Now">Now</span>
+        					</a>
     					</div>
 					</div>
 				</div>
