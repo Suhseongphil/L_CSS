@@ -20,6 +20,10 @@ public interface CartDao {
 	int updateTotal(@Param("ctcode")String ctctcode, @Param("cttotal")int toTal);
 
 	ArrayList<CartDto> selectCart(String loginId);
+
+	ArrayList<CartDto> selectCartList(@Param("loginId")String loginId, @Param("ctcode")String ctcode);
+
+	int deleteCart(String ctcode);
 	
 
 }

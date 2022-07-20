@@ -89,7 +89,7 @@ public class CartController {
 	}
 	//카카오페이 테스트
 	@RequestMapping(value="/kokopayTest")
-	public  String kokopayTest() {
+	public @ResponseBody String kokopayTest() {
 		System.out.println("카카오페이 테스트");
 		
 		
@@ -97,13 +97,16 @@ public class CartController {
 		
 		String loginId = (String)session.getAttribute("loginId");
 		ArrayList<CartDto>cartList = csv.selectCart(loginId);
+		
 		String name = null;
+		String ctcode = null;
 		int price = 0;
 		int sum = 0;
 		
 		for(int i = 0; i < cartList.size(); i++) {
 			name = cartList.get(i).getPdname();
 			price = cartList.get(i).getCttotal();
+			ctcode = cartList.get(i).getCtcode();
 			sum = sum + price; 
 		}
 		try {
@@ -117,7 +120,7 @@ public class CartController {
 			httpConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 			//내가 서버에 전해줄 내용이 있는지 없는지  있으면 true 없다면false
 			httpConnection.setDoOutput(true);
-			String parem = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name="+URLEncoder.encode(name,"UTF-8")+"&quantity=5&total_amount="+sum+"&tax_free_amount=100&approval_url=http://localhost:8080/controller/&cancel_url=http://localhost:8080/controller/myCartPage&fail_url=http://localhost:8080/controller/myCartPage";
+			String parem = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name="+URLEncoder.encode(name,"UTF-8")+"&quantity=5&total_amount="+sum+"&tax_free_amount=100&approval_url=http://localhost:8080/controller/reservInsert?ctcode=" +ctcode+ "&cancel_url=http://localhost:8080/controller/myCartPage&fail_url=http://localhost:8080/controller/myCartPage";
 			//데이터를 주는클래스
 			OutputStream stream = httpConnection.getOutputStream();
 			//데이터 주는 클래스

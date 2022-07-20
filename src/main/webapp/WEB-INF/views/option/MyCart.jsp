@@ -156,10 +156,10 @@ text-align: center;
                             새로고침</a>
                     </div>
                 </div>
-             	<form action="kokopayTest" method="post">
+             	
                 <div id="checkOut" class="col-lg-6" >
                 </div>
-             	</form>
+             	
                    
             </div>
         </div>
@@ -247,7 +247,7 @@ text-align: center;
 			
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<input   type=\"checkbox\" id=\"check\" name=\"check[]\" value=\"'"+mycart[i].ctcode+"'\" ></h5>";
+			output += "<h5>" + mycart[i].cttotal + "원 &nbsp;&nbsp;<input onclick=\"checkbox()\"  type=\"checkbox\" id=\"check\" name=\"check\" value=\"'"+mycart[i].ctcode+"'\" ></h5>";
 			
 			output += "</div>";
 			//output += "</td>";
@@ -273,7 +273,7 @@ text-align: center;
 		output2 += "</li>";
 		output2 += "<li>결제 금액 <span>"+maxPrice+"&nbsp;원</span></li>";
 		output2 += "</ul>";
-		output2 += " <button class=\"btn_none\" type=\"submit\" ><img alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/kokopay.png\"></button>";
+		output2 += " <button class=\"btn_none\" onclick=\"kokopay()\"  type=\"submit\" ><img alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/kokopay.png\"></button>";
 		output2 += "</div>";
 		
         /* onclick=\"checkbox()\" */
@@ -327,7 +327,7 @@ text-align: center;
 			
 			});
 		}
-		/*
+		
 		function checkbox(){
 			
 				var checkArr = [];
@@ -337,7 +337,7 @@ text-align: center;
 				checkArr.push(chc);
 				console.log("배열" + checkArr[0]);
 				console.log("배열" + checkArr[1]);
-				
+				/*
 				$.ajax({
 					type : "post",
 					url : "paymentInsert",
@@ -348,7 +348,7 @@ text-align: center;
 						console.log(paymentInsert)
 					}
 				});
-
+*/
 				
 			});
 		}
@@ -378,7 +378,6 @@ text-align: center;
 		}
 		
 		
-		*/
 	</script>
 	
 </html>

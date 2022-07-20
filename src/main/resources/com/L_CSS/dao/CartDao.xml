@@ -39,4 +39,13 @@
 		where ct.ctcfcmcode = cm.cmcode and ct.ctmupdcode = pd.pdcode
 		and CTMID = #{loginId}
   	</select>
+  	<select id="selectCartList" resultType="com.L_CSS.dto.CartDto">
+  		select * 
+  		from cart
+  		where CTMID = #{loginId} and CTCODE = #{ctcode}
+  	</select>
+  	<delete id="deleteCart">
+  		delete cart
+  		where CTCODE = #{ctcode}
+  	</delete>
   </mapper>

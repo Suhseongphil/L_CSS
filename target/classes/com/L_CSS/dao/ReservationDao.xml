@@ -8,5 +8,8 @@
 			select max(recode)
 			from RESERVATION
 		</select>
-  	
+  		
+  		<insert id="insertReTable">
+  		insert into RESERVATION values(#{recode},#{remid},#{recfcmcode},#{remupdcode},sysdate,#{reamount},#{reprice})
+  		</insert>
   </mapper>
