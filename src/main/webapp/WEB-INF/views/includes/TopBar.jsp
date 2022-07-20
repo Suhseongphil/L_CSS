@@ -45,7 +45,7 @@
                                <a href="myCartPage"> <i class="fa fa-user"></i> 장바구니 </a>&nbsp;&nbsp;&nbsp;
                             </div>
                              <div class="header__top__right__auth">
-                               <a href="inquirePage"> <i class="fa fa-user"></i> 주문내역 </a>&nbsp;&nbsp;&nbsp;
+                               <a href="orderhistory"> <i class="fa fa-user"></i> 주문내역 </a>&nbsp;&nbsp;&nbsp;
                             </div>
                              <div class="header__top__right__auth">
                                <a href="inquirePage"> <i class="fa fa-user"></i> 고객문의 </a>&nbsp;&nbsp;&nbsp;
