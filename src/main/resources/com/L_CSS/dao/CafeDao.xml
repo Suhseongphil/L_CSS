@@ -27,4 +27,10 @@
   			from CAFE
   			where CFCODE = #{cfcode}
   		</select>
+  		
+  		<insert id="insertMyCafe">
+  		INSERT INTO CAFE(CFCODE, CFNAME, CFADDRESS, CFTEL, CFIMG, CFSTATE, CFSIGIMG, CFLINK, CFMID)
+		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink}, #{cfmid})
+  		</insert>
+  		
   </mapper>
