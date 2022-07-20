@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -24,7 +23,7 @@ public class MemberService {
 
 	@Autowired
 	private HttpSession session;
-	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
+	private String savePath = "C:\\Users\\hi\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
 
 	// 회원가입 요청 메소드
 	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
