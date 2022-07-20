@@ -12,12 +12,16 @@
 <body>
 	<div class="col-lg-3">
 		<div class="header__logo" style="text-align: left;" id="text_ls" >
-			<h2>L&CSS</h2>
+			<h2>
+			<a href="main" style="font-size: 36px; font-style: oblique; font-weight: bold; font-family:text_ls;" >
+			L&CSS
+			</a>
+			</h2>
 		</div>
 	</div>
 
 	<div class="col-lg-9">
-		<nav class="header__menu2"  style="padding-left: 50px;">
+		<nav class="header__menu2"  style="padding-left: 50px; margin-top: 10px;">
 			<ul>
 			
 				<li class="active">

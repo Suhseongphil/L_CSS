@@ -61,41 +61,51 @@
 				<div class="container">
 					<div class="row">
 
-						<div class="col-lg-8 col-md-7 order-md-1 order-1">
+						<div class="col-lg-6 col-md-10 ">
 							<div class="blog__item__pic">
 								<c:choose>
 									<c:when test="${comInfo.cmimg == null }">
-										<img alt="" style="width: 50%;"
+										<img alt="" style="width: 600px; height: 500px; padding-right: 30px; padding-left: 30px; margin-top: -150px; margin-left: 100px;"
 											src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
 									</c:when>
 									<c:otherwise>
-										<img style="width: 50%;"
+										<img style="width: 450px; height: 250px; padding-right: 30px; padding-left: 30px; margin-top: -50px; margin-left: 100px;"
 											src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${comInfo.cmimg}"
 											alt="">
 									</c:otherwise>
 
 								</c:choose>
-								<p>${comInfo.cmname}</p>
-								<h3>${comInfo.cmtel}</h3>
-								<p>${comInfo.cmaddress}</p>
+								
 							</div>
 							<div class="blog__details__content"></div>
 						</div>
 					</div>
 				</div>
 			</section>
+			
+			<section class="blog-details spad">
+				<div class="container">
+					<div class="row">
+						<div style="margin-top: 100px;">
+							<h5 style="text-align: center; margin-top: 30px;">${comInfo.cmname}</h5>
+							<h5 style="text-align: center;">${comInfo.cmtel}</h5>
+							<h5 style="text-align: center;">${comInfo.cmaddress}</h5>
+						</div>
+					</div>
+				</div>
+			</section>
+			
 			<section class="blog-details spad">
 				<div class="container">
 					<div class="row">
 						<c:forEach items="${proInfo }" var="pdList" begin="0" end="5">
-							<div class="col-lg-8 col-md-7 order-md-1 order-1">
-								<div class="blog__details__text">
+							<div class="col-lg-4 col-md-4">
+								<div class="blog__details__text" style="margin: 30px;">
 
-									<img style="width: 150px;" src="${pdList.pdimg }" alt="">
+									<img style="width: 200px; height: 150px; margin-left: 30px;" src="${pdList.pdimg }" alt="">
 
-									<p>${pdList.pdname }</p>
-									<h3>${pdList.pdprice }</h3>
-									<p>${pdList.pdtype }</p>
+									<h5 style="font-weight: 100px;">${pdList.pdname }</h5>
+									<h5 style="text-align: center; margin-top: 10px;">${pdList.pdprice }원</h5>
 								</div>
 								<div class="blog__details__content"></div>
 							</div>
