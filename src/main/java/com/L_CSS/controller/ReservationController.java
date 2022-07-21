@@ -5,8 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.ReservationDto;
 import com.L_CSS.service.ReservationService;
 
@@ -46,6 +48,17 @@ public class ReservationController {
 		mav = rsv.selectReserv(loginId);
 		
 		
+		return mav;
+	}
+	//주문 취소
+	@RequestMapping(value="/orderCancel")
+	public  ModelAndView  orderCancel(String recode) {
+		System.out.println("주문취소");
+		
+		
+		System.out.println(recode);
+		ModelAndView mav  = new ModelAndView();
+		mav= rsv.orderCancel(recode);
 		return mav;
 	}
 	

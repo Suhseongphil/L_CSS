@@ -10,4 +10,6 @@ public interface OrderDao {
 
 	ArrayList<OrderDto> OrderList(String loginId);
 
+	ArrayList<OrderDto> CompanyOrderList(String comId);
+
 }

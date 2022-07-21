@@ -16,4 +16,6 @@ public interface CompanyDao {
 
 	CompanyDto ComInfo(String cmcode);
 
+	
+
 }
