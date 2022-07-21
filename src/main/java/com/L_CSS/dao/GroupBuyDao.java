@@ -8,4 +8,6 @@ public interface GroupBuyDao {
 
 	ArrayList<GroupBuyDto> getGroupBuyInfo();
 
+	ArrayList<String> getPdType();
+
 }

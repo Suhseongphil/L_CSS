@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공동구매 게시판</title>
+<title>공동구매 글작성</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">
@@ -55,53 +55,25 @@
 
 	<section class="featured spad">
 		<div class="text-center">
-			<h2>공동구매 게시판</h2>
+			<h2>게시글 작성</h2>
 		</div>
 		<div class="container">
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					
+			<div class="row">
+				<div class="col-4" id="pdtype">
+					<span>상품</span>
 				</div>
-				<div class="col-4">
-					
-				</div>
-				<div class="col-5">
-					
-				</div>
-				<div class="col-2">
-					<a class="cafeStateMod-blue-btn" href="gbBoardWrite_form">게시글 작성</a>
-				</div>
+				<div class="col-8" id="pdname"></div>
 			</div>
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					<span></span>
-				</div>
-				<div class="col-4">
-					<span>기간</span>
-				</div>
-				<div class="col-5">
+			<form action="">
+				<div>
 					<span>제목</span>
+					<input type="text" name="gbtitle" placeholder="제목을 입력해주세요...">
 				</div>
-				<div class="col-2">
-					<span>작성자</span>
+				<div>
+					<span>내용</span>
+					<textarea name="gbcomment" placeholder="내용을 입력해주세요..."></textarea>
 				</div>
-			</div>
-			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
-				<div class="row text-center" style="border: 1px solid black; margin-top: 2px;">
-					<div class="col-1">
-						<span>${num.end - num.index + 2}</span>
-					</div>
-					<div class="col-4">
-						<span>${board.gbsdate} ~ ${board.gbfdate}</span>
-					</div>
-					<div class="col-5">
-						<span>${board.gbtitle}</span>
-					</div>
-					<div class="col-2">
-						<span>${board.gbmid}</span>
-					</div>
-				</div>
-			</c:forEach>
+			</form>
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
