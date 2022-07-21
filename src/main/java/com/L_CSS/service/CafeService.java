@@ -2,9 +2,10 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class CafeService {
 	CafeDao cdao;
 	@Autowired
 	MenuDao mdao;
+	@Autowired
+	private HttpSession session;
 	
 	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\CafeFile";
 	
@@ -183,6 +186,103 @@ public class CafeService {
 					mav.setViewName("redirect:/");
 				}
 		
+		return mav;
+	}
+
+	public ModelAndView mycafeInfo(RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("mycafeInfo() 호출");
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인아이디 : " + loginId);
+		
+		CafeDto mycafeInfo = cdao.MyCafeInfo(loginId);
+		
+		String[] mpost = mycafeInfo.getCfaddress().split("_");
+		
+		System.out.println("mpost.length : " + mpost.length);
+		if (mpost.length != 4) {
+
+			mycafeInfo.setCfaddr2(mpost[2]);
+			mycafeInfo.setCfextraaddress(mpost[2]);
+
+		} else {
+			System.out.println(mpost[3]);
+			mycafeInfo.setCfaddr2(mpost[2] + "  " + mpost[3]);
+			mycafeInfo.setCfdetailaddress(mpost[3]);
+			mycafeInfo.setCfextraaddress(mpost[2]);
+		}
+		mycafeInfo.setCfpostcode(mpost[0]);
+		mycafeInfo.setCfaddr(mpost[1]);
+		System.out.println(mpost[0]);
+		
+		mav.addObject("mycafeInfo", mycafeInfo);
+		mav.setViewName("Cafe/MycafeInfo");
+		
+		
+		
+		return mav;
+	}
+
+	public ModelAndView mycafeModify(CafeDto cafe, RedirectAttributes ra) throws IllegalStateException, IOException {
+		System.out.println("mycafeModify()호출");
+		System.out.println("수정할 카페 정보");
+		ModelAndView mav = new ModelAndView();
+		String imgFile = "";
+		//기존이미지 가져오기
+		String cfimg = cdao.getCafeImg(cafe);
+		String cfsgimg = cdao.getCafesigImg(cafe);
+		if (cafe.getCfimgs() != null) {
+			File file = new File(savePath + cfimg);
+			file.delete();
+			
+			MultipartFile[] imgs = cafe.getCfimgs();
+			for (MultipartFile multipartFile : imgs) {
+				UUID uuid = UUID.randomUUID();
+				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+
+				multipartFile.transferTo(new File(savePath, imgFile));
+				cfimg = cfimg + "/" + imgFile;
+			}
+
+		}
+		cafe.setCfimg(cfimg);
+
+		MultipartFile sgimgFile = cafe.getCfsigimgs();
+		if (!sgimgFile.isEmpty()) {
+			File file = new File(savePath + cfsgimg);
+			file.delete();
+			UUID uuid = UUID.randomUUID();
+			cfsgimg = uuid.toString() + "_" + sgimgFile.getOriginalFilename();
+			sgimgFile.transferTo(new File(savePath, cfsgimg));
+		}
+		cafe.setCfsigimg(cfsgimg);
+		
+		
+		
+		if (cafe.getCfextraaddress().length() == 0 && cafe.getCfdetailaddress().length() == 0) {
+			cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr());
+		} else {
+			if (cafe.getCfextraaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfdetailaddress());
+			} else if (cafe.getCfdetailaddress().length() == 0) {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress());
+			} else {
+				cafe.setCfaddress(cafe.getCfpostcode() + "_" + cafe.getCfaddr() + "_" + cafe.getCfextraaddress() + "_"
+						+ cafe.getCfdetailaddress());
+			}
+		}
+		
+		System.out.println(cafe);
+		
+		int updateMycafe = cdao.updateMycafe(cafe);
+		
+		if (updateMycafe > 0) {
+			ra.addFlashAttribute("msg", "수정되었습니다.");
+			mav.setViewName("Cafe/MycafeInfo");
+		} else {
+			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
+			mav.setViewName("redirect:/");
+		}
 		return mav;
 	}
 }
