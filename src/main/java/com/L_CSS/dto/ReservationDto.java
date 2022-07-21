@@ -12,4 +12,5 @@ public class ReservationDto {
 	private	String	redate;
 	private	int	reamount;
 	private	int	reprice;
+	private int restate;
 }
