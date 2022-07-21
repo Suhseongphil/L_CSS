@@ -13,5 +13,14 @@
   		insert into RESERVATION values(#{recode},#{remid},#{recfcmcode},#{remupdcode},sysdate,#{reamount},#{reprice})
   		</insert>
   		
+  		<update id="orderCancel">
+  			update RESERVATION
+  			set restate = 1
+  			where recode = #{recode}
+  		</update>
   		
+  		<delete id="deleteOrder">
+  			delete RESERVATION
+  			where RECODE = #{recode}
+  		</delete>
   </mapper>

@@ -2,13 +2,18 @@ package com.L_CSS.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.CompanyDao;
+import com.L_CSS.dao.OrderDao;
 import com.L_CSS.dao.ProductDao;
+import com.L_CSS.dao.ReservationDao;
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.PageDto;
 import com.L_CSS.dto.ProductDto;
 
@@ -19,6 +24,12 @@ public class CompanyService {
 	CompanyDao cdao;
 	@Autowired
 	ProductDao pdao;
+	@Autowired
+	OrderDao odao;
+	@Autowired
+	ReservationDao rdao;
+	@Autowired
+	private HttpSession session;
 	//업체 업로드 
 	public ModelAndView comPanyUpLoad() {
 		
@@ -94,6 +105,26 @@ public class CompanyService {
 		mav.addObject("proInfo", proInfo);
 		System.out.println("출력  : " + proInfo);
 		mav.setViewName("Company/CompanyInfo");
+		return mav;
+	}
+	//주문 내역 호출
+	public ModelAndView orderList() {
+		System.out.println("orderList()호출");
+		ModelAndView mav = new ModelAndView();
+		String comId = (String)session.getAttribute("loginId");
+		ArrayList<OrderDto>orList = odao.CompanyOrderList(comId);
+		System.out.println(orList);
+		mav.addObject("orList", orList);
+		mav.setViewName("Company/CompanyOrderList");
+		return mav;
+	}
+	//주문 취소 
+	public ModelAndView deleteOrder(String recode) {
+		System.out.println("주문취소");
+		ModelAndView mav = new ModelAndView();
+		int deleteOrder = rdao.deleteOrder(recode);
+		
+		mav.setViewName("Company/CompanyOrderList");
 		return mav;
 	}
 }

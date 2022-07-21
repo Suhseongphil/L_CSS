@@ -97,6 +97,7 @@ public class MemberService {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
 				session.setAttribute("loginState", memberLogin.getMstate());
+				
 				mav.setViewName("Main");
 			} else {
 				ra.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");

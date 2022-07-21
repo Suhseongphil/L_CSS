@@ -19,6 +19,14 @@ public interface CafeDao {
 
 	int insertMyCafe(CafeDto cafe);
 
+	CafeDto MyCafeInfo(String loginId);
+
+	int updateMycafe(CafeDto cafe);
+
+	String getCafeImg(CafeDto cafe);
+
+	String getCafesigImg(CafeDto cafe);
+
 
 
 }
