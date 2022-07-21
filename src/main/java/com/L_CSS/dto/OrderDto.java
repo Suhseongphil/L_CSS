@@ -4,10 +4,11 @@ import lombok.Data;
 
 @Data
 public class OrderDto {
+	private String recode;
 	private String cmname;
 	private String pdname;
 	private int pdprice; 
 	private int reamount;
 	private int reprice;
-	
+	private int restate;
 }

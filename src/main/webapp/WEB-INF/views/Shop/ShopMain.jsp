@@ -37,6 +37,46 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
+
+<style>
+.cate-box {
+	max-width: 280px;
+	border: 1px solid lightgray;
+	padding: 20px;
+}
+
+.cate-box ul {
+	padding-left: 25px;
+}
+
+.cate-box li {
+	margin: 8px 0;
+}
+
+.cate-box a {
+	color: gray;
+}
+
+.cate-box i {
+	color: royalblue;
+}
+
+.cate-parent {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cate-child {
+	display: none;
+}
+
+.cate-btn {
+	padding: 0 5px;
+	
+}
+
+</style>
+
 <body>
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
@@ -45,55 +85,90 @@
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
+
 		</div>
 	</div>
 	<section class="product spad">
 		<div class="container">
 			<div class="row">
-
-
-
-				<div class="col-xs-12 section-container-spacer">
+				<div class="col-xs-12 section-container-spacer"
+					style="margin-top: -30px;">
 					<div class="sidebar">
-						<div class="sidebar__item">
+						<div class="sidebar__item" id="category">
 							<h4>카테고리</h4>
+
+							<ul>
+
+								<li>
+									<div class="cate-parent">음료</div>
+									<ul class="cate-child">
+										<li value="원두">원두</li>
+										<li value="소스">소스</li>
+										<li value="파우더">파우더</li>
+									</ul>
+								</li>
+								<li>
+									<div class="cate-parent">머신</div>
+									<ul class="cate-child">
+										<li value="그라인더">그라인더</li>
+										<li value="커피머신">커피머신</li>
+										<li value="제빙기">제빙기</li>
+									</ul>
+								</li>
+								<li>
+									<div class="cate-parent">컵</div>
+									<ul class="cate-child">
+										<li value="머그잔">머그잔</li>
+										<li value="텀블러">텀블러</li>
+									</ul>
+								</li>
+								<li>
+									<div class="cate-parent">일화용품</div>
+									<ul class="cate-child">
+										<li value="아이스컵">아이스컵</li>
+										<li value="스트로우">스트로우</li>
+										<li value="종이컵">종이컵</li>
+										<li value="컵홀더">컵홀더</li>
+										<li value="냅킨">냅킨</li>
+									</ul>
+								</li>
+								<li>
+									<div class="cate-parent">가구</div>
+									<ul class="cate-child">
+										<li value="의자">의자</li>
+										<li value="테이블">테이블</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
+
+
+
 					</div>
 				</div>
-
-
-
 			</div>
 		</div>
+	</section>
+
+	<section >
 		<div class="container" style="padding-left: 10px;">
-
-
-
-
-
-			<div class="col-lg-7 col-md-3">
+			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
-					<div class="section-title product__discount__title">
+					<div class="section-title product__discount__title"
+						style="text-align: center; margin-top: -500px;">
 						<h2>추천 상품</h2>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
 
 							<c:forEach items="${selectPro}" var="pro">
-
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="#">
-													<i class="fa fa-shopping-cart"></i>
-												</a>
-											<span>${pro.pdname}</span>
+											<a href="#"> <i class="fa fa-shopping-cart"></i>
+											</a> <span>${pro.pdname}</span>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
 											</h5>
@@ -102,16 +177,14 @@
 									</div>
 								</div>
 							</c:forEach>
-
-
-
-
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<!-- 
 		<div class="filter__item">
 			<div class="row">
 				<div class="col-lg-4 col-md-5">
@@ -122,10 +195,10 @@
 						</select>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
+		
+		
 		<div class="row">
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="product__item">
@@ -158,19 +231,58 @@
 
 				</div>
 			</div>
-
-
-
-
-
-
 		</div>
 		<div class="product__pagination">
 			<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#"><i
 				class="fa fa-long-arrow-right"></i></a>
 		</div>
+ -->
 
-	</section>
+	<footer class="footer spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="footer__about">
+						<div class="footer__about__logo">
+							<h2>L&CSS</h2>
+						</div>
+						<ul>
+							<li>회사주소: 인천일보아카데미</li>
+							<li>전화번호: 032-111-1111</li>
+							<li>이메일 : #</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+					<div class="footer__widget">
+						<h6>프로젝트</h6>
+						<ul>
+							<li><a href="#">팀장 : 서성필</a></li>
+							<li><a href="#">엔지니어 : 송영오</a></li>
+							<li><a href="#">엔지니어 : 천호태</a></li>
+							<li><a href="#">엔지니어 : 이상윤</a></li>
+
+						</ul>
+
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-12">
+					<div class="footer__widget">
+
+						<a href="InquirePage">고객문의</a>
+
+
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="footer__copyright"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 
 <script
@@ -194,11 +306,11 @@
 		console.log('호출');
 		var con = document.getElementById('sauce');
 		console.log(con);
-		if (con.style.display == 'none') {
+		if (con.style.display == 'block') {
 
-			con.style.display = 'block';
-		} else {
 			con.style.display = 'none';
+		} else {
+			con.style.display = 'block';
 		}
 
 	}
@@ -316,5 +428,21 @@
 		}
 
 	}
+</script>
+
+<script>
+	$(document).ready(
+			function() {
+				var cateBtn = $("<a>").addClass("cate-btn").append(
+						$("<i>").addClass("fas fa-caret-down")).attr("href",
+						"javascript:void(0)").click(function() {
+					$(this).parent().next().toggle();
+					$(this).children("i").toggleClass("fa-rotate-180");
+				});
+				$(".cate-parent").append(cateBtn);
+				$("#testColor").click(function() {
+					$(".cate-parent, .cate-btn").toggleClass("color");
+				});
+			});
 </script>
 </html>

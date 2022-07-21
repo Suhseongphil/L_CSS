@@ -13,6 +13,7 @@ import com.L_CSS.dao.ReservationDao;
 import com.L_CSS.dto.CartDto;
 import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.ReservationDto;
+import com.google.gson.Gson;
 
 @Service
 public class ReservationService {
@@ -114,5 +115,22 @@ public class ReservationService {
 		mav.setViewName("option/orderhistory");
 		return mav;
 	}
+	//주문취소
+	public ModelAndView orderCancel(String recode) {
+		System.out.println("orderCancel()호출");
+		ModelAndView mav  = new ModelAndView();
+		
+		
+		
+		
+		int orderCancel = rdao.orderCancel(recode);
+		
+		
+		mav.setViewName("redirect:/orderhistory");
+		
+		return mav;
+	}
+
+	
 	
 }
