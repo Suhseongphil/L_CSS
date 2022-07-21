@@ -141,7 +141,48 @@ h7 {
 							<div class="shoping__cart__table">
 
 								<div class="item display" style="padding-top: 30px;">
+							
+
 									<div class="row"
+										style="padding-bottom: 20px; text-align: center;">
+										<div class="col-6">
+											<h5>자주묻는질문</h5>
+										</div>
+										<div class="col-3">
+											<h5>문의유형</h5>
+										</div>
+										<div class="col-3">
+											<h5>문의제목</h5>
+										</div>
+										
+									</div>
+									<div class="row"
+										style="padding-bottom: 20px; text-align: center;">
+										<div class="col-6">
+											<h5>[배송 지연 질문]</h5>
+										</div>
+										<div class="col-3">
+											<h5>배송관련</h5>
+										</div>
+										<div class="col-3">
+											<h5>물건을 주문했는데 배송확인이 안됩니다.</h5>
+										</div>
+										
+									</div>
+									<div class="row"
+										style="padding-bottom: 20px; text-align: center;">
+										<div class="col-6">
+											<h5>[결제 오류]</h5>
+										</div>
+										<div class="col-3">
+											<h5>결제관련</h5>
+										</div>
+										<div class="col-3">
+											<h5>상품 결제가 안됩니다.</h5>
+										</div>
+										
+									</div> <hr>
+											<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
 										<div class="col-6">
 											<h5>문의유형</h5>
@@ -158,12 +199,12 @@ h7 {
 									</div>
 
 
-
-
-									<div id="myInqurreList" class="item"></div>
+									<div id="myInqurreList" class="item">
+									</div>
 
 
 								</div>
+								
 
 
 
