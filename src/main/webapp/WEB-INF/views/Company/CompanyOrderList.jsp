@@ -138,8 +138,8 @@ text-align: center;
 										
 	
 									</div>
-                                <form action="orderCancel" method="get">
-                                	<c:forEach items="${OrderList}" var="odList">
+                                <form action="deleteOrder" method="get">
+                                	<c:forEach items="${orList}" var="odList">
                                 <div class="row px">
                                 					<div class="col-3">
 														<h5>${odList.cmname }</h5>
@@ -159,12 +159,12 @@ text-align: center;
 													<c:choose>
 													<c:when test="${odList.restate == 0}">
 													<div class="col-1">
-														<button type="submit" name="recode" value="${odList.recode}"  >주문취소</button>
+														<button type="submit" name="recode" value="${odList.recode}"  >주문확인</button>
 													</div>
 													</c:when>
 													<c:otherwise>
 													<div class="col-1">
-														<h5>취소대기</h5>
+														<button type="submit" name="recode" value="${odList.recode}"  >취소요청</button>
 													</div>
 													</c:otherwise>
 													
