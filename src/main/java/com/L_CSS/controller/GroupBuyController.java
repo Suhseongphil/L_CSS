@@ -12,12 +12,22 @@ public class GroupBuyController {
 	
 	@Autowired
 	GroupBuyService gbsvc;
+	
 	@RequestMapping (value="/groupBuyBoard")
 	public ModelAndView groupBuyBoard() {
 		System.out.println("공동구매");
 		ModelAndView mav = new ModelAndView();
 		
 		mav = gbsvc.getGroupBuyInfo();
+		
+		return mav;
+	}
+	
+	@RequestMapping (value="/gbBoardWrite_form")
+	public ModelAndView gbBoardWrite_form() {
+		System.out.println("공동구매 글 작성 페이지");
+		ModelAndView mav = new ModelAndView();
+		mav = gbsvc.getPdType();
 		
 		return mav;
 	}

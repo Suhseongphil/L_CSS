@@ -5,11 +5,12 @@ import lombok.Data;
 @Data
 public class GroupBuyDto {
 	
-	private String bdcode;
-	private String bdmid;
-	private String bdpdcode;
-	private String bdcomment;
-	private String bdsdate;
-	private String bdfdate;
+	private String gbcode;
+	private String gbmid;
+	private String gbpdcode;
+	private String gbtitle;
+	private String gbcomment;
+	private String gbsdate;
+	private String gbfdate;
 	
 }

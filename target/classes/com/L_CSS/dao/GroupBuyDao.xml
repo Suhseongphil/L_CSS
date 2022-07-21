@@ -5,7 +5,14 @@
 
 <mapper namespace="com.L_CSS.dao.GroupBuyDao">
 	<select id="getGroupBuyInfo" resultType="com.L_CSS.dto.GroupBuyDto">
-		SELECT * FROM GROUPBUY ORDER BY GBCODE DESC
+		SELECT GBCODE, GBMID, GBTITLE, GBPDCODE, GBCOMMENT, TO_CHAR(GBSDATE , 'YYYY-MM-DD') AS GBSDATE, TO_CHAR(GBFDATE , 'YYYY-MM-DD') AS GBFDATE 
+		FROM GROUPBUY ORDER BY GBCODE DESC
+	</select>
+	
+	<select id="getPdType" resultType="String">
+		SELECT PDTYPE
+		FROM PRODUCT
+		GROUP BY PDTYPE 
 	</select>
 	
 </mapper>
