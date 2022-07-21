@@ -65,4 +65,26 @@ public class CafeController {
 		return mav;
 	}
 	
+	//내 카페정보 페이지 요청
+	@RequestMapping(value="mycafeInfo")
+	public ModelAndView mycafeInfo(RedirectAttributes ra) {
+		System.out.println("내 카페정보 페이지 이동 요청");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = csv.mycafeInfo(ra);
+		
+		return mav;
+	}
+	
+	//내 카페 정보 수정요청
+	@RequestMapping(value= "mycafeModify")
+	public ModelAndView mycafeModify(CafeDto cafe,RedirectAttributes ra ) throws IllegalStateException, IOException {
+		System.out.println("내 카페정보 수정 요청");
+		System.out.println(cafe);
+		
+		ModelAndView mav = csv.mycafeModify(cafe,ra);
+		
+		return mav;
+	}
+	
 }

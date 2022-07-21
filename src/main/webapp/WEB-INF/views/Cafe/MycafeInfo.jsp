@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -6,7 +7,7 @@ request.setCharacterEncoding("UTF-8");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내 카페 정보 페이지</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">
@@ -29,14 +30,11 @@ request.setCharacterEncoding("UTF-8");
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 </head>
-<style>
-.imgClass {
-	width: 300px;
-	height: 300px;
-	border-radius: 70%;
-	overflow: hidden;
-}
 
+<Style>
+.hero__text2 p {
+	font-weight: bold;
+}
 .background2 {
 	position: fixed;
 	top: 0;
@@ -71,7 +69,7 @@ request.setCharacterEncoding("UTF-8");
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
 	width: 600px;
-	height: 790px;
+	height: 900px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
 }
@@ -84,126 +82,18 @@ request.setCharacterEncoding("UTF-8");
 label {
 	font-weight: bold;
 }
+.imgsize {
 
-.hero__text2 p {
-	font-weight: bold;
+width: 200px;
+height: 200px;
+object-fit:cover;
+
+
 }
-</style>
+</Style>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
 
-	<!-- Humberger Begin -->
-	<div class="humberger__menu__overlay"></div>
-	<div class="humberger__menu__wrapper">
-		<div class="humberger__menu__logo">
-			<a href="#">
-				<img src="img/logo.png" alt="">
-			</a>
-		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<li>
-					<a href="#">
-						<i class="fa fa-heart"></i>
-						<span>1</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-shopping-bag"></i>
-						<span>3</span>
-					</a>
-				</li>
-			</ul>
-			<div class="header__cart__price">
-				item:
-				<span>$150.00</span>
-			</div>
-		</div>
-		<div class="humberger__menu__widget">
-			<div class="header__top__right__language">
-				<img src="img/language.png" alt="">
-				<div>English</div>
-				<span class="arrow_carrot-down"></span>
-				<ul>
-					<li>
-						<a href="#">Spanis</a>
-					</li>
-					<li>
-						<a href="#">English</a>
-					</li>
-				</ul>
-			</div>
-			<div class="header__top__right__auth">
-				<a href="#">
-					<i class="fa fa-user"></i> Login
-				</a>
-			</div>
-		</div>
-		<nav class="humberger__menu__nav mobile-menu">
-			<ul>
-				<li class="active">
-					<a href="./index.html">Home</a>
-				</li>
-				<li>
-					<a href="./shop-grid.html">Shop</a>
-				</li>
-				<li>
-					<a href="#">카페</a>
-					<ul class="header__menu__dropdown">
-						<li>
-							<a href="./shop-details.html">Shop Details</a>
-						</li>
-						<li>
-							<a href="./shoping-cart.html">Shoping Cart</a>
-						</li>
-						<li>
-							<a href="./checkout.html">Check Out</a>
-						</li>
-						<li>
-							<a href="./blog-details.html">Blog Details</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="./blog.html">업체</a>
-				</li>
-				<li>
-					<a href="./contact.html">공동구매</a>
-				</li>
-			</ul>
-		</nav>
-		<div id="mobile-menu-wrap"></div>
-		<div class="header__top__right__social">
-			<a href="#">
-				<i class="fa fa-facebook"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-twitter"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-linkedin"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-pinterest-p"></i>
-			</a>
-		</div>
-		<div class="humberger__menu__contact">
-			<ul>
-				<li>
-					<i class="fa fa-envelope"></i> hello@colorlib.com
-				</li>
-				<li>Free Shipping for all Order of $99</li>
-			</ul>
-		</div>
-	</div>
-	<!-- Humberger End -->
-
-	<!-- Header Section Begin -->
-	<header class="header">
+<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 
 	</header>
@@ -218,33 +108,45 @@ label {
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section Begin -->
-	<section class="hero">
-		<div class="container">
+
+<section class="hero">
+
+<div class="container">
 			<div class="row">
 				<div class="col-lg-7">
 
 					<div class="hero__item set-bg">
 						<div class="hero__text2">
-							<span style="font-size: 22px;">내&nbsp;정보</span>
+							<span style="font-size: 22px;">내&nbsp;카페정보</span>
 							<br> <br> <br>
-							<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
-							<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
-							<p>전화번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mtel }</p>
-							<p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
-							<p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
+							<p>카페이름&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cfname }</p>
+							<p>전화번호&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cftel }</p>
+							<p>카페링크&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cflink }</p>
+							<p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cfpostcode }</p>
 							<p>
-								주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }
+								주소&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cfaddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${mycafeInfo.cfaddr2 }
 							</p>
 							<button type="button" id="show" class="btn text-white" style="background-color: #000000;">정보수정</button>
 						</div>
 					</div>
+
+
+
+
+
 				</div>
 				<div class="col-lg-5">
 
-					<div class="hero__item set-bg">
+					<div class="p-5">
 						<div class="hero__text">
-							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
+							<label>카페이미지</label>
+							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}">
+						</div>
+					</div>
+					<div class="p-5">
+						<div class="hero__text">
+							<label>시그니처 이미지</label>
+							<img class="sigimgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}">
 						</div>
 					</div>
 
@@ -253,49 +155,41 @@ label {
 		</div>
 		<div class="background2">
 			<div class="window2">
-				<form class="user" action="memberModify" method="post" enctype="multipart/form-data">
+				<form class="user" action="mycafeModify" method="post" enctype="multipart/form-data">
 					<div class="popup2">
 						<div style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
-							<label>아이디</label>
-							<input type="text" id="mid" style="border: none;" readonly="readonly" name="mid" value="${memberInfo.mid }" class="form-control form-control-user">
+							<label>카페이름</label>
+							<input type="text" id="cfname"  name="cfname" value="${mycafeInfo.cfname }" class="form-control form-control-user">
 						</div>
 						<br>
-						<div style="margin-left: 20px; margin-right: 400px;">
-							<label>이름</label>
-							<input type="text" style="border: none;" readonly="readonly" id="mname" name="mname" value="${memberInfo.mname }" class="form-control form-control-user">
-						</div>
-						<br>
-						<div style="margin-left: 20px; margin-right: 400px;">
-							<label>비밀번호</label>
-							<input type="password" id="mpw" name="mpw" value="${memberInfo.mpw }" class="form-control form-control-user">
-						</div>
-						<br>
-						<div style="margin-left: 20px; margin-right: 400px;">
+						<div class="row form-group">
+							<div class="col-5 form-group" style="margin-left: 20px;">
 							<label>전화번호</label>
-							<input type="text" id="mtel" name="mtel" value="${memberInfo.mtel }" class="form-control form-control-user">
+							<input type="text"   id="cftel" name="cftel" value="${mycafeInfo.cftel }">
+							
+							</div>
+						<br>
+						<div class="col-5 form-group" style="margin-left: 20px;">
+							<label>카페링크</label>
+							<input type="text" id="cflink" name="cflink" value="${mycafeInfo.cflink }">
+						</div>
 						</div>
 						<br>
-						<div style="margin-left: 20px;">
-							<label>이메일</label>
-						</div>
-						<div class="row">
-							<div class="col-4 form-group" style="margin-left: 20px;">
-
-								<input type="text" id="memail" name="memail" value="${memberInfo.memail }" class="form-control form-control-user">
-							</div>
-							@
-							<div class="col-4 form-group">
-								<input type="text" id=emailDomain name="emailDomain" class="form-control form-control-user" value="${memberInfo.emailDomain }">
-							</div>
-							<div class="col-2 form-group">
-								<select id="domainSelect">
-									<option value="">직접입력</option>
-									<option value="Naver.com">네이버</option>
-									<option value="Daum.net">다음</option>
-									<option value="Google.com">구글</option>
-								</select>
-							</div>
-						</div>
+						<div class="row form-group">
+											<div class="col-6 form-group">
+												<label>카페 이미지</label> <input type="file"
+													class="form-control form-control-user" id="cfimgs"
+													name="cfimgs" onchange="readURL(this);" >
+													<img src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}" class="imgsize" id="preview" />
+											</div>
+											<div class="col-6 form-group">
+												<label>시그니처 이미지</label> <input type="file"
+													class="form-control form-control-user" id="cfsigimgs"
+													name="cfsigimgs" onchange="sigURL(this);" >
+													<img src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}" class="imgsize" id="sigpreview" />
+											</div>
+										</div>
+						
 						<div style="margin-left: 20px;">
 							<label>주소</label>
 						</div>
@@ -305,56 +199,35 @@ label {
 								<br>
 							</div>
 							<div class="col-6 form-group" style="margin-right: 20px;">
-								<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value="${memberInfo.mpostercode }" placeholder="우편번호">
+								<input class="form-control form-control-user" type="text" id="cfpostcode" name="cfpostcode" value="${mycafeInfo.cfpostcode }" placeholder="우편번호">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-6" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소">
+								<input class="form-control form-control-user" type="text" id="cfaddr" name="cfaddr" value="${mycafeInfo.cfaddr }" placeholder="주소">
 								<br>
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-4 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress }" placeholder="상세주소">
+								<input class="form-control form-control-user" type="text" id="cfdetailaddress" name="cfdetailaddress" value="${mycafeInfo.cfdetailaddress }" placeholder="상세주소">
 							</div>
 							<div class="col-6 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress }" placeholder="참고항목">
+								<input class="form-control form-control-user" type="text" id="cfextraaddress" name="cfextraaddress" value="${mycafeInfo.cfextraaddress }" placeholder="참고항목">
 							</div>
 						</div>
+						<input type="hidden" value="${mycafeInfo.cfmid }">
 						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">정보수정</button>
 						<button type="button" id="close" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
 					</div>
 				</form>
 			</div>
 		</div>
+</section>
 
-	</section>
-	<!-- Hero Section End -->
 
-	<!-- Categories Section Begin -->
-
-	<!-- Categories Section End -->
-
-	<!-- Featured Section Begin -->
-
-	<!-- Featured Section End -->
-
-	<!-- Banner Begin -->
-
-	<!-- Banner End -->
-
-	<!-- Latest Product Section Begin -->
-
-	<!-- Latest Product Section End -->
-
-	<!-- Blog Section Begin -->
-
-	<!-- Blog Section End -->
-
-	<!-- Footer Section Begin -->
-	<footer class="footer spad">
+<footer class="footer spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-6">
@@ -406,9 +279,9 @@ label {
 			</div>
 		</div>
 	</footer>
-	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
+
+<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
@@ -418,10 +291,11 @@ label {
 	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-
+	
 </body>
 
-<script type="text/javascript">
+	
+	<script type="text/javascript">
 	var checkMsg = '${msg}'
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
@@ -442,14 +316,31 @@ label {
 </script>
 
 <script type="text/javascript">
-	$("#domainSelect").change(function() {
-
-		var selDomain = $("#domainSelect").val();
-		$("#emailDomain").val(selDomain);
-	});
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				document.getElementById('preview').src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
+		} else {
+			document.getElementById('preview').src = "";
+		}
+	}
 </script>
-
-
+<script type="text/javascript">
+	function sigURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				document.getElementById('sigpreview').src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
+		} else {
+			document.getElementById('sigpreview').src = "";
+		}
+	}
+</script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -487,21 +378,19 @@ label {
 						extraAddr = ' (' + extraAddr + ')';
 					}
 					// 조합된 참고항목을 해당 필드에 넣는다.
-					document.getElementById("mextraaddress").value = extraAddr;
+					document.getElementById("cfextraaddress").value = extraAddr;
 
 				} else {
-					document.getElementById("mextraaddress").value = '';
+					document.getElementById("cfextraaddress").value = '';
 				}
 
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
-				document.getElementById('mpostercode').value = data.zonecode;
-				document.getElementById("maddr").value = addr;
+				document.getElementById('cfpostcode').value = data.zonecode;
+				document.getElementById("cfaddr").value = addr;
 				// 커서를 상세주소 필드로 이동한다.
-				document.getElementById("mdetailaddress").focus();
+				document.getElementById("cfdetailaddress").focus();
 			}
 		}).open();
 	}
 </script>
-
-
 </html>

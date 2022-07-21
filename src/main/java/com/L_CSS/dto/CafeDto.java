@@ -23,6 +23,7 @@ public class CafeDto {
 	private	String cfaddress;
 	private String cfpostcode;
 	private String cfaddr;
+	private String cfaddr2;
 	private String cfdetailaddress;
 	private String cfextraaddress;
 	

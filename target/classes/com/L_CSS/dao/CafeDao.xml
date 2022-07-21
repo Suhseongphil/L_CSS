@@ -33,4 +33,27 @@
 		VALUES(#{cfcode}, #{cfname}, #{cfaddress}, #{cftel}, #{cfimg}, 0, #{cfsigimg}, #{cflink}, #{cfmid})
   		</insert>
   		
+  		<select id ="MyCafeInfo" resultType="com.L_CSS.dto.CafeDto">
+  		select *
+  		from CAFE
+  		where CFMID = #{loginId}
+  		</select>
+  		
+  		<update id ="updateMycafe">
+  		UPDATE CAFE
+  		SET CFNAME= #{cfname}, CFTEL=#{cftel}, CFLINK=#{cflink},CFIMG=#{cfimg},CFSIGIMG=#{cfsigimg}, CFADDRESS=#{cfaddress}
+  		WHERE CFMID = #{cfmid}
+  		</update>
+  		
+  		<select id="getCafeImg" resultType="com.L_CSS.dto.CafeDto">
+  		select CFIMG
+  		from CAFE
+  		where CFMID = #{cfmid}
+  		</select>
+  		<select id="getCafesigImg" resultType="com.L_CSS.dto.CafeDto">
+  		select CFSIGIMG
+  		FROM CAFE
+  		WHERE CFMID = #{cfmid}
+  		</select>
+  		
   </mapper>

@@ -39,7 +39,7 @@
 							<a href="mycafeInsert">내 카페등록</a>
 						</li>
 						<li>
-							<a href="cafeList">내 카페정보</a>
+							<a href="mycafeInfo">내 카페정보</a>
 						</li>
 						<li>
 							<a href="cafeList">카페목록</a>

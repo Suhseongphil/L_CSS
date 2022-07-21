@@ -127,7 +127,7 @@
 											</div>
 											<div class="col-6 form-group">
 												<input class="form-control form-control-user" type="text"
-													id="cfpostercode" name="cfpostCode" placeholder="우편번호">
+													id="cfpostcode" name="cfpostcode" placeholder="우편번호">
 											</div>
 										</div>
 										<div class="row">
@@ -261,7 +261,7 @@
 				}
 
 				// 우편번호와 주소 정보를 해당 필드에 넣는다.
-				document.getElementById('cfpostercode').value = data.zonecode;
+				document.getElementById('cfpostcode').value = data.zonecode;
 				document.getElementById("cfaddr").value = addr;
 				// 커서를 상세주소 필드로 이동한다.
 				document.getElementById("cfdetailaddress").focus();
