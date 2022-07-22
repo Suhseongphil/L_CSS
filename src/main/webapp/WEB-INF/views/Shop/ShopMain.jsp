@@ -167,7 +167,7 @@
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="#"> <i class="fa fa-shopping-cart"></i>
+											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
 											</a> <span>${pro.pdname}</span>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
