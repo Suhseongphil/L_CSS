@@ -50,5 +50,16 @@
 		where MUCFCODE = #{mucfcode}
 		order by mucode desc
 	</select>
+	<update id="updateMymenu">
+		update MENU
+		set MUSTATE = #{mustate}, MUNAME = #{muname}, MUPRICE = #{muprice}, MUTYPE = #{mutype}, MUIMG = #{muimg}
+		where MUCODE = #{mucode}
+	</update>
+	
+	<select id="getMyMenuImg" resultType="String">
+	SELECT MUIMG
+	FROM MENU
+	WHERE MUCODE = #{mucode}
+	</select>
 
 </mapper>

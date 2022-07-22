@@ -15,5 +15,6 @@ public class MenuDto {
 	private String mucfcode;
 	private int mustate;
 	
+	
 	private MultipartFile muims;
 }

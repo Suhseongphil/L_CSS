@@ -24,4 +24,8 @@ public interface MenuDao {
 	CafeDto MyCafeInfo(String loginId);
 
 	ArrayList<MenuDto> getMyMenu(String mucfcode);
+
+	int updateMymenu(MenuDto menu);
+
+	String getMyMenuImg(String muimg);
 }
