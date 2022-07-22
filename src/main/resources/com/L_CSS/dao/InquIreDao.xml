@@ -34,6 +34,6 @@
   	<select id="inquireInfo" resultType="com.L_CSS.dto.InquIreDto">
   		select * 
   		from INQUIRE
-  		where IQTITLE = #{iqtitle}
+  		where IQCODE = #{iqcode}
   	</select>
   </mapper>

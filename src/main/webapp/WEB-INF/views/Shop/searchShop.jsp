@@ -120,7 +120,13 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-
+<script type="text/javascript">
+	$(".submenu li a").click(function() {
+		console.log($(this).text());
+		var type = $(this).text();
+		location.href="searchType?type="+type
+	});
+</script>
 <script>
 	$(document).ready(function() {
 		//menu v2
