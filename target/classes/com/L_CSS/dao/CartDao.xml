@@ -48,4 +48,7 @@
   		delete cart
   		where CTCODE = #{ctcode}
   	</delete>
+  	<insert id="InsertCart">
+  		insert into cart values(#{ctcode},#{loginId},#{pdcmcode},#{pdcode},1,0)
+  	</insert>
   </mapper>

@@ -24,6 +24,8 @@ public interface CartDao {
 	ArrayList<CartDto> selectCartList(@Param("loginId")String loginId, @Param("ctcode")String ctcode);
 
 	int deleteCart(String ctcode);
+
+	int InsertCart(@Param("pdcode")String pdcode, @Param("pdcmcode")String pdcmcode,@Param("loginId")String loginId, @Param("ctcode")String ctcode);
 	
 
 }

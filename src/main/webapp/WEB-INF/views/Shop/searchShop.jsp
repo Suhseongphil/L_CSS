@@ -5,8 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html" />
-
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet"
@@ -39,7 +37,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 <style>
 #nav-v2 {
@@ -49,27 +46,29 @@
 
 .menu-v2 {
 	line-height: 2;
+	
 	position: relative;
 }
 
 .menu-v2 .submenu {
-	position: ;
-	width: 130px;
+	position: absolute;
+	width: 150px;
 	left: 149px;
+	
 	background-color: white;
-	color: black;
+	color: white;
 	top: -1px;
 	display: none;
 }
 
 .menu-v2:hover {
-	background-color: #8b4513;
+	background-color: white;
 	color: white;
 }
 
 .menu-v2 .submenu>li:hover {
 	background-color: white;
-	color: black;
+	color: #222;
 }
 </style>
 
@@ -93,31 +92,22 @@
 						<div class="sidebar__item" id="category">
 							<h4>카테고리</h4>
 
-							<ul id="nav-v2" style="margin-left: -30px; padding-bottom:-30px;">
-								<li
-									style="background-color: white-space; margin: 10px; padding-bottom:-30px;  font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									음료
+							<ul id="nav-v2" style="margin-left: -30px;">
+								<li style="background-color: white-space; margin: 10px; padding: 1px;"  class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">음료</a>
 									<ul class="submenu">
 										<li value="원두"><a href="#">원두</a></li>
 										<li value="소스"><a href="#">소스</a></li>
 										<li value="파우더"><a href="#">파우더</a></li>
 
 									</ul></li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									머신
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">머신</a>
 									<ul class="submenu">
 										<li value="그라인더"><a href="#">그라인더</a></li>
 										<li value="커피머신"><a href="#">커피머신</a></li>
 										<li value="제빙기"><a href="#">제빙기</a></li>
 
 									</ul></li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									일회용품
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">일회용품</a>
 									<ul class="submenu">
 										<li value="아이스컵"><a href="#">아이스컵</a></li>
 										<li value="스트로우"><a href="#">스트로우</a></li>
@@ -125,25 +115,23 @@
 										<li value="냅킨"><a href="#">냅킨</a></li>
 										<li value="컵홀더"><a href="#">컵홀더</a></li>
 									</ul></li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									컵
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">컵</a>
 									<ul class="submenu">
 										<li value="머그잔"><a href="#">머그잔</a></li>
 										<li value="텀블러"><a href="#">텀블러</a></li>
 									</ul></li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									가구
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">가구</a>
 									<ul class="submenu">
 										<li value="의자"><a href="#">의자</a></li>
 										<li value="테이블"><a href="#">테이블</a></li>
 									</ul></li>
 							</ul>
-							
+							<div class="clear"></div>
+
 						</div>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -173,18 +161,18 @@
 
 						</div>
 					</form>
-						<h2>추천 상품</h2>
+						
 					</div>
 					<div class="row">
-						<div class="product__discount__slider owl-carousel">
+						<div class="row">
 
-							<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
+							<c:forEach items="${searchList}" var="pro" >
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="#"> <i class="fa fa-shopping-cart"></i>
+											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
 											</a> <span>${pro.pdname}</span>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
@@ -254,6 +242,7 @@
 				class="fa fa-long-arrow-right"></i></a>
 		</div>
  -->
+
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
@@ -277,12 +266,18 @@
 							<li><a href="#">엔지니어 : 송영오</a></li>
 							<li><a href="#">엔지니어 : 천호태</a></li>
 							<li><a href="#">엔지니어 : 이상윤</a></li>
+
 						</ul>
+
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12">
 					<div class="footer__widget">
+
 						<a href="InquirePage">고객문의</a>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -442,18 +437,22 @@
 
 <script>
 	$(document).ready(function() {
+		//menu v1 
+		$(".menu-v1").mouseover(function() {
+			$(this).children(".submenu").stop().slideDown();
+		});
+		$(".menu-v1").mouseleave(function() {
+			$(this).children(".submenu").stop().slideUp();
+		});
 
 		//menu v2
 		$(".menu-v2").mouseover(function() {
-			$(this).children(".submenu").show(150);
+			$(this).children(".submenu").show(200);
 		});
 		$(".menu-v2").mouseleave(function() {
-			$(this).children(".submenu").hide(150);
+			$(this).children(".submenu").hide(200);
 		});
 
 	});
 </script>
-<script src="script/jquery-1.12.3.js" type="text/javascript"></script>
-<script src="script/script.js" type="text/javascript" defer="defer"></script>
-
 </html>

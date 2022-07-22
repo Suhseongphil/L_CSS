@@ -22,4 +22,6 @@ public interface ProductDao {
 
 	ArrayList<ProductDto> proInfo(String cmcode);
 
+	ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
+
 }
