@@ -25,4 +25,9 @@
 		FROM CAFE
 		WHERE CFMID = #{loginId}
 	</select>
+	
+	<select id="getmax" resultType="String">
+		SELECT MAX(GBCODE)
+		FROM GROUPBUY
+	</select>
 </mapper>
