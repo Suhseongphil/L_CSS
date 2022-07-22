@@ -8,6 +8,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.GroupBuyDao;
 import com.L_CSS.dto.GroupBuyDto;
+import com.L_CSS.dto.ProductDto;
+import com.google.gson.Gson;
 
 @Service
 public class GroupBuyService {
@@ -33,6 +35,16 @@ public class GroupBuyService {
 		mav.addObject("productType", productType);
 		mav.setViewName("GroupBuy/GroupBuyWrite_form");
 		return mav;
+	}
+
+	public String getPdname(String pdtype) {
+		System.out.println("AdminService.getPdname() 호출");
+		
+		ArrayList<ProductDto> getProductList = gbdao.getProduct(pdtype);
+		
+		Gson gson = new Gson();
+		String productList = gson.toJson(getProductList);
+		return productList;
 	}
 
 }

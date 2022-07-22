@@ -44,7 +44,7 @@
 	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
-			<%@ include file="../includes/AdminMiddleBar.jsp"%>
+			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
 			<div class="humberger__open">
 				<i class="fa fa-bars"></i>

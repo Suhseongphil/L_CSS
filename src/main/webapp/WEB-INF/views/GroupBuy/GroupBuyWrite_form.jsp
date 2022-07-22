@@ -26,6 +26,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+
+<style type="text/css">
+.scroll {
+	overflow: scroll;
+	width: auto;
+	height: 370px;
+}
+
+.row div{
+	padding:0;
+}
+</style>
 </head>
 
 <body>
@@ -44,7 +56,7 @@
 	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
-			<%@ include file="../includes/AdminMiddleBar.jsp"%>
+			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
 			<div class="humberger__open">
 				<i class="fa fa-bars"></i>
@@ -58,22 +70,45 @@
 			<h2>게시글 작성</h2>
 		</div>
 		<div class="container">
+			<h3 style="text-align: center;">제품선택</h3>
 			<div class="row">
-				<div class="col-4" id="pdtype">
-					<span>상품</span>
+				<div class="col-1"></div>
+				<div class="col-2 font-weight-bold" id="pdtype">
+					<div>상품(선택)</div>
+					<c:forEach items="${productType}" var="pdtype">
+						<div style="margin: 1px auto 1px;" onclick="selectType(this)">${pdtype}</div>
+					</c:forEach>
 				</div>
-				<div class="col-8" id="pdname"></div>
+				<div class="col-9">
+					<div>제품이름(선택)</div>
+					<div class="scroll" id="pdname"></div>
+				</div>
 			</div>
-			<form action="">
-				<div>
-					<span>제목</span>
-					<input type="text" name="gbtitle" placeholder="제목을 입력해주세요...">
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-6">
+					<form action="">
+						<div class="row">
+							<div class="col-1">
+								<span>제목</span>
+							</div>
+							<div class="col-11">
+								<input style="width: 100%;" type="text" name="gbtitle" placeholder="제목을 입력해주세요...">
+							</div>
+						</div>
+						<div>
+							<span>내용</span>
+							<textarea name="gbcomment" placeholder="내용을 입력해주세요..."></textarea>
+						</div>
+						<div>
+							<span>선택제품</span>
+							<input type="text" readonly id="selProduct">
+							<input type="hidden" name="gbpdcode" readonly id="selPdcode">
+						</div>
+					</form>
 				</div>
-				<div>
-					<span>내용</span>
-					<textarea name="gbcomment" placeholder="내용을 입력해주세요..."></textarea>
-				</div>
-			</form>
+				<div class="col-3"></div>
+			</div>
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
@@ -143,6 +178,44 @@
 	var checkMsg = '${msg}'
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
+	}
+</script>
+
+<script type="text/javascript">
+	function selectType(selObj) {
+
+		$("#pdtype div").css("background-color", "").css("color", "");
+		$(selObj).css("background-color", "saddlebrown").css("color", "white");
+
+		var pdtype = $(selObj).text();
+
+		$.ajax({
+			type : "get",
+			url : "selectPdtype",
+			dataType : "json",
+			data : {
+				"pdtype" : pdtype
+			},
+			success : function(product) {
+				var output = "";
+				for (var i = 0; i < product.length; i++) {
+					output += "<div onclick=\"selectProduct(this,'"
+							+ product[i].pdcode + "')\">" + product[i].pdname
+							+ "</div>";
+				}
+				$("#pdname").html(output);
+			}
+		});
+	}
+
+	function selectProduct(selObj, pdcode) {
+
+		$("#pdname div").css("background-color", "").css("color", "");
+		$(selObj).css("background-color", "saddlebrown").css("color", "white");
+
+		$("#selProduct").val($(selObj).text());
+		$("#selPdcode").val(pdcode);
+
 	}
 </script>
 </html>
