@@ -71,11 +71,11 @@ public class InquIreController {
 	
 	//문의 상세보기
 	@RequestMapping(value="/inquireInfo")
-	public ModelAndView inquireInfo(String iqtitle) {
+	public ModelAndView inquireInfo(String iqcode) {
 		System.out.println("문의 상세보기");
-		System.out.println(iqtitle);
+		System.out.println(iqcode);
 		ModelAndView mav = new ModelAndView();
-		mav = isv.inquireInfo(iqtitle);
+		mav = isv.inquireInfo(iqcode);
 		return mav;
 	}
 	
