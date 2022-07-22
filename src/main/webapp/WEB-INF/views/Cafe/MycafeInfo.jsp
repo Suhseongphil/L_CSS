@@ -90,6 +90,11 @@ object-fit:cover;
 
 
 }
+.imgclass {
+width: 300px;
+height: 300px;
+object-fit:cover;
+}
 </Style>
 <body>
 
@@ -113,9 +118,9 @@ object-fit:cover;
 
 <div class="container">
 			<div class="row">
-				<div class="col-lg-7">
+				<div class="col-lg-4">
 
-					<div class="hero__item set-bg">
+					<div class="p-3" style="margin-top: 10px;">
 						<div class="hero__text2">
 							<span style="font-size: 22px;">내&nbsp;카페정보</span>
 							<br> <br> <br>
@@ -135,18 +140,18 @@ object-fit:cover;
 
 
 				</div>
-				<div class="col-lg-5">
+				<div class="row col-lg-8">
 
-					<div class="p-5">
+					<div class="p-3" style="margin-top: 20px;">
 						<div class="hero__text">
-							<label>카페이미지</label>
-							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}">
+							<label>카페이미지</label><br>
+							<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}">
 						</div>
 					</div>
-					<div class="p-5">
+					<div class="p-3" style="margin-left: 20px; margin-top: 20px;">
 						<div class="hero__text">
-							<label>시그니처 이미지</label>
-							<img class="sigimgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}">
+							<label>시그니처 이미지</label><br>
+							<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}">
 						</div>
 					</div>
 

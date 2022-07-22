@@ -86,5 +86,15 @@ public class CafeController {
 		
 		return mav;
 	}
+	//메뉴정보 입력 페이지 이동
+		@RequestMapping(value = "/mymenuInsert")
+		public ModelAndView menuInsert(RedirectAttributes ra) {
+			ModelAndView mav = new ModelAndView();
+			
+			System.out.println("메뉴정보 입력 페이지 요청");
+
+			mav = csv.mycafeMenu(ra);
+			return mav;
+		}
 	
 }
