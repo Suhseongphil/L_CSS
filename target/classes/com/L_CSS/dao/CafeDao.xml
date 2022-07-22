@@ -45,12 +45,12 @@
   		WHERE CFMID = #{cfmid}
   		</update>
   		
-  		<select id="getCafeImg" resultType="com.L_CSS.dto.CafeDto">
+  		<select id="getCafeImg" resultType="String">
   		select CFIMG
   		from CAFE
   		where CFMID = #{cfmid}
   		</select>
-  		<select id="getCafesigImg" resultType="com.L_CSS.dto.CafeDto">
+  		<select id="getCafesigImg" resultType="String">
   		select CFSIGIMG
   		FROM CAFE
   		WHERE CFMID = #{cfmid}
