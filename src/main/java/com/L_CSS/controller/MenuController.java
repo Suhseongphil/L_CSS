@@ -74,9 +74,20 @@ public class MenuController {
 		public @ResponseBody String getMyMenuInfo(String mucfcode) {
 			System.out.println("내카페메뉴정보 출력 ");
 
-			String getMenuInfo = msv.getMyMenu(mucfcode);
+			String getMyMenuInfo = msv.getMyMenu(mucfcode);
 
-			return getMenuInfo;
+			return getMyMenuInfo;
+		}
+	//내카페 메뉴 수정 출력
+		@RequestMapping(value= "/MymuModify")
+		public @ResponseBody void MymuModify(MenuDto menu) {
+			System.out.println("내 카페 메뉴 수정 요청");
+			System.out.println(menu);
+			
+			//msv.MymuModify(menu);
+			
+			
+			
 		}
 	
 	

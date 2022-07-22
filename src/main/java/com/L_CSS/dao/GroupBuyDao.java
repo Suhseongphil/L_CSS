@@ -15,4 +15,6 @@ public interface GroupBuyDao {
 
 	String getAddress(String loginId);
 
+	String getmax();
+
 }

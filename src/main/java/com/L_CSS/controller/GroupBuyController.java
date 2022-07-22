@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.L_CSS.dto.GroupBuyDto;
 import com.L_CSS.service.GroupBuyService;
 
 @Controller
@@ -25,7 +26,7 @@ public class GroupBuyController {
 		return mav;
 	}
 	
-	// 공동구매 글 작성
+	// 공동구매 글 작성 페이지
 	@RequestMapping (value="/gbBoardWrite_form")
 	public ModelAndView gbBoardWrite_form() {
 		System.out.println("공동구매 글 작성 페이지");
@@ -44,4 +45,14 @@ public class GroupBuyController {
 		
 		return productList;
 	}
+	
+	// 공동구매 글 작성
+		@RequestMapping (value="/groupBuyWrite")
+		public ModelAndView groupBuyWrite(GroupBuyDto groupBuy) {
+			System.out.println("공동구매 글 작성 요청");
+			ModelAndView mav = new ModelAndView();
+			mav = gbsvc.insertGroupBuy(groupBuy);
+			
+			return mav;
+		}
 }

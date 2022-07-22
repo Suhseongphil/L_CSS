@@ -112,13 +112,13 @@ public class InquIreService {
 		return mav;
 	}
 	//문의 상세보기
-	public ModelAndView inquireInfo(String iqtitle) {
+	public ModelAndView inquireInfo(String iqcode) {
 		System.out.println("inquireInfo()호출");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<InquIreDto>inquireInfo = Idao.inquireInfo(iqtitle);
-		
+		ArrayList<InquIreDto>inquireInfo = Idao.inquireInfo(iqcode);
+		System.out.println(inquireInfo);
 		mav.addObject("inquireInfo",inquireInfo);
-		mav.setViewName("option/searchInquire");
+		mav.setViewName("option/InquireInfo");
 		return mav;
 	}
 	
