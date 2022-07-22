@@ -38,5 +38,17 @@
 		from MENU
 		where MUCFCODE = #{cfcode}
 	</select>
+	
+	<select id ="MyCafeInfo" resultType="com.L_CSS.dto.CafeDto">
+  		select *
+  		from CAFE
+  		where CFMID = #{loginId}
+  		</select>
+  	<select id="getMyMenu" resultType="com.L_CSS.dto.MenuDto">
+		select *
+		from MENU
+		where MUCFCODE = #{mucfcode}
+		order by mucode desc
+	</select>
 
 </mapper>

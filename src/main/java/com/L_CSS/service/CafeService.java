@@ -281,17 +281,5 @@ public class CafeService {
 		return mav;
 	}
 
-	public ModelAndView mycafeMenu(RedirectAttributes ra) {
-		ModelAndView mav = new ModelAndView();
-		System.out.println("mycafeMenu() 호출");
-		String loginId = (String) session.getAttribute("loginId");
-		System.out.println("로그인아이디 : " + loginId);
-		
-		CafeDto mycafeInfo = cdao.MyCafeInfo(loginId);
-		
-		
-		mav.addObject("mycafeInfo", mycafeInfo);
-		mav.setViewName("Cafe/MycafeMenu");
-		return mav;
-	}
+	
 }

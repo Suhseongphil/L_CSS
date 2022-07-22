@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dto.MenuDto;
 import com.L_CSS.service.MenuService;
@@ -56,4 +57,27 @@ public class MenuController {
 		System.out.println("메뉴 삭제");
 		msv.menuDelete(mucode, muimg);
 	}
+	
+	//메뉴정보 입력 페이지 이동
+	@RequestMapping(value = "/mycafeMenu")
+	public ModelAndView mycafeMenu(RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
+				
+		System.out.println("메뉴정보 입력 페이지 요청");
+
+		mav = msv.mycafeMenu(ra);
+		return mav;
+	}
+	
+	//내카페 메뉴 정보 출력
+		@RequestMapping(value = "/getMyMenuInfo")
+		public @ResponseBody String getMyMenuInfo(String mucfcode) {
+			System.out.println("내카페메뉴정보 출력 ");
+
+			String getMenuInfo = msv.getMyMenu(mucfcode);
+
+			return getMenuInfo;
+		}
+	
+	
 }
