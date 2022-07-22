@@ -3,6 +3,7 @@ package com.L_CSS.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.service.GroupBuyService;
@@ -30,5 +31,14 @@ public class GroupBuyController {
 		mav = gbsvc.getPdType();
 		
 		return mav;
+	}
+	
+	@RequestMapping (value="/selectPdtype")
+	public @ResponseBody String selectPdtype(String pdtype) {
+		System.out.println("상품종류");
+		
+		String productList= gbsvc.getPdname(pdtype);
+		
+		return productList;
 	}
 }

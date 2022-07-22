@@ -15,4 +15,9 @@
 		GROUP BY PDTYPE 
 	</select>
 	
+	<select id="getProduct" resultType="com.L_CSS.dto.ProductDto">
+		SELECT * FROM PRODUCT
+		WHERE PDTYPE = #{pdtype}
+	</select>
+	
 </mapper>
