@@ -23,9 +23,9 @@ public interface CafeDao {
 
 	int updateMycafe(CafeDto cafe);
 
-	String getCafeImg(CafeDto cafe);
+	String getCafeImg(String cfmid);
 
-	String getCafesigImg(CafeDto cafe);
+	String getCafesigImg(String cfmid);
 
 
 

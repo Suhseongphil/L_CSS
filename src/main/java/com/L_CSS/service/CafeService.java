@@ -229,20 +229,15 @@ public class CafeService {
 		ModelAndView mav = new ModelAndView();
 		String imgFile = "";
 		//기존이미지 가져오기
-		String cfimg = cdao.getCafeImg(cafe);
-		String cfsgimg = cdao.getCafesigImg(cafe);
-		if (cafe.getCfimgs() != null) {
+		String cfimg = cdao.getCafeImg(cafe.getCfmid());
+		String cfsgimg = cdao.getCafesigImg(cafe.getCfmid());
+		MultipartFile imgs = cafe.getCfimgs2();
+		if (!imgs.isEmpty()) {
 			File file = new File(savePath + cfimg);
 			file.delete();
-			
-			MultipartFile[] imgs = cafe.getCfimgs();
-			for (MultipartFile multipartFile : imgs) {
-				UUID uuid = UUID.randomUUID();
-				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
-
-				multipartFile.transferTo(new File(savePath, imgFile));
-				cfimg = cfimg + "/" + imgFile;
-			}
+			UUID uuid = UUID.randomUUID();
+			cfimg = uuid.toString() + "_" + imgs.getOriginalFilename();
+			imgs.transferTo(new File(savePath, cfimg));
 
 		}
 		cafe.setCfimg(cfimg);
@@ -278,10 +273,10 @@ public class CafeService {
 		
 		if (updateMycafe > 0) {
 			ra.addFlashAttribute("msg", "수정되었습니다.");
-			mav.setViewName("Cafe/MycafeInfo");
+			mav.setViewName("redirect:/");
 		} else {
 			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/mycafeModify");
 		}
 		return mav;
 	}
