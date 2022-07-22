@@ -224,7 +224,9 @@ text-align: center;
     <script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
     <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
     <!-- ALL JS FILES -->
-
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 </body>
 
 <script type="text/javascript">

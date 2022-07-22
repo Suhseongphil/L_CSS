@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -127,14 +127,10 @@ h7 {
 
 		<!-- End Navigation -->
 	</header>
-
-
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
 			<div class="row">
-
-
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
@@ -157,45 +153,33 @@ h7 {
 											<h5>상태</h5>
 										</div>
 									</div>
-
-
-
-								
 									<div class="item px">
 										<c:forEach items="${searchList}" var="search">
 											<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>${search.iqcategory }</h5>
-										</div>
-										<div class="col-2">
-											<h5>${search.iqtitle }</h5>
-										</div>
-										<div class="col-2">
-											<h5>${search.iqdate }</h5>
-										</div>
-										<div class="col-2">
-											<c:choose>
-											<c:when test="${search.iqstate == 0 }">
-											<h5>문의중</h5>
-											</c:when>
-											<c:otherwise>
-											<h5>답변완료</h5>
-											</c:otherwise>
-											</c:choose>
-										</div>
-									</div>
+												style="padding-bottom: 20px; text-align: center;">
+												<div class="col-6">
+													<h5>${search.iqcategory }</h5>
+												</div>
+												<div class="col-2">
+													<h5>${search.iqtitle }</h5>
+												</div>
+												<div class="col-2">
+													<h5>${search.iqdate }</h5>
+												</div>
+												<div class="col-2">
+													<c:choose>
+														<c:when test="${search.iqstate == 0 }">
+															<h5>문의중</h5>
+														</c:when>
+														<c:otherwise>
+															<h5>답변완료</h5>
+														</c:otherwise>
+													</c:choose>
+												</div>
+											</div>
 										</c:forEach>
 									</div>
-									
-
-
 								</div>
-
-
-
-
-
 							</div>
 						</div>
 					</div>
@@ -226,16 +210,15 @@ h7 {
 									class="icon_loading"></span> 문의작성</a>
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 				<!--</section>  -->
 			</div>
-
-
 		</div>
 	</div>
+	<footer class="footer" >
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 	<!-- End Cart -->
 
 	<!-- Start Instagram Feed  -->

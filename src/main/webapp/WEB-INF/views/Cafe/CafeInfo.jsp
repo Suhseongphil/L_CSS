@@ -54,8 +54,10 @@
 
 <body>
 
-	<main class="" id="main-collapse">
+	<header>
 		<%@ include file="../includes/TopBar.jsp"%>
+	</header>
+	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-xs-12 section-container-spacer">
@@ -102,15 +104,15 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section class="blog-details spad">
 				<div class="container">
 					<div class="row">
 						<c:forEach items="${menuInfo}" var="muList">
 							<div class="col-lg-2 col-md-2">
 								<div class="blog__details__text" style="margin: 30px;">
-								
-									
+
+
 									<img style="width: 150px; width: 80px; height: 80px;"
 										src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }"
 										alt="">
@@ -125,8 +127,12 @@
 					</div>
 				</div>
 			</section>
-
 		</div>
-	</main>
+	</div>
+
+
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 </body>
 </html>

@@ -377,3 +377,32 @@ a:hover span:nth-child(2):after {
 	display: flex;
 	padding-left: 75px;
 }
+#nav-v2 {
+	width: 150px;
+	text-align: center;
+}
+
+.menu-v2 {
+	line-height: 2;
+	position: relative;
+}
+
+.menu-v2 .submenu {
+	position: ;
+	width: 130px;
+	left: 149px;
+	background-color: white;
+	color: black;
+	top: -1px;
+	display: none;
+}
+
+.menu-v2:hover {
+	background-color: #8b4513;
+	color: white;
+}
+
+.menu-v2 .submenu>li:hover {
+	background-color: white;
+	color: black;
+}

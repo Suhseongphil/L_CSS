@@ -51,8 +51,10 @@
 	type="text/css">
 
 <body>
-	<main class="" id="main-collapse">
+	<header>
 		<%@ include file="../includes/TopBar.jsp"%>
+	</header>
+	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-xs-12 section-container-spacer">
@@ -138,9 +140,11 @@
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
 
-
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 </body>
 
 </html>

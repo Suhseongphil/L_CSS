@@ -188,7 +188,9 @@
 
 	</div>
 
-
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 
 </body>
 <script type="text/javascript">
