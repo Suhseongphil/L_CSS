@@ -300,5 +300,14 @@ public class ProductService {
 
 		return mav;
 	}
+	//상품검색
+	public ModelAndView searchProduct(String pdcategory, String searchText) {
+		System.out.println("searchProduct()호출");
+		ArrayList<ProductDto>searchList = pdao.searchList(pdcategory,searchText);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("searchList", searchList);
+		mav.setViewName("Shop/searchShop");
+		return mav;
+	}
 
 }
