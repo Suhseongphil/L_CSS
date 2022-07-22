@@ -40,7 +40,7 @@
 									<a href="mycafeInfo">내 카페정보</a>
 								</li>
 								<li>
-									<a href="mymenuInsert">메뉴등록</a>
+									<a href="mycafeMenu">메뉴등록</a>
 								</li>
 								<li>
 									<a href="cafeList">카페목록</a>

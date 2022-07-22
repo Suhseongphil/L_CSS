@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -16,7 +16,6 @@ request.setCharacterEncoding("UTF-8");
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <style>
-
 .items {
 	flex-basis: auto;
 	margin-top: 5px;
@@ -34,38 +33,62 @@ request.setCharacterEncoding("UTF-8");
 span, h1 {
 	color: black;
 }
-.bc-blue{
+
+.bc-blue {
 	background-color: blue;
 }
-.bc-red{
+
+.bc-red {
 	background-color: red;
 }
-.c-white{
+
+.c-white {
 	color: white;
 }
-.btn_width{
+
+.btn_width {
 	width: 90px;
 }
 </style>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
 </head>
 
 <body>
 
-<header class="header">
+	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 
 	</header>
@@ -84,7 +107,7 @@ span, h1 {
 		<h1>메뉴 정보 입력</h1>
 	</div>
 	<div>
-		<form action="mymenuInsert"  enctype="multipart/form-data">
+		<form action="mymenuInsert" enctype="multipart/form-data">
 			<div class="row text-center borderOn">
 				<div class="col-2">
 					<div class="items">
@@ -115,12 +138,12 @@ span, h1 {
 						<span class="font-weight-bold">카페코드</span>
 					</div>
 					<div class="items">
-						<input type="text" id="mucfcode" name="mucfcode"  value="${cafeInfo.cfcode }">
+						<input type="text" id="mucfcode" name="mucfcode"  value="${mycafeInfo.cfcode }">
 					</div>
 				</div>
-			
-			
-				
+
+
+
 				<div class="col-2">
 					<div class="items">
 						<span class="font-weight-bold">메뉴 이미지</span>
@@ -133,83 +156,49 @@ span, h1 {
 				<div class="col-2">
 					<br> <br>
 					<div class="items">
-						<button type="button" id="menuSend">입력</button>
+						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000;">메뉴등록</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
 	<hr>
-	<div id="companyList">
+	<div id="menuList">
 
 	</div>
 
 
-<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<h2>L&CSS</h2>
-						</div>
-						<ul>
-							<li>회사주소: 인천일보아카데미</li>
-							<li>전화번호: 032-111-1111</li>
-							<li>이메일 : #</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>프로젝트</h6>
-						<ul>
-							<li>
-								<a href="#">팀장 : 서성필</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 송영오</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 천호태</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 이상윤</a>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-
-						<a href="InquirePage">고객문의</a>
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright"></div>
-				</div>
-			</div>
-		</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	
+
 	<!-- Js Plugins -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-	
+	<script
+		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+
 </body>
+
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -249,126 +238,198 @@ span, h1 {
 									$("#mutype").val("");
 									$("#muprice").val("");
 									
-									getMenuInfo();
+									getMyMenuInfo();
 								}
 							});
 						});
+
 			});
+		});
+	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		 getMenuInfo();
+		 getMyMenuInfo();
 	});
 	
-	function getMenuInfo(){
+	function getMyMenuInfo(){
 		$.ajax({
 			type : "get",
-			url : "getMenuInfo",
+			url : "getMyMenuInfo",
 			dataType : "json",
 			success : function(menu) {
 				console.log(menu);
-				menuInfoPrint(menu);
+				MymenuInfoPrint(menu);
 			}
 		});
 	}
 
-	function menuInfoPrint(menu) {
+	function MymenuInfoPrint(menu) {
 		var output = "";
 
 		for (var i = 0; i < menu.length; i++) {
 			output += "<br>";
-			
-			if(menu[i].muimg.includes('BS')){
-				output += "<div class=\"row text-center borderOn\">";
-				output += "<div class=\"col-2\"><div class=\"items\">";
-				
-				output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/"
-							+ menu[i].muimg + "\">";
-				output += "</div></div>";
-			}else{
-				output += "<div class=\"row text-center borderOn\">";
-				output += "<div class=\"col-2\"><div class=\"items\">";
-				
-				output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
-							+ menu[i].muimg + "\">";
-				output += "</div></div>";
-			}
-			
 
-			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<span class=\"font-weight-bold\">메뉴코드</span></div>";
-			output += "<div class=\"items\">"+ menu[i].mucode +"</div></div>";
-			
-			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<span class=\"font-weight-bold\">이름</span></div>";
-			output += "<div class=\"items\">"+ menu[i].muname +"</div></div>";
-			
-			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<span class=\"font-weight-bold\">가격</span></div>";
-			output += "<div class=\"items\">"+ menu[i].muprice +"</div></div>";
-			
-			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<button type=\"button\" onclick=\"muModify('"+ menu[i].mucode +"')\">수정</button>&nbsp;";
-			output += "<button type=\"button\" onclick=\"muDelete('"+ menu[i].mucode +"','"+menu[i].muimg+"')\">삭제</button>";
-			output += "</div><div class=\"items\">";
-			
-			if(menu[i].mustate == 0){
-				output += "<button class=\"bc-blue c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ menu[i].mucode +"')\">활동중</button>";			
-			}else{
-				output += "<button class=\"bc-red c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ menu[i].mucode +"')\">활동중지</button>";
+			output += "<div class=\"row cafeInsert\">"; // 맨위
+
+			output += "<div class=\"col-3\">";
+			if (menu[i].cmimg != null) {
+				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
+				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
+						+ menu[i].muimg.split("/")[1] + "\">";
+			} else {
+				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
 			}
-			
-			output += "</div></div></div>";
+			output += "</div>";
+
+			output += "<div class=\"col-7\"><div style=\"\">";
+			output += "<span class=\"font-weight-bold\">메뉴코드 : </span>";
+			output += "<span>" + menu[i].mucode + "</span><br>";
+			output += "<span class=\"font-weight-bold\">메뉴이름 : </span>";
+			output += "<span>" + menu[i].muname + "</span><br>";
+			output += "<span class=\"font-weight-bold\">가격 : </span>";
+			output += "<span>" + menu[i].muprice + "</span><br>";
+			output += "<span class=\"font-weight-bold\">메뉴타입 : </span>";
+			output += "<span>" + menu[i].mutype + "</span>";
+			output += "</div></div>";
+
+			output += "<div class=\"col-2\"><div style=\"margin-top:20%;\">";
+			output += "<button class=\"cafeMod-btn\" type=\"button\" onclick=\"muModifyForm(this, '"
+					+ menu[i].mucode + "')\">수정</button>&nbsp;";
+			output += "<button class=\"cafeDelete-btn\" type=\"button\" onclick=\"muDelete('"
+					+ menu[i].mucode + "')\">삭제</button>";
+
+			if (menu[i].mustate == 0) {
+				output += "<button class=\"cafeStateMod-blue-btn\" type=\"button\" onclick=\"stateChange(this,'"
+						+ menu[i].mucode + "')\">활동중</button>";
+			} else {
+				output += "<button class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"stateChange(this,'"
+						+ menu[i].mucode + "')\">활동중지</button>";
+			}
+
+			output += "</div></div>";
+			output += "</div>"; // 맨아래
+
+			// ================================= 수정 =================================
+			output += "<div id=\""+menu[i].mucode+"\" class=\"dp_none\">";
+			output += "<div class=\"row cafeInsert\">"; // 맨위
+
+			output += "<div class=\"col-3\"><span class=\"font-weight-bold\">메뉴이미지</span>";
+			output += "<input type=\"file\" name=\"imgMod_"+menu[i].mucode+"\">";
+			output += "</div>";
+
+			output += "<div class=\"col-7\"><span class=\"font-weight-bold\"메뉴코드 : </span>";
+			output += "<input style=\"border:none;\" class=\"input_width\" id=\"codeMod_"+menu[i].mucode+"\" readonly type=\"text\" value=\""+ menu[i].mucode +"\">";
+			output += "<br><span class=\"font-weight-bold\">메뉴이름 : </span>";
+			output += "<input class=\"input_width\" id=\"nameMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].muname +"\">";
+			output += "&nbsp;<span class=\"font-weight-bold\">가격 : </span>";
+			output += "<input class=\"input_width\" id=\"priceMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].muprice +"\">";
+			output += "<br><span class=\"font-weight-bold\">메뉴타입 : </span>";
+			output += "<input class=\"input_width\" id=\"menuMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].mutype +"\">";
+			output += "</div>";
+
+			output += "<div class=\"col-2\">";
+			output += "<button class=\"cafeModInsert-btn\" type=\"button\" onclick=\"muModify('"
+					+ menu[i].mucode + "')\">수정완료</button>";
+			output += "</div>";
+
+			output += "<input type=\"hidden\" id=\"stateMod_"+menu[i].mucode+"\" value=\""+menu[i].mustate+"\">"
+
+			output += "</div></div>"; // 맨아래
+
 		}
 
-		$("#companyList").html(output);
+		$("#menuList").html(output);
 	}
 </script>
 
 <script type="text/javascript">
-	function stateChange(selObj, mucode){
-		
-		if($(selObj).text() == "활동중"){
+	function stateChange(selObj, mucode) {
+
+		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");
-			$(selObj).removeClass("bc-blue");
-			$(selObj).addClass("bc-red");
+			$(selObj).removeClass("cafeStateMod-blue-btn");
+			$(selObj).addClass("cafeStateMod-red-btn");
 			var mustate = '1';
-		}else{
+		} else {
 			$(selObj).text("활동중");
-			$(selObj).removeClass("bc-red");
-			$(selObj).addClass("bc-blue");
+			$(selObj).removeClass("cafeStateMod-red-btn");
+			$(selObj).addClass("cafeStateMod-blue-btn");
 			var mustate = '0';
 		}
-		
+
 		$.ajax({
 			type : "get",
 			url : "mustateModify",
-			data : {"mucode" : mucode, "mustate" : mustate },
+			data : {
+				"mucode" : mucode,
+				"mustate" : mustate
+			},
 			async : false,
-			success : function(result){
+			success : function(result) {
 				console.log("success");
 			}
 		});
+
 	}
-	
-	function muDelete(mucode, muimg){
-		
-		console.log("muimg : "+muimg)
+
+
+	function muDelete(mucode) {
 		$.ajax({
 			type : "get",
 			url : "menuDelete",
-			data : {"mucode" : mucode, "muimg" : muimg},
+			data : {
+				"mucode" : mucode,
+			},
 			async : false,
-			success : function(result){
+			success : function(result) {
 				console.log("success");
-				getMenuInfo();
+				getMyMenuInfo();
+			}
+		});
+	}
+
+	function muModifyForm(selBtn, mucode) {
+		$("#" + mucode).toggleClass("dp_none");
+
+		if ($(selBtn).text() == "수정") {
+			$(selBtn).text("접기");
+		} else {
+			$(selBtn).text("수정");
+		}
+	}
+
+	function muModify(mucode) {
+		var formData = new FormData();
+		var inputFile = $("input[name = 'imgMod_" + mucode + "']");
+		var files = inputFile[0].files;
+
+		for (var i = 0; i < files.length; i++) {
+			formData.append("muimgs", files[i]);
+		}
+		formData.append("mucode", $("#codeMod_" + mucode).val());
+		formData.append("muname", $("#nameMod_" + mucode).val());
+		formData.append("muprice", $("#priceMod_" + mucode).val());
+		formData.append("mutype", $("#typeMod_" + mucode).val());
+		formData.append("mustate", $("#stateMod_" + mucode).val());
+
+		$.ajax({
+			type : "POST",
+			url : "adminCompanyModify",
+			processData : false,
+			contentType : false,
+			data : formData,
+			success : function(result) {
+				console.log("업로드 성공");
+				getMyMenuInfo();
 			}
 		});
 	}
 </script>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(
