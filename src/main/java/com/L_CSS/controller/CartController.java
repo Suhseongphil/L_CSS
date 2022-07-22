@@ -155,11 +155,13 @@ public class CartController {
 		}
 		return null;
 	}
-	/*
-	@RequestMapping(value="/paymentInsert")
-	public @ResponseBody String paymentInsert() {
-		System.out.println("결제 정보 입력");
-		return null;
+	//장바구니 담기
+	@RequestMapping(value="/cartIn")
+	public String cartinsert (String pdcode,String pdcmcode) {
+		System.out.println("장바구니 담기");
+		System.out.println(pdcode);
+		System.out.println(pdcmcode);
+		String  cartInsert = csv.cartInsert(pdcode,pdcmcode);
+		return cartInsert;
 	}
-	*/
 }

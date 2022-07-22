@@ -178,15 +178,15 @@ object-fit:cover;
 						<div class="row form-group">
 											<div class="col-6 form-group">
 												<label>카페 이미지</label> <input type="file"
-													class="form-control form-control-user" id="cfimgs"
-													name="cfimgs" onchange="readURL(this);" >
-													<img src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}" class="imgsize" id="preview" />
+													class="form-control form-control-user" id="cfimgs2"
+													name="cfimgs2" onchange="readURL(this);" >
+													<img class="imgsize" id="preview" />
 											</div>
 											<div class="col-6 form-group">
 												<label>시그니처 이미지</label> <input type="file"
 													class="form-control form-control-user" id="cfsigimgs"
 													name="cfsigimgs" onchange="sigURL(this);" >
-													<img src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}" class="imgsize" id="sigpreview" />
+													<img class="imgsize" id="sigpreview" />
 											</div>
 										</div>
 						
@@ -217,7 +217,7 @@ object-fit:cover;
 								<input class="form-control form-control-user" type="text" id="cfextraaddress" name="cfextraaddress" value="${mycafeInfo.cfextraaddress }" placeholder="참고항목">
 							</div>
 						</div>
-						<input type="hidden" value="${mycafeInfo.cfmid }">
+						<input type="hidden" id = "cfmid" name="cfmid" value="${mycafeInfo.cfmid }">
 						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">정보수정</button>
 						<button type="button" id="close" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
 					</div>
