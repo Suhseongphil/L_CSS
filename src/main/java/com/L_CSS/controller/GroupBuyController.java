@@ -14,6 +14,7 @@ public class GroupBuyController {
 	@Autowired
 	GroupBuyService gbsvc;
 	
+	// 공동구매 게시판
 	@RequestMapping (value="/groupBuyBoard")
 	public ModelAndView groupBuyBoard() {
 		System.out.println("공동구매");
@@ -24,6 +25,7 @@ public class GroupBuyController {
 		return mav;
 	}
 	
+	// 공동구매 글 작성
 	@RequestMapping (value="/gbBoardWrite_form")
 	public ModelAndView gbBoardWrite_form() {
 		System.out.println("공동구매 글 작성 페이지");
@@ -33,6 +35,7 @@ public class GroupBuyController {
 		return mav;
 	}
 	
+	// 구매할 상품 종류 선택
 	@RequestMapping (value="/selectPdtype")
 	public @ResponseBody String selectPdtype(String pdtype) {
 		System.out.println("상품종류");
