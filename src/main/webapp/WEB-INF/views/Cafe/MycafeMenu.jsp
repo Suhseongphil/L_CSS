@@ -107,7 +107,7 @@ span, h1 {
 		<h1>메뉴 정보 입력</h1>
 	</div>
 	<div>
-		<form action="mymenuInsert" enctype="multipart/form-data">
+		<form action="menuInsert" enctype="multipart/form-data">
 			<div class="row text-center borderOn">
 				<div class="col-2">
 					<div class="items">
@@ -173,23 +173,16 @@ span, h1 {
 	</footer>
 
 	<!-- Js Plugins -->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<!-- Js Plugins -->
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
 
@@ -244,8 +237,7 @@ span, h1 {
 						});
 
 			});
-		});
-	});
+
 </script>
 
 <script type="text/javascript">
@@ -416,7 +408,7 @@ span, h1 {
 
 		$.ajax({
 			type : "POST",
-			url : "adminCompanyModify",
+			url : "mustateModify",
 			processData : false,
 			contentType : false,
 			data : formData,
