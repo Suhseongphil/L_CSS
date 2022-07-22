@@ -34,8 +34,8 @@
 	height: 370px;
 }
 
-.row div{
-	padding:0;
+.row div {
+	padding: 0;
 }
 </style>
 </head>
@@ -72,17 +72,18 @@
 		<div class="container">
 			<h3 style="text-align: center;">제품선택</h3>
 			<div class="row">
-				<div class="col-1"></div>
+				<div class="col-2"></div>
 				<div class="col-2 font-weight-bold" id="pdtype">
 					<div>상품(선택)</div>
 					<c:forEach items="${productType}" var="pdtype">
 						<div style="margin: 1px auto 1px;" onclick="selectType(this)">${pdtype}</div>
 					</c:forEach>
 				</div>
-				<div class="col-9">
-					<div>제품이름(선택)</div>
+				<div class="col-7">
+					<div class="font-weight-bold">제품이름(선택)</div>
 					<div class="scroll" id="pdname"></div>
 				</div>
+				<div class="col-1"></div>
 			</div>
 			<div class="row">
 				<div class="col-3"></div>
@@ -90,20 +91,32 @@
 					<form action="">
 						<div class="row">
 							<div class="col-1">
-								<span>제목</span>
+								<span class="font-weight-bold">제목</span>
 							</div>
 							<div class="col-11">
 								<input style="width: 100%;" type="text" name="gbtitle" placeholder="제목을 입력해주세요...">
 							</div>
 						</div>
-						<div>
-							<span>내용</span>
-							<textarea name="gbcomment" placeholder="내용을 입력해주세요..."></textarea>
+						<div class="row">
+							<div class="col-1">
+								<span class="font-weight-bold">내용</span>
+							</div>
+							<div class="col-11">
+								<textarea id="gbcomment" name="gbcomment" placeholder="내용을 입력해주세요..." rows="7" style="width: 100%; resize: none;"></textarea>
+								<div id="text_cnt">글자수(0 / 500)</div>
+							</div>
 						</div>
-						<div>
-							<span>선택제품</span>
-							<input type="text" readonly id="selProduct">
-							<input type="hidden" name="gbpdcode" readonly id="selPdcode">
+						<div class="row">
+							<div class="col-1">
+								<span class="font-weight-bold">제품</span>
+								<br>
+								<span class="font-weight-bold">코드</span>
+							</div>
+							<div class="col-11">
+								<span id="selProduct"></span>
+								<br>
+								<span id="selPdcode"></span>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -182,6 +195,19 @@
 </script>
 
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('#gbcomment').on('keyup', function() {
+			$('#text_cnt').html("(" + $(this).val().length + " / 500)");
+
+			if ($(this).val().length > 500) {
+				$(this).val($(this).val().substring(0, 500));
+				$('#text_cnt').html("(500 / 500)");
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
 	function selectType(selObj) {
 
 		$("#pdtype div").css("background-color", "").css("color", "");
@@ -189,23 +215,25 @@
 
 		var pdtype = $(selObj).text();
 
-		$.ajax({
-			type : "get",
-			url : "selectPdtype",
-			dataType : "json",
-			data : {
-				"pdtype" : pdtype
-			},
-			success : function(product) {
-				var output = "";
-				for (var i = 0; i < product.length; i++) {
-					output += "<div onclick=\"selectProduct(this,'"
-							+ product[i].pdcode + "')\">" + product[i].pdname
-							+ "</div>";
-				}
-				$("#pdname").html(output);
-			}
-		});
+		$
+				.ajax({
+					type : "get",
+					url : "selectPdtype",
+					dataType : "json",
+					data : {
+						"pdtype" : pdtype
+					},
+					success : function(product) {
+						var output = "";
+						for (var i = 0; i < product.length; i++) {
+							output += "<div style=\"margin: 1px auto 1px;\" onclick=\"selectProduct(this,'"
+									+ product[i].pdcode
+									+ "')\">"
+									+ product[i].pdname + "</div>";
+						}
+						$("#pdname").html(output);
+					}
+				});
 	}
 
 	function selectProduct(selObj, pdcode) {
@@ -213,8 +241,8 @@
 		$("#pdname div").css("background-color", "").css("color", "");
 		$(selObj).css("background-color", "saddlebrown").css("color", "white");
 
-		$("#selProduct").val($(selObj).text());
-		$("#selPdcode").val(pdcode);
+		$("#selProduct").text($(selObj).text());
+		$("#selPdcode").text(pdcode);
 
 	}
 </script>
