@@ -131,5 +131,12 @@ public class CartService {
 		ArrayList<CartDto>selectCart = cdao.selectCart(loginId);
 		return selectCart;
 	}
+	//장바구니 담기
+	public String cartInsert(String pdcode, String pdcmcode) {
+		System.out.println("cartInsert()호출");
+		
+		
+		return null;
+	}
 	
 }
