@@ -24,4 +24,6 @@ public interface ProductDao {
 
 	ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
 
+	ArrayList<ProductDto> searchType(String type);
+
 }
