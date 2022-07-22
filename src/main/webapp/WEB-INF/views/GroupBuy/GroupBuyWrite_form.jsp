@@ -34,8 +34,8 @@
 	height: 370px;
 }
 
-.row{
-	margin-bottom:3px;
+.row {
+	margin-bottom: 3px;
 }
 
 .row div {
@@ -100,7 +100,7 @@ input {
 			<div class="row">
 				<div class="col-3"></div>
 				<div class="col-6">
-					<form action="">
+					<form action="groupBuyWrite" method="get">
 						<div class="row">
 							<div class="col-1">
 								<span class="font-weight-bold">제품</span>
@@ -127,15 +127,23 @@ input {
 								<div id="text_cnt">글자수(0 / 500)</div>
 							</div>
 						</div>
-
 						<div class="row">
 							<div class="col-1">
 								<span class="font-weight-bold">지역</span>
 							</div>
 							<div class="col-11">
-								<input class="bd_none" readonly="readonly" type="text" value="${region}">
+								<input name="gbregion" class="bd_none" readonly="readonly" type="text" value="${region}">
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-1">
+								<span class="font-weight-bold">마감</span>
+							</div>
+							<div class="col-11">
+								<input name="gbfdate" type="date" style="width: 25%;">
+							</div>
+						</div>
+						<button class="group_buy-btn">게시글등록</button>
 					</form>
 				</div>
 				<div class="col-3"></div>

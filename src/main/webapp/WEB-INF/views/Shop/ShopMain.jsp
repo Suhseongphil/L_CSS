@@ -88,7 +88,7 @@
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="#"> <i class="fa fa-shopping-cart"></i>
+											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
 											</a> <span>${pro.pdname}</span>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
@@ -124,7 +124,13 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-
+<script type="text/javascript">
+	$(".submenu li a").click(function() {
+		console.log($(this).text());
+		var type = $(this).text();
+		location.href="searchType?type="+type
+	});
+</script>
 <script>
 	$(document).ready(function() {
 
