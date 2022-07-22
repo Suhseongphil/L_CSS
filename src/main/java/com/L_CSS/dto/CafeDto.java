@@ -15,6 +15,7 @@ public class CafeDto {
 	private	String cflink;
 	
 	private String cfimg;
+	private MultipartFile cfimgs2;
 	private MultipartFile[] cfimgs;
 	
 	private	String cfsigimg;
