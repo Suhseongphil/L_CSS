@@ -46,29 +46,27 @@
 
 .menu-v2 {
 	line-height: 2;
-	
 	position: relative;
 }
 
 .menu-v2 .submenu {
-	position: absolute;
-	width: 150px;
+	position:;
+	width: 130px;
 	left: 149px;
-	
 	background-color: white;
-	color: white;
+	color: black;
 	top: -1px;
 	display: none;
 }
 
 .menu-v2:hover {
-	background-color: white;
+	background-color: #8b4513;
 	color: white;
 }
 
 .menu-v2 .submenu>li:hover {
 	background-color: white;
-	color: #222;
+	color: black;
 }
 </style>
 
@@ -93,21 +91,30 @@
 							<h4>카테고리</h4>
 
 							<ul id="nav-v2" style="margin-left: -30px;">
-								<li style="background-color: white-space; margin: 10px; padding: 1px;"  class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">음료</a>
+								<li
+									style="background-color: white-space; margin: 10px; padding: 1px; padding-bottom: -30px; font-weight: bold;"
+									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+									음료
 									<ul class="submenu">
 										<li value="원두"><a href="#">원두</a></li>
 										<li value="소스"><a href="#">소스</a></li>
 										<li value="파우더"><a href="#">파우더</a></li>
 
 									</ul></li>
-								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">머신</a>
+								<li
+									style="background-color: white-space; margin: 10px; padding: 1px; padding-bottom: -30px; font-weight: bold;"
+									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+									머신</a>
 									<ul class="submenu">
 										<li value="그라인더"><a href="#">그라인더</a></li>
 										<li value="커피머신"><a href="#">커피머신</a></li>
 										<li value="제빙기"><a href="#">제빙기</a></li>
 
 									</ul></li>
-								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">일회용품</a>
+								<li
+									style="background-color: white-space; margin: 10px; padding: 1px; padding-bottom: -30px; font-weight: bold;"
+									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+									일회용품
 									<ul class="submenu">
 										<li value="아이스컵"><a href="#">아이스컵</a></li>
 										<li value="스트로우"><a href="#">스트로우</a></li>
@@ -115,12 +122,18 @@
 										<li value="냅킨"><a href="#">냅킨</a></li>
 										<li value="컵홀더"><a href="#">컵홀더</a></li>
 									</ul></li>
-								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">컵</a>
+								<li
+									style="background-color: white-space; margin: 10px; padding: 1px; padding-bottom: -30px; font-weight: bold;"
+									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+									컵
 									<ul class="submenu">
 										<li value="머그잔"><a href="#">머그잔</a></li>
 										<li value="텀블러"><a href="#">텀블러</a></li>
 									</ul></li>
-								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">가구</a>
+								<li
+									style="background-color: white-space; margin: 10px; padding: 1px; padding-bottom: -30px; font-weight: bold;"
+									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+									가구
 									<ul class="submenu">
 										<li value="의자"><a href="#">의자</a></li>
 										<li value="테이블"><a href="#">테이블</a></li>
@@ -139,40 +152,42 @@
 	</section>
 
 	<section>
-	
+
 		<div class="container" style="padding-left: 80px;">
 			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -600px;">
-						<form action="searchProduct" method="get" >
-						<div id="search" class="row">
-							<div class="col-lg-8">
-								<div class="shoping__cart__btns">
-									<select name="pdcategory" id="pdcategory">
-										<option value="pdname">이름</option>
-										<option value="pdtype">종류</option>
+						style="text-align: center; margin-top: -450px;">
+						<form action="searchProduct" method="get">
+							<div id="search" class="row">
+								<div class="col-lg-8">
+									<div class="shoping__cart__btns">
+										<select name="pdcategory" id="pdcategory">
+											<option value="pdname">이름</option>
+											<option value="pdtype">종류</option>
 
-									</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-									<button type="submit">검색</button>
+										</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
+										<button type="submit">검색</button>
 
+									</div>
 								</div>
-							</div>
 
-						</div>
-					</form>
-						
+							</div>
+						</form>
+
 					</div>
 					<div class="row">
 						<div class="row">
 
-							<c:forEach items="${searchList}" var="pro" >
+							<c:forEach items="${searchList}" var="pro">
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
+											<a
+												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+												<i class="fa fa-shopping-cart"></i>
 											</a> <span>${pro.pdname}</span>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
@@ -243,50 +258,8 @@
 		</div>
  -->
 
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<h2>L&CSS</h2>
-						</div>
-						<ul>
-							<li>회사주소: 인천일보아카데미</li>
-							<li>전화번호: 032-111-1111</li>
-							<li>이메일 : #</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>프로젝트</h6>
-						<ul>
-							<li><a href="#">팀장 : 서성필</a></li>
-							<li><a href="#">엔지니어 : 송영오</a></li>
-							<li><a href="#">엔지니어 : 천호태</a></li>
-							<li><a href="#">엔지니어 : 이상윤</a></li>
-
-						</ul>
-
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-
-						<a href="InquirePage">고객문의</a>
-
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright"></div>
-				</div>
-			</div>
-		</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 </body>
 

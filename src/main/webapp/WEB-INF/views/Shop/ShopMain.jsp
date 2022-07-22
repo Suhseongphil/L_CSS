@@ -156,7 +156,7 @@
 			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -600px;">
+						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get" >
 						<div id="search" class="row">
 							<div class="col-lg-8">
