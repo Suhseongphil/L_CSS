@@ -143,6 +143,19 @@
 	margin-bottom: 35px;
 }
 
+.group_buy-btn {
+	font-size: 14px;
+	color: #ffffff;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 13px 30px 12px;
+	background: saddlebrown;
+	border: none;
+	margin-top: 3%;
+	margin-left: 40%;
+}
+
 /* header__menu */
 .header__menu2 {
 	padding: 10px 0;

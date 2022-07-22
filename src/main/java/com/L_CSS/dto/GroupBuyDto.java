@@ -12,5 +12,5 @@ public class GroupBuyDto {
 	private String gbcomment;
 	private String gbsdate;
 	private String gbfdate;
-	
+	private String gbregion;
 }
