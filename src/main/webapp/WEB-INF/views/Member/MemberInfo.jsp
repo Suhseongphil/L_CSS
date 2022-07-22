@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -16,18 +17,38 @@ request.setCharacterEncoding("UTF-8");
 
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
 </head>
 <style>
 .imgClass {
@@ -99,28 +120,18 @@ label {
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#">
-				<img src="img/logo.png" alt="">
+			<a href="#"> <img src="img/logo.png" alt="">
 			</a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li>
-					<a href="#">
-						<i class="fa fa-heart"></i>
-						<span>1</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-shopping-bag"></i>
-						<span>3</span>
-					</a>
-				</li>
+				<li><a href="#"> <i class="fa fa-heart"></i> <span>1</span>
+				</a></li>
+				<li><a href="#"> <i class="fa fa-shopping-bag"></i> <span>3</span>
+				</a></li>
 			</ul>
 			<div class="header__cart__price">
-				item:
-				<span>$150.00</span>
+				item: <span>$150.00</span>
 			</div>
 		</div>
 		<div class="humberger__menu__widget">
@@ -129,73 +140,41 @@ label {
 				<div>English</div>
 				<span class="arrow_carrot-down"></span>
 				<ul>
-					<li>
-						<a href="#">Spanis</a>
-					</li>
-					<li>
-						<a href="#">English</a>
-					</li>
+					<li><a href="#">Spanis</a></li>
+					<li><a href="#">English</a></li>
 				</ul>
 			</div>
 			<div class="header__top__right__auth">
-				<a href="#">
-					<i class="fa fa-user"></i> Login
+				<a href="#"> <i class="fa fa-user"></i> Login
 				</a>
 			</div>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
-				<li class="active">
-					<a href="./index.html">Home</a>
-				</li>
-				<li>
-					<a href="./shop-grid.html">Shop</a>
-				</li>
-				<li>
-					<a href="#">카페</a>
+				<li class="active"><a href="./index.html">Home</a></li>
+				<li><a href="./shop-grid.html">Shop</a></li>
+				<li><a href="#">카페</a>
 					<ul class="header__menu__dropdown">
-						<li>
-							<a href="./shop-details.html">Shop Details</a>
-						</li>
-						<li>
-							<a href="./shoping-cart.html">Shoping Cart</a>
-						</li>
-						<li>
-							<a href="./checkout.html">Check Out</a>
-						</li>
-						<li>
-							<a href="./blog-details.html">Blog Details</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="./blog.html">업체</a>
-				</li>
-				<li>
-					<a href="./contact.html">공동구매</a>
-				</li>
+						<li><a href="./shop-details.html">Shop Details</a></li>
+						<li><a href="./shoping-cart.html">Shoping Cart</a></li>
+						<li><a href="./checkout.html">Check Out</a></li>
+						<li><a href="./blog-details.html">Blog Details</a></li>
+					</ul></li>
+				<li><a href="./blog.html">업체</a></li>
+				<li><a href="./contact.html">공동구매</a></li>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
-			<a href="#">
-				<i class="fa fa-facebook"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-twitter"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-linkedin"></i>
-			</a>
-			<a href="#">
-				<i class="fa fa-pinterest-p"></i>
+			<a href="#"> <i class="fa fa-facebook"></i>
+			</a> <a href="#"> <i class="fa fa-twitter"></i>
+			</a> <a href="#"> <i class="fa fa-linkedin"></i>
+			</a> <a href="#"> <i class="fa fa-pinterest-p"></i>
 			</a>
 		</div>
 		<div class="humberger__menu__contact">
 			<ul>
-				<li>
-					<i class="fa fa-envelope"></i> hello@colorlib.com
-				</li>
+				<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
 				<li>Free Shipping for all Order of $99</li>
 			</ul>
 		</div>
@@ -226,8 +205,8 @@ label {
 
 					<div class="hero__item set-bg">
 						<div class="hero__text2">
-							<span style="font-size: 22px;">내&nbsp;정보</span>
-							<br> <br> <br>
+							<span style="font-size: 22px;">내&nbsp;정보</span> <br> <br>
+							<br>
 							<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
 							<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
 							<p>전화번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mtel }</p>
@@ -236,7 +215,8 @@ label {
 							<p>
 								주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }
 							</p>
-							<button type="button" id="show" class="btn text-white" style="background-color: #000000;">정보수정</button>
+							<button type="button" id="show" class="btn text-white"
+								style="background-color: #000000;">정보수정</button>
 						</div>
 					</div>
 				</div>
@@ -244,7 +224,8 @@ label {
 
 					<div class="hero__item set-bg">
 						<div class="hero__text">
-							<img class="imgClass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
+							<img class="imgClass" alt=""
+								src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${memberInfo.mprofile}">
 						</div>
 					</div>
 
@@ -253,26 +234,34 @@ label {
 		</div>
 		<div class="background2">
 			<div class="window2">
-				<form class="user" action="memberModify" method="post" enctype="multipart/form-data">
+				<form class="user" action="memberModify" method="post"
+					enctype="multipart/form-data">
 					<div class="popup2">
-						<div style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
-							<label>아이디</label>
-							<input type="text" id="mid" style="border: none;" readonly="readonly" name="mid" value="${memberInfo.mid }" class="form-control form-control-user">
+						<div
+							style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
+							<label>아이디</label> <input type="text" id="mid"
+								style="border: none;" readonly="readonly" name="mid"
+								value="${memberInfo.mid }"
+								class="form-control form-control-user">
 						</div>
 						<br>
 						<div style="margin-left: 20px; margin-right: 400px;">
-							<label>이름</label>
-							<input type="text" style="border: none;" readonly="readonly" id="mname" name="mname" value="${memberInfo.mname }" class="form-control form-control-user">
+							<label>이름</label> <input type="text" style="border: none;"
+								readonly="readonly" id="mname" name="mname"
+								value="${memberInfo.mname }"
+								class="form-control form-control-user">
 						</div>
 						<br>
 						<div style="margin-left: 20px; margin-right: 400px;">
-							<label>비밀번호</label>
-							<input type="password" id="mpw" name="mpw" value="${memberInfo.mpw }" class="form-control form-control-user">
+							<label>비밀번호</label> <input type="password" id="mpw" name="mpw"
+								value="${memberInfo.mpw }"
+								class="form-control form-control-user">
 						</div>
 						<br>
 						<div style="margin-left: 20px; margin-right: 400px;">
-							<label>전화번호</label>
-							<input type="text" id="mtel" name="mtel" value="${memberInfo.mtel }" class="form-control form-control-user">
+							<label>전화번호</label> <input type="text" id="mtel" name="mtel"
+								value="${memberInfo.mtel }"
+								class="form-control form-control-user">
 						</div>
 						<br>
 						<div style="margin-left: 20px;">
@@ -281,11 +270,15 @@ label {
 						<div class="row">
 							<div class="col-4 form-group" style="margin-left: 20px;">
 
-								<input type="text" id="memail" name="memail" value="${memberInfo.memail }" class="form-control form-control-user">
+								<input type="text" id="memail" name="memail"
+									value="${memberInfo.memail }"
+									class="form-control form-control-user">
 							</div>
 							@
 							<div class="col-4 form-group">
-								<input type="text" id=emailDomain name="emailDomain" class="form-control form-control-user" value="${memberInfo.emailDomain }">
+								<input type="text" id=emailDomain name="emailDomain"
+									class="form-control form-control-user"
+									value="${memberInfo.emailDomain }">
 							</div>
 							<div class="col-2 form-group">
 								<select id="domainSelect">
@@ -301,30 +294,40 @@ label {
 						</div>
 						<div class="row form-group">
 							<div class="col-5 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user btn text-white" type="button" onclick="sample6_execDaumPostcode()" style="background-color: #000000;" value="우편번호 찾기">
-								<br>
+								<input class="form-control form-control-user btn text-white"
+									type="button" onclick="sample6_execDaumPostcode()"
+									style="background-color: #000000;" value="우편번호 찾기"> <br>
 							</div>
 							<div class="col-6 form-group" style="margin-right: 20px;">
-								<input class="form-control form-control-user" type="text" id="mpostercode" name="mpostercode" value="${memberInfo.mpostercode }" placeholder="우편번호">
+								<input class="form-control form-control-user" type="text"
+									id="mpostercode" name="mpostercode"
+									value="${memberInfo.mpostercode }" placeholder="우편번호">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-6" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="maddr" name="maddr" value="${memberInfo.maddr }" placeholder="주소">
-								<br>
+								<input class="form-control form-control-user" type="text"
+									id="maddr" name="maddr" value="${memberInfo.maddr }"
+									placeholder="주소"> <br>
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-4 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="mdetailaddress" name="mdetailaddress" value="${memberInfo.mdetailaddress }" placeholder="상세주소">
+								<input class="form-control form-control-user" type="text"
+									id="mdetailaddress" name="mdetailaddress"
+									value="${memberInfo.mdetailaddress }" placeholder="상세주소">
 							</div>
 							<div class="col-6 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text" id="mextraaddress" name="mextraaddress" value="${memberInfo.mextraaddress }" placeholder="참고항목">
+								<input class="form-control form-control-user" type="text"
+									id="mextraaddress" name="mextraaddress"
+									value="${memberInfo.mextraaddress }" placeholder="참고항목">
 							</div>
 						</div>
-						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">정보수정</button>
-						<button type="button" id="close" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
+						<button type="submit" id="save" class="btn text-white"
+							style="background-color: #000000; margin-left: 20px;">정보수정</button>
+						<button type="button" id="close" class="btn text-white"
+							style="background-color: #000000; margin-left: 20px;">취소</button>
 					</div>
 				</form>
 			</div>
@@ -354,70 +357,29 @@ label {
 	<!-- Blog Section End -->
 
 	<!-- Footer Section Begin -->
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<h2>L&CSS</h2>
-						</div>
-						<ul>
-							<li>회사주소: 인천일보아카데미</li>
-							<li>전화번호: 032-111-1111</li>
-							<li>이메일 : #</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>프로젝트</h6>
-						<ul>
-							<li>
-								<a href="#">팀장 : 서성필</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 송영오</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 천호태</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 이상윤</a>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-
-						<a href="InquirePage">고객문의</a>
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright"></div>
-				</div>
-			</div>
-		</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
 
@@ -451,7 +413,8 @@ label {
 
 
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
 		new daum.Postcode({

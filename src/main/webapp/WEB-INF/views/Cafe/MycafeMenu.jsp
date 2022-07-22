@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -16,7 +16,6 @@ request.setCharacterEncoding("UTF-8");
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <style>
-
 .items {
 	flex-basis: auto;
 	margin-top: 5px;
@@ -34,38 +33,62 @@ request.setCharacterEncoding("UTF-8");
 span, h1 {
 	color: black;
 }
-.bc-blue{
+
+.bc-blue {
 	background-color: blue;
 }
-.bc-red{
+
+.bc-red {
 	background-color: red;
 }
-.c-white{
+
+.c-white {
 	color: white;
 }
-.btn_width{
+
+.btn_width {
 	width: 90px;
 }
 </style>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
 </head>
 
 <body>
 
-<header class="header">
+	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 
 	</header>
@@ -84,7 +107,7 @@ span, h1 {
 		<h1>메뉴 정보 입력</h1>
 	</div>
 	<div>
-		<form action="mymenuInsert"  enctype="multipart/form-data">
+		<form action="mymenuInsert" enctype="multipart/form-data">
 			<div class="row text-center borderOn">
 				<div class="col-2">
 					<div class="items">
@@ -118,9 +141,9 @@ span, h1 {
 						<input type="text" id="mucfcode" name="mucfcode"  value="${mycafeInfo.cfcode }">
 					</div>
 				</div>
-			
-			
-				
+
+
+
 				<div class="col-2">
 					<div class="items">
 						<span class="font-weight-bold">메뉴 이미지</span>
@@ -145,70 +168,29 @@ span, h1 {
 	</div>
 
 
-<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<h2>L&CSS</h2>
-						</div>
-						<ul>
-							<li>회사주소: 인천일보아카데미</li>
-							<li>전화번호: 032-111-1111</li>
-							<li>이메일 : #</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>프로젝트</h6>
-						<ul>
-							<li>
-								<a href="#">팀장 : 서성필</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 송영오</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 천호태</a>
-							</li>
-							<li>
-								<a href="#">엔지니어 : 이상윤</a>
-							</li>
-
-						</ul>
-
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-
-						<a href="InquirePage">고객문의</a>
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright"></div>
-				</div>
-			</div>
-		</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	
+
 	<!-- Js Plugins -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-	
+	<script
+		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+
 </body>
 
 <script type="text/javascript">
@@ -260,7 +242,10 @@ span, h1 {
 								}
 							});
 						});
+
 			});
+		});
+	});
 </script>
 
 <script type="text/javascript">
@@ -285,6 +270,7 @@ span, h1 {
 
 		for (var i = 0; i < menu.length; i++) {
 			output += "<br>";
+
 			output += "<div class=\"row cafeInsert\">"; // 맨위
 
 			output += "<div class=\"col-3\">";
@@ -351,6 +337,7 @@ span, h1 {
 			output += "<input type=\"hidden\" id=\"stateMod_"+menu[i].mucode+"\" value=\""+menu[i].mustate+"\">"
 
 			output += "</div></div>"; // 맨아래
+
 		}
 
 		$("#menuList").html(output);
@@ -387,8 +374,8 @@ span, h1 {
 
 	}
 
-	function muDelete(mucode) {
 
+	function muDelete(mucode) {
 		$.ajax({
 			type : "get",
 			url : "menuDelete",
@@ -441,7 +428,8 @@ span, h1 {
 	}
 </script>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(

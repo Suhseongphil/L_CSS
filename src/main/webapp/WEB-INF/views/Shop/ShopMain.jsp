@@ -99,7 +99,7 @@
 									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
 									음료
 									<ul class="submenu">
-										<li value="원두"><a href="#">원두</a></li>
+										<li value="원두"><a href="#" onclick="searchType()">원두</a></li>
 										<li value="소스"><a href="#">소스</a></li>
 										<li value="파우더"><a href="#">파우더</a></li>
 
@@ -156,7 +156,7 @@
 			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -600px;">
+						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get" >
 						<div id="search" class="row">
 							<div class="col-lg-8">
@@ -311,134 +311,7 @@
 	src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 
-<script type="text/javascript">
-	function sauceCategory() {
-		console.log('호출');
-		var con = document.getElementById('sauce');
-		console.log(con);
-		if (con.style.display == 'block') {
 
-			con.style.display = 'none';
-		} else {
-			con.style.display = 'block';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function tumblerCategoru() {
-		console.log('호출');
-		var con = document.getElementById('tumbler');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function furnitureCategoru() {
-		console.log('호출');
-		var con = document.getElementById('furniture');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-
-<script type="text/javascript">
-	function machineCategoru() {
-		console.log('호출');
-		var con = document.getElementById('machine');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function disposableCategoru() {
-		console.log('호출');
-		var con = document.getElementById('disposable');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-
-<script type="text/javascript">
-	function productCategory() {
-		console.log('호출');
-		var con = document.getElementById('productNone');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function cafeCategory() {
-		console.log('호출');
-		var con = document.getElementById('cafeNone');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function companyCategory() {
-		console.log('호출');
-		var con = document.getElementById('comNone');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
-<script type="text/javascript">
-	function inquireCategory() {
-		console.log('호출');
-		var con = document.getElementById('inquireNone');
-		console.log(con);
-		if (con.style.display == 'none') {
-
-			con.style.display = 'block';
-		} else {
-			con.style.display = 'none';
-		}
-
-	}
-</script>
 
 <script>
 	$(document).ready(function() {
