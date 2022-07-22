@@ -143,106 +143,37 @@ h7 {
 								<div class="item display" style="padding-top: 30px;">
 							
 
+									<c:forEach items="${inquireInfo }" var="iqList">
 									<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
 										<div class="col-6">
-											<h5>자주묻는질문</h5>
+										제목 : <h5>${iqList.iqtitle }</h5>
 										</div>
 										<div class="col-3">
-											<h5>문의유형</h5>
+										작성자 :	<h5>${iqList.iqmid }</h5>
 										</div>
 										<div class="col-3">
-											<h5>문의제목</h5>
+										카테고리 :	<h5>${iqList.iqcategory }</h5>
 										</div>
 										
 									</div>
-									<div class="row"
+									
+									<div 
 										style="padding-bottom: 20px; text-align: center;">
 										<div class="col-6">
-											<h5>[배송 지연 질문]</h5>
-										</div>
-										<div class="col-3">
-											<h5>배송관련</h5>
-										</div>
-										<div class="col-3">
-											<h5>물건을 주문했는데 배송확인이 안됩니다.</h5>
+										문의내용 : <h5>${iqList.iqcomment }</h5>
 										</div>
 										
-									</div>
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>[결제 오류]</h5>
-										</div>
-										<div class="col-3">
-											<h5>결제관련</h5>
-										</div>
-										<div class="col-3">
-											<h5>상품 결제가 안됩니다.</h5>
-										</div>
 										
-									</div> <hr>
-											<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>문의유형</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의제목</h5>
-										</div>
-										<div class="col-2">
-											<h5>시간</h5>
-										</div>
-										<div class="col-2">
-											<h5>상태</h5>
-										</div>
 									</div>
-
-
-									<div id="myInqurreList" class="item">
-									</div>
-
+									
+									</c:forEach>
 
 								</div>
-								
-
-
-
-
 
 							</div>
 						</div>
-					</div>
-
-					<form action="searchText" method="get">
-						<div id="search" class="row">
-							<div class="col-lg-8">
-								<div class="shoping__cart__btns">
-									<select name="iqcategory" id="iqcategory">
-										<option value="iqcomment">내용</option>
-										<option value="iqtitle">제목</option>
-
-									</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-									<button type="submit">검색</button>
-
-								</div>
-							</div>
-
-						</div>
-					</form>
-
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="shoping__cart__btns">
-
-								<a href="insertInquirePage"
-									class="primary-btn cart-btn cart-btn-right"><span
-									class="icon_loading"></span> 문의작성</a>
-							</div>
-						</div>
-
-
-					</div>
+					</div>		
 				</div>
 				<!--</section>  -->
 			</div>
@@ -322,7 +253,7 @@ h7 {
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2 divpadding \">"
-			output += "<a href=\"inquireInfo?iqcode="+myInquire[i].iqcode+"\">" + myInquire[i].iqtitle
+			output += "<a href=\"inquireInfo?iqtitle="+myInquire[i].iqtitle+"\">" + myInquire[i].iqtitle
 					+ "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
