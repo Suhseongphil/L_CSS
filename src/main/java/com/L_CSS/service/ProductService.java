@@ -309,5 +309,14 @@ public class ProductService {
 		mav.setViewName("Shop/searchShop");
 		return mav;
 	}
+	//카테고리 선택
+	public ModelAndView searchType(String type) {
+		
+		ArrayList<ProductDto>searchType = pdao.searchType(type);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("searchType", searchType);
+		mav.setViewName("Shop/searchType");
+		return mav;
+	}
 
 }

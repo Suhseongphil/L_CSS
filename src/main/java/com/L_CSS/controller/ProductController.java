@@ -90,7 +90,17 @@ public class ProductController {
 		return mav;
 	}
 
+	//카테고리 선택
+	@RequestMapping(value="/searchType")
+	public ModelAndView searchType(String type) {
+		System.out.println("카테고리 선택");
+		System.out.println(type);
+		
+		ModelAndView mav = new ModelAndView();
 
+		mav = psv.searchType(type);
+		return mav;
+	}
 
 
 
