@@ -287,6 +287,10 @@ public class CafeService {
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
 		
+		CafeDto mycafeInfo = cdao.MyCafeInfo(loginId);
+		
+		
+		mav.addObject("mycafeInfo", mycafeInfo);
 		mav.setViewName("Cafe/MycafeMenu");
 		return mav;
 	}
