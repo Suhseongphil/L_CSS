@@ -250,6 +250,9 @@ h7 {
 
 		</div>
 	</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
+	</footer>
 	<!-- End Cart -->
 
 	<!-- Start Instagram Feed  -->
