@@ -132,11 +132,31 @@ public class CartService {
 		return selectCart;
 	}
 	//장바구니 담기
-	public String cartInsert(String pdcode, String pdcmcode) {
+	public String cartInsert(String pdcode, String pdcmcode, String loginId) {
 		System.out.println("cartInsert()호출");
+		String max = cdao.getmax();
+		String ctcode = "CT";
+		
+		if(max == null) {
+			ctcode = ctcode + "001";
+		}else {
+			max = max.substring(2);
+			int maxCode = Integer.parseInt(max)+1;		
+			if(maxCode < 10) {
+				ctcode = ctcode + "00" + maxCode;
+		}else if(maxCode < 100) {
+			ctcode = ctcode + "0" + maxCode;
+		}else {
+			ctcode = ctcode + maxCode;
+		}
 		
 		
-		return null;
+		}
+		
+		int insertCart = cdao.InsertCart(pdcode,pdcmcode,loginId,ctcode);
+		
+		
+		return "redirect:/shopMain";
 	}
 	
 }

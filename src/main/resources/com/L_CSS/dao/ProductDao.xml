@@ -34,4 +34,27 @@
 		from PRODUCT
 		where PDCMCODE = #{cmcode}
 	</select>
+		<select id="searchList" resultType="com.L_CSS.dto.ProductDto" >
+		select * 
+		from PRODUCT
+		<if test="pdcategory == 'pdname'">
+		where PDNAME LIKE '%' || #{searchText} || '%'
+		</if>
+		<if test="pdcategory == 'pdtype'">
+		where PDTYPE LIKE '%' || #{searchText} || '%'
+		</if>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </mapper>

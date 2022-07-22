@@ -77,4 +77,41 @@ public class ProductController {
 
 		return mav;
 	}
+	//검색창
+	@RequestMapping(value="/searchProduct")
+	public  ModelAndView searchText(String pdcategory,String searchText) {
+		System.out.println("상품검색");
+		System.out.println(pdcategory);
+		System.out.println(searchText);
+		ModelAndView mav = new ModelAndView();
+
+		mav = psv.searchProduct(pdcategory,searchText);
+		
+		return mav;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
