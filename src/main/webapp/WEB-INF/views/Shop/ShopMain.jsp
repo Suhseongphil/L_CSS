@@ -39,42 +39,37 @@
 	type="text/css">
 
 <style>
-.cate-box {
-	max-width: 280px;
-	border: 1px solid lightgray;
-	padding: 20px;
+#nav-v2 {
+	width: 150px;
+	text-align: center;
 }
 
-.cate-box ul {
-	padding-left: 25px;
+.menu-v2 {
+	line-height: 2;
+	
+	position: relative;
 }
 
-.cate-box li {
-	margin: 8px 0;
-}
-
-.cate-box a {
-	color: gray;
-}
-
-.cate-box i {
-	color: royalblue;
-}
-
-.cate-parent {
-	display: flex;
-	justify-content: space-between;
-}
-
-.cate-child {
+.menu-v2 .submenu {
+	position: absolute;
+	width: 150px;
+	left: 149px;
+	
+	background-color: white;
+	color: white;
+	top: -1px;
 	display: none;
 }
 
-.cate-btn {
-	padding: 0 5px;
-	
+.menu-v2:hover {
+	background-color: white;
+	color: white;
 }
 
+.menu-v2 .submenu>li:hover {
+	background-color: white;
+	color: #222;
+}
 </style>
 
 <body>
@@ -97,49 +92,42 @@
 						<div class="sidebar__item" id="category">
 							<h4>카테고리</h4>
 
-							<ul>
+							<ul id="nav-v2" style="margin-left: -30px;">
+								<li style="background-color: white-space; margin: 10px; padding: 1px;"  class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">음료</a>
+									<ul class="submenu">
+										<li value="원두"><a href="#">원두</a></li>
+										<li value="소스"><a href="#">소스</a></li>
+										<li value="파우더"><a href="#">파우더</a></li>
 
-								<li>
-									<div class="cate-parent">음료</div>
-									<ul class="cate-child">
-										<li value="원두">원두</li>
-										<li value="소스">소스</li>
-										<li value="파우더">파우더</li>
-									</ul>
-								</li>
-								<li>
-									<div class="cate-parent">머신</div>
-									<ul class="cate-child">
-										<li value="그라인더">그라인더</li>
-										<li value="커피머신">커피머신</li>
-										<li value="제빙기">제빙기</li>
-									</ul>
-								</li>
-								<li>
-									<div class="cate-parent">컵</div>
-									<ul class="cate-child">
-										<li value="머그잔">머그잔</li>
-										<li value="텀블러">텀블러</li>
-									</ul>
-								</li>
-								<li>
-									<div class="cate-parent">일화용품</div>
-									<ul class="cate-child">
-										<li value="아이스컵">아이스컵</li>
-										<li value="스트로우">스트로우</li>
-										<li value="종이컵">종이컵</li>
-										<li value="컵홀더">컵홀더</li>
-										<li value="냅킨">냅킨</li>
-									</ul>
-								</li>
-								<li>
-									<div class="cate-parent">가구</div>
-									<ul class="cate-child">
-										<li value="의자">의자</li>
-										<li value="테이블">테이블</li>
-									</ul>
-								</li>
+									</ul></li>
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">머신</a>
+									<ul class="submenu">
+										<li value="그라인더"><a href="#">그라인더</a></li>
+										<li value="커피머신"><a href="#">커피머신</a></li>
+										<li value="제빙기"><a href="#">제빙기</a></li>
+
+									</ul></li>
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">일회용품</a>
+									<ul class="submenu">
+										<li value="아이스컵"><a href="#">아이스컵</a></li>
+										<li value="스트로우"><a href="#">스트로우</a></li>
+										<li value="종이컵"><a href="#">종이컵</a></li>
+										<li value="냅킨"><a href="#">냅킨</a></li>
+										<li value="컵홀더"><a href="#">컵홀더</a></li>
+									</ul></li>
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">컵</a>
+									<ul class="submenu">
+										<li value="머그잔"><a href="#">머그잔</a></li>
+										<li value="텀블러"><a href="#">텀블러</a></li>
+									</ul></li>
+								<li style="background-color: white-space; margin: 10px; padding: 1px;" class="menu-v2 card o-hidden border-0 shadow-lg my-5 card-body p-0"><a href="#">가구</a>
+									<ul class="submenu">
+										<li value="의자"><a href="#">의자</a></li>
+										<li value="테이블"><a href="#">테이블</a></li>
+									</ul></li>
 							</ul>
+							<div class="clear"></div>
+
 						</div>
 
 
@@ -150,12 +138,12 @@
 		</div>
 	</section>
 
-	<section >
-		<div class="container" style="padding-left: 10px;">
+	<section>
+		<div class="container" style="padding-left: 80px;">
 			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -500px;">
+						style="text-align: center; margin-top: -600px;">
 						<h2>추천 상품</h2>
 					</div>
 					<div class="row">
@@ -431,18 +419,23 @@
 </script>
 
 <script>
-	$(document).ready(
-			function() {
-				var cateBtn = $("<a>").addClass("cate-btn").append(
-						$("<i>").addClass("fas fa-caret-down")).attr("href",
-						"javascript:void(0)").click(function() {
-					$(this).parent().next().toggle();
-					$(this).children("i").toggleClass("fa-rotate-180");
-				});
-				$(".cate-parent").append(cateBtn);
-				$("#testColor").click(function() {
-					$(".cate-parent, .cate-btn").toggleClass("color");
-				});
-			});
+	$(document).ready(function() {
+		//menu v1 
+		$(".menu-v1").mouseover(function() {
+			$(this).children(".submenu").stop().slideDown();
+		});
+		$(".menu-v1").mouseleave(function() {
+			$(this).children(".submenu").stop().slideUp();
+		});
+
+		//menu v2
+		$(".menu-v2").mouseover(function() {
+			$(this).children(".submenu").show(200);
+		});
+		$(".menu-v2").mouseleave(function() {
+			$(this).children(".submenu").hide(200);
+		});
+
+	});
 </script>
 </html>
