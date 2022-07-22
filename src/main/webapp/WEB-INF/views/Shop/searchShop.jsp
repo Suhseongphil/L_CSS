@@ -161,12 +161,12 @@
 
 						</div>
 					</form>
-						<h2>추천 상품</h2>
+						
 					</div>
 					<div class="row">
-						<div class="product__discount__slider owl-carousel">
+						<div class="row">
 
-							<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
+							<c:forEach items="${searchList}" var="pro" >
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"

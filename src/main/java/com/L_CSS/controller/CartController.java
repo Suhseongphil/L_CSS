@@ -159,9 +159,10 @@ public class CartController {
 	@RequestMapping(value="/cartIn")
 	public String cartinsert (String pdcode,String pdcmcode) {
 		System.out.println("장바구니 담기");
+		String loginId = (String)session.getAttribute("loginId");
 		System.out.println(pdcode);
 		System.out.println(pdcmcode);
-		String  cartInsert = csv.cartInsert(pdcode,pdcmcode);
+		String  cartInsert = csv.cartInsert(pdcode,pdcmcode,loginId);
 		return cartInsert;
 	}
 }
