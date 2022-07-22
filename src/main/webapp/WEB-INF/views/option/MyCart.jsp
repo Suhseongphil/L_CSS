@@ -129,8 +129,6 @@
 	<div class="cart-box-main">
 		<div class="container">
 			<div class="row">
-
-
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
@@ -166,16 +164,11 @@
 									class="primary-btn cart-btn cart-btn-right"> 새로고침</a>
 							</div>
 						</div>
-
-						<div id="checkOut" class="col-lg-6"></div>
-
-
+						<div id="checkOut" class="col-lg-6" style="margin-bottom: 350px;"></div>
 					</div>
 				</div>
 				<!--</section>  -->
 			</div>
-
-
 		</div>
 	</div>
 	<footer class="footer">
@@ -187,7 +180,6 @@
 
 	<!-- End Instagram Feed  -->
 
-
 	<!-- Start Footer  -->
 
 	<!-- End Footer  -->
@@ -195,8 +187,6 @@
 	<!-- Start copyright  -->
 
 	<!-- End copyright  -->
-
-
 	<script
 		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script

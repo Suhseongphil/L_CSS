@@ -93,6 +93,11 @@ public class ReservationService {
 				
 			}
 			reserv.setRecode(recode);
+			System.out.println(recfcode);
+			System.out.println(repdcode);
+			System.out.println(amount);
+			System.out.println(price);
+			
 			
 		}
 		int insertReTable = rdao.insertReTable(reserv);

@@ -104,7 +104,8 @@
 										<div class="form-group">
 											<input type="text" class="form-control form-control-user"
 												id="mid" name="mid" aria-describedby="emailHelp"
-												placeholder="아이디를 입력해주세요...">
+												placeholder="아이디를 입력해주세요..."
+												autofocus="autofocus">
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control form-control-user"

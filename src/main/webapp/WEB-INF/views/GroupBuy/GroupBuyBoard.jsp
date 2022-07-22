@@ -105,7 +105,7 @@
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
-	<footer class="footer">
+	<footer class="footer" style="margin-top: 200px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 	<!-- Footer Section End -->
