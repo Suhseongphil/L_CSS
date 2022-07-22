@@ -234,6 +234,7 @@ span, h1 {
 									$("#muname").val("");
 									$("#mutype").val("");
 									$("#muprice").val("");
+									$("#mucfcode").val("");
 									
 									getMyMenuInfo();
 								}
@@ -250,9 +251,11 @@ span, h1 {
 	});
 	
 	function getMyMenuInfo(){
+		var mucfcode = $("#mucfcode").val();
 		$.ajax({
 			type : "get",
 			url : "getMyMenuInfo",
+			data : {"mucfcode" : mucfcode},
 			dataType : "json",
 			success : function(menu) {
 				console.log(menu);
@@ -270,10 +273,10 @@ span, h1 {
 			output += "<div class=\"row cafeInsert\">"; // 맨위
 
 			output += "<div class=\"col-3\">";
-			if (menu[i].cmimg != null) {
+			if (menu[i].muimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
 				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
-						+ menu[i].muimg.split("/")[1] + "\">";
+						+ menu[i].muimg + "\">";
 			} else {
 				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
 			}
@@ -315,7 +318,7 @@ span, h1 {
 			output += "<input type=\"file\" name=\"imgMod_"+menu[i].mucode+"\">";
 			output += "</div>";
 
-			output += "<div class=\"col-7\"><span class=\"font-weight-bold\"메뉴코드 : </span>";
+			output += "<div class=\"col-7\"><span class=\"font-weight-bold\">메뉴코드 : </span>";
 			output += "<input style=\"border:none;\" class=\"input_width\" id=\"codeMod_"+menu[i].mucode+"\" readonly type=\"text\" value=\""+ menu[i].mucode +"\">";
 			output += "<br><span class=\"font-weight-bold\">메뉴이름 : </span>";
 			output += "<input class=\"input_width\" id=\"nameMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].muname +"\">";
@@ -402,7 +405,7 @@ span, h1 {
 		var files = inputFile[0].files;
 
 		for (var i = 0; i < files.length; i++) {
-			formData.append("muimgs", files[i]);
+			formData.append("muimg", files[i]);
 		}
 		formData.append("mucode", $("#codeMod_" + mucode).val());
 		formData.append("muname", $("#nameMod_" + mucode).val());
@@ -412,7 +415,7 @@ span, h1 {
 
 		$.ajax({
 			type : "POST",
-			url : "mustateModify",
+			url : "MymuModify",
 			processData : false,
 			contentType : false,
 			data : formData,

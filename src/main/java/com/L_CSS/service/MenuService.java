@@ -28,7 +28,7 @@ public class MenuService {
 	private HttpSession session;
 
 	// 본인 로컬주소로 변경!
-	private String savePath_mu = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/MenuFile";
+	private String savePath_mu = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MenuFile";
 
 	public ModelAndView menuUpLoad() {
 
@@ -166,4 +166,27 @@ public class MenuService {
 		
 		return menu;
 	}
+	/* 여기부터 해야됨
+	public void MymuModify(MenuDto menu) {
+
+		System.out.println("MymuModify() 호출");
+		
+		String imgFile = "";
+		//기존이미지 가져오기
+		String cfmuimg = mdao.getMyMenuImg(menu.getMucode());
+		MultipartFile imgs = menu.getMuimg();
+		if (!imgs.isEmpty()) {
+			File file = new File(savePath_mu + cfmuimg);
+			file.delete();
+			UUID uuid = UUID.randomUUID();
+			cfmuimg = uuid.toString() + "_" + imgs.getOriginalFilename();
+			imgs.transferTo(new File(savePath_mu, cfmuimg));
+
+		}
+		menu.setmuimg(cfmuimg);
+		
+		int updateMymenu = mdao.updateMymenu(menu);
+		
+	}
+	 */
 }
