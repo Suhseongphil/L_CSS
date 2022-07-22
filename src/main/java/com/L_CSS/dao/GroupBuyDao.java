@@ -13,4 +13,6 @@ public interface GroupBuyDao {
 
 	ArrayList<ProductDto> getProduct(String pdtype);
 
+	String getAddress(String loginId);
+
 }

@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MenuDao;
+import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.MenuDto;
 import com.google.gson.Gson;
 
@@ -19,6 +23,9 @@ public class MenuService {
 
 	@Autowired
 	MenuDao mdao;
+	
+	@Autowired
+	private HttpSession session;
 
 	// 본인 로컬주소로 변경!
 	private String savePath_mu = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/MenuFile";
@@ -132,5 +139,31 @@ public class MenuService {
 
 		int deleteMenu = mdao.deleteMenu(mucode);
 
+	}
+
+	public ModelAndView mycafeMenu(RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("mycafeMenu() 호출");
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인아이디 : " + loginId);
+		
+		CafeDto mycafeInfo = mdao.MyCafeInfo(loginId);
+		
+		
+		mav.addObject("mycafeInfo", mycafeInfo);
+		mav.setViewName("Cafe/MycafeMenu");
+		return mav;
+	}
+
+	public String getMyMenu(String mucfcode) {
+		System.out.println("getMyMenu() 호출");
+		System.out.println(mucfcode);
+		ArrayList<MenuDto> menuList = mdao.getMyMenu(mucfcode);
+		System.out.println(menuList);
+		Gson gson = new Gson();
+		String menu = gson.toJson(menuList);
+		
+		
+		return menu;
 	}
 }

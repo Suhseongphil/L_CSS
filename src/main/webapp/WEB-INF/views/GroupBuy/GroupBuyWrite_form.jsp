@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
@@ -15,38 +14,18 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 
 <style type="text/css">
 .scroll {
@@ -55,8 +34,20 @@
 	height: 370px;
 }
 
+.row{
+	margin-bottom:3px;
+}
+
 .row div {
 	padding: 0;
+}
+
+input {
+	width: 100%;
+}
+
+.bd_none {
+	border: none;
 }
 </style>
 </head>
@@ -112,11 +103,19 @@
 					<form action="">
 						<div class="row">
 							<div class="col-1">
+								<span class="font-weight-bold">제품</span>
+							</div>
+							<div class="col-11">
+								<input class="bd_none" readonly="readonly" type="text" id="selProduct"></input>
+								<input name="gbpdcode" type="hidden" id="selPdcode"></input>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-1">
 								<span class="font-weight-bold">제목</span>
 							</div>
 							<div class="col-11">
-								<input style="width: 100%;" type="text" name="gbtitle"
-									placeholder="제목을 입력해주세요...">
+								<input type="text" name="gbtitle" placeholder="제목을 입력해주세요...">
 							</div>
 						</div>
 						<div class="row">
@@ -128,16 +127,13 @@
 								<div id="text_cnt">글자수(0 / 500)</div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col-1">
-								<span class="font-weight-bold">제품</span>
-								<br>
-								<span class="font-weight-bold">코드</span>
+								<span class="font-weight-bold">지역</span>
 							</div>
 							<div class="col-11">
-								<span id="selProduct"></span>
-								<br>
-								<span id="selPdcode"></span>
+								<input class="bd_none" readonly="readonly" type="text" value="${region}">
 							</div>
 						</div>
 					</form>
@@ -153,23 +149,15 @@
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 </body>
 <script type="text/javascript">
 	var checkMsg = '${msg}'
@@ -225,8 +213,8 @@
 		$("#pdname div").css("background-color", "").css("color", "");
 		$(selObj).css("background-color", "saddlebrown").css("color", "white");
 
-		$("#selProduct").text($(selObj).text());
-		$("#selPdcode").text(pdcode);
+		$("#selProduct").val($(selObj).text());
+		$("#selPdcode").val(pdcode);
 
 	}
 </script>
