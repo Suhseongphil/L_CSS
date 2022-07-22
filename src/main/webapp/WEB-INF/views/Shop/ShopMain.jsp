@@ -39,7 +39,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css" />
 
 
 
@@ -62,22 +61,22 @@
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
 						style="text-align: center; margin-top: -450px;">
-						<form action="searchProduct" method="get" >
-						<div id="search" class="row">
-							<div class="col-lg-8">
-								<div class="shoping__cart__btns">
-									<select name="pdcategory" id="pdcategory">
-										<option value="pdname">이름</option>
-										<option value="pdtype">종류</option>
+						<form action="searchProduct" method="get">
+							<div id="search" class="row">
+								<div class="col-lg-8">
+									<div class="shoping__cart__btns">
+										<select name="pdcategory" id="pdcategory">
+											<option value="pdname">이름</option>
+											<option value="pdtype">종류</option>
 
-									</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-									<button type="submit">검색</button>
+										</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
+										<button type="submit">검색</button>
 
+									</div>
 								</div>
-							</div>
 
-						</div>
-					</form>
+							</div>
+						</form>
 						<h2>추천 상품</h2>
 					</div>
 					<div class="row">
@@ -139,7 +138,6 @@
 
 	});
 </script>
-<script src="script/jquery-1.12.3.js" type="text/javascript"></script>
-<script src="script/script.js" type="text/javascript" defer="defer"></script>
+
 
 </html>

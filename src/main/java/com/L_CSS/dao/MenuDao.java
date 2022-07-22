@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.MenuDto;
 
 public interface MenuDao {
@@ -19,4 +20,8 @@ public interface MenuDao {
 	int deleteMenu(String mucode);
 
 	ArrayList<MenuDto> MenuInfo(String cfcode);
+
+	CafeDto MyCafeInfo(String loginId);
+
+	ArrayList<MenuDto> getMyMenu(String mucfcode);
 }

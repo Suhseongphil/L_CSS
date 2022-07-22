@@ -31,4 +31,9 @@
   		where IQCOMMENT LIKE '%' || #{text} || '%' 
   		</if>
   	</select>
+  	<select id="inquireInfo" resultType="com.L_CSS.dto.InquIreDto">
+  		select * 
+  		from INQUIRE
+  		where IQTITLE = #{iqtitle}
+  	</select>
   </mapper>

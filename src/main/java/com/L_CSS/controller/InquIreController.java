@@ -69,7 +69,15 @@ public class InquIreController {
 		
 	}
 	
-	
+	//문의 상세보기
+	@RequestMapping(value="/inquireInfo")
+	public ModelAndView inquireInfo(String iqtitle) {
+		System.out.println("문의 상세보기");
+		System.out.println(iqtitle);
+		ModelAndView mav = new ModelAndView();
+		mav = isv.inquireInfo(iqtitle);
+		return mav;
+	}
 	
 	
 	

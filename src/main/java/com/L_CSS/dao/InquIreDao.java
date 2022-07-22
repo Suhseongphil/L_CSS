@@ -16,4 +16,6 @@ public interface InquIreDao {
 
 	ArrayList<InquIreDto> searchList(@Param("search")String iqcategory, @Param("text")String searchText);
 
+	ArrayList<InquIreDto> inquireInfo(String iqtitle);
+
 }

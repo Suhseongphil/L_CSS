@@ -322,8 +322,8 @@ h7 {
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2 divpadding \">"
-			output += "<h5>" + myInquire[i].iqtitle
-					+ "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			output += "<a href=\"inquireInfo?iqtitle="+myInquire[i].iqtitle+"\">" + myInquire[i].iqtitle
+					+ "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 

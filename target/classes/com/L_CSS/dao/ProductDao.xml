@@ -45,7 +45,11 @@
 		</if>
 	</select>
 	
-	
+	<select id="searchType" resultType="com.L_CSS.dto.ProductDto">
+		select *
+		from PRODUCT
+		where PDTYPE = #{type}
+	</select>
 	
 	
 	
