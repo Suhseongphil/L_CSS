@@ -352,18 +352,18 @@
 </script>
 
 <script type="text/javascript">
-	function stateChange(selObj, cfcode) {
+	function stateChange(selObj, cmcode) {
 
 		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");
 			$(selObj).removeClass("cafeStateMod-blue-btn");
 			$(selObj).addClass("cafeStateMod-red-btn");
-			var cfstate = '1';
+			var cmstate = '1';
 		} else {
 			$(selObj).text("활동중");
 			$(selObj).removeClass("cafeStateMod-red-btn");
 			$(selObj).addClass("cafeStateMod-blue-btn");
-			var cfstate = '0';
+			var cmstate = '0';
 		}
 
 		$.ajax({
