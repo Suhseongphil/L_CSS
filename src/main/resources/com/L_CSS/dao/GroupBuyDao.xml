@@ -20,4 +20,9 @@
 		WHERE PDTYPE = #{pdtype}
 	</select>
 	
+	<select id="getAddress" resultType="String">
+		SELECT CFADDRESS
+		FROM CAFE
+		WHERE CFMID = #{loginId}
+	</select>
 </mapper>
