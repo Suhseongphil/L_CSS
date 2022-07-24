@@ -140,7 +140,7 @@
 								<div class="item display" style="padding-top: 30px;">
 									<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-3">
+										<div class="col-2">
 											<h5>업체</h5>
 										</div>
 										<div class="col-3">
@@ -156,16 +156,19 @@
 											<h5>총가격</h5>
 										</div>
 										<div class="col-1">
+											<h5>배송</h5>
+										</div>
+										<div class="col-1">
 											<h5>주문취소</h5>
 										</div>
 									</div>
 
 
 								</div>
-								<form action="deleteOrder" method="get">
+								
 									<c:forEach items="${orList}" var="odList">
 										<div class="row px">
-											<div class="col-3">
+											<div class="col-2">
 												<h5>${odList.cmname }</h5>
 											</div>
 											<div class="col-3">
@@ -182,16 +185,26 @@
 											</div>
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
+												<form action="orderCheck" method="get">
 													<div class="col-1">
 														<button type="submit" name="recode"
-															value="${odList.recode}">주문확인</button>
+															value="${odList.recode}">배송</button>
+													</div>
+												</form>
+												</c:when>
+												<c:when test="${odList.restate == 2}">
+												<div class="col-1">
+													<h6>배송완료</h6>	
+															
 													</div>
 												</c:when>
 												<c:otherwise>
+												<form action="deleteOrder" method="get">
 													<div class="col-1">
 														<button type="submit" name="recode"
 															value="${odList.recode}">취소요청</button>
 													</div>
+													</form>
 												</c:otherwise>
 
 
@@ -200,7 +213,7 @@
 										<hr>
 									</c:forEach>
 
-								</form>
+								
 
 							</div>
 						</div>

@@ -61,6 +61,25 @@ public class ReservationController {
 		mav= rsv.orderCancel(recode);
 		return mav;
 	}
+	//배송요청
+	@RequestMapping(value="/orderCheck")
+	public ModelAndView orderCheck(String recode) {
+		System.out.println("주문확인");
+		
+		ModelAndView mav = new ModelAndView();
+		mav = rsv.orderCheck(recode);
+		
+		
+		return mav;
+	}
+	//리뷰 모달 호출
+	@RequestMapping(value="/selectRecode")
+	public @ResponseBody String selectRecode(String recode) {
+		System.out.println("리뷰 작성 제품 호출");
+		System.out.println(recode);
+		String selectReview = rsv.selectReview(recode);
+		return selectReview;
+	}
 	
 	
 	

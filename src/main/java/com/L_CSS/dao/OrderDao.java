@@ -12,4 +12,6 @@ public interface OrderDao {
 
 	ArrayList<OrderDto> CompanyOrderList(String comId);
 
+	OrderDto selectRecode(String recode);
+
 }

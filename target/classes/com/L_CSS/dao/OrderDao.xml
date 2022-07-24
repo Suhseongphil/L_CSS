@@ -17,4 +17,10 @@
 			where RE.REMUPDCODE = PD.PDCODE and CM.CMCODE = RE.RECFCMCODE 
 			AND CM.CMMID = #{comId}
 		</select>
+		<select id="selectRecode" resultType="com.L_CSS.dto.OrderDto">
+  			select * 
+			from RESERVATION RE , PRODUCT PD , COMPANY CM 
+			where RE.REMUPDCODE = PD.PDCODE and CM.CMCODE = RE.RECFCMCODE 
+			AND RE.RECODE = #{recode}
+  		</select>
   </mapper>
