@@ -3,6 +3,7 @@ package com.L_CSS.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,48 +12,58 @@ import com.L_CSS.service.GroupBuyService;
 
 @Controller
 public class GroupBuyController {
-	
+
 	@Autowired
 	GroupBuyService gbsvc;
-	
+
 	// 공동구매 게시판
-	@RequestMapping (value="/groupBuyBoard")
+	@RequestMapping(value = "/groupBuyBoard")
 	public ModelAndView groupBuyBoard() {
 		System.out.println("공동구매");
 		ModelAndView mav = new ModelAndView();
-		
+
 		mav = gbsvc.getGroupBuyInfo();
-		
+
 		return mav;
 	}
-	
+
 	// 공동구매 글 작성 페이지
-	@RequestMapping (value="/gbBoardWrite_form")
+	@RequestMapping(value = "/gbBoardWrite_form")
 	public ModelAndView gbBoardWrite_form() {
 		System.out.println("공동구매 글 작성 페이지");
 		ModelAndView mav = new ModelAndView();
 		mav = gbsvc.getPdType();
-		
+
 		return mav;
 	}
-	
+
 	// 구매할 상품 종류 선택
-	@RequestMapping (value="/selectPdtype")
+	@RequestMapping(value = "/selectPdtype")
 	public @ResponseBody String selectPdtype(String pdtype) {
 		System.out.println("상품종류");
-		
-		String productList= gbsvc.getPdname(pdtype);
-		
+
+		String productList = gbsvc.getPdname(pdtype);
+
 		return productList;
 	}
-	
+
 	// 공동구매 글 작성
-		@RequestMapping (value="/groupBuyWrite")
-		public ModelAndView groupBuyWrite(GroupBuyDto groupBuy) {
-			System.out.println("공동구매 글 작성 요청");
-			ModelAndView mav = new ModelAndView();
-			mav = gbsvc.insertGroupBuy(groupBuy);
-			
-			return mav;
-		}
+	@RequestMapping(value = "/groupBuyWrite")
+	public ModelAndView groupBuyWrite(GroupBuyDto groupBuy) {
+		System.out.println("공동구매 글 작성 요청");
+		ModelAndView mav = new ModelAndView();
+		mav = gbsvc.insertGroupBuy(groupBuy);
+
+		return mav;
+	}
+
+	// 공동구매 글 상세보기
+	@RequestMapping(value = "/groupBuyBoardView")
+	public ModelAndView groupBuyBoardView(String gbcode) {
+		System.out.println("공동구매 글 상세보기 요청");
+		ModelAndView mav = new ModelAndView();
+		mav = gbsvc.getGroupBuy(gbcode);
+	
+		return mav;
+	}
 }
