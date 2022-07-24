@@ -90,6 +90,73 @@
 	border: none;
 	background: #f5f5f5;
 }
+
+.imgClass {
+	width: 300px;
+	height: 300px;
+	border-radius: 70%;
+	overflow: hidden;
+}
+
+.reView {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* 숨기기 */
+	z-index: -1;
+	opacity: 0;
+}
+
+.show2 {
+	opacity: 1;
+	z-index: 1000;
+	transition: all .5s;
+}
+
+.window2 {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.popup2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	/* 임시 지정 */
+	width: 520px;
+	height: 630px;
+	/* 초기에 약간 아래에 배치 */
+	transform: translate(-50%, -40%);
+}
+
+.show2 .popup2 {
+	transform: translate(-50%, -50%);
+	transition: all .5s;
+}
+
+label {
+	font-weight: bold;
+}
+
+.hero__text2 p {
+	font-weight: bold;
+}
+
+textarea {
+	width: 300px;
+	height: 300px;
+	border: none;
+	resize: none;
+	padding-bottom: 10px;
+}
 </style>
 
 <body>
@@ -140,7 +207,7 @@
 								<div class="item display" style="padding-top: 30px;">
 									<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-3">
+										<div class="col-2">
 											<h5>업체</h5>
 										</div>
 										<div class="col-3">
@@ -156,16 +223,20 @@
 											<h5>총가격</h5>
 										</div>
 										<div class="col-1">
+											<h5>배송준비</h5>
+										</div>
+										<div class="col-1">
 											<h5>주문취소</h5>
 										</div>
 									</div>
 
 
 								</div>
-								<form action="orderCancel" method="get">
-									<c:forEach items="${OrderList}" var="odList">
-										<div class="row px">
-											<div class="col-3">
+
+								<c:forEach items="${OrderList}" var="odList">
+									<div class="item display">
+										<div class="row">
+											<div class="col-2">
 												<h5>${odList.cmname }</h5>
 											</div>
 											<div class="col-3">
@@ -183,9 +254,34 @@
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
 													<div class="col-1">
-														<button type="submit" name="recode"
-															value="${odList.recode}">주문취소</button>
+														<h5>배송준비</h5>
 													</div>
+												</c:when>
+												<c:when test="${odList.restate == 2}">
+													<div class="col-1">
+														<h5>배송완료</h5>
+														<button id="show" value="${odList.recode }">리뷰작성</button>
+													</div>
+												</c:when>
+											</c:choose>
+											<c:choose>
+												<c:when test="${odList.restate == 0}">
+														<div class="col-1">
+													<form action="orderCancel" method="get">
+
+															<button type="submit" name="recode"
+																value="${odList.recode}">주문취소</button>
+													</form>
+														</div>
+												</c:when>
+												<c:when test="${odList.restate == 2}">
+														<div class="col-1">
+													<form action="orderCancel" method="get">
+
+															<button type="submit" name="recode"
+																value="${odList.recode}">환불요청</button>
+													</form>
+														</div>
 												</c:when>
 												<c:otherwise>
 													<div class="col-1">
@@ -197,9 +293,9 @@
 											</c:choose>
 										</div>
 										<hr>
-									</c:forEach>
+									</div>
+								</c:forEach>
 
-								</form>
 
 							</div>
 						</div>
@@ -224,6 +320,44 @@
 
 		</div>
 	</div>
+	<div class="reView">
+		<div class="window2">
+			<form class="user" action="" method="post"
+				enctype="multipart/form-data">
+				<div class="popup2" id="modal">
+					<div
+						style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
+						<label>회사명</label> <input type="text" id="cmname"
+							style="border: none;" readonly="readonly" name="cmname"
+							value="${memberInfo.mid }" class="form-control form-control-user">
+					</div>
+					<br>
+					<div style="margin-left: 20px; margin-right: 400px;">
+						<label>제품명</label> <input type="text" style="border: none;"
+							readonly="readonly" id="pdname" name="pdname"
+							
+							class="form-control form-control-user">
+					</div>
+					<br>
+					
+						<div >
+							<h5>
+								리뷰내용 <br> <br>
+								<textarea name="recomment" id="recomment"
+									placeholder="내용을 입력해주세요.."></textarea>
+							</h5>
+						</div>
+					
+
+					<button type="submit" id="save" class="btn text-white"
+						style="background-color: #000000; margin-left: 20px;">정보수정</button>
+					<button type="button" id="close" class="btn text-white"
+						style="background-color: #000000; margin-left: 20px;">취소</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<footer class="footer" style="margin-top: 200px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
@@ -263,34 +397,35 @@
 </body>
 
 <script type="text/javascript">
-	/*
-	 function ordercancel(btnObj,recode,restate){
-	
-	 console.log(recode);
-	 console.log(restate);
-	 console.log($(btnObj).text());
-	 $.ajax({
-	 type : "get",
-	 url : "orderCancel",
-	 data : {"recode" : recode,"restate" : restate},
-	 dataType : "json",
-	 async : false,
-	 success : function(result){
-	 console.log(result);
-	
-	 if(restate == 0 ){
-	 $(btnObj).text("주문취소");
-	 }else if(restate == 1){
-	 $(btnObj).text("취소대기");
-	 }else if(restate == 2){
-	 $(btnObj).text("취소완료");
-	 }
-	 }
-	
-	
-	 });
-	 }
-	 */
+	function show() {
+		var recode = document.getElementById("show").value;
+		var output = "";
+		console.log(recode);
+		$.ajax({
+			type : "get",
+			url : "selectRecode",
+			data : {"recode" : recode},
+			dataType : "json",
+			async : false,
+			success : function(reCode){
+				console.log(reCode);
+				
+				$("#cmname").val(reCode.cmname);
+				$("#pdname").val(reCode.pdname);
+
+			}
+			
+		});		
+		
+		document.querySelector(".reView").className = "reView show2";
+	}
+
+	function close() {
+		document.querySelector(".reView").className = "reView";
+	}
+
+	document.querySelector("#show").addEventListener('click', show);
+	document.querySelector("#close").addEventListener('click', close);
 </script>
 
 </html>
