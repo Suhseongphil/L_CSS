@@ -10,7 +10,7 @@
 		</select>
   		
   		<insert id="insertReTable">
-  		insert into RESERVATION values(#{recode},#{remid},#{recfcmcode},#{remupdcode},sysdate,#{reamount},#{reprice})
+  		insert into RESERVATION values(#{recode},#{remid},#{recfcmcode},#{remupdcode},sysdate,#{reamount},#{reprice},0)
   		</insert>
   		
   		<update id="orderCancel">
@@ -23,4 +23,10 @@
   			delete RESERVATION
   			where RECODE = #{recode}
   		</delete>
+  		<update id="orderCheck">
+  			update RESERVATION
+  			set restate = 2
+  			where recode = #{recode}
+  		</update>
+  		
   </mapper>
