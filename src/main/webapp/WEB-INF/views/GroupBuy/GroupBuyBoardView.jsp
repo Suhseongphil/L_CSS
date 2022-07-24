@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공동구매 게시판</title>
+<title>공동구매 글 상세보기</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">
@@ -27,6 +26,30 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+
+<style type="text/css">
+.scroll {
+	overflow: scroll;
+	width: auto;
+	height: 370px;
+}
+
+.row {
+	margin-bottom: 3px;
+}
+
+.row div {
+	padding: 0;
+}
+
+input {
+	width: 100%;
+}
+
+.bd_none {
+	border: none;
+}
+</style>
 </head>
 
 <body>
@@ -56,57 +79,86 @@
 
 	<section class="featured spad">
 		<div class="text-center">
-			<h2>공동구매 게시판</h2>
+			<h2>게시글 상세보기</h2>
 		</div>
 		<div class="container">
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					
+			<div class="row">
+				<div class="col-3">
+					<div class="row">
+						<div class="col-12">
+							<img alt="" src="${gbreserve.pdimg}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2 font-weight-bold">
+							<span>제품</span>
+						</div>
+						<div class="col-10">
+							<span>${gbreserve.pdname}</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2 font-weight-bold">
+							<span>가격</span>
+						</div>
+						<div class="col-10">
+							<span>
+								<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
+								원
+							</span>
+						</div>
+					</div>
 				</div>
-				<div class="col-4">
-					
+				<div class="col-1"></div>
+				<div class="col-6">
+					<div class="row">
+						<div class="col-1">
+							<span class="font-weight-bold">작성자</span>
+						</div>
+						<div class="col-11">
+							<input type="text" value="${gbreserve.gbmid}" class="bd_none" readonly="readonly">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1">
+							<span class="font-weight-bold">제목</span>
+						</div>
+						<div class="col-11">
+							<input type="text" name="gbtitle" value="${gbreserve.gbtitle}" class="bd_none" readonly="readonly">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1">
+							<span class="font-weight-bold">내용</span>
+						</div>
+						<div class="col-11">
+							<textarea id="gbcomment" name="gbcomment" class="bd_none" readonly="readonly" rows="7" style="width: 100%; resize: none;">${gbreserve.gbcomment}</textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1">
+							<span class="font-weight-bold">지역</span>
+						</div>
+						<div class="col-11">
+							<input name="gbregion" class="bd_none" readonly="readonly" type="text" value="${gbreserve.gbregion}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1">
+							<span class="font-weight-bold">기간</span>
+						</div>
+						<div class="col-11">
+							<input name="gbfdate" type="text" class="bd_none" readonly="readonly" value="${gbreserve.gbsdate} ~ ${gbreserve.gbfdate}">
+						</div>
+					</div>
 				</div>
-				<div class="col-5">
-					
-				</div>
-				<div class="col-2">
-					<a class="cafeStateMod-blue-btn" href="gbBoardWrite_form">게시글 작성</a>
-				</div>
+				<div class="col-2"></div>
 			</div>
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					<span></span>
-				</div>
-				<div class="col-4">
-					<span>기간</span>
-				</div>
-				<div class="col-5">
-					<span>제목</span>
-				</div>
-				<div class="col-2">
-					<span>작성자</span>
-				</div>
-			</div>
-			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
-				<div class="row text-center" style="border: 1px solid black; margin-top: 2px;">
-					<div class="col-1">
-						<span>${fn:length(groupBuyList) - num.index}</span>
-					</div>
-					<div class="col-4">
-						<span>${board.gbsdate} ~ ${board.gbfdate}</span>
-					</div>
-					<div class="col-5">
-						<span><a href="groupBuyBoardView?gbcode=${board.gbcode}">${board.gbtitle}</a></span>
-					</div>
-					<div class="col-2">
-						<span>${board.gbmid}</span>
-					</div>
-				</div>
-			</c:forEach>
+
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
-	<footer class="footer" style="margin-top: 200px;">
+	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 	<!-- Footer Section End -->
@@ -128,4 +180,5 @@
 		alert(checkMsg);
 	}
 </script>
+
 </html>
