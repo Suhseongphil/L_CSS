@@ -135,6 +135,25 @@ public class ReservationService {
 		
 		return mav;
 	}
+	//주문확인
+	public ModelAndView orderCheck(String recode) {
+		System.out.println("orderCheck()호출");
+		ModelAndView mav = new ModelAndView();
+		
+		int orderCheck = rdao.orderCheck(recode);
+		
+		mav.setViewName("redirect:/orderhistory");
+		return mav;
+	}
+	//리뷰 모달 호출
+		public String selectReview(String recode) {
+			System.out.println("selectReView()호출");
+			OrderDto select = odao.selectRecode(recode);
+			System.out.println(select);
+			Gson gson = new Gson();
+			String RecodeSelect = gson.toJson(select);
+			return RecodeSelect;
+		}
 
 	
 	

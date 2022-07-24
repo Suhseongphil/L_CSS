@@ -115,12 +115,21 @@ public class CartController {
 			URL http = new URL("https://kapi.kakao.com/v1/payment/ready");
 			//서버를 연결해줄때 사용하는 클래스
 			HttpURLConnection httpConnection = (HttpURLConnection) http.openConnection();
-			httpConnection.setRequestMethod("POST");
+			httpConnection.setRequestMethod("POST");					
 			httpConnection.setRequestProperty("Authorization", "KakaoAK 8ba7dcf95e8a610a27ee2841524d1510");
 			httpConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 			//내가 서버에 전해줄 내용이 있는지 없는지  있으면 true 없다면false
 			httpConnection.setDoOutput(true);
-			String parem = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name="+URLEncoder.encode(name,"UTF-8")+"&quantity=5&total_amount="+sum+"&tax_free_amount=100&approval_url=http://localhost:8080/controller/reservInsert?ctcode=" +ctcode+ "&cancel_url=http://localhost:8080/controller/myCartPage&fail_url=http://localhost:8080/controller/myCartPage";
+			String parem = "cid=TC0ONETIME"
+					+ "&partner_order_id=partner_order_id"
+					+ "&partner_user_id=partner_user_id"
+					+ "&item_name="+URLEncoder.encode(name,"UTF-8")+""
+					+ "&quantity=5"
+					+ "&total_amount="+sum+""
+					+ "&tax_free_amount=100"
+					+ "&approval_url=http://localhost:8080/controller/reservInsert?ctcode=" +ctcode+ ""
+					+ "&cancel_url=http://localhost:8080/controller/"
+					+ "&fail_url=http://localhost:8080/controller/";
 			//데이터를 주는클래스
 			OutputStream stream = httpConnection.getOutputStream();
 			//데이터 주는 클래스
@@ -153,7 +162,7 @@ public class CartController {
 		
 			e.printStackTrace();
 		}
-		return null;
+		return "";
 	}
 	//장바구니 담기
 	@RequestMapping(value="/cartIn")
