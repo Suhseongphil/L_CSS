@@ -1,12 +1,17 @@
 package com.L_CSS.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.L_CSS.dto.CafeDto;
+import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.service.CompanyService;
 
 @Controller
@@ -65,7 +70,35 @@ public class CompanyController {
 		mav = csv.deleteOrder(recode);
 		return mav;
 	}
-	
+	//내 업체등록 페이지 요청
+		@RequestMapping(value="/MycompanyInsert")
+		public String MycompanyInsert() {
+			System.out.println("내 업체등록 페이지 이동 요청");
+			
+			return "Company/MycompanyInsert";
+		}
+		
+	//내 업체등록 등록요청
+	@RequestMapping(value="/createMycompany")
+	public ModelAndView createMycafe(CompanyDto company,RedirectAttributes ra) throws IllegalStateException, IOException {
+			
+		ModelAndView mav = new ModelAndView();
+			
+		mav = csv.createMycompany(company,ra);
+			
+			
+		return mav;
+	}
+	//내 업체정보 페이지 요청
+		@RequestMapping(value="mycompanyInfo")
+		public ModelAndView mycompanyInfo(RedirectAttributes ra) {
+			System.out.println("내 업체정보 페이지 이동 요청");
+			ModelAndView mav = new ModelAndView();
+			
+			mav = csv.mycompanyInfo(ra);
+			
+			return mav;
+		}
 	
 	
 	

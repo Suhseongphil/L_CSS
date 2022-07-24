@@ -26,7 +26,14 @@
 		from COMPANY
 		where CMCODE = #{comcode}
 		</select>
-		
-		
+	<insert id="insertMyCompany">
+  		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE, CMLINK, CMMID)
+		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel}, #{cmimg}, 0, #{cmlink}, #{cmmid})
+  		</insert>	
+	<select id="MycompanyInfo" resultType="com.L_CSS.dto.CompanyDto">
+	SELECT *
+	FROM COMPANY
+	WHERE CMMID = #{loginId}
+	</select>	
 		
   </mapper>
