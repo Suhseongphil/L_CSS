@@ -284,6 +284,7 @@ span, h1 {
 			output += "<div class=\"col-3\">";
 			if (product[i].pdimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
+				
 				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=" + product[i].pdimg + ">";
 						
 			} else {

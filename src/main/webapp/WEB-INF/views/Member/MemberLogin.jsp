@@ -150,16 +150,14 @@
 		src="${pageContext.request.contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
-
+	
 </body>
 <script type="text/javascript">
 function joinFormCheck() {
 	/* 아이디 입력 확인 */
 	
 	if ($("#mid").val().length == 0) {
-		alert("비밀번호를 입력 해주세요!");
+		alert("아이디를 입력 해주세요!");
 		$("#mid").focus();
 		return false;
 	}
@@ -173,6 +171,7 @@ function joinFormCheck() {
 </script>
 <script type="text/javascript">
 	var checkMsg = '${msg}';
+	console.log(checkMsg);
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}

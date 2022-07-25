@@ -8,6 +8,7 @@ public class OrderDto {
 	private String cmname;
 	private String pdname;
 	private String pdcode;
+	private String pdimg;
 	private int pdprice; 
 	private int reamount;
 	private int reprice;

@@ -2,9 +2,13 @@ package com.L_CSS.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -35,11 +39,11 @@ public class MemberController {
 
 	// 회원가입 요청 메소드
 	@RequestMapping(value = "/memberJoin")
-	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra ,HttpServletResponse response) throws IllegalStateException, IOException {
 		System.out.println("회원가입 요청");
 		ModelAndView mav = new ModelAndView();
-
-		mav = mvc.memberJoin(member, ra);
+		
+		mav = mvc.memberJoin(member, ra,response);
 		return mav;
 	}
 
@@ -73,10 +77,10 @@ public class MemberController {
 
 	// 로그아웃 요청
 	@RequestMapping(value = "/memberLogout")
-	public ModelAndView MemberLogout(RedirectAttributes ra) {
+	public ModelAndView MemberLogout(RedirectAttributes ra,HttpServletResponse response,HttpServletRequest request) throws IOException {
 		System.out.println("로그아웃 요청");
 		ModelAndView mav = new ModelAndView();
-		mav = mvc.memberLogout(ra);
+		mav = mvc.memberLogout(ra,response,request);
 
 		return mav;
 
@@ -112,5 +116,13 @@ public class MemberController {
 
 		return mav;
 	}
-
+	//아이디 중복체크
+	@RequestMapping(value="/memberIdCheck")
+	public @ResponseBody String memberIdCheck(String inputId) {
+		System.out.println("아이디 중복 체크");
+		String idCheck = mvc.idCheck(inputId);
+		
+		return idCheck;
+		
+	}
 }

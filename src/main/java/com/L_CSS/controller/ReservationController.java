@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.ReservationDto;
@@ -30,12 +31,12 @@ public class ReservationController {
 	}
 	//주문내역 insert 
 	@RequestMapping (value="/reservInsert")
-	public ModelAndView reservInsert(String ctcode,ReservationDto reserv) {
+	public ModelAndView reservInsert(String ctcode,ReservationDto reserv,RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(ctcode);
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println(loginId);
-		mav = rsv.reservInsert(ctcode,loginId,reserv);
+		mav = rsv.reservInsert(ctcode,loginId,reserv,ra);
 		return mav;
 	}
 	//주문 목록 확인

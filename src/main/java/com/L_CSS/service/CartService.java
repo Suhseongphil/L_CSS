@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.CartDao;
 import com.L_CSS.dto.CartDto;
@@ -133,7 +134,7 @@ public class CartService {
 		return selectCart;
 	}
 	//장바구니 담기
-	public String cartInsert(String pdcode, String pdcmcode, String loginId) {
+	public String cartInsert(String pdcode, String pdcmcode, String loginId, RedirectAttributes ra) {
 		System.out.println("cartInsert()호출");
 		String max = cdao.getmax();
 		String ctcode = "CT";
@@ -156,7 +157,7 @@ public class CartService {
 		
 		int insertCart = cdao.InsertCart(pdcode,pdcmcode,loginId,ctcode);
 		
-		
+		ra.addFlashAttribute("msg","제품을 장바구니에 담았습니다.");
 		return "redirect:/shopMain";
 	}
 	

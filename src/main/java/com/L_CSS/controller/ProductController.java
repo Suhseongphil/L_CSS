@@ -1,6 +1,7 @@
 package com.L_CSS.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,11 @@ public class ProductController {
 
 	// 메인 페이지 이동
 	@RequestMapping(value = "/")
-	public ModelAndView Main() {
+	public ModelAndView Main(String msg,RedirectAttributes ra) throws UnsupportedEncodingException {
 		System.out.println("메인 페이지 호출");
 		ModelAndView mav = new ModelAndView();
-		
-		mav = psv.mainProduct();
+		System.out.println(msg);
+		mav = psv.mainProduct(msg,ra);
 		
 		return mav;
 	}

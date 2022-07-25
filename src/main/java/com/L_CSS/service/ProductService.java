@@ -2,6 +2,8 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -37,7 +39,7 @@ public class ProductService {
 	
 	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\ProductFile";
 
-	public ModelAndView mainProduct() {
+	public ModelAndView mainProduct(String msg, RedirectAttributes ra) throws UnsupportedEncodingException {
 		ArrayList<ProductDto> productList = new ArrayList<ProductDto>();
 		ModelAndView mav = new ModelAndView();
 		
@@ -53,6 +55,7 @@ public class ProductService {
 		System.out.println(productList);
 		
 		mav.addObject("productList", productList);
+		
 		mav.setViewName("/Main");
 		
 		return mav;

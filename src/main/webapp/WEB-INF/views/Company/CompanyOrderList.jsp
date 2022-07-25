@@ -198,6 +198,9 @@
 															
 													</div>
 												</c:when>
+												<c:when test="${odList.restate == 4}">
+													<h6>배송완료</h6>
+												</c:when>
 												<c:otherwise>
 												<form action="deleteOrder" method="get">
 													<div class="col-1">

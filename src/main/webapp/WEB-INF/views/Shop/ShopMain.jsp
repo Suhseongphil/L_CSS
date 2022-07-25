@@ -145,5 +145,11 @@
 	});
 </script>
 
-
+<script type="text/javascript">
+	var checkMsg = '${msg}';
+	console.log(checkMsg);
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
 </html>
