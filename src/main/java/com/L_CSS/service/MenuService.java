@@ -166,27 +166,31 @@ public class MenuService {
 		
 		return menu;
 	}
-	/* 여기부터 해야됨
-	public void MymuModify(MenuDto menu) {
+	
+	public void MymuModify(MenuDto menu) throws IllegalStateException, IOException {
 
 		System.out.println("MymuModify() 호출");
 		
 		String imgFile = "";
 		//기존이미지 가져오기
 		String cfmuimg = mdao.getMyMenuImg(menu.getMucode());
-		MultipartFile imgs = menu.getMuimg();
-		if (!imgs.isEmpty()) {
+		System.out.println(menu);
+		System.out.println(cfmuimg);
+		MultipartFile imgs = menu.getMuims();
+		System.out.println(imgs);
+		if (imgs != null) {
 			File file = new File(savePath_mu + cfmuimg);
 			file.delete();
 			UUID uuid = UUID.randomUUID();
 			cfmuimg = uuid.toString() + "_" + imgs.getOriginalFilename();
 			imgs.transferTo(new File(savePath_mu, cfmuimg));
-
+		}else {
+			
+			menu.setMuimg(cfmuimg);
 		}
-		menu.setmuimg(cfmuimg);
-		
+		System.out.println("이미지 담음" + menu);
 		int updateMymenu = mdao.updateMymenu(menu);
 		
 	}
-	 */
+	 
 }

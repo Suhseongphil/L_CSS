@@ -80,11 +80,11 @@ public class MenuController {
 		}
 	//내카페 메뉴 수정 출력
 		@RequestMapping(value= "/MymuModify")
-		public @ResponseBody void MymuModify(MenuDto menu) {
+		public @ResponseBody void MymuModify(MenuDto menu) throws IllegalStateException, IOException {
 			System.out.println("내 카페 메뉴 수정 요청");
 			System.out.println(menu);
 			
-			//msv.MymuModify(menu);
+			msv.MymuModify(menu);
 			
 			
 			

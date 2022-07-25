@@ -8,6 +8,7 @@ import lombok.Data;
 public class CompanyDto {
 
 	private	String	cmcode;
+	private String cmmid;
 	private	String	cmname;
 	
 	private	String	cmaddress;
@@ -15,6 +16,7 @@ public class CompanyDto {
 	private String cmaddr;
 	private String cmdetailaddress;
 	private String cmextraaddress;
+	private String cmaddr2;
 	
 	private	String	cmtel;
 	

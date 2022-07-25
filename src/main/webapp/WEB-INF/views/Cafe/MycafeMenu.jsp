@@ -357,13 +357,20 @@ span, h1 {
 			$(selObj).addClass("cafeStateMod-blue-btn");
 			var mustate = '0';
 		}
-
+		var muims = $("#muims").val();
+		var muname =$("#muname").val();
+		var muprice = $("#muprice").val();
+		var mutype = $("#mutype").val();
 		$.ajax({
 			type : "get",
 			url : "mustateModify",
 			data : {
 				"mucode" : mucode,
-				"mustate" : mustate
+				"mustate" : mustate,
+				"muims" : muims,
+				"muname" : muname,
+				"muprice" : muprice,
+				"mutype" : mutype
 			},
 			async : false,
 			success : function(result) {
@@ -403,14 +410,14 @@ span, h1 {
 		var formData = new FormData();
 		var inputFile = $("input[name = 'imgMod_" + mucode + "']");
 		var files = inputFile[0].files;
-
 		for (var i = 0; i < files.length; i++) {
-			formData.append("muimg", files[i]);
+			formData.append("muims", files[i]);
 		}
+		console.log(files)
 		formData.append("mucode", $("#codeMod_" + mucode).val());
 		formData.append("muname", $("#nameMod_" + mucode).val());
 		formData.append("muprice", $("#priceMod_" + mucode).val());
-		formData.append("mutype", $("#typeMod_" + mucode).val());
+		formData.append("mutype", $("#menuMod_" + mucode).val());
 		formData.append("mustate", $("#stateMod_" + mucode).val());
 
 		$.ajax({

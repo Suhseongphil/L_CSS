@@ -16,6 +16,10 @@ public interface CompanyDao {
 
 	CompanyDto ComInfo(String cmcode);
 
+	int insertMyCompany(CompanyDto company);
+
+	CompanyDto MycompanyInfo(String loginId);
+
 	
 
 }
