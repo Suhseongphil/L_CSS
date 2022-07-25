@@ -133,4 +133,15 @@ public class GroupBuyService {
 		return mav;
 	}
 
+	public ModelAndView insertGbpeople(GbpeopleDto gbInfo) {
+		System.out.println("AdminService.insertGbpeople() 호출");
+		ModelAndView mav = new ModelAndView();
+		
+		gbdao.insertGbpeopleDto(gbInfo);
+		
+		mav.setViewName("GroupBuy/GroupBuyChatRoom");
+		
+		return null;
+	}
+
 }

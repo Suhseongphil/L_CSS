@@ -3,10 +3,10 @@ package com.L_CSS.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.L_CSS.dto.GbpeopleDto;
 import com.L_CSS.dto.GroupBuyDto;
 import com.L_CSS.service.GroupBuyService;
 
@@ -63,7 +63,18 @@ public class GroupBuyController {
 		System.out.println("공동구매 글 상세보기 요청");
 		ModelAndView mav = new ModelAndView();
 		mav = gbsvc.getGroupBuy(gbcode);
-	
+
+		return mav;
+	}
+
+	// 공동구매 참여
+	@RequestMapping(value = "/joinGroupBuy")
+	public ModelAndView joinGroupBuy(GbpeopleDto gbInfo) {
+		System.out.println("공동구매 참여 요청");
+		ModelAndView mav = new ModelAndView();
+
+		mav = gbsvc.insertGbpeople(gbInfo);
+
 		return mav;
 	}
 }
