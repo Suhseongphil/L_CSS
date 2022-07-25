@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -130,7 +131,12 @@ span, h1 {
 						<span class="font-weight-bold">상품타입</span>
 					</div>
 					<div class="items">
-						<input type="text" id="pdtype" name="pdtype" placeholder="메뉴 타입">
+						
+						<select id="pdtype" name="pdtype">
+						<c:forEach items="${productType}" var="pdtype2">
+						<option value="${pdtype2 }">${pdtype2}</option>
+						</c:forEach>
+						</select>
 					</div>
 				</div>
 				<div class="col-2">
@@ -355,13 +361,13 @@ span, h1 {
 
 		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");
-			$(selObj).removeClass("productStateMod-blue-btn");
-			$(selObj).addClass("productStateMod-red-btn");
+			$(selObj).removeClass("cafeStateMod-blue-btn");
+			$(selObj).addClass("cafeStateMod-red-btn");
 			var pdstate = '1';
 		} else {
 			$(selObj).text("활동중");
-			$(selObj).removeClass("productStateMod-red-btn");
-			$(selObj).addClass("productStateMod-blue-btn");
+			$(selObj).removeClass("cafeStateMod-red-btn");
+			$(selObj).addClass("cafeStateMod-blue-btn");
 			var pdstate = '0';
 		}
 		$.ajax({
@@ -381,11 +387,13 @@ span, h1 {
 
 
 	function pdDelete(pdcode) {
+		var pdimg = $("#pdimgs").val();
 		$.ajax({
 			type : "get",
 			url : "productDelete",
 			data : {
 				"pdcode" : pdcode,
+				"pdimg" : pdimg
 			},
 			async : false,
 			success : function(result) {

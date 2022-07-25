@@ -33,7 +33,7 @@ public interface ProductDao {
 	int insertProduct(ProductDto product);
 
 
-	int updateState(String pdcode, int pdstate);
+	int updateState(@Param("pdcode") String pdcode,@Param("pdstate") int pdstate);
 
 	int deleteProduct(String pdcode);
 
@@ -46,5 +46,7 @@ public interface ProductDao {
 	String getMyProductImg(String pdcode);
 
 	int updateMyProduct(ProductDto product);
+
+	ArrayList<String> getPdType();
 
 }

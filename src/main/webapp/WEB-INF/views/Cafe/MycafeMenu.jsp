@@ -130,7 +130,11 @@ span, h1 {
 						<span class="font-weight-bold">메뉴타입</span>
 					</div>
 					<div class="items">
-						<input type="text" id="mutype" name="mutype" placeholder="메뉴 타입">
+						<select id="mutype" name="mutype">
+						<c:forEach items="${menuType}" var="mutype2">
+						<option value="${mutype2 }">${mutype2}</option>
+						</c:forEach>
+						</select>
 					</div>
 				</div>
 				<div class="col-2">
