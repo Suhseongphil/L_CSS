@@ -54,30 +54,31 @@
 	</section>
 	<section>
 		<div class="container" style="padding-left: 80px;">
-			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
+			<div class="col-lg-12 col-md-3" style="margin-left: 100px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-8">
-									<div class="shoping__cart__btns">
+								<div class="col-lg-12" style="margin-top: 30px;">
+									<div class="shoping__cart__btns" style="margin-left: 250px; margin-top: -70px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
-
-										</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-										<button type="submit">검색</button>
+										</select> 
+										<input style="margin-left: -400px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
+										<button style="margin-left: 10px;" type="submit">검색</button>
 									</div>
 								</div>
 							</div>
 						</form>
+						<h2 style="margin-top: 30px; margin-left: -150px;">검색 상품</h2>
 					</div>
 					<div class="row">
 						<div class="row">
 
 							<c:forEach items="${searchList}" var="pro">
-								<div class="col-lg-4">
+								<div class="col-lg-3" style="padding: 25px;margin-top: -50px; margin-left: -30px;">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
@@ -124,7 +125,7 @@
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
 		var type = $(this).text();
-		location.href="searchType?type="+type
+		location.href = "searchType?type=" + type
 	});
 </script>
 <script>
