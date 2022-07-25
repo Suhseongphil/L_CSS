@@ -100,7 +100,7 @@
 									<div class="text-center ">
 										<h1 class="h4 text-gray-900 mb-4">로그인</h1>
 									</div>
-									<form class="user" method="post" action="memberLogin">
+									<form class="user" method="post" action="memberLogin" onsubmit="return joinFormCheck();">
 										<div class="form-group">
 											<input type="text" class="form-control form-control-user"
 												id="mid" name="mid" aria-describedby="emailHelp"
@@ -155,7 +155,24 @@
 
 </body>
 <script type="text/javascript">
-	var checkMsg = '${msg}'
+function joinFormCheck() {
+	/* 아이디 입력 확인 */
+	
+	if ($("#mid").val().length == 0) {
+		alert("비밀번호를 입력 해주세요!");
+		$("#mid").focus();
+		return false;
+	}
+	/* 비밀번호 입력 확인 */
+	if ($("#mpw").val().length == 0) {
+		alert("비밀번호를 입력 해주세요!");
+		$("#mpw").focus();
+		return false;
+	}
+}
+</script>
+<script type="text/javascript">
+	var checkMsg = '${msg}';
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}
@@ -203,6 +220,7 @@
 				},
 			});
 </script>
+
 <script type="text/javascript">
 	function memberKakaoLogin(mid, memail, mname, mprofile) {
 		console.log(mid);

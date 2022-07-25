@@ -47,4 +47,6 @@ public interface ProductDao {
 
 	int updateMyProduct(ProductDto product);
 
+	ProductDto productInfo(String pdcode);
+
 }

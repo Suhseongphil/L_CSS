@@ -55,55 +55,54 @@
 	<section>
 		<%@ include file="../includes/SideBar2.jsp"%>
 	</section>
-	<section>
-		<div class="container" style="padding-left: 80px;">
-			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
-				<div class="product__discount">
-					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -450px;">
-						<form action="searchProduct" method="get">
-							<div id="search" class="row">
-								<div class="col-lg-8">
-									<div class="shoping__cart__btns">
-										<select name="pdcategory" id="pdcategory">
-											<option value="pdname">이름</option>
-											<option value="pdtype">종류</option>
+	<section class="product-details spad">
+        <div class="container">
 
-										</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-										<button type="submit">검색</button>
-
-									</div>
-								</div>
-
-							</div>
-						</form>
-						<h2>추천 상품</h2>
-					</div>
-					<div class="row">
-						<div class="product__discount__slider owl-carousel">
-
-							<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
-								<div class="col-lg-4">
-									<div class="product__discount__item">
-										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
-										<div class="product__discount__item__text">
-											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
-											</a> <span>${pro.pdname}</span>
-											<h5>
-												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
-											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="${productInfo.pdimg }" alt="">
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>${productInfo.pdname }</h3>
+                        <div class="product__details__rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <span>(리뷰수)</span>
+                        </div>
+                        <div class="product__details__price">${productInfo.pdprice }</div>
+                        <p>상품소개내용</p>
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn">장바구니담기</a>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <ul>
+                            <li><b>업체명</b> <span>${companyInfo.cmname }</span></li>
+                            <li><b>배송시간</b> <span>1~2일 소요 <samp>&nbsp;&nbsp; 연중무휴</samp></span></li>
+                            
+                                
+                           
+                        </ul>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>

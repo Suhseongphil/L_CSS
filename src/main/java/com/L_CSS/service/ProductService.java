@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.L_CSS.dao.CompanyDao;
 import com.L_CSS.dao.ProductDao;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
@@ -28,6 +29,8 @@ public class ProductService {
 
 	@Autowired
 	ProductDao pdao;
+	@Autowired
+	CompanyDao cdao;
 	
 	@Autowired
 	private HttpSession session;
@@ -484,6 +487,18 @@ public class ProductService {
 			System.out.println("이미지 담음" + product);
 			int updateMymenu = pdao.updateMyProduct(product);
 			
+		}
+		//제품 상세보기 페이지 이동
+		public ModelAndView productInfo(String pdcode) {
+			System.out.println("productInfo()호출");
+			ModelAndView mav = new ModelAndView();
+			ProductDto productInfo = pdao.productInfo(pdcode);
+			CompanyDto companyInfo = cdao.companyInfo(pdcode);
+			mav.addObject("productInfo", productInfo);
+			mav.addObject("companyInfo",companyInfo);
+			mav.setViewName("option/productInfo");
+			
+			return mav;
 		}
 	
 	

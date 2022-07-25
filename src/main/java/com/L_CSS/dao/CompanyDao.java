@@ -24,6 +24,8 @@ public interface CompanyDao {
 
 	int updateMycompany(CompanyDto company);
 
+	CompanyDto companyInfo(String pdcode);
+
 	
 
 }

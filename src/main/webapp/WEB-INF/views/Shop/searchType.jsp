@@ -193,7 +193,7 @@
 											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
 											</a> <span>${pro.pdname}</span>
 											<h5>
-												<a href="#">${pro.pdtype}</a>
+												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 											</h5>
 											<div class="product__item__price">${pro.pdprice}</div>
 										</div>

@@ -86,12 +86,12 @@
 				<div class="card-body p-0">
 					<!-- Nested Row within Card Body -->
 
-					<div class="p-5" >
+					<div class="p-5">
 						<div class="text-center ">
 							<h1 class="h4 text-gray-900 mb-4" style="font-weight: bold;">회원가입</h1>
 						</div>
 						<form class="user" action="memberJoin" method="post"
-							enctype="multipart/form-data">
+							enctype="multipart/form-data" onsubmit="return joinFormCheck();">
 							<div class="form-group">
 								<label>아이디</label> <input type="text"
 									class="form-control form-control-user" id="mid" name="mid"
@@ -189,8 +189,7 @@
 	<script
 		src="${pageContext.request.contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!-- Custom scripts for all pages-->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
+	
 </body>
 <script type="text/javascript">
 	$("#domainSelect").change(function() {
@@ -199,7 +198,50 @@
 		$("#emailDomain").val(selDomain);
 	});
 </script>
+<script type="text/javascript">
+	function joinFormCheck() {
+		/* 아이디 입력 확인 */
+		
+		/* 비밀번호 입력 확인 */
+		if ($("#mpw").val().length == 0) {
+			alert("비밀번호를 입력 해주세요!");
+			$("#mpw").focus();
+			return false;
+		}
+		/* 이름 입력 확인 */
+		if ($("#mname").val().length == 0) {
+			alert("이름을 입력 해주세요!");
+			$("#mname").focus();
+			return false;
+		}
+		/* 전화번호 입력 확인 */
+		if ($("#mtel").val().length == 0) {
+			alert("전화번호을 입력 해주세요!");
+			$("#mtel").focus();
+			return false;
+		}
+		/* 이메일 입력 확인 */
+		if ($("#memail").val().length == 0) {
+			alert("이메일을 입력 해주세요!");
+			$("#memail").focus();
+			return false;
+		}
+		/* 이메일 도메인 입력 확인 */
+		if ($("#emailDomain").val().length == 0) {
+			alert("이메일 도메인을 입력 해주세요!");
+			$("#emailDomain").focus();
+			return false;
+		}
+		/* 주소 입력 확인 */
+		if ($("#maddr").val().length == 0) {
+			alert("주소을 입력 해주세요!");
+			$("#maddr").focus();
+			return false;
+		}
+		
 
+	}
+</script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

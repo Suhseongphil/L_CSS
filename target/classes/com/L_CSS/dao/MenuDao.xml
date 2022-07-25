@@ -37,6 +37,7 @@
 		select * 
 		from MENU
 		where MUCFCODE = #{cfcode}
+		
 	</select>
 	
 	<select id ="MyCafeInfo" resultType="com.L_CSS.dto.CafeDto">

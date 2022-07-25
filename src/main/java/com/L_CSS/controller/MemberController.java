@@ -73,10 +73,10 @@ public class MemberController {
 
 	// 로그아웃 요청
 	@RequestMapping(value = "/memberLogout")
-	public ModelAndView MemberLogout() {
+	public ModelAndView MemberLogout(RedirectAttributes ra) {
 		System.out.println("로그아웃 요청");
 		ModelAndView mav = new ModelAndView();
-		mav = mvc.memberLogout();
+		mav = mvc.memberLogout(ra);
 
 		return mav;
 
