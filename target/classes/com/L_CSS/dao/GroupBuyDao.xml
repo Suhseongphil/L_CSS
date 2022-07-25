@@ -5,29 +5,50 @@
 
 <mapper namespace="com.L_CSS.dao.GroupBuyDao">
 	<select id="getGroupBuyInfo" resultType="com.L_CSS.dto.GroupBuyDto">
-		SELECT GBCODE, GBMID, GBTITLE, GBPDCODE, GBCOMMENT, TO_CHAR(GBSDATE , 'YYYY-MM-DD') AS GBSDATE, TO_CHAR(GBFDATE , 'YYYY-MM-DD') AS GBFDATE 
+		SELECT GBCODE, GBMID, GBTITLE, GBPDCODE, GBCOMMENT, TO_CHAR(GBSDATE , 'YYYY-MM-DD') AS GBSDATE, TO_CHAR(GBFDATE , 'YYYY-MM-DD') AS GBFDATE
 		FROM GROUPBUY ORDER BY GBCODE DESC
 	</select>
-	
+
 	<select id="getPdType" resultType="String">
 		SELECT PDTYPE
 		FROM PRODUCT
-		GROUP BY PDTYPE 
+		GROUP BY PDTYPE
 	</select>
-	
+
 	<select id="getProduct" resultType="com.L_CSS.dto.ProductDto">
 		SELECT * FROM PRODUCT
-		WHERE PDTYPE = #{pdtype}
+		WHERE PDTYPE = #{pdtype} AND PDSTATE = 1
 	</select>
-	
+
 	<select id="getAddress" resultType="String">
 		SELECT CFADDRESS
 		FROM CAFE
 		WHERE CFMID = #{loginId}
 	</select>
-	
+
 	<select id="getmax" resultType="String">
 		SELECT MAX(GBCODE)
 		FROM GROUPBUY
+	</select>
+
+	<insert id="insertGroupBuy">
+		INSERT INTO GROUPBUY (GBCODE, GBMID, GBTITLE, GBPDCODE, GBCOMMENT, GBSDATE, GBFDATE, GBREGION)
+		VALUES (#{gbcode}, #{gbmid}, #{gbtitle}, #{gbpdcode}, #{gbcomment}, SYSDATE, #{gbfdate}, #{gbregion})
+	</insert>
+
+	<select id="getGroupbuy" resultType="com.L_CSS.dto.GbreserveDto">
+		SELECT GB.GBCODE, GB.GBMID, GB.GBTITLE, GB.GBPDCODE, GB.GBCOMMENT, TO_CHAR(GB.GBSDATE, 'YYYY/MM/DD') AS GBSDATE, TO_CHAR(GB.GBFDATE, 'YYYY/MM/DD') AS GBFDATE, GB.GBREGION, PD.PDNAME, PD.PDIMG, PD.PDPRICE
+		FROM GROUPBUY GB, PRODUCT PD
+		WHERE GB.GBPDCODE = PD.PDCODE AND GBCODE = #{gbcode}
+	</select>
+
+	<select id="gbpeopleCnt" resultType="int">
+		SELECT NVL(MAX(gpgbcode), 0)
+		FROM GBPEOPLE
+		WHERE GPGBCODE = #{gbcode};
+	</select>
+	
+	<select id="getGbpeople" resultType="com.L_CSS.dto.GbpeopleDto">
+		SELECT * FROM GBPEOPLE WHERE GPGBCODE = #{gbcode}
 	</select>
 </mapper>
