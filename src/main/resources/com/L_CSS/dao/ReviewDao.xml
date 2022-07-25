@@ -9,5 +9,8 @@
 			select max(rvrecode)
 			from REVIEW
 		</select>
-  	
+  		
+  		<insert id="insertResult">
+  			insert into REVIEW values(#{rvrecode},#{loginId},#{pdcode},#{recomment},sysdate,#{rvrecommend})
+  		</insert>
   </mapper>

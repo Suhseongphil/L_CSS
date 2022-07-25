@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.service.ReviewService;
 
@@ -23,7 +24,18 @@ public class ReviewController {
 		return mav;
 	}
 	
-	
+	//리뷰작성 요청
+	@RequestMapping (value="/reViewInsert")
+	public String reViewInsert(String pdcode,String recomment, int rvrecommend,RedirectAttributes ra,String recode ) {
+		System.out.println("리뷰작성요청");
+		System.out.println(pdcode);
+		System.out.println(recomment);
+		System.out.println(rvrecommend);
+		System.out.println(recode);
+		String ReViewInsert = rsv.insertReview(pdcode,recomment,rvrecommend,ra,recode);
+		
+		return ReViewInsert;
+	}
 	
 	
 	
