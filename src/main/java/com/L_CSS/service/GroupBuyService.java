@@ -125,6 +125,7 @@ public class GroupBuyService {
 		int gbCnt = gbdao.gbpeopleCnt(gbcode);
 		
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
+		System.out.println(gbpeopleList);
 		
 		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
@@ -141,7 +142,19 @@ public class GroupBuyService {
 		
 		mav.setViewName("GroupBuy/GroupBuyChatRoom");
 		
-		return null;
+		return mav;
+	}
+
+	public ModelAndView deleteGroupBuyBoard(String gbcode) {
+		System.out.println("AdminService.deleteGroupBuyBoard() 호출");
+		ModelAndView mav = new ModelAndView();
+		
+//		gbdao.deleteChatRoom(gbcode);
+		gbdao.deleteGbpeople(gbcode);
+		gbdao.deleteGroupBuy(gbcode);
+		
+		mav.setViewName("redirect:/groupBuyBoard");
+		return mav;
 	}
 
 }
