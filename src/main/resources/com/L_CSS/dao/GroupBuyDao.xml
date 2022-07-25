@@ -45,10 +45,14 @@
 	<select id="gbpeopleCnt" resultType="int">
 		SELECT NVL(MAX(gpgbcode), 0)
 		FROM GBPEOPLE
-		WHERE GPGBCODE = #{gbcode};
+		WHERE GPGBCODE = #{gbcode}
 	</select>
 	
 	<select id="getGbpeople" resultType="com.L_CSS.dto.GbpeopleDto">
 		SELECT * FROM GBPEOPLE WHERE GPGBCODE = #{gbcode}
 	</select>
+	
+	<insert id="insertGbpeopleDto">
+	
+	</insert>
 </mapper>
