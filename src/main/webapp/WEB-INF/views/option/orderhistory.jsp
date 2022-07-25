@@ -254,20 +254,19 @@ textarea {
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
 													<div class="col-1">
-														<h5>배송준비</h5>
+														<h5 style="font-size: 18px;">배송준비</h5>
 													</div>
 												</c:when>
 												<c:when test="${odList.restate == 2}">
 													<div class="col-1">
 														<h5>배송완료</h5>
-														<c:choose>
-														<c:when test="${odList.restate == 4}">
-														<h5>리뷰완료</h5>
-														</c:when>
-														<c:otherwise>
-														<button id="show" value="${odList.recode }">리뷰작성</button>
-														</c:otherwise>
-														</c:choose>
+														<button id="show" value="${odList.recode }">리뷰작성</button>	
+													</div>
+												</c:when>
+												<c:when test="${odList.restate == 4}">
+													<div class="col-1">
+														<h5>배송완료</h5>
+														<h6>리뷰작성완료</h6>														
 													</div>
 												</c:when>
 											</c:choose>

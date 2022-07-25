@@ -47,5 +47,10 @@
   		SET CMNAME= #{cmname}, CMTEL=#{cmtel}, CMLINK=#{cmlink},CMIMG=#{cmimg}, CMADDRESS=#{cmaddress}
   		WHERE CMMID = #{cmmid}
   		</update>	
-		
+	
+	<select id="companyInfo" resultType="com.L_CSS.dto.CompanyDto">
+		select * 
+		from company cm , product pd
+		where cm.cmcode = pd.pdcmcode and pd.pdcode= #{pdcode}
+	</select>	
   </mapper>

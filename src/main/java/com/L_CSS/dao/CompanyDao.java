@@ -23,7 +23,8 @@ public interface CompanyDao {
 	String getcompanyImg(String cmmid);
 
 	int updateMycompany(CompanyDto company);
-
+	
+	CompanyDto companyInfo(String pdcode);
 	
 
 }

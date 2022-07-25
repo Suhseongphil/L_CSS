@@ -164,8 +164,17 @@ public class ProductController {
 				psv.MypdModify(product);
 				
 			}
+			//제품 상세보기 페이지
+			@RequestMapping (value="/productInfo")
+			public ModelAndView productInfo(String pdcode) {
+				System.out.println("제품 상세보기 페이지 이동");
+				ModelAndView mav = new ModelAndView();
+				System.out.println(pdcode);
+				mav = psv.productInfo(pdcode);
 
-
+				return mav;
+			}
+			
 
 
 

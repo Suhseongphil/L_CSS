@@ -156,13 +156,14 @@ public class MemberService {
 	}
 
 	// 로그아웃 요청
-	public ModelAndView memberLogout() {
+	public ModelAndView memberLogout(RedirectAttributes ra) {
 		System.out.println("memberLogout()요청");
 		ModelAndView mav = new ModelAndView();
 
 		session.invalidate();
-
-		mav.setViewName("Main");
+		ra.addFlashAttribute("msg", "로그인되었습니다.");
+		mav.setViewName("redirect:/main");
+		
 		return mav;
 	}
 

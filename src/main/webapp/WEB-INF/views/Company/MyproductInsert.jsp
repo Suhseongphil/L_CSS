@@ -284,8 +284,8 @@ span, h1 {
 			output += "<div class=\"col-3\">";
 			if (product[i].pdimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
-				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/"
-						+ product[i].pdimg + "\">";
+				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=" + product[i].pdimg + ">";
+						
 			} else {
 				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
 			}

@@ -48,5 +48,6 @@ public interface ProductDao {
 	int updateMyProduct(ProductDto product);
 
 	ArrayList<String> getPdType();
-
+	
+	ProductDto productInfo(String pdcode);
 }

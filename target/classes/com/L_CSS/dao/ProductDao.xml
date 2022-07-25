@@ -110,7 +110,11 @@
 	GROUP BY PDTYPE
 	</select>	
 	
-	
+	<select id="productInfo" resultType="com.L_CSS.dto.ProductDto">
+	select *
+	from PRODUCT
+	where PDCODE = #{pdcode}
+	</select>
 	
 	
 	

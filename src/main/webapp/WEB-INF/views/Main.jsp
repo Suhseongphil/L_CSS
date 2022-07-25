@@ -332,7 +332,8 @@
 </body>
 
 <script type="text/javascript">
-	var checkMsg = '${msg}'
+	var checkMsg = '${msg}';
+	console.log(checkMsg);
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}
