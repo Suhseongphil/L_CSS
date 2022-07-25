@@ -71,8 +71,8 @@
 
 										</select> <input style="margin-left: -400px; padding: 7px;" type="text"
 											placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-										<button class="btn-gradient red"
-											style="margin-left: -5px;" type="submit">검색</button>
+										<button class="btn-gradient red" style="margin-left: -5px;"
+											type="submit">검색</button>
 
 									</div>
 								</div>
@@ -112,9 +112,8 @@
 
 	<section>
 		<div class="row" style="margin-left: 200px; margin-right: 200px;">
-			<c:forEach items="${selectPro}" var="pro">
-				<div class="col-lg-2"
-					style="margin-top: 100px; margin: 20px;">
+			<c:forEach items="${selectproductList}" var="pro">
+				<div class="col-lg-2" style="margin-top: 100px; margin: 20px;">
 					<div class="product__discount__item">
 						<div class="product__discount__item__pic set-bg"
 							data-setbg="${pro.pdimg }"></div>
@@ -130,6 +129,36 @@
 					</div>
 				</div>
 			</c:forEach>
+		</div>
+		<div style="font-size: 16px; margin-left: 480px; margin-bottom: 30px;">
+
+			<c:choose>
+				<c:when test="${pagedto.page <= 1 }">
+                      [이전]
+                         </c:when>
+				<c:otherwise>
+					<a href="shopMain?page=${pagedto.page - 1}">[이전]</a>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+				var="num" step="1">
+				<c:choose>
+					<c:when test="${pagedto.page == num }">
+						<span style="font-size: 20px;">${num }</span>
+					</c:when>
+					<c:otherwise>
+						<a href="shopMain?page=${num}"> ${num } </a>&nbsp;&nbsp;
+                      </c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pagedto.page >= pagedto.maxPate }">
+                      [다음]
+                   </c:when>
+				<c:otherwise>
+					<a href="shopMain?page=${pagedto.page + 1}">[다음]</a>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</section>
 	<footer class="footer">

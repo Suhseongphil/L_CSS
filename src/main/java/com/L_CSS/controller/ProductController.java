@@ -24,11 +24,22 @@ public class ProductController {
 	public ModelAndView Main() {
 		System.out.println("메인 페이지 호출");
 		ModelAndView mav = new ModelAndView();
-		
+
 		mav = psv.mainProduct();
-		
+
 		return mav;
 	}
+
+	// 상품 목록 요청
+//	@RequestMapping(value = "/productList")
+//	public ModelAndView productList(String page) {
+//		System.out.println("상품 목록 요청");
+//		System.out.println(page);
+//		ModelAndView mav = new ModelAndView();
+//
+//		mav = psv.productList(page);
+//		return mav;
+//	}
 
 	@RequestMapping(value = "/productUpLoad")
 	public ModelAndView productUpLoad() {
@@ -72,119 +83,101 @@ public class ProductController {
 
 	// 상품목록 출력
 	@RequestMapping(value = "/shopMain")
-	public ModelAndView shopMain() {
+	public ModelAndView shopMain(String page) {
 		System.out.println("상품 목록 출력");
 		ModelAndView mav = new ModelAndView();
 
-		mav = psv.selectProduct();
+//		mav = psv.selectProduct();
+		mav = psv.productList(page);
 
 		return mav;
 	}
-	//검색창
-	@RequestMapping(value="/searchProduct")
-	public  ModelAndView searchText(String pdcategory,String searchText) {
+
+	// 검색창
+	@RequestMapping(value = "/searchProduct")
+	public ModelAndView searchText(String pdcategory, String searchText) {
 		System.out.println("상품검색");
 		System.out.println(pdcategory);
 		System.out.println(searchText);
 		ModelAndView mav = new ModelAndView();
 
-		mav = psv.searchProduct(pdcategory,searchText);
-		
+		mav = psv.searchProduct(pdcategory, searchText);
+
 		return mav;
 	}
 
-	//카테고리 선택
-	@RequestMapping(value="/searchType")
+	// 카테고리 선택
+	@RequestMapping(value = "/searchType")
 	public ModelAndView searchType(String type) {
 		System.out.println("카테고리 선택");
 		System.out.println(type);
-		
+
 		ModelAndView mav = new ModelAndView();
 
 		mav = psv.searchType(type);
 		return mav;
 	}
-	//메뉴정보 입력 페이지 이동
-		@RequestMapping(value = "/myProduct")
-		public ModelAndView myProduct(RedirectAttributes ra) {
-			ModelAndView mav = new ModelAndView();
-						
-			System.out.println("상품정보 입력 페이지 요청");
 
-			mav = psv.myProduct(ra);
-			return mav;
-		}
-		
-		// 메뉴 정보 입력
-		@RequestMapping(value = "/productInsert")
-		public @ResponseBody void productInsert(ProductDto product) throws IllegalStateException, IOException {
-			System.out.println("상품정보 입력 기능호출 ");
-			psv.productInsert(product);
-		}
+	// 메뉴정보 입력 페이지 이동
+	@RequestMapping(value = "/myProduct")
+	public ModelAndView myProduct(RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
 
-		// 메뉴 정보 출력
-		@RequestMapping(value = "/getProductInfo")
-		public @ResponseBody String getProductInfo() {
-			System.out.println("상품정보 출력 ");
+		System.out.println("상품정보 입력 페이지 요청");
 
-			String getProductInfo = psv.getMyProduct2();
+		mav = psv.myProduct(ra);
+		return mav;
+	}
 
-			return getProductInfo;
-		}
+	// 메뉴 정보 입력
+	@RequestMapping(value = "/productInsert")
+	public @ResponseBody void productInsert(ProductDto product) throws IllegalStateException, IOException {
+		System.out.println("상품정보 입력 기능호출 ");
+		psv.productInsert(product);
+	}
 
-		// 메뉴 상태 변경
-		@RequestMapping(value = "/pdstateModify")
-		public @ResponseBody void pdstateModify(String pdcode, int pdstate) {
-			System.out.println("상품 수정");
-			psv.pdstateModify(pdcode, pdstate);
-		}
+	// 메뉴 정보 출력
+	@RequestMapping(value = "/getProductInfo")
+	public @ResponseBody String getProductInfo() {
+		System.out.println("상품정보 출력 ");
 
-		// 메뉴 삭제
-		@RequestMapping(value = "/productDelete")
-		public @ResponseBody void productDelete(String pdcode, String pdimg) {
-			System.out.println("상품 삭제");
-			psv.productDelete(pdcode, pdimg);
-		}
-		
-		//내카페 메뉴 정보 출력
-			@RequestMapping(value = "/getMyProductInfo")
-			public @ResponseBody String getMyProductInfo(String pdcmcode) {
-				System.out.println("내카페메뉴정보 출력 ");
+		String getProductInfo = psv.getMyProduct2();
 
-				String getMyProductInfo = psv.getMyProduct(pdcmcode);
+		return getProductInfo;
+	}
 
-				return getMyProductInfo;
-			}
-		//내카페 메뉴 수정 출력
-			@RequestMapping(value= "/MypdModify")
-			public @ResponseBody void MypdModify(ProductDto product) throws IllegalStateException, IOException {
-				System.out.println("내 업체 상품 수정 요청");
-				System.out.println(product);
-				
-				psv.MypdModify(product);
-				
-			}
+	// 메뉴 상태 변경
+	@RequestMapping(value = "/pdstateModify")
+	public @ResponseBody void pdstateModify(String pdcode, int pdstate) {
+		System.out.println("상품 수정");
+		psv.pdstateModify(pdcode, pdstate);
+	}
 
+	// 메뉴 삭제
+	@RequestMapping(value = "/productDelete")
+	public @ResponseBody void productDelete(String pdcode, String pdimg) {
+		System.out.println("상품 삭제");
+		psv.productDelete(pdcode, pdimg);
+	}
 
+	// 내카페 메뉴 정보 출력
+	@RequestMapping(value = "/getMyProductInfo")
+	public @ResponseBody String getMyProductInfo(String pdcmcode) {
+		System.out.println("내카페메뉴정보 출력 ");
 
+		String getMyProductInfo = psv.getMyProduct(pdcmcode);
 
+		return getMyProductInfo;
+	}
 
+	// 내카페 메뉴 수정 출력
+	@RequestMapping(value = "/MypdModify")
+	public @ResponseBody void MypdModify(ProductDto product) throws IllegalStateException, IOException {
+		System.out.println("내 업체 상품 수정 요청");
+		System.out.println(product);
 
+		psv.MypdModify(product);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 }

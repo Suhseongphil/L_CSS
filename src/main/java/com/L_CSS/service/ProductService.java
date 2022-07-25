@@ -20,6 +20,7 @@ import com.L_CSS.dao.ProductDao;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.MenuDto;
+import com.L_CSS.dto.PageDto;
 import com.L_CSS.dto.ProductDto;
 import com.google.gson.Gson;
 
@@ -306,15 +307,15 @@ public class ProductService {
 	}
 
 	// 상품 목록 출력
-	public ModelAndView selectProduct() {
-		System.out.println("selectProduct()호출");
-		ModelAndView mav = new ModelAndView();
-		ArrayList<ProductDto> selectPro = pdao.selectPro();
-		mav.addObject("selectPro", selectPro);
-		mav.setViewName("Shop/ShopMain");
-
-		return mav;
-	}
+//	public ModelAndView selectProduct() {
+//		System.out.println("selectProduct()호출");
+//		ModelAndView mav = new ModelAndView();
+//		ArrayList<ProductDto> selectPro = pdao.selectPro();
+//		mav.addObject("selectPro", selectPro);
+//		mav.setViewName("Shop/ShopMain");
+//
+//		return mav;
+//	}
 	//상품검색
 	public ModelAndView searchProduct(String pdcategory, String searchText) {
 		System.out.println("searchProduct()호출");
@@ -484,6 +485,48 @@ public class ProductService {
 			System.out.println("이미지 담음" + product);
 			int updateMymenu = pdao.updateMyProduct(product);
 			
+		}
+
+		public ModelAndView productList(String page) {
+			System.out.println("productList()호출");
+			ModelAndView mav = new ModelAndView();
+			int TotalCount2 = pdao.TotalCount2();
+			int page2 = 1;
+			
+			if(page != null) {
+				page2 = Integer.parseInt(page);
+			};
+			
+			//한페이지에 보여줄 글 개수
+			int pageCount = 8;
+			//한페이지에 보여줄 페이지 번호 개수
+			int pageNumCount = 5;
+			
+			int startRow = (page2 - 1) * pageCount +1;
+			int endRow = page2 * pageCount;
+			
+			int maxPage = (int)(Math.ceil((double)TotalCount2/pageCount));
+			int startPage = (int)(Math.ceil((double)page2/pageCount));
+			
+			int endPage = startPage + pageNumCount-1;
+			
+			if(endPage > maxPage) {
+				endPage = maxPage;
+			}
+			System.out.println(startRow);
+			System.out.println(endRow);
+			ArrayList<ProductDto> selectproductList = pdao.selectproductList(startRow,endRow);
+			PageDto pagedto = new PageDto();
+			pagedto.setPage(page2);
+			pagedto.setMaxPate(maxPage);
+			pagedto.setStartPage(startPage);
+			pagedto.setEndPage(endPage);
+			mav.addObject("pagedto",pagedto);
+			mav.addObject("selectproductList",selectproductList);
+			mav.setViewName("Shop/ShopMain");
+			System.out.println(selectproductList);
+			
+			return mav;
 		}
 	
 	

@@ -47,4 +47,10 @@ public interface ProductDao {
 
 	int updateMyProduct(ProductDto product);
 
+	int TotalCount2();
+
+	ArrayList<ProductDto> selectproductList(@Param("start")int startRow,@Param("end")int endRow);
+
+	
+
 }
