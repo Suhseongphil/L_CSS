@@ -260,7 +260,14 @@ textarea {
 												<c:when test="${odList.restate == 2}">
 													<div class="col-1">
 														<h5>배송완료</h5>
+														<c:choose>
+														<c:when test="${odList.restate == 4}">
+														<h5>리뷰완료</h5>
+														</c:when>
+														<c:otherwise>
 														<button id="show" value="${odList.recode }">리뷰작성</button>
+														</c:otherwise>
+														</c:choose>
 													</div>
 												</c:when>
 											</c:choose>
@@ -322,14 +329,14 @@ textarea {
 	</div>
 	<div class="reView">
 		<div class="window2">
-			<form class="user" action="" method="post"
+			<form class="user" action="reViewInsert" method="post"
 				enctype="multipart/form-data">
 				<div class="popup2" id="modal">
 					<div
 						style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
 						<label>회사명</label> <input type="text" id="cmname"
 							style="border: none;" readonly="readonly" name="cmname"
-							value="${memberInfo.mid }" class="form-control form-control-user">
+							 class="form-control form-control-user">
 					</div>
 					<br>
 					<div style="margin-left: 20px; margin-right: 400px;">
@@ -337,6 +344,8 @@ textarea {
 							readonly="readonly" id="pdname" name="pdname"
 							
 							class="form-control form-control-user">
+							<input type="hidden" id="pdcode" name="pdcode">
+							<input type="hidden" id="recode" name="recode">
 					</div>
 					<br>
 					
@@ -348,9 +357,13 @@ textarea {
 							</h5>
 						</div>
 					
+					<div>
+						<input type="radio" name="rvrecommend" value="0">공개
+						<input type="radio" name="rvrecommend" value="1">비공개
+					</div>
 
 					<button type="submit" id="save" class="btn text-white"
-						style="background-color: #000000; margin-left: 20px;">정보수정</button>
+						style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
 					<button type="button" id="close" class="btn text-white"
 						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
@@ -395,7 +408,12 @@ textarea {
 	<!-- ALL JS FILES -->
 
 </body>
-
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
 <script type="text/javascript">
 	function show() {
 		var recode = document.getElementById("show").value;
@@ -412,6 +430,8 @@ textarea {
 				
 				$("#cmname").val(reCode.cmname);
 				$("#pdname").val(reCode.pdname);
+				$("#pdcode").val(reCode.pdcode);
+				$("#recode").val(reCode.recode);
 
 			}
 			
