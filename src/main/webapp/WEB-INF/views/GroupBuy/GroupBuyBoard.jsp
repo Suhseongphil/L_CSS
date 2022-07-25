@@ -70,7 +70,7 @@
 					
 				</div>
 				<div class="col-2">
-					<a class="cafeStateMod-blue-btn" href="gbBoardWrite_form">게시글 작성</a>
+					<a class="cafeStateMod-blue-btn text-white" href="gbBoardWrite_form">게시글 작성</a>
 				</div>
 			</div>
 			<div class="row font-weight-bold text-center">

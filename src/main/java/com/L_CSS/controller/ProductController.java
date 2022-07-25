@@ -149,7 +149,7 @@ public class ProductController {
 		//내카페 메뉴 정보 출력
 			@RequestMapping(value = "/getMyProductInfo")
 			public @ResponseBody String getMyProductInfo(String pdcmcode) {
-				System.out.println("내카페메뉴정보 출력 ");
+				System.out.println("내업체 상품정보 출력 ");
 
 				String getMyProductInfo = psv.getMyProduct(pdcmcode);
 

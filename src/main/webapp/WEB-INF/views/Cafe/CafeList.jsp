@@ -14,10 +14,21 @@
 	name="author">
 <!-- Disable tap highlight on IE -->
 <meta name="msapplication-tap-highlight" content="no">
-<title>Title page</title>
+<title>카페리스트 페이지</title>
 <link
 	href="${pageContext.request.contextPath }/resources/css/main.82cfd66e.css"
 	rel="stylesheet">
+	
+	<style type="text/css">
+	.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+	}
+	</style>
+
+
 </head>
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
@@ -58,9 +69,9 @@
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-xs-12 section-container-spacer"
-				style="margin-top: 20px;">
-				<h3>카페 목록</h3>
+			<div class="hero__text2"
+				style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>카  페  목  록</h3>
 			</div>
 
 			<div class="col-lg-12 col-md-12">

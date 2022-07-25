@@ -464,10 +464,10 @@ public class ProductService {
 			return product;
 		}
 		
-		//내 메뉴 수정
+		//내 상품 수정
 		public void MypdModify(ProductDto product) throws IllegalStateException, IOException {
 
-			System.out.println("MymuModify() 호출");
+			System.out.println("MypdModify() 호출");
 			
 			String imgFile = "";
 			//기존이미지 가져오기

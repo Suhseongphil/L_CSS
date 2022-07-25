@@ -211,7 +211,7 @@ return mav;
 
 	public ModelAndView mycompanyInfo(RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("mycafeInfo() 호출");
+		System.out.println("mycompanyInfo() 호출");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
 		
