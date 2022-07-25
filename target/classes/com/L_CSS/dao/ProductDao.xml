@@ -102,6 +102,12 @@
 	SELECT PDIMG
 	FROM PRODUCT
 	WHERE PDCODE = #{pdcode}
+	</select>
+	
+	<select id="getPdType" resultType="String">
+	SELECT PDTYPE
+	FROM PRODUCT
+	GROUP BY PDTYPE
 	</select>	
 	
 	

@@ -147,9 +147,10 @@ public class MenuService {
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
 		
+		ArrayList<String> menuType = mdao.getType();
 		CafeDto mycafeInfo = mdao.MyCafeInfo(loginId);
 		
-		
+		mav.addObject("menuType",menuType);
 		mav.addObject("mycafeInfo", mycafeInfo);
 		mav.setViewName("Cafe/MycafeMenu");
 		return mav;

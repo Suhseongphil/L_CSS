@@ -28,4 +28,6 @@ public interface MenuDao {
 	int updateMymenu(MenuDto menu);
 
 	String getMyMenuImg(String muimg);
+
+	ArrayList<String> getType();
 }

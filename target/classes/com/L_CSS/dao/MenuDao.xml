@@ -61,5 +61,10 @@
 	FROM MENU
 	WHERE MUCODE = #{mucode}
 	</select>
+	<select id="getType" resultType="String">
+	SELECT MUTYPE
+	FROM MENU
+	GROUP BY MUTYPE
+	</select>
 
 </mapper>

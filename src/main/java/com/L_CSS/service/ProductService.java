@@ -340,9 +340,11 @@ public class ProductService {
 			String loginId = (String) session.getAttribute("loginId");
 			System.out.println("로그인아이디 : " + loginId);
 			
+			ArrayList<String> productType = pdao.getPdType();
+			
 			CompanyDto mycompanyInfo = pdao.MyProduct(loginId);
 			
-			
+			mav.addObject("productType", productType);
 			mav.addObject("mycompanyInfo", mycompanyInfo);
 			mav.setViewName("Company/MyproductInsert");
 			return mav;
@@ -423,7 +425,7 @@ public class ProductService {
 		// 메뉴 삭제
 		public void productDelete(String pdcode, String pdimg) {
 			System.out.println("productDelete()호출");
-
+			System.out.println(pdimg);
 			if (!pdimg.contains("BS")) {
 				File file = new File(savePath + "/" + pdimg);
 				file.delete();
