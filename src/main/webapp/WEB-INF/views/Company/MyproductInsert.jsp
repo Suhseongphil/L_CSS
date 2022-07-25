@@ -50,6 +50,12 @@ span, h1 {
 .btn_width {
 	width: 90px;
 }
+.text-center h2 {
+text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: black;
+}
 </style>
 
 <!-- Google Font -->
@@ -104,12 +110,13 @@ span, h1 {
 			</div>
 		</div>
 	</div>
+	<section class="featured spad">
 	<div class="text-center">
-		<h1>상품 정보 입력</h1>
+		<h2>상품 정보 입력</h2>
 	</div>
-	<div>
+	<div class="container">
 		<form action="productInsert" enctype="multipart/form-data">
-			<div class="row text-center borderOn">
+			<div class="row cafeInsert">
 				<div class="col-2">
 					<div class="items">
 						<span class="font-weight-bold">상품이름</span>
@@ -164,16 +171,20 @@ span, h1 {
 				<div class="col-2">
 					<br> <br>
 					<div class="items">
-						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000;">메뉴등록</button>
+						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px;">메뉴등록</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
+	</section>
 	<hr>
-	<div id="productList">
-
-	</div>
+	<section class="featured spad">
+		<div class="text-center">
+			<h2>상품 리스트</h2>
+		</div>
+		<div class="container" id="productList"></div>
+	</section>
 
 
 	<footer class="footer">
@@ -278,13 +289,20 @@ span, h1 {
 
 		for (var i = 0; i < product.length; i++) {
 			output += "<br>";
+			
 
 			output += "<div class=\"row cafeInsert\">"; // 맨위
 
 			output += "<div class=\"col-3\">";
 			if (product[i].pdimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
+				if (product[i].pdimg.indexOf('http') == 0) {
 				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=" + product[i].pdimg + ">";
+					
+				}else {
+					output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/"
+						+ product[i].pdimg + "\">";
+				}
 						
 			} else {
 				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
@@ -358,6 +376,7 @@ span, h1 {
 
 <script type="text/javascript">
 	function stateChange(selObj, pdcode) {
+		
 
 		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");

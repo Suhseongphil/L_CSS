@@ -52,15 +52,16 @@
 			<%@ include file="../includes/MiddleBar.jsp"%>
 		</div>
 	</div>
-	<section>
-		<%@ include file="../includes/SideBar2.jsp"%>
-	</section>
+	
 	<section class="product-details spad">
         <div class="container">
 
 
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+            <div class="col-2">
+			<%@ include file="../includes/SideBar2.jsp"%>
+			</div>
+                <div class="col-lg-4 col-md-4">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
@@ -69,7 +70,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-4 col-md-4">
                     <div class="product__details__text">
                         <h3>${productInfo.pdname }</h3>
                         <div class="product__details__rating">
@@ -89,8 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn">장바구니담기</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn text-white">장바구니담기</a>
                         <ul>
                             <li><b>업체명</b> <span>${companyInfo.cmname }</span></li>
                             <li><b>배송시간</b> <span>1~2일 소요 <samp>&nbsp;&nbsp; 연중무휴</samp></span></li>
@@ -103,6 +103,7 @@
               </div>
         </div>
     </section>
+    
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>

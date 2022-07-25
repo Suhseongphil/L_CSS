@@ -49,6 +49,14 @@ span, h1 {
 .btn_width {
 	width: 90px;
 }
+.text-center h2 {
+text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: black;
+}
+
+
 </style>
 
 <!-- Google Font -->
@@ -103,12 +111,13 @@ span, h1 {
 			</div>
 		</div>
 	</div>
+	<section class="featured spad">	
 	<div class="text-center">
-		<h1>메뉴 정보 입력</h1>
+		<h2>메뉴 정보 입력</h2>
 	</div>
-	<div>
+	<div class="container">
 		<form action="menuInsert" enctype="multipart/form-data">
-			<div class="row text-center borderOn">
+			<div class="row cafeInsert">
 				<div class="col-2">
 					<div class="items">
 						<span class="font-weight-bold">메뉴이름</span>
@@ -160,16 +169,21 @@ span, h1 {
 				<div class="col-2">
 					<br> <br>
 					<div class="items">
-						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000;">메뉴등록</button>
+						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px">메뉴등록</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
+	</section>
 	<hr>
-	<div id="menuList">
+	<section class="featured spad">
+		<div class="text-center">
+			<h2>메뉴 리스트</h2>
+		</div>
+		<div class="container" id="menuList"></div>
+	</section>
 
-	</div>
 
 
 	<footer class="footer">
