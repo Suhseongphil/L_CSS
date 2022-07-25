@@ -27,4 +27,6 @@ public interface GroupBuyDao {
 
 	ArrayList<GbpeopleDto> getGbpeople(String gbcode);
 
+	void insertGbpeopleDto(GbpeopleDto gbInfo);
+
 }

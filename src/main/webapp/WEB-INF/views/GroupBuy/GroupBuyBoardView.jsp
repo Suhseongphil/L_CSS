@@ -31,7 +31,7 @@
 .scroll {
 	overflow: scroll;
 	width: auto;
-	height: 370px;
+	height: 200px;
 }
 
 .row {
@@ -48,6 +48,70 @@ input {
 
 .bd_none {
 	border: none;
+}
+
+.hero__text2 p {
+	font-weight: bold;
+}
+
+.background2 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* 숨기기 */
+	z-index: -1;
+	opacity: 0;
+}
+
+.show2 {
+	opacity: 1;
+	z-index: 1000;
+	transition: all .5s;
+}
+
+.window2 {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.popup2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	/* 임시 지정 */
+	width: 600px;
+	height: 300px;
+	/* 초기에 약간 아래에 배치 */
+	transform: translate(-50%, -40%);
+}
+
+.show2 .popup2 {
+	transform: translate(-50%, -50%);
+	transition: all .5s;
+}
+
+label {
+	font-weight: bold;
+}
+
+.imgsize {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+
+.imgclass {
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
 }
 </style>
 </head>
@@ -105,6 +169,7 @@ input {
 							<span>
 								<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
 								원
+								<input type="hidden" id="pdprice2" value="${gbreserve.pdprice}">
 							</span>
 						</div>
 					</div>
@@ -152,9 +217,26 @@ input {
 						</div>
 					</div>
 				</div>
-				<div class="col-2"></div>
+				<div class="col-2">
+					<div class="text-center font-weight-bold" style="background-color: grey;">
+						<span>참여자 목록 </span>
+						<span>${gbCnt}명</span>
+					</div>
+					<div class="scroll" style="border: 1px solid black;">
+						<c:forEach items="${gbpeopleList}" var="gpList">
+							<div>
+								<span>${gpList.gpmid}</span>
+							</div>
+						</c:forEach>
+					</div>
+					<div>
+						<button id="show">공동구매 참여</button>
+					</div>
+					<div>
+						<span>게시글 작성자 또한 공동구매 참여버튼으로 참여하여야 합니다.</span>
+					</div>
+				</div>
 			</div>
-
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
@@ -162,6 +244,52 @@ input {
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 	<!-- Footer Section End -->
+	<!-- 모달 -->
+	<div class="background2">
+		<div class="window2">
+			<form class="user" action="joinGroupBuy" method="get">
+				<div class="popup2">
+					<div class="text-center" style="margin-top: 3px;">
+						<label>공동구매 참여</label>
+						<input type="hidden" name="gpmid" value="${gbreserve.gbmid}">
+					</div>
+					<div class="row form-group" style="margin-left: 2px;">
+						<div class="col-5 form-group" style="margin-left: 20px;">
+							<label>제품 이름</label>
+							<br>
+							<span>${gbreserve.pdname}</span>
+							<br>
+							<input type="hidden" name="gpgbcode" value="${gbreserve.gbcode}">
+						</div>
+						<br>
+						<div class="col-5 form-group" style="margin-left: 20px;">
+							<label>제품 가격</label>
+							<br>
+							<span>
+								<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
+								원
+							</span>
+						</div>
+					</div>
+					<div class="row form-group" style="margin-left: 2px;">
+						<div class="col-5 form-group" style="margin-left: 20px;">
+							<label>구매할 개수</label>
+							<input type="number" id="gpamount" name="gpamount" placeholder="숫자를 입력해주세요">
+						</div>
+						<br>
+						<div class="col-5 form-group" style="margin-left: 20px;">
+							<label>총 가격</label>
+							<input type="text" name="gpprice" id="gpprice" readonly="readonly">
+						</div>
+					</div>
+					<div class="text-center">
+						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">공동구매참여</button>
+						<button type="button" id="close" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
@@ -179,6 +307,31 @@ input {
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}
+</script>
+
+<script>
+	function show() {
+		document.querySelector(".background2").className = "background2 show2";
+	}
+
+	function close() {
+		document.querySelector(".background2").className = "background2";
+	}
+
+	document.querySelector("#show").addEventListener('click', show);
+	document.querySelector("#close").addEventListener('click', close);
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#gpamount').on('change', function() {
+			var amount = $(this).val();
+			var pdprice = $("#pdprice2").val();
+			
+			$("#gpprice").val(amount * pdprice);
+			
+		});
+	});
 </script>
 
 </html>
