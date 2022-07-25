@@ -165,16 +165,14 @@ public class CompanyService {
 		System.out.println(cmcode);
 
 		// 이미지 저장
-		String imgFile = "";
 		String cmimg = "";
 		if (company.getCmimgs() != null) {
 			MultipartFile[] imgs = company.getCmimgs();
 			for (MultipartFile multipartFile : imgs) {
 				UUID uuid = UUID.randomUUID();
-				imgFile = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+				cmimg = uuid.toString() + "_" + multipartFile.getOriginalFilename();
 
-				multipartFile.transferTo(new File(savePath, imgFile));
-				cmimg = cmimg + "/" + imgFile;
+				multipartFile.transferTo(new File(savePath, cmimg));
 			}
 
 		}
@@ -240,6 +238,59 @@ return mav;
 		mav.addObject("mycompanyInfo", mycompanyInfo);
 		mav.setViewName("Company/MyCompanyInfo");
 		
+		return mav;
+	}
+
+	public ModelAndView mycompanyModify(CompanyDto company, RedirectAttributes ra) throws IllegalStateException, IOException {
+		System.out.println("mycompanyModify()호출");
+		System.out.println("수정할 업체 정보");
+		ModelAndView mav = new ModelAndView();
+		//기존이미지 가져오기
+		String cmimg = cdao.getcompanyImg(company.getCmmid());
+		MultipartFile[] imgs = company.getCmimgs();
+		
+		if (company.getCmimgs() != null) {
+			File file = new File(savePath + cmimg);
+			file.delete();
+			
+			for (MultipartFile multipartFile : imgs) {
+				UUID uuid = UUID.randomUUID();
+				cmimg = uuid.toString() + "_" + multipartFile.getOriginalFilename();
+				
+				multipartFile.transferTo(new File(savePath, cmimg));
+				
+			}
+
+		}
+		
+		
+		company.setCmimg(cmimg);
+
+		
+		if (company.getCmextraaddress().length() == 0 && company.getCmdetailaddress().length() == 0) {
+			company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr());
+		} else {
+			if (company.getCmextraaddress().length() == 0) {
+				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmdetailaddress());
+			} else if (company.getCmdetailaddress().length() == 0) {
+				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmextraaddress());
+			} else {
+				company.setCmaddress(company.getCmpostcode() + "_" + company.getCmaddr() + "_" + company.getCmextraaddress() + "_"
+						+ company.getCmdetailaddress());
+			}
+		}
+		
+		System.out.println(company);
+		
+		int updateMycompany = cdao.updateMycompany(company);
+		
+		if (updateMycompany > 0) {
+			ra.addFlashAttribute("msg", "수정되었습니다.");
+			mav.setViewName("redirect:/");
+		} else {
+			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
+			mav.setViewName("redirect:/mycompanyModify");
+		}
 		return mav;
 	}
 	

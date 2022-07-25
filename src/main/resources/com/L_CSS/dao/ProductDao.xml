@@ -51,6 +51,59 @@
 		where PDTYPE = #{type}
 	</select>
 	
+	<select id ="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
+  		select *
+  		from COMPANY
+  		where CMMID = #{loginId}
+  		</select>
+  		
+  	<insert id="insertProduct">
+		insert into PRODUCT (PDCODE,PDNAME,PDTYPE,PDPRICE,PDAMOUNT,PDIMG,PDCMCODE,PDSTATE)
+		values (#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},1)
+	</insert>
+
+	<select id="getProduct2" resultType="com.L_CSS.dto.ProductDto">
+		select *
+		from PRODUCT
+		order by PDCODE desc
+	</select>
+
+	<update id="updateState">
+		update PRODUCT
+		set PDSTATE = #{pdstate}
+		where PDCODE = #{pdcode}
+	</update>
+
+	<delete id="deleteProduct">
+		delete Product
+		where PDCODE = #{pdcode}
+
+	</delete>
+	
+	
+	<select id ="MyProductInfo" resultType="com.L_CSS.dto.CompanyDto">
+  		select *
+  		from COMPANY
+  		where CMMID = #{loginId}
+  		</select>
+  	<select id="getMyProduct" resultType="com.L_CSS.dto.ProductDto">
+		select *
+		from PRODUCT
+		where PDCMCODE = #{pdcmcode}
+		order by pdcode desc
+	</select>
+	<update id="updateMyProduct">
+		update PRODUCT
+		set PDSTATE = #{pdstate}, PDNAME = #{pdname}, PDPRICE = #{pdprice}, PDTYPE = #{pdtype}, PDIMG = #{pdimg}, PDAMOUNT = #{pdamount}
+		where PDCODE = #{pdcode}
+	</update>
+	
+	<select id="getMyProductImg" resultType="String">
+	SELECT PDIMG
+	FROM PRODUCT
+	WHERE PDCODE = #{pdcode}
+	</select>	
+	
 	
 	
 	

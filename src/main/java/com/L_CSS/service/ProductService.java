@@ -1,23 +1,38 @@
 package com.L_CSS.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.ProductDao;
+import com.L_CSS.dto.CafeDto;
+import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.MenuDto;
 import com.L_CSS.dto.ProductDto;
+import com.google.gson.Gson;
 
 @Service
 public class ProductService {
 
 	@Autowired
 	ProductDao pdao;
+	
+	@Autowired
+	private HttpSession session;
+	
+	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\ProductFile";
 
 	public ModelAndView mainProduct() {
 		ArrayList<ProductDto> productList = new ArrayList<ProductDto>();
@@ -318,5 +333,159 @@ public class ProductService {
 		mav.setViewName("Shop/searchType");
 		return mav;
 	}
+
+	public ModelAndView myProduct(RedirectAttributes ra) {
+			ModelAndView mav = new ModelAndView();
+			System.out.println("myProduct() 호출");
+			String loginId = (String) session.getAttribute("loginId");
+			System.out.println("로그인아이디 : " + loginId);
+			
+			CompanyDto mycompanyInfo = pdao.MyProduct(loginId);
+			
+			
+			mav.addObject("mycompanyInfo", mycompanyInfo);
+			mav.setViewName("Company/MyproductInsert");
+			return mav;
+		}
+	// 메뉴 정보 입력
+		public void productInsert(ProductDto product) throws IllegalStateException, IOException {
+			System.out.println("productInsert ()호출");
+
+			String max = pdao.getmax();
+			String pdcode = "PD";
+
+			if (max == null) {
+				pdcode = pdcode + "001";
+			} else {
+				max = max.substring(2);
+				int maxCode = Integer.parseInt(max) + 1;
+				if (maxCode < 10) {
+					pdcode = pdcode + "00" + maxCode;
+				} else if (maxCode < 100) {
+					pdcode = pdcode + "0" + maxCode;
+				} else {
+					pdcode = pdcode + maxCode;
+				}
+
+			}
+			product.setPdcode(pdcode);
+
+			// 이미지 저장
+
+			MultipartFile pdFile = product.getPdimgs();
+
+			System.out.println(pdFile.getOriginalFilename());
+			String fileName = pdFile.getOriginalFilename();
+			String pdimg = "";
+			if (!pdFile.isEmpty()) {
+				if (fileName.contains("BS")) {
+					pdimg = fileName;
+
+				} else {
+
+					UUID uuid = UUID.randomUUID();
+					pdimg = uuid.toString() + "_" + pdFile.getOriginalFilename();
+
+					pdFile.transferTo(new File(savePath, pdimg));
+
+				}
+
+			}
+
+			product.setPdimg(pdimg);;
+			int insertProduct = pdao.insertProduct(product);
+		}
+
+		// 메뉴정보 출력
+		public String getMyProduct2() {
+			System.out.println("getMyProduct2 () 호출");
+			ArrayList<ProductDto> productList = pdao.getProduct2();
+			Gson gson = new Gson();
+			String product = gson.toJson(productList);
+
+			return product;
+		}
+
+		// 메뉴 상태 변경 기능
+		public void pdstateModify(String pdcode, int pdstate) {
+			System.out.println("pdstateModify()호출");
+
+			if (pdstate == 0) {
+				pdstate = 1;
+			} else {
+				pdstate = 0;
+			}
+
+			int updateMustate = pdao.updateState(pdcode, pdstate);
+
+		}
+
+		// 메뉴 삭제
+		public void productDelete(String pdcode, String pdimg) {
+			System.out.println("productDelete()호출");
+
+			if (!pdimg.contains("BS")) {
+				File file = new File(savePath + "/" + pdimg);
+				file.delete();
+			}
+
+			int deleteProduct = pdao.deleteProduct(pdcode);
+
+		}
+
+		public ModelAndView myproductMenu(RedirectAttributes ra) {
+			ModelAndView mav = new ModelAndView();
+			System.out.println("myproductMenu() 호출");
+			String loginId = (String) session.getAttribute("loginId");
+			System.out.println("로그인아이디 : " + loginId);
+			
+			CafeDto myproductInfo = pdao.MyProductInfo(loginId);
+			
+			
+			mav.addObject("myproductInfo", myproductInfo);
+			mav.setViewName("Company/MyproductInsert");
+			return mav;
+		}
+
+		public String getMyProduct(String pdcmcode) {
+			System.out.println("getMyProduct() 호출");
+			System.out.println(pdcmcode);
+			ArrayList<ProductDto> productList = pdao.getMyProduct(pdcmcode);
+			System.out.println(productList);
+			Gson gson = new Gson();
+			String product = gson.toJson(productList);
+			
+			
+			return product;
+		}
+		
+		//내 메뉴 수정
+		public void MypdModify(ProductDto product) throws IllegalStateException, IOException {
+
+			System.out.println("MymuModify() 호출");
+			
+			String imgFile = "";
+			//기존이미지 가져오기
+			String pdcmimg = pdao.getMyProductImg(product.getPdcode());
+			System.out.println(product);
+			System.out.println(pdcmimg);
+			MultipartFile imgs = product.getPdimgs();
+			System.out.println(imgs);
+			if (imgs != null) {
+				File file = new File(savePath + pdcmimg);
+				file.delete();
+				UUID uuid = UUID.randomUUID();
+				pdcmimg = uuid.toString() + "_" + imgs.getOriginalFilename();
+				imgs.transferTo(new File(savePath, pdcmimg));
+			}else {
+				
+				product.setPdimg(pdcmimg);
+			}
+			System.out.println("이미지 담음" + product);
+			int updateMymenu = pdao.updateMyProduct(product);
+			
+		}
+	
+	
 
 }

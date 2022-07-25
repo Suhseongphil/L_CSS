@@ -100,6 +100,16 @@ public class CompanyController {
 			return mav;
 		}
 	
+	//내 카페 정보 수정요청
+	@RequestMapping(value= "mycompanyModify")
+	public ModelAndView mycafeModify(CompanyDto company,RedirectAttributes ra ) throws IllegalStateException, IOException {
+		System.out.println("내 업체정보 수정 요청");
+		System.out.println(company);
+			
+		ModelAndView mav = csv.mycompanyModify(company,ra);
+			
+		return mav;
+	}	
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.L_CSS.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -13,4 +15,6 @@ public class ProductDto {
 	private	String	pdimg;
 	private	String	pdcmcode;
 	private	int	pdstate;
+	
+	private MultipartFile pdimgs;
 }

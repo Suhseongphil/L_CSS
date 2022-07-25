@@ -75,6 +75,9 @@
 									<a href="mycompanyInfo">내 업체정보</a>
 								</li>
 								<li>
+									<a href="myProduct">상품등록</a>
+								</li>
+								<li>
 									<a href="orderList">주문목록</a>
 								</li>
 								<li>
