@@ -77,4 +77,15 @@ public class GroupBuyController {
 
 		return mav;
 	}
+
+	// 공동구매 참여
+	@RequestMapping(value = "/deleteBoard")
+	public ModelAndView deleteBoard(String gbcode) {
+		System.out.println("공동구매 삭제 요청");
+		ModelAndView mav = new ModelAndView();
+		
+		mav = gbsvc.deleteGroupBuyBoard(gbcode);
+
+		return mav;
+	}
 }

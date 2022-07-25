@@ -43,7 +43,7 @@
 	</select>
 
 	<select id="gbpeopleCnt" resultType="int">
-		SELECT NVL(MAX(gpgbcode), 0)
+		SELECT COUNT(GPGBCODE)
 		FROM GBPEOPLE
 		WHERE GPGBCODE = #{gbcode}
 	</select>
@@ -53,6 +53,17 @@
 	</select>
 	
 	<insert id="insertGbpeopleDto">
-	
+		INSERT INTO GBPEOPLE(GPGBCODE, GPMID, GPAMOUNT, GPPRICE)
+		VALUES(#{gpgbcode}, #{gpmid}, #{gpamount}, #{gpprice})
 	</insert>
+	
+	<delete id="deleteGbpeople">
+		DELETE GBPEOPLE
+		WHERE GPGBCODE = #{gbcode}
+	</delete>
+	
+	<delete id="deleteGroupBuy">
+		DELETE GROUPBUY
+		WHERE GBCODE = #{gbcode}
+	</delete>
 </mapper>

@@ -43,7 +43,7 @@
 }
 
 input {
-	width: 100%;
+	width: 90%;
 }
 
 .bd_none {
@@ -180,9 +180,17 @@ label {
 						<div class="col-1">
 							<span class="font-weight-bold">작성자</span>
 						</div>
-						<div class="col-11">
+						<div class="col-7">
 							<input type="text" value="${gbreserve.gbmid}" class="bd_none" readonly="readonly">
 						</div>
+						<div class="col-2">
+							<c:if test="${gbreserve.gbmid == sessionScope.loginId }">
+								<button>수정</button>
+								<button onclick="deleteBoard('${gbreserve.gbcode}')">삭제</button>
+							</c:if>
+
+						</div>
+						<div class="col-2"></div>
 					</div>
 					<div class="row">
 						<div class="col-1">
@@ -197,7 +205,7 @@ label {
 							<span class="font-weight-bold">내용</span>
 						</div>
 						<div class="col-11">
-							<textarea id="gbcomment" name="gbcomment" class="bd_none" readonly="readonly" rows="7" style="width: 100%; resize: none;">${gbreserve.gbcomment}</textarea>
+							<textarea id="gbcomment" name="gbcomment" class="bd_none" readonly="readonly" rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -230,10 +238,21 @@ label {
 						</c:forEach>
 					</div>
 					<div>
-						<button id="show">공동구매 참여</button>
+						<c:set var="loop_flag" value="false" />
+						<c:forEach items="${gbpeopleList}" var="gpList">
+							<c:if test="${gpList.gpmid == sessionScope.loginId}">
+								<button>채팅방 참여</button>
+							</c:if>
+							<c:if test="${not loop_flag }">
+								<c:if test="${gpList.gpmid != sessionScope.loginId}">
+									<button id="show">공동구매 참여</button>
+									<c:set var="loop_flag" value="true"/>
+								</c:if>
+							</c:if>
+						</c:forEach>
 					</div>
 					<div>
-						<span>게시글 작성자 또한 공동구매 참여버튼으로 참여하여야 합니다.</span>
+						<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
 					</div>
 				</div>
 			</div>
@@ -251,7 +270,7 @@ label {
 				<div class="popup2">
 					<div class="text-center" style="margin-top: 3px;">
 						<label>공동구매 참여</label>
-						<input type="hidden" name="gpmid" value="${gbreserve.gbmid}">
+						<input type="hidden" name="gpmid" value="${sessionScope.loginId}">
 					</div>
 					<div class="row form-group" style="margin-left: 2px;">
 						<div class="col-5 form-group" style="margin-left: 20px;">
@@ -327,11 +346,21 @@ label {
 		$('#gpamount').on('change', function() {
 			var amount = $(this).val();
 			var pdprice = $("#pdprice2").val();
-			
+
 			$("#gpprice").val(amount * pdprice);
-			
+
 		});
 	});
+</script>
+
+<script type="text/javascript">
+	function deleteBoard(gbcode) {
+		if (confirm("정말 삭제하시겠습니까??") == true) { //확인
+			location.href = "deleteBoard?gbcode=" + gbcode;
+		} else { //취소
+			return false;
+		}
+	}
 </script>
 
 </html>

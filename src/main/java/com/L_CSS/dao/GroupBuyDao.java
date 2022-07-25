@@ -29,4 +29,8 @@ public interface GroupBuyDao {
 
 	void insertGbpeopleDto(GbpeopleDto gbInfo);
 
+	void deleteGbpeople(String gbcode);
+
+	void deleteGroupBuy(String gbcode);
+
 }
