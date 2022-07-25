@@ -28,5 +28,11 @@
   			set restate = 2
   			where recode = #{recode}
   		</update>
+  		<update id="updateResult">
+  			update RESERVATION
+  			set restate = 4
+  			where recode = #{recode}
+  		</update>
+  		
   		
   </mapper>

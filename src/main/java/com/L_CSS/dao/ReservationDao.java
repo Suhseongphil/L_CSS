@@ -17,6 +17,8 @@ public interface ReservationDao {
 
 	int orderCheck(String recode);
 
+	int updateResult(String recode);
+
 	
 
 	
