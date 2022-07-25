@@ -167,6 +167,7 @@ public class MenuService {
 		return menu;
 	}
 	
+	//내 메뉴 수정
 	public void MymuModify(MenuDto menu) throws IllegalStateException, IOException {
 
 		System.out.println("MymuModify() 호출");

@@ -20,6 +20,10 @@ public interface CompanyDao {
 
 	CompanyDto MycompanyInfo(String loginId);
 
+	String getcompanyImg(String cmmid);
+
+	int updateMycompany(CompanyDto company);
+
 	
 
 }

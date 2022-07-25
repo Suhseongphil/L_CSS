@@ -34,6 +34,18 @@
 	SELECT *
 	FROM COMPANY
 	WHERE CMMID = #{loginId}
-	</select>	
+	</select>
+	
+	<select id="getcompanyImg" resultType="String">
+	SELECT CMIMG
+	FROM COMPANY
+	WHERE CMMID = #{cmmid}
+	</select>
+	
+	<update id ="updateMycompany">
+  		UPDATE COMPANY
+  		SET CMNAME= #{cmname}, CMTEL=#{cmtel}, CMLINK=#{cmlink},CMIMG=#{cmimg}, CMADDRESS=#{cmaddress}
+  		WHERE CMMID = #{cmmid}
+  		</update>	
 		
   </mapper>
