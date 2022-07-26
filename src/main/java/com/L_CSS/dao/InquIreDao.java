@@ -18,4 +18,6 @@ public interface InquIreDao {
 
 	ArrayList<InquIreDto> inquireInfo(String iqcode);
 
+	ArrayList<InquIreDto> selectInquireList();
+
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.CartDao;
 import com.L_CSS.dto.CartDto;
@@ -133,7 +134,7 @@ public class CartService {
 		return selectCart;
 	}
 	//장바구니 담기
-	public String cartInsert(String pdcode, String pdcmcode, String loginId) {
+	public String cartInsert(String pdcode, String pdcmcode, String loginId, RedirectAttributes ra) {
 		System.out.println("cartInsert()호출");
 		String max = cdao.getmax();
 		String ctcode = "CT";
@@ -156,8 +157,25 @@ public class CartService {
 		
 		int insertCart = cdao.InsertCart(pdcode,pdcmcode,loginId,ctcode);
 		
-		
+		ra.addFlashAttribute("msg", "장바구니에 저장되었습니다.");
 		return "redirect:/shopMain";
+	}
+	//선택 목록 삭제
+	public String deleteCart(String ctcode, RedirectAttributes ra) {
+		System.out.println("deleteCart()호출");
+		
+		int deleteCart = cdao.deleteCartList(ctcode);
+		System.out.println(ctcode);
+		System.out.println(deleteCart);
+		if(deleteCart > 0) {
+			ra.addFlashAttribute("msg","선택 물품 삭제");
+			return  "redirect:/myCartPage";
+		}else {
+			ra.addFlashAttribute("msg","잘못 선택하셨습니다.");
+			return  "redirect:/myCartPage";
+		}
+		
+	
 	}
 	
 }

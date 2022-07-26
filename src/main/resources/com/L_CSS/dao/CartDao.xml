@@ -51,4 +51,11 @@
   	<insert id="InsertCart">
   		insert into cart values(#{ctcode},#{loginId},#{pdcmcode},#{pdcode},1,0)
   	</insert>
+  	<delete id="deleteCartList">
+  		delete cart
+  		where CTCODE = #{ctcode}
+  	</delete>
+  	
+  
+  	
   </mapper>
