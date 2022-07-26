@@ -14,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
@@ -53,6 +54,9 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
+	<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/mainHover.css"
+	type="text/css">
 </head>
 
 <body>
@@ -88,7 +92,7 @@
 					<div class="hero__item set-bg"
 						data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg">
 						<div class="center">
-							<a href="#" style="font-family: text_ls;"> <span
+							<a href="shopMain" style="font-family: text_ls;"> <span
 								data-attr="Buy">Buy</span><span data-attr="Now">Now</span>
 							</a>
 						</div>

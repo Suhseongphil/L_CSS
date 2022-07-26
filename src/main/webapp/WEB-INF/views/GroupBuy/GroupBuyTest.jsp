@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+
 </head>
 
 <body>
@@ -59,51 +60,26 @@
 			<h3>공동구매 게시판</h3>
 		</div>
 		<div class="container">
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					
-				</div>
-				<div class="col-4">
-					
-				</div>
-				<div class="col-5">
-					
-				</div>
-				<div class="col-2">
+		<div class="col-2">
 					<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black;">게시글 작성</a>
-					<a class="btn text-white" href="groupBuyTest" style="background-color: black;">테스트 게시판(지울것)</a>
 				</div>
-			</div>
-			<div class="row font-weight-bold text-center">
-				<div class="col-1">
-					<span></span>
-				</div>
-				<div class="col-4">
-					<span>기간</span>
-				</div>
-				<div class="col-5">
-					<span>제목</span>
-				</div>
-				<div class="col-2">
-					<span>작성자</span>
-				</div>
-			</div>
-			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
+			
 				<div class="row text-center" style="border: 1px solid black; margin-top: 2px;">
-					<div class="col-1">
-						<span>${fn:length(groupBuyList) - num.index}</span>
+			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
+					<div class="col-lg-4 col-md-4">
+						<div>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
+						<img alt="" src="${board.pdimg}">
+						</a>
+						</div>
+						<div>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.gbsdate} ~ ${board.gbfdate}</span></a>
+						</div>
+							<a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.pdname }</span></a>
+						<h5><a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.gbtitle}</span></a></h5>
 					</div>
-					<div class="col-4">
-						<span>${board.gbsdate} ~ ${board.gbfdate}</span>
-					</div>
-					<div class="col-5">
-						<span><a href="groupBuyBoardView?gbcode=${board.gbcode}">${board.gbtitle}</a></span>
-					</div>
-					<div class="col-2">
-						<span>${board.gbmid}</span>
-					</div>
-				</div>
 			</c:forEach>
+				</div>
 		</div>
 	</section>
 	<!-- Footer Section Begin -->

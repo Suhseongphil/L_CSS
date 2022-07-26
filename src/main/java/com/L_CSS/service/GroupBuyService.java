@@ -172,5 +172,18 @@ public class GroupBuyService {
 		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
+	
+	//테스트 게시판 지울것
+	public ModelAndView getGroupBuyInfo2() {
+		System.out.println("AdminService.insertCompany() 호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<GbreserveDto> groupBuyList = gbdao.getGroupBuyInfo2();
+		
+		
+
+		mav.addObject("groupBuyList", groupBuyList);
+		mav.setViewName("GroupBuy/GroupBuyTest");
+		return mav;
+	}
 
 }

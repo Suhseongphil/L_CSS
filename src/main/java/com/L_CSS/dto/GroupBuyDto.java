@@ -13,4 +13,5 @@ public class GroupBuyDto {
 	private String gbsdate;
 	private String gbfdate;
 	private String gbregion;
+	private String pdimg;
 }

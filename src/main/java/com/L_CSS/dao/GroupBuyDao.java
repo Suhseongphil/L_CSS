@@ -33,4 +33,6 @@ public interface GroupBuyDao {
 
 	void deleteGroupBuy(String gbcode);
 
+	ArrayList<GbreserveDto> getGroupBuyInfo2();
+
 }
