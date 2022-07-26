@@ -33,7 +33,7 @@ public class GroupBuyService {
 	public ModelAndView getGroupBuyInfo() {
 		System.out.println("AdminService.insertCompany() 호출");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<GroupBuyDto> groupBuyList = gbdao.getGroupBuyInfo();
+		ArrayList<GbreserveDto> groupBuyList = gbdao.getGroupBuyInfo();
 
 		mav.addObject("groupBuyList", groupBuyList);
 		mav.setViewName("GroupBuy/GroupBuyBoard");
@@ -181,15 +181,5 @@ public class GroupBuyService {
 		return mav;
 	}
 
-	// 테스트 게시판 지울것
-	public ModelAndView getGroupBuyInfo2() {
-		System.out.println("AdminService.insertCompany() 호출");
-		ModelAndView mav = new ModelAndView();
-		ArrayList<GbreserveDto> groupBuyList = gbdao.getGroupBuyInfo2();
-
-		mav.addObject("groupBuyList", groupBuyList);
-		mav.setViewName("GroupBuy/GroupBuyTest");
-		return mav;
-	}
 
 }

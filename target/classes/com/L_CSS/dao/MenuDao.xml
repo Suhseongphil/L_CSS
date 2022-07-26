@@ -28,7 +28,7 @@
 	</update>
 
 	<delete id="deleteMenu">
-		delete MENU
+		delete FROM MENU
 		where MUCODE = #{mucode}
 
 	</delete>

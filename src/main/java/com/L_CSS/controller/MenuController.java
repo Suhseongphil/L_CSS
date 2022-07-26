@@ -31,6 +31,7 @@ public class MenuController {
 	@RequestMapping(value = "/menuInsert")
 	public @ResponseBody void menuInsert(MenuDto menu) throws IllegalStateException, IOException {
 		System.out.println("메뉴정보 입력 기능호출 ");
+		System.out.println(menu);
 		msv.menuInsert(menu);
 	}
 

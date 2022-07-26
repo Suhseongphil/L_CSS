@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,14 +28,28 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 
+
+<style type="text/css">
+.imgZ{
+width: 250px;
+height: 250px;
+}
+.hero__text2 h3 {
+text-align: center;
+font-weight: 700;
+letter-spacing: 4px;
+color: saddlebrown;
+	}
+.product__discount__item__text span {
+color: black;
+}	
+	</style>
+
+
 </head>
 
 <body>
 	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
 	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
@@ -55,28 +69,28 @@
 	</div>
 	<!-- Hero Section End -->
 
-	<section class="featured spad">
-		<div class="text-center">
+	<section class="featured spad" style="background-color: #ded8ce">
+		<div class="hero__text2" style="margin-bottom: 20px;">
 			<h3>공동구매 게시판</h3>
 		</div>
 		<div class="container">
-		<div class="col-2">
-					<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black;">게시글 작성</a>
-				</div>
 			
-				<div class="row text-center" style="border: 1px solid black; margin-top: 2px;">
+				<div class="row product__discount__item__text" style="background-color:#ffffff; margin-top: 2px;">
+		<div class="col-12">
+					<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black; margin-left: 85%;margin-bottom: 20px;">게시글 작성</a>
+				</div>
 			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
 					<div class="col-lg-4 col-md-4">
 						<div>
 						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
-						<img alt="" src="${board.pdimg}">
+						<img class="imgZ" alt="" src="${board.pdimg}">
 						</a>
 						</div>
 						<div>
-						<a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.gbsdate} ~ ${board.gbfdate}</span></a>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}"><span class="text-black">${board.gbsdate} ~ ${board.gbfdate}</span></a>
 						</div>
 							<a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.pdname }</span></a>
-						<h5><a href="groupBuyBoardView?gbcode=${board.gbcode}"><span>${board.gbtitle}</span></a></h5>
+						<h5><a href="groupBuyBoardView?gbcode=${board.gbcode}"><span style="font-weight: bold; font-size: 18px;">${board.gbtitle}</span></a></h5>
 					</div>
 			</c:forEach>
 				</div>

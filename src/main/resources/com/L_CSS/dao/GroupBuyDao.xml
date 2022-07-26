@@ -4,9 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.L_CSS.dao.GroupBuyDao">
-	<select id="getGroupBuyInfo" resultType="com.L_CSS.dto.GroupBuyDto">
-		SELECT GBCODE, GBMID, GBTITLE, GBPDCODE, GBCOMMENT, TO_CHAR(GBSDATE , 'YYYY-MM-DD') AS GBSDATE, TO_CHAR(GBFDATE , 'YYYY-MM-DD') AS GBFDATE
-		FROM GROUPBUY ORDER BY GBCODE DESC
+	<select id="getGroupBuyInfo" resultType="com.L_CSS.dto.GbreserveDto">
+		SELECT GB.GBCODE, GB.GBMID, GB.GBTITLE, GB.GBPDCODE, GB.GBCOMMENT, TO_CHAR(GB.GBSDATE, 'YYYY/MM/DD') AS GBSDATE, TO_CHAR(GB.GBFDATE, 'YYYY/MM/DD') AS GBFDATE, GB.GBREGION, PD.PDNAME, PD.PDIMG, PD.PDPRICE
+		FROM GROUPBUY GB, PRODUCT PD
+		WHERE GB.GBPDCODE = PD.PDCODE
 	</select>
 
 	<select id="getPdType" resultType="String">
@@ -66,9 +67,5 @@
 		DELETE GROUPBUY
 		WHERE GBCODE = #{gbcode}
 	</delete>
-	<select id="getGroupBuyInfo2" resultType="com.L_CSS.dto.GbreserveDto">
-		SELECT GB.GBCODE, GB.GBMID, GB.GBTITLE, GB.GBPDCODE, GB.GBCOMMENT, TO_CHAR(GB.GBSDATE, 'YYYY/MM/DD') AS GBSDATE, TO_CHAR(GB.GBFDATE, 'YYYY/MM/DD') AS GBFDATE, GB.GBREGION, PD.PDNAME, PD.PDIMG, PD.PDPRICE
-		FROM GROUPBUY GB, PRODUCT PD
-		WHERE GB.GBPDCODE = PD.PDCODE
-	</select>
+	
 </mapper>

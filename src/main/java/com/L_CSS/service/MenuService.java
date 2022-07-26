@@ -79,18 +79,19 @@ public class MenuService {
 		menu.setMucode(mucode);
 
 		// 이미지 저장
+		
 
-		MultipartFile muFile = menu.getMuims();
 
-		System.out.println(muFile.getOriginalFilename());
-		String fileName = muFile.getOriginalFilename();
+		String fileName = menu.getMuims().getOriginalFilename();
 		String muimg = "";
-		if (!muFile.isEmpty()) {
+		System.out.println(mucode);
+		if (menu.getMuims().isEmpty()) {
 			if (fileName.contains("BS")) {
 				muimg = fileName;
 
 			} else {
 
+				MultipartFile muFile = menu.getMuims();
 				UUID uuid = UUID.randomUUID();
 				muimg = uuid.toString() + "_" + muFile.getOriginalFilename();
 
@@ -99,8 +100,8 @@ public class MenuService {
 			}
 
 		}
-
 		menu.setMuimg(muimg);
+		System.out.println(menu);
 		int insertMenu = mdao.insertMenu(menu);
 	}
 
@@ -132,10 +133,12 @@ public class MenuService {
 	public void menuDelete(String mucode, String muimg) {
 		System.out.println("menuDelete()호출");
 
-		if (!muimg.contains("BS")) {
+		if (muimg != null) {
+			System.out.println(muimg);
 			File file = new File(savePath_mu + "/" + muimg);
 			file.delete();
 		}
+		
 
 		int deleteMenu = mdao.deleteMenu(mucode);
 

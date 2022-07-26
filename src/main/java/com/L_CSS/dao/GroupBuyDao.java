@@ -9,7 +9,7 @@ import com.L_CSS.dto.ProductDto;
 
 public interface GroupBuyDao {
 
-	ArrayList<GroupBuyDto> getGroupBuyInfo();
+	ArrayList<GbreserveDto> getGroupBuyInfo();
 
 	ArrayList<String> getPdType();
 
@@ -33,6 +33,5 @@ public interface GroupBuyDao {
 
 	void deleteGroupBuy(String gbcode);
 
-	ArrayList<GbreserveDto> getGroupBuyInfo2();
 
 }
