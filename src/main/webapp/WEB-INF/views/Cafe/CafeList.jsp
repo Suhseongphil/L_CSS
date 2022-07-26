@@ -18,15 +18,15 @@
 <link
 	href="${pageContext.request.contextPath }/resources/css/main.82cfd66e.css"
 	rel="stylesheet">
-	
-	<style type="text/css">
-	.hero__text2 h3 {
+
+<style type="text/css">
+.hero__text2 h3 {
 	text-align: center;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: saddlebrown;
-	}
-	</style>
+}
+</style>
 
 
 </head>
@@ -71,7 +71,7 @@
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="hero__text2"
 				style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-				<h3>카  페  목  록</h3>
+				<h3>카 페 목 록</h3>
 			</div>
 
 			<div class="col-lg-12 col-md-12">
@@ -109,8 +109,9 @@
 						</div>
 					</c:forEach>
 
-					<div
-						style="font-size: 16px; margin-left: 480px; margin-bottom: 30px;">
+					<div class="back color-10 menu align-center expanded text-center SMN_effect-70"
+						style="font-size: 24px; margin-left: 380px; margin-bottom: 30px; 
+						font-weight: bold; ">
 
 						<c:choose>
 							<c:when test="${pagedto.page <= 1 }">
@@ -124,7 +125,7 @@
 							var="num" step="1">
 							<c:choose>
 								<c:when test="${pagedto.page == num }">
-									<span style="font-size: 20px;">${num }</span>
+									<span style="font-size: 24px;">${num }</span>
 								</c:when>
 								<c:otherwise>
 									<a href="cafeList?page=${num}"> ${num } </a>&nbsp;&nbsp;
@@ -147,7 +148,7 @@
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	
+
 
 
 </body>

@@ -22,9 +22,14 @@
                         <li
                            style="background-color: white-space; margin: 10px; padding-bottom: -30px; font-weight: bold;"
                            class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
+                           <a href="shopMain">전체 메뉴</a>
+                        </li>
+                        <li
+                           style="background-color: white-space; margin: 10px; padding-bottom: -30px; font-weight: bold;"
+                           class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
                            음료
                            <ul class="submenu">
-                              <li value="원두"><a href="#" onclick="searchType()">원두</a></li>
+                              <li value="원두"><a href="#">원두</a></li>
                               <li value="소스"><a href="#">소스</a></li>
                               <li value="파우더"><a href="#">파우더</a></li>
 
