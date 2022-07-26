@@ -20,4 +20,6 @@ public interface MemberDao {
 
 	int memberUpdate(MemberDto member);
 
+	String idCheck(String inputId);
+
 }

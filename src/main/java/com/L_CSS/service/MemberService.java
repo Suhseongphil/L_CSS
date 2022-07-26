@@ -2,8 +2,11 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MemberDao;
 import com.L_CSS.dto.MemberDto;
+import com.google.gson.Gson;
 
 @Service
 public class MemberService {
@@ -24,9 +28,10 @@ public class MemberService {
 	@Autowired
 	private HttpSession session;
 	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
-
+	
+	
 	// 회원가입 요청 메소드
-	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra) throws IllegalStateException, IOException {
+	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra, HttpServletResponse response) throws IllegalStateException, IOException {
 		System.out.println("memberJoin ()호출");
 		System.out.println(member);
 		ModelAndView mav = new ModelAndView();
@@ -73,7 +78,7 @@ public class MemberService {
 
 		if (inserMember > 0) {
 			ra.addFlashAttribute("msg", "회원가입 되었습니다.");
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/memberLoginPage");
 		} else {
 			ra.addFlashAttribute("msg", "회원가입 실패하였습니다.");
 			mav.setViewName("redirect:/memberJoin");
@@ -89,7 +94,7 @@ public class MemberService {
 		System.out.println(mpw);
 
 		MemberDto memberLogin = mdao.MemberLogin(mid, mpw);
-
+		
 		if (mid.equals("adMin") && mpw.equals("1234")) {
 			mav.setViewName("redirect:/admin");
 		} else {
@@ -100,8 +105,9 @@ public class MemberService {
 				
 				mav.setViewName("Main");
 			} else {
-				ra.addFlashAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
-				mav.setViewName("redirect:/MemberLogin");
+				ra.addFlashAttribute("msg","아이디또는 비밀번호가 틀렸습니다.");
+				mav.setViewName("redirect:/memberLoginPage");
+				
 			}
 		}
 		return mav;
@@ -149,20 +155,22 @@ public class MemberService {
 
 		} else {
 			ra.addFlashAttribute("msg", "비밀번호가 틀렸습니다.");
-			mav.setViewName("redirect:/");
+			mav.setViewName("redirect:/memberInfo");
 		}
 
 		return mav;
 	}
 
 	// 로그아웃 요청
-	public ModelAndView memberLogout(RedirectAttributes ra) {
+	public ModelAndView memberLogout(RedirectAttributes ra, HttpServletResponse response, HttpServletRequest request) throws IOException {
 		System.out.println("memberLogout()요청");
 		ModelAndView mav = new ModelAndView();
-
+		
 		session.invalidate();
-		ra.addFlashAttribute("msg", "로그인되었습니다.");
-		mav.setViewName("redirect:/main");
+		
+		
+		mav.setViewName("redirect:/");
+		
 		
 		return mav;
 	}
@@ -226,6 +234,23 @@ public class MemberService {
 			mav.setViewName("redirect:/");
 		}
 		return mav;
+	}
+	//아이디 중복체크
+	public String idCheck(String inputId) {
+		System.out.println("idCheck()호출");
+		System.out.println(inputId);
+		Gson gson = new Gson();
+		
+		String idCheck = mdao.idCheck(inputId);
+		
+		
+		
+		if(idCheck == null) {
+			return "OK";
+		}else {
+			return "NO";
+		}
+		
 	}
 
 }

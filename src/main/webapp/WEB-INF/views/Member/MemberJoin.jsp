@@ -95,7 +95,7 @@
 							<div class="form-group">
 								<label>아이디</label> <input type="text"
 									class="form-control form-control-user" id="mid" name="mid"
-									aria-describedby="emailHelp">
+									aria-describedby="emailHelp"><span id="idCheck"></span>
 							</div>
 							<div class="form-group">
 								<label>이름</label> <input type="text"
@@ -171,8 +171,7 @@
 								<input type="radio" name="mstate" value="2"
 									style="margin-left: 100px;"> 업체
 							</div>
-							<button type="submit" class="btn text-white
-							 btn-user btn-block" style="background-color: #000000;">회원가입</button>
+							<button type="submit" class="btn btn-primary btn-user btn-block">회원가입</button>
 							<hr>
 						</form>
 						<hr>
@@ -190,9 +189,48 @@
 	<script
 		src="${pageContext.request.contextPath }/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<!-- Custom scripts for all pages-->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/sb-admin-2.min.js"></script>
+
 </body>
+<script type="text/javascript">
+	var checkMsg = '${msg}';
+	console.log(checkMsg);
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+		history.back();
+	}
+</script>
+<script type="text/javascript">
+		var inputIdCheck = false;
+	
+		$(document).ready(function (){
+			<!-- 아이디 중복 확인 -->
+			$("#mid").focusout(function(){
+				var inputId = $("#mid").val();
+				console.log("inputId : " +inputId);
+				
+				if( inputId.length == 0){
+					$("#idCheck").text("아이디를 입력 해주세요!").css("color","red");
+					inputIdCheck = false;
+				} else {
+					$.ajax({
+						type : "get",
+						url : "memberIdCheck",
+						data : { "inputId" : inputId },
+						success : function(result){
+							console.log("result : " + result);
+							if( result == "OK" ){
+								$("#idCheck").text("사용가능한 아이디!").css("color","green");
+								inputIdCheck = true;
+							} else {
+								$("#idCheck").text("이미 사용중인 아이디!").css("color","red");
+								inputIdCheck = false;
+							}
+						}
+					});
+				}
+			});
+		});
+	</script>
 <script type="text/javascript">
 	$("#domainSelect").change(function() {
 

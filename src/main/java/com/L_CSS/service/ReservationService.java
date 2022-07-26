@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.CartDao;
 import com.L_CSS.dao.OrderDao;
@@ -50,7 +50,7 @@ public class ReservationService {
 		return null;
 	}
 
-	public ModelAndView reservInsert(String ctcode, String loginId, ReservationDto reserv) {
+	public ModelAndView reservInsert(String ctcode, String loginId, ReservationDto reserv, RedirectAttributes ra) {
 		
 		ModelAndView mav = new ModelAndView();
 		String max = rdao.getmax();
@@ -103,7 +103,8 @@ public class ReservationService {
 		int insertReTable = rdao.insertReTable(reserv);
 		if(insertReTable > 0 ) {
 			int deleteCart = cdao.deleteCart(ctcode);
-			mav.setViewName("Main");
+			ra.addFlashAttribute("msg", "결제가 완료되었습니다.");
+			mav.setViewName("redirect:/orderhistory");
 		}else {
 			mav.setViewName("redirect:/myCartPage");
 		}

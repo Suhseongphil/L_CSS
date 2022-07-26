@@ -42,6 +42,13 @@
 		SET MPW = #{mpw}, MEMAIL = #{memail}, MADDRESS= #{maddress}, MTEL = #{mtel}
 		WHERE MID = #{mid}
 	</update>
+	
+	<select id="idCheck" resultType="String">
+		select MID
+		from MEMBER
+		where MID = #{inputId}
+	
+	</select>
 
 
 </mapper>
