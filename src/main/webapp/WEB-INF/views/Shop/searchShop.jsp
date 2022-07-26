@@ -72,6 +72,7 @@
 								</div>
 							</div>
 						</form>
+						<h2>검색 상품</h2>
 					</div>
 					<div class="row">
 						<div class="row">
