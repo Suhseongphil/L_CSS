@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,35 @@
 .scroll {
 	overflow: scroll;
 	width: auto;
-	height: 200px;
+	height: 450px;
+}
+
+.scroll div {
+	padding: 2px 2px;
+}
+
+.chatting {
+	background-color: #ffc107;
+	padding: 3px;
+	margin: 4px 10px;
+	border-radius: 5px 5px;
+}
+
+.chatting2 {
+	background-color: white;
+	padding: 3px;
+	margin: 4px 10px;
+	border-radius: 5px 5px;
+}
+
+.chatBtn {
+	background-color: #ffc107;
+	border: none;
+}
+
+.recev{
+	margin: 4px 10px;
+	font-size:4px;
 }
 </style>
 </head>
@@ -87,26 +115,30 @@
 				</div>
 
 				<div class="col-6" style="height: 500px;">
-					<div id="chatRoom" style="height: 450px; background-color: f0ffff;">
+					<div class="scroll" id="chatRoom" style="height: 450px; background-color: #9bbbd4;">
 						<c:forEach items="${chattingLog}" var="chLog">
 							<c:choose>
 								<c:when test="${chLog.chmid == sessionScope.loginId }">
-									<div class="font-weight-bold text-right text-gray-900">
-										<span class="bg-warning">${chLog.chcomment}</span>
+									<div class="font-weight-bold text-right">
+									<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
+									<span class="font-weight-lighter" style="font-size:4px; color:white;">${fn:substring(chdate_split,0,5)}</span>
+										<span class="chatting">${chLog.chcomment}</span>
 									</div>
 								</c:when>
 								<c:otherwise>
 									<div class="text-left">
-										<span class="text-gray-700">${chLog.chmid}</span><br>
-										<span class="bg-warning font-weight-bold text-gray-900">${chLog.chcomment}</span>
+										<span class="recev">${chLog.chmid}</span>
+										<br>
+										<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
+										<span class="chatting2 font-weight-bold">${chLog.chcomment}</span><span class="font-weight-lighter" style="font-size:4px; color:white;">${fn:substring(chdate_split,0,5)}</span>
 									</div>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 					</div>
-					<div style="height: 50px;">
-						<input style="width: 89%;" type="text" id="inputChat">
-						<button style="width: 9%;" onclick="chattingRoad('${gbreserve.gbcode}')">전송</button>
+					<div class="text-center" style="background-color: #f8f9fa; padding: 5px 5px;">
+						<input style="width: 84%;" type="text" id="inputChat" placeholder="내용을 입력해주세요....">
+						<button id="chatBtn" class="chatBtn" style="width: 13%;" onclick="chattingRoad('${gbreserve.gbcode}')">전송</button>
 					</div>
 				</div>
 
@@ -150,6 +182,18 @@
 	}
 </script>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#chatRoom").scrollTop($("#chatRoom")[0].scrollHeight);
+		$("#inputChat").focus();
+
+		$("#inputChat").keyup(function(e) {
+			if (e.keyCode == 13)
+				$("#chatBtn").click();
+		});
+	});
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 
 <script type="text/javascript">
@@ -168,11 +212,13 @@
 		var receiveData = JSON.parse(e.data);
 		console.log(receiveData);
 
-		var output = "<p>" + receiveData.chmid + "</p>";
-		output += "<p>" + receiveData.chcomment + "</p>";
-		
-		var output = "<div class=\"font-weight-bold text-right text-gray-900\">";
-		output += "<span class=\"bg-warning\">" + comment + "</span></div>";
+		consol.log(receiveData.chdate);
+
+		var output = "<div class=\"text-left\">";
+		output += "<span class=\"text-gray-700\">" + receiveData.chmid
+				+ "</span><br>";
+		output += "<span class=\"chatting2 font-weight-bold\">"
+				+ receiveData.chcomment + "</span></div>";
 
 		$("#chatRoom").append(output);
 
@@ -188,20 +234,29 @@
 
 		var username = "${sessionScope.loginId}";
 		var comment = $("#inputChat").val();
-		$("#inputChat").val("");
 
-		var msgData = {
-			"chmid" : username,
-			"chcomment" : comment,
-			"chgbcode" : gbcode
-		};
-		sock.send(JSON.stringify(msgData));
+		var time = new Date();
+		var hours = time.getHours();
+		var minutes = time.getMinutes();
+		var thisTime = hours + ":" + minutes;
 
-		var output = "<div class=\"font-weight-bold text-right text-gray-900\">";
-		output += "<span class=\"bg-warning\">" + comment + "</span></div>";
+		if (comment.length > 0) {
+			$("#inputChat").val("");
 
-		$("#chatRoom").append(output);
-		$("#chatRoom").scrollTop($("#chatRoom")[0].scrollHeight);
+			var msgData = {
+				"chmid" : username,
+				"chcomment" : comment,
+				"chgbcode" : gbcode
+			};
+			sock.send(JSON.stringify(msgData));
+
+			var output = "<div class=\"font-weight-bold text-right\">";
+			output += "<span class=\"font-weight-lighter\" style=\"font-size:4px;\">"+thisTime+"</span><span class=\"chatting\">" + comment + "</span></div>";
+
+			$("#chatRoom").append(output);
+			$("#chatRoom").scrollTop($("#chatRoom")[0].scrollHeight);
+		}
+		$("#inputChat").focus();
 	}
 </script>
 </html>

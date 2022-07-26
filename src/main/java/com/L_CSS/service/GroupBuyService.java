@@ -140,6 +140,7 @@ public class GroupBuyService {
 		return mav;
 	}
 
+	// 공동구매 참여 요청
 	public ModelAndView insertGbpeople(GbpeopleDto gbInfo) {
 		System.out.println("AdminService.insertGbpeople() 호출");
 		ModelAndView mav = new ModelAndView();
@@ -151,6 +152,7 @@ public class GroupBuyService {
 		return mav;
 	}
 
+	// 공동구매 게시글, 정보 삭제
 	public ModelAndView deleteGroupBuyBoard(String gbcode) {
 		System.out.println("AdminService.deleteGroupBuyBoard() 호출");
 		ModelAndView mav = new ModelAndView();
