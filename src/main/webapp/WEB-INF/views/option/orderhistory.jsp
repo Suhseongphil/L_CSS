@@ -206,27 +206,27 @@ textarea {
 
 								<div class="item display" style="padding-top: 30px;">
 									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
+										style="padding-bottom: 20px; text-align: center; margin-top: 50px;">
 										<div class="col-2">
-											<h5>이미지</h5>
+											<h5 style="font-weight: bold;">이미지</h5>
 										</div>
 										<div class="col-3">
-											<h5>제품</h5>
+											<h5 style="font-weight: bold;">제품</h5>
 										</div>
 										<div class="col-2">
-											<h5>가격</h5>
+											<h5 style="font-weight: bold;">가격</h5>
 										</div>
 										<div class="col-1">
-											<h5>수량</h5>
+											<h5 style="font-weight: bold;">수량</h5>
 										</div>
 										<div class="col-2">
-											<h5>총가격</h5>
+											<h5 style="font-weight: bold;">총가격</h5>
 										</div>
 										<div class="col-1">
-											<h5>배송준비</h5>
+											<h5 style="font-weight: bold;">배 송<br>준 비</h5>
 										</div>
 										<div class="col-1">
-											<h5>주문취소</h5>
+											<h5 style="font-weight: bold;">주 문<br>취 소</h5>
 										</div>
 									</div>
 
@@ -239,22 +239,23 @@ textarea {
 											<div class="col-2">
 												<img alt="" src="${odList.pdimg }">
 											</div>
-											<div class="col-3">
+											<div class="col-3" style="margin-top: 60px;">
 												<h5>${odList.pdname }</h5>
 											</div>
-											<div class="col-2">
+											<div class="col-2" style="margin-top: 60px;">
 												<h5>${odList.pdprice }</h5>
 											</div>
-											<div class="col-1">
+											<div class="col-1" style="margin-top: 60px;">
 												<h5>${odList.reamount }</h5>
 											</div>
-											<div class="col-2">
+											<div class="col-2" style="margin-top: 60px;">
 												<h5>${odList.reprice }</h5>
 											</div>
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
 													<div class="col-1">
-														<h5 style="font-size: 18px;">배송준비</h5>
+														<h5 style="font-size: 18px; margin-top: 60px;"
+														>배 송<br>준 비</h5>
 													</div>
 												</c:when>
 												<c:when test="${odList.restate == 2}">
@@ -265,8 +266,8 @@ textarea {
 												</c:when>
 												<c:when test="${odList.restate == 4}">
 													<div class="col-1">
-														<h5>배송완료</h5>
-														<h6>리뷰작성완료</h6>														
+														<h5>배 송<br>완 료<hr></h5>
+														<h6>리 뷰<br>작 성<br>완 료</h6>														
 													</div>
 												</c:when>
 											</c:choose>
@@ -276,7 +277,8 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode"
-																value="${odList.recode}">주문취소</button>
+															style="margin-top: 60px;
+																value="${odList.recode}">주 문<br>취 소</button>
 													</form>
 														</div>
 												</c:when>
@@ -285,13 +287,13 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode"
-																value="${odList.recode}">환불요청</button>
+																value="${odList.recode}">환 불<br>요 청</button>
 													</form>
 														</div>
 												</c:when>
 												<c:otherwise>
 													<div class="col-1">
-														<h5>취소대기</h5>
+														<h5 style="margin-top: 50px;">취 소<br>대 기</h5>
 													</div>
 												</c:otherwise>
 
@@ -308,9 +310,11 @@ textarea {
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="shoping__cart__btns">
-								<a href="shopMain" class="primary-btn cart-btn">더 쇼핑하기</a> <a
-									href="orderhistory" class="primary-btn cart-btn cart-btn-right">
+							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
+								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> 
+								<a href="orderhistory" 
+								class="primary-btn cart-btn cart-btn-right"
+								style="color: black;">
 									새로고침</a>
 							</div>
 						</div>

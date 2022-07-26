@@ -137,24 +137,24 @@
 
 								<div class="item display" style="padding-top: 30px;">
 									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
+										style="padding-bottom: 20px; text-align: center; margin-top: 50px;">
 										<div class="col-2">
-											<h5>이미지</h5>
+											<h5 style="font-weight: bold;">이미지</h5>
 										</div>
 										<div class="col-3">
-											<h5>이름</h5>
+											<h5 style="font-weight: bold;">이름</h5>
 										</div>
 										<div class="col-2">
-											<h5>가격</h5>
+											<h5 style="font-weight: bold;">가격</h5>
 										</div>
 										<div class="col-2">
-											<h5>수량</h5>
+											<h5 style="font-weight: bold;">수량</h5>
 										</div>
 										<div class="col-2">
-											<h5>총가격</h5>
+											<h5 style="font-weight: bold;">총가격</h5>
 										</div>
 										<div class="col-1">
-											<h5>취소</h5>
+											<h5 style="font-weight: bold;">취소</h5>
 										</div>
 									</div>
 
@@ -165,12 +165,14 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="shoping__cart__btns">
-								<a href="shopMain" class="primary-btn cart-btn">더 쇼핑하기</a> <a href="#"
-									class="primary-btn cart-btn cart-btn-right"> 새로고침</a>
+							<div class="back color-10 menu align-center expanded text-center SMN_effect-70" 
+							style="font-weight: bold;">
+								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> <a href="#"
+									class="primary-btn cart-btn cart-btn-right"
+									style="color: black;"> 새로고침</a>
 							</div>
 						</div>
-						<div id="checkOut" class="col-lg-6" style="margin-bottom: 350px;"></div>
+						<div id="checkOut" class="col-lg-4" style="margin-bottom:100px; margin-left: 800px; "></div>
 					</div>
 				</div>
 				<!--</section>  -->
