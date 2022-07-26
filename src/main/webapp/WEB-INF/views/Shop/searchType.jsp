@@ -41,37 +41,7 @@
 	type="text/css">
 
 
-<style>
-#nav-v2 {
-	width: 150px;
-	text-align: center;
-}
 
-.menu-v2 {
-	line-height: 2;
-	position: relative;
-}
-
-.menu-v2 .submenu {
-	position:;
-	width: 130px;
-	left: 149px;
-	background-color: white;
-	color: black;
-	top: -1px;
-	display: none;
-}
-
-.menu-v2:hover {
-	background-color: #8b4513;
-	color: white;
-}
-
-.menu-v2 .submenu>li:hover {
-	background-color: white;
-	color: black;
-}
-</style>
 
 <body>
 	<header class="header">
@@ -84,70 +54,58 @@
 
 		</div>
 	</div>
-	<section class="product spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 section-container-spacer"
-					style="margin-top: -30px;">
-					<div class="sidebar">
-						<div class="sidebar__item" id="category">
-							<h4>카테고리</h4>
+	<section>
+		<%@ include file="../includes/SideBar2.jsp"%>
+	</section>
 
-							<ul id="nav-v2"
-								style="margin-left: -30px; padding-bottom: -30px;">
-								<li
-									style="background-color: white-space; margin: 10px; padding-bottom: -30px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									음료
-									<ul  class="submenu" >
-										<li value="원두"><a href="#">원두</a></li>
-										<li value="소스"><a href="#">소스</a></li>
-										<li value="파우더"><a href="#">파우더</a></li>
+	<section>
 
-									</ul>
-								</li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									머신
-									<ul class="submenu">
-										<li value="그라인더"><a href="#">그라인더</a></li>
-										<li value="커피머신"><a href="#">커피머신</a></li>
-										<li value="제빙기"><a href="#">제빙기</a></li>
+		<div class="container" style="padding-left: 80px;">
+			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
+				<div class="product__discount">
+					<div class="section-title product__discount__title"
+						style="text-align: center; margin-top: -400px;">
+						<form action="searchProduct" method="get">
+							<div id="search" class="row">
+								<div class="col-lg-12" style="margin-top: 100px;">
+									<div class="shoping__cart__btns"
+										style="margin-left: 250px; margin-top: -70px;">
+										<select name="pdcategory" id="pdcategory">
+											<option value="pdname">이름</option>
+											<option value="pdtype">종류</option>
 
-									</ul>
-								</li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									일회용품
-									<ul class="submenu">
-										<li value="아이스컵"><a href="#">아이스컵</a></li>
-										<li value="스트로우"><a href="#">스트로우</a></li>
-										<li value="종이컵"><a href="#">종이컵</a></li>
-										<li value="냅킨"><a href="#">냅킨</a></li>
-										<li value="컵홀더"><a href="#">컵홀더</a></li>
-									</ul>
-								</li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									컵
-									<ul class="submenu">
-										<li value="머그잔"><a href="#">머그잔</a></li>
-										<li value="텀블러"><a href="#">텀블러</a></li>
-									</ul>
-								</li>
-								<li
-									style="background-color: white-space; margin: 10px; padding: 1px; font-weight: bold;"
-									class="menu-v2 card o-hidden border-0 shadow-lg my-4 card-body p-0">
-									가구
-									<ul class="submenu">
-										<li value="의자"><a href="#">의자</a></li>
-										<li value="테이블"><a href="#">테이블</a></li>
-									</ul>
-								</li>
-							</ul>
+										</select> <input style="margin-left: -400px; padding: 7px;" type="text"
+											placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
+										<button type="submit" style="margin-left: -5px;">검색</button>
+
+									</div>
+								</div>
+
+							</div>
+						</form>
+						<h2 style="margin-top: 100px;">추천 상품</h2>
+					</div>
+					<div class="row">
+						<div class="row">
+
+							<c:forEach items="${searchType}" var="pro">
+								<div class="col-lg-4">
+									<div class="product__discount__item">
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${pro.pdimg }"></div>
+										<div class="product__discount__item__text">
+											<a
+												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+												<i class="fa fa-shopping-cart"></i>
+											</a> <span>${pro.pdname}</span>
+											<h5>
+												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
+											</h5>
+											<div class="product__item__price">${pro.pdprice}원</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
 
 						</div>
 					</div>
@@ -158,146 +116,41 @@
 
 	<section>
 
-		<div class="container" style="padding-left: 80px;">
-			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
-				<div class="product__discount">
-					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -450px;">
-						<form action="searchProduct" method="get">
-							<div id="search" class="row">
-								<div class="col-lg-9">
-									<div class="shoping__cart__btns">
-										<select name="pdcategory" id="pdcategory">
-											<option value="pdname">이름</option>
-											<option value="pdtype">종류</option>
+		<div
+			style="font-size: 16px; margin-left: 600px; margin-bottom: 30px; margin-top: 30px;">
 
-										</select> <input type="text" placeholder="검색어 입력.." name="searchText" style="height: 40px;">&nbsp;&nbsp;
-										<button type="submit" class ="primary-btn text-white" style="background-color:#000000;">검색</button>
-
-									</div>
-								</div>
-
-							</div>
-						</form>
-						<h2>상품 목록</h2>
-					</div>
-					<div class="row">
-						<div class="row">
-
-							<c:forEach items="${searchType}" var="pro" >
-								<div class="col-lg-4">
-									<div class="product__discount__item">
-										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
-										<div class="product__discount__item__text">
-											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
-											</a> <span>${pro.pdname}</span>
-											<h5>
-												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
-											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-						</div>
-					</div>
-				</div>
-			</div>
+			<c:choose>
+				<c:when test="${pagedto.page <= 1 }">
+                      [이전]
+                         </c:when>
+				<c:otherwise>
+					<a href="searchType?page=${pagedto.page - 1}">[이전]</a>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+				var="num" step="1">
+				<c:choose>
+					<c:when test="${pagedto.page == num }">
+						<span style="font-size: 20px;">${num }</span>
+					</c:when>
+					<c:otherwise>
+						<a href="searchType?page=${num}"> ${num } </a>&nbsp;&nbsp;
+                      </c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pagedto.page >= pagedto.maxPate }">
+                      [다음]
+                   </c:when>
+				<c:otherwise>
+					<a href="searchType?page=${pagedto.page + 1}">[다음]</a>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</section>
 
-	<!-- 
-		<div class="filter__item">
-			<div class="row">
-				<div class="col-lg-4 col-md-5">
-					<div class="filter__sort">
-						<span>상품목록</span> <select>
-							<option value="0">Default</option>
-							<option value="0">Default</option>
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="product__item">
-					<div class="product__item__pic set-bg"
-						data-setbg="img/product/product-1.jpg">
-						<ul class="product__item__pic__hover">
-							<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-							<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-						</ul>
-					</div>
-					<div class="product__item__text">
-						<h6>
-							<a href="#">Crab Pool Security</a>
-						</h6>
-						<h5>$30.00</h5>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="product__item">
-					<div class="product__item__pic set-bg"
-						data-setbg="img/product/product-2.jpg">
-						<ul class="product__item__pic__hover">
-							<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-							<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<div class="product__pagination">
-			<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#"><i
-				class="fa fa-long-arrow-right"></i></a>
-		</div>
- -->
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<h2>L&CSS</h2>
-						</div>
-						<ul>
-							<li>회사주소: 인천일보아카데미</li>
-							<li>전화번호: 032-111-1111</li>
-							<li>이메일 : #</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>프로젝트</h6>
-						<ul>
-							<li><a href="#">팀장 : 서성필</a></li>
-							<li><a href="#">엔지니어 : 송영오</a></li>
-							<li><a href="#">엔지니어 : 천호태</a></li>
-							<li><a href="#">엔지니어 : 이상윤</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<a href="InquirePage">고객문의</a>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright"></div>
-				</div>
-			</div>
-		</div>
+	<footer class="footer">
+		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 </body>
 
@@ -321,7 +174,7 @@
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
 		var type = $(this).text();
-		location.href="searchType?type="+type
+		location.href = "searchType?type=" + type
 	});
 </script>
 
