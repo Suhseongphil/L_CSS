@@ -52,11 +52,7 @@
 		</if>
 	</select>
 
-	<select id="searchType" resultType="com.L_CSS.dto.ProductDto">
-		select *
-		from PRODUCT
-		where PDTYPE = #{type}
-	</select>
+	
 
 	<select id="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
 		select *
@@ -145,8 +141,18 @@
 		PRODUCT
 	</select>
 
-
-
+	<select id="productList" resultType="com.L_CSS.dto.ProductDto">
+		select p.*
+		from (select rownum rn, product.* from PRODUCT) p
+		where p.rn between #{start} and #{end}
+	</select>
+	
+	<select id="searchType"
+		resultType="com.L_CSS.dto.ProductDto">
+		select p.*
+		from (select rownum rn, product.* from PRODUCT where pdtype = #{pdtype}) p
+		where p.rn between #{start} and #{end}
+	</select>
 
 
 

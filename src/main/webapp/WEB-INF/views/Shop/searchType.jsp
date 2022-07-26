@@ -122,7 +122,7 @@
                       [이전]
                          </c:when>
 				<c:otherwise>
-					<a href="searchType?page=${pagedto.page - 1}">[이전]</a>
+					<a href="shopMain?page=${pagedto.page - 1}">[이전]</a>
 				</c:otherwise>
 			</c:choose>
 			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
@@ -132,7 +132,7 @@
 						<span style="font-size: 20px;">${num }</span>
 					</c:when>
 					<c:otherwise>
-						<a href="searchType?page=${num}"> ${num } </a>&nbsp;&nbsp;
+						<a href="shopMain?page=${num}"> ${num } </a>&nbsp;&nbsp;
                       </c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -141,7 +141,7 @@
                       [다음]
                    </c:when>
 				<c:otherwise>
-					<a href="searchType?page=${pagedto.page + 1}">[다음]</a>
+					<a href="shopMain?page=${pagedto.page + 1}">[다음]</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -172,7 +172,7 @@
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
 		var type = $(this).text();
-		location.href = "searchType?type=" + type
+		location.href = "shopMain?pdtype=" + type
 	});
 </script>
 
