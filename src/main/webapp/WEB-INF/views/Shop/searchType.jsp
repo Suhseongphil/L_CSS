@@ -179,7 +179,7 @@
 
 							</div>
 						</form>
-						<h2>추천 상품</h2>
+						<h2>상품 목록</h2>
 					</div>
 					<div class="row">
 						<div class="row">

@@ -185,10 +185,10 @@ h7 {
 											<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
 										<div class="col-6">
-											<h5>문의유형</h5>
+											<h5>문의제목</h5>
 										</div>
 										<div class="col-2">
-											<h5>문의제목</h5>
+											<h5>문의유형</h5>
 										</div>
 										<div class="col-2">
 											<h5>시간</h5>
@@ -199,7 +199,7 @@ h7 {
 									</div>
 
 
-									<div id="myInqurreList" class="item">
+									<div id="myInqurreList" class="item" style="text-align: center;">
 									</div>
 
 
@@ -214,34 +214,19 @@ h7 {
 						</div>
 					</div>
 
-					<form action="searchText" method="get">
-						<div id="search" class="row">
-							<div class="col-lg-8">
-								<div class="shoping__cart__btns">
-									<select name="iqcategory" id="iqcategory">
-										<option value="iqcomment">내용</option>
-										<option value="iqtitle">제목</option>
+					
 
-									</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-									<button type="submit">검색</button>
-
-								</div>
-							</div>
-
-						</div>
-					</form>
-
-					<div class="row">
+					<div class="row" >
 						<div class="col-lg-12">
-							<div class="shoping__cart__btns">
+							<div class="shoping__cart__btns" >
 
 								<a href="insertInquirePage"
-									class="primary-btn cart-btn cart-btn-right"><span
-									class="icon_loading"></span> 문의작성</a>
+									class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px;">
+									문의작성</a>
 							</div>
 						</div>
 
-
+							
 					</div>
 				</div>
 				<!--</section>  -->
@@ -309,38 +294,43 @@ h7 {
 		console.log(myInquire);
 		var output = "";
 		for (var i = 0; i < myInquire.length; i++) {
-
+			
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
-			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6 center\">"
+			output += "<div class=\"row \" >";
+			output += "<div class=\"col-6\">";
 
 			output += "<h7 style=\"padding-top: 36px;\">"
-					+ myInquire[i].iqcategory
+					+ myInquire[i].iqtitle
 					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
-			output += "<div class=\"col-2 divpadding \">"
-			output += "<a href=\"inquireInfo?iqcode="+myInquire[i].iqcode+"\">" + myInquire[i].iqtitle
+			output += "<div class=\"col-2\">";
+			output += "<a href=\"inquireInfo?iqcode="+myInquire[i].iqcode+"\">" + myInquire[i].iqcategory
 					+ "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 
 			//output += "<td class=\"shoping__cart__quantity\">";
 
-			output += "<div class=\"col-2 divpadding \">"
+			output += "<div class=\"col-2 \">"
+			
 			output += "<h5>" + myInquire[i].iqdate
 					+ "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 
 			//output += "</td>";
-
+	
 			//output += "<td class=\"shoping__cart__total\">";
-			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + myInquire[i].iqstate
-					+ " &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
+			output += "<div class=\"col-2 \">"
+			if(myInquire[i].iqstate == 0){
+				
+			output += "<h5>답변대기</h5>"
+			}else{
+			output += "<h5>답변완료</h5>"
+			}
 			output += "</div>";
 			output += "</div>";
 
