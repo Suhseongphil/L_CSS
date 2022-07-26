@@ -160,7 +160,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__btns">
-								<a href="#" class="primary-btn cart-btn">더 쇼핑하기</a> <a href="#"
+								<a href="shopMain" class="primary-btn cart-btn">더 쇼핑하기</a> <a href="#"
 									class="primary-btn cart-btn cart-btn-right"> 새로고침</a>
 							</div>
 						</div>

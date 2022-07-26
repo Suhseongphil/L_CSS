@@ -13,6 +13,11 @@
 .header__logo a:hover {
  color: saddlebrown;
 }
+.imgO {
+border-radius: 70%;
+width:30px;
+height: 30px;
+}
 </style>
 </head>
 <body>
@@ -23,7 +28,6 @@
 			</h2>
 		</div>
 	</div>
-
 	<div class="col-lg-9">
 		<nav class="header__menu2" style="padding-left: 50px; margin-top: 10px;">
 			<ul>
@@ -112,6 +116,14 @@
 				</c:choose>
 				<li>
 					<a href="groupBuyBoard">공동구매</a>
+				</li>
+				<li style="text-align: right; float: right;">
+				<c:choose>
+				<c:when test="${sessionScope.loginId != null }">
+				<img class="imgO" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${sessionScope.myProfile}">
+				${sessionScope.loginId }님 환영합니다!
+				</c:when>
+				</c:choose>
 				</li>
 			</ul>
 		</nav>

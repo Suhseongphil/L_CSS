@@ -148,7 +148,7 @@
 
 										<button type="submit"
 											class="btn text-white  btn-user btn-block"
-											style="background-color: #000000;">카페추가</button>
+											style="background-color: #000000;">업체추가</button>
 										<input type="hidden" name="cmmid" id="cmmid" value=${sessionScope.loginId }>
 
 									</form>

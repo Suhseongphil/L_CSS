@@ -81,7 +81,7 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(리뷰수)</span>
                         </div>
-                        <div class="product__details__price">${productInfo.pdprice }</div>
+                        <div class="product__details__price">${productInfo.pdprice } 원</div>
                         <p>상품소개내용</p>
                         <div class="product__details__quantity">
                             <div class="quantity">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn text-white">장바구니담기</a>
+                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn text-white" style="background-color: #000000;">장바구니담기</a>
                         <ul>
                             <li><b>업체명</b> <span>${companyInfo.cmname }</span></li>
                             <li><b>배송시간</b> <span>1~2일 소요 <samp>&nbsp;&nbsp; 연중무휴</samp></span></li>
