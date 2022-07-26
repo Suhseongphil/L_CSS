@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
@@ -159,6 +160,14 @@ public class AdminController {
 		System.out.println("회원 정보 삭제");
 
 		adsvc.deleteMember(mid);
+	}
+	//고객문의 내용 확인
+	@RequestMapping(value="/admininquirePage")
+	public ModelAndView admininquirePage() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav = adsvc.InquireList();
+		return mav;
 	}
 
 }

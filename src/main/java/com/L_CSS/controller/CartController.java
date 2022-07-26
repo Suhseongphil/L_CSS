@@ -166,12 +166,29 @@ public class CartController {
 	}
 	//장바구니 담기
 	@RequestMapping(value="/cartIn")
-	public String cartinsert (String pdcode,String pdcmcode) {
+	public String cartinsert (String pdcode,String pdcmcode,RedirectAttributes ra) {
 		System.out.println("장바구니 담기");
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println(pdcode);
 		System.out.println(pdcmcode);
-		String  cartInsert = csv.cartInsert(pdcode,pdcmcode,loginId);
+		String  cartInsert = csv.cartInsert(pdcode,pdcmcode,loginId,ra);
 		return cartInsert;
 	}
+	//장바구니 상품 삭제
+	@RequestMapping(value="/deleteCart")
+	public @ResponseBody String deleteCart(String ctcode,RedirectAttributes ra) {
+		System.out.println("선택 상품 삭제");
+		
+		String deleteCart = csv.deleteCart(ctcode,ra);
+		return "redirect:/myCartPage";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

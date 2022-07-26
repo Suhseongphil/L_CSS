@@ -138,7 +138,10 @@
 								<div class="item display" style="padding-top: 30px;">
 									<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
+										<div class="col-2">
+											<h5>이미지</h5>
+										</div>
+										<div class="col-3">
 											<h5>이름</h5>
 										</div>
 										<div class="col-2">
@@ -149,6 +152,9 @@
 										</div>
 										<div class="col-2">
 											<h5>총가격</h5>
+										</div>
+										<div class="col-1">
+											<h5>취소</h5>
 										</div>
 									</div>
 
@@ -232,9 +238,11 @@
 
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
-			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6 divpadding \">"
+			output += "<div class=\"row \">";
+			output += "<div class=\"col-2  \">"
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			output += "</div>";
+			output += "<div class=\"col-3  \">"
 			output += "<h7>" + mycart[i].pdname
 					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
@@ -265,10 +273,14 @@
 			output += "<h5>"
 					+ mycart[i].pdprice
 					* mycart[i].ctamount
-					+ "원 &nbsp;&nbsp;<input onclick=\"checkbox()\"  type=\"checkbox\" id=\"check\" name=\"check\" value=\"'"
-					+ mycart[i].ctcode + "'\" ></h5>";
+					+ "원</h5>";
 
 			output += "</div>";
+			output += "<div class=\"col-1 divpadding\">";
+			output += "<h5><input onclick=\"checkbox()\"  type=\"checkbox\" id=\"check\" name=\"check\" value=\""
+				+ mycart[i].ctcode + "\" ></h5>";
+			output += "</div>";
+			
 			//output += "</td>";
 
 			//output += "<td class=\"shoping__cart__item__close\">";
@@ -347,25 +359,23 @@
 
 	function checkbox() {
 
-		var checkArr = [];
+		
 		$("input[name=check]:checked").each(function() {
 			var chc = $(this).val();
 			console.log(chc);
-			checkArr.push(chc);
-			console.log("배열" + checkArr[0]);
-			console.log("배열" + checkArr[1]);
-			/*
+			
 			$.ajax({
-				type : "post",
-				url : "paymentInsert",
-				data : {"checkArr" : checkArr},
-				dataType : "json",
+				type : "get",
+				url : "deleteCart",
+				data : {"ctcode" : chc},
+				
 				asyne : false,
 				success : function(paymentInsert){
 					console.log(paymentInsert)
+					myCart();
 				}
 			});
-			 */
+			 
 
 		});
 	}

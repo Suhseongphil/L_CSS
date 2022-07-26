@@ -8,10 +8,13 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.AdminDao;
+import com.L_CSS.dao.InquIreDao;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.InquIreDto;
 import com.L_CSS.dto.MemberDto;
 import com.google.gson.Gson;
 
@@ -20,7 +23,8 @@ public class AdminService {
 
 	@Autowired
 	AdminDao adao;
-
+	@Autowired
+	InquIreDao Idao;
 	// 저장경로 ) 본인 로컬주소로 변경!!
 	private String savePath_cm = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CompanyFile";
 	private String savePath_cf = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/CafeFile";
@@ -395,5 +399,28 @@ public class AdminService {
 			adao.deleteMember(mid);
 		}
 	}
+	//문의 목록 출력
+	public ModelAndView InquireList() {
+		System.out.println("InquireList()호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<InquIreDto>inquireList = Idao.selectInquireList();
+		
+		mav.addObject("inquireList", inquireList);
+		mav.setViewName("Admin/AdminInquire");
+		return mav;
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
