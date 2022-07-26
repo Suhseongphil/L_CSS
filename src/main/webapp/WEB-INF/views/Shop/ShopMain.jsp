@@ -184,7 +184,7 @@
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
 		var type = $(this).text();
-		location.href = "searchType?type=" + type
+		location.href = "shopMain?pdtype=" + type
 	});
 </script>
 <script>

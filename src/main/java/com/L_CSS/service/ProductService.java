@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
@@ -328,7 +331,7 @@ public class ProductService {
       mav.setViewName("Shop/searchShop");
       return mav;
    }
-
+/*
    // 카테고리 선택
    public ModelAndView searchType(String type) {
 
@@ -372,7 +375,7 @@ public class ProductService {
       return mav;
 
    }
-
+*/
    public ModelAndView myProduct(RedirectAttributes ra) {
       ModelAndView mav = new ModelAndView();
       System.out.println("myProduct() 호출");
@@ -539,18 +542,24 @@ public class ProductService {
 
       return mav;
    }
-
-   public ModelAndView productList(String page) {
+   //상품 내역 출력
+   public ModelAndView productList(String page, String pdtype) {
       System.out.println("productList()호출");
       ModelAndView mav = new ModelAndView();
       int TotalCount2 = pdao.TotalCount2();
       int page2 = 1;
       
+      
+     
+     
       if (page != null) {
          page2 = Integer.parseInt(page);
       }
+      String rere = (String)session.getAttribute("typeResult");
       
-
+      
+      
+     
       // 한페이지에 보여줄 글 개수
       int pageCount = 10;
       // 한페이지에 보여줄 페이지 번호 개수
@@ -569,18 +578,50 @@ public class ProductService {
       }
       System.out.println(startRow);
       System.out.println(endRow);
-      ArrayList<ProductDto> selectproductList = pdao.selectproductList2(startRow, endRow);
-      PageDto pagedto = new PageDto();
-      pagedto.setPage(page2);
-      pagedto.setMaxPate(maxPage);
-      pagedto.setStartPage(startPage);
-      pagedto.setEndPage(endPage);
-      mav.addObject("pagedto", pagedto);
-      mav.addObject("selectproductList", selectproductList);
-      mav.setViewName("Shop/ShopMain");
-      System.out.println(selectproductList);
+      //null > 원두 
+      				
+      if(rere == pdtype ) {
+    	  session.invalidate();
+    	  session.setAttribute("typeResult", pdtype);
+    	  String rdrd = (String)session.getAttribute("typeResult");
+    	  rere = rdrd;
+  
+      }
+      
+      if(pdtype == null && rere == null) {
+    	  
+    	  PageDto pagedto = new PageDto();
+    	  pagedto.setPage(page2);
+    	  pagedto.setMaxPate(maxPage);
+    	  pagedto.setStartPage(startPage);
+    	  pagedto.setEndPage(endPage);
+    	  mav.addObject("pagedto", pagedto);
+    	  ArrayList<ProductDto> productList = pdao.productList(startRow, endRow);
+    	  mav.addObject("selectproductList", productList);
+    	  mav.setViewName("Shop/ShopMain");
+    	  return mav;
+      }else {
+    	  if(pdtype == null ) {
+    		  pdtype = rere;
+    	  }
+    	  session.setAttribute("typeResult", pdtype);
+    	  PageDto pagedto = new PageDto();
+  
+    	  pagedto.setPage(page2);
+    	  pagedto.setMaxPate(maxPage);
+    	  pagedto.setStartPage(startPage);
+    	  pagedto.setEndPage(endPage);
+    	  mav.addObject("pagedto", pagedto);
+    	  ArrayList<ProductDto> searchType = pdao.searchType(startRow, endRow,pdtype);
+    	  session.setAttribute("typeResult", pdtype);
+    	  mav.addObject("selectproductList", searchType);
+    	  mav.setViewName("Shop/ShopMain");
+    	  return mav;
+      }
+      
+      
 
-      return mav;
+     
    }
 
 }

@@ -26,7 +26,7 @@ public interface ProductDao {
 
    ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
 
-   ArrayList<ProductDto> searchType(String type);
+   ArrayList<ProductDto> searchType(@Param("start")int startRow, @Param("end")int endRow, @Param("pdtype")String pdtype);
 
    CompanyDto MyProduct(String loginId);
 
@@ -56,7 +56,9 @@ public interface ProductDao {
    int TotalCount2();
    int TotalCount3();
 
-	ArrayList<ProductDto> selectproductList2(@Param("start")int startRow,@Param("end")int endRow);
+ArrayList<ProductDto> productList(@Param("start")int startRow, @Param("end")int endRow);
+
+	
 
 
 
