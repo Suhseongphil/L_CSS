@@ -86,7 +86,29 @@
 					</div>
 				</div>
 
-				<div id="chatRoom" class="col-6" style="height: 500px;"></div>
+				<div class="col-6" style="height: 500px;">
+					<div id="chatRoom" style="height: 450px; background-color: f0ffff;">
+						<c:forEach items="${chattingLog}" var="chLog">
+							<c:choose>
+								<c:when test="${chLog.chmid == sessionScope.loginId }">
+									<div class="font-weight-bold text-right text-gray-900">
+										<span class="bg-warning">${chLog.chcomment}</span>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="text-left">
+										<span class="text-gray-700">${chLog.chmid}</span><br>
+										<span class="bg-warning font-weight-bold text-gray-900">${chLog.chcomment}</span>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</div>
+					<div style="height: 50px;">
+						<input style="width: 89%;" type="text" id="inputChat">
+						<button style="width: 9%;" onclick="chattingRoad('${gbreserve.gbcode}')">전송</button>
+					</div>
+				</div>
 
 				<div class="col-3" style="height: 500px;">
 					<div class="text-center font-weight-bold">
@@ -128,6 +150,8 @@
 	}
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
 <script type="text/javascript">
 	var url = '${pageContext.request.contextPath }/chattingRoom';
 	console.log(url);
@@ -144,8 +168,11 @@
 		var receiveData = JSON.parse(e.data);
 		console.log(receiveData);
 
-		var output = "<p>" + receiveData.msgUserId + "</p>"
-		output += "<p>" + receiveData.msgComment + "</p>"
+		var output = "<p>" + receiveData.chmid + "</p>";
+		output += "<p>" + receiveData.chcomment + "</p>";
+		
+		var output = "<div class=\"font-weight-bold text-right text-gray-900\">";
+		output += "<span class=\"bg-warning\">" + comment + "</span></div>";
 
 		$("#chatRoom").append(output);
 
@@ -157,21 +184,21 @@
 </script>
 
 <script type="text/javascript">
-	function chatingRoad(loginId) {
+	function chattingRoad(gbcode) {
 
 		var username = "${sessionScope.loginId}";
 		var comment = $("#inputChat").val();
 		$("#inputChat").val("");
 
 		var msgData = {
-			"msgUserId" : username,
-			"msgComment" : comment
+			"chmid" : username,
+			"chcomment" : comment,
+			"chgbcode" : gbcode
 		};
 		sock.send(JSON.stringify(msgData));
 
-		var output = "<div class=\" font-weight-bold my-2 p-2 text-right text-gray-900\">";
-		output += "<span class=\"bg-warning msgSty p-2 text-lg\">" + comment
-				+ "</span></div>";
+		var output = "<div class=\"font-weight-bold text-right text-gray-900\">";
+		output += "<span class=\"bg-warning\">" + comment + "</span></div>";
 
 		$("#chatRoom").append(output);
 		$("#chatRoom").scrollTop($("#chatRoom")[0].scrollHeight);

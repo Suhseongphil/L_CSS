@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.L_CSS.dao.ChatroomDao;
 import com.L_CSS.dao.GroupBuyDao;
+import com.L_CSS.dto.ChatroomDto;
 import com.L_CSS.dto.GbpeopleDto;
 import com.L_CSS.dto.GbreserveDto;
 import com.L_CSS.dto.GroupBuyDto;
@@ -23,6 +25,9 @@ public class GroupBuyService {
 
 	@Autowired
 	GroupBuyDao gbdao;
+	
+	@Autowired
+	ChatroomDao chdao;
 
 	// 공동구매 게시판
 	public ModelAndView getGroupBuyInfo() {
@@ -158,6 +163,7 @@ public class GroupBuyService {
 		return mav;
 	}
 
+	// 공동구매 채팅방 참여 요청
 	public ModelAndView groupBuyChatRoom(String gbcode) {
 		System.out.println("AdminService.groupBuyChatRoom() 호출");
 		ModelAndView mav = new ModelAndView();
@@ -165,10 +171,12 @@ public class GroupBuyService {
 		GbreserveDto gbreserve = gbdao.getGroupbuy(gbcode);
 		int gbCnt = gbdao.gbpeopleCnt(gbcode);
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
+		ArrayList<ChatroomDto> chattingLog = chdao.getChatroom(gbcode);
 		
 		mav.addObject("gbpeopleList", gbpeopleList);
 		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
+		mav.addObject("chattingLog", chattingLog);
 		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
