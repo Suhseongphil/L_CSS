@@ -241,7 +241,7 @@ label {
 						<c:set var="loop_flag" value="false" />
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:if test="${gpList.gpmid == sessionScope.loginId}">
-								<button>채팅방 참여</button>
+								<a href="chatRoom?gbcode=${gbreserve.gbcode}">채팅방 참여(버튼)</a>
 							</c:if>
 							<c:if test="${not loop_flag }">
 								<c:if test="${gpList.gpmid != sessionScope.loginId}">
