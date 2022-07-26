@@ -2,6 +2,9 @@ package com.L_CSS.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.L_CSS.dto.MenuDto;
 import com.L_CSS.dto.ProductDto;
 import com.L_CSS.service.ProductService;
 
@@ -72,11 +74,12 @@ public class ProductController {
 
    // 상품목록 출력
    @RequestMapping(value = "/shopMain")
-   public ModelAndView shopMain(String page) {
+   public ModelAndView shopMain(String page , String pdtype) {
       System.out.println("상품 목록 출력");
+      System.out.println(pdtype);
       ModelAndView mav = new ModelAndView();
       
-      mav = psv.productList(page);
+      mav = psv.productList(page,pdtype);
 
       return mav;
    }
@@ -92,7 +95,7 @@ public class ProductController {
       
       return mav;
    }
-
+/*
    //카테고리 선택
    @RequestMapping(value="/searchType")
    public ModelAndView searchType(String type) {
@@ -103,7 +106,7 @@ public class ProductController {
 
       mav = psv.searchType(type);
       return mav;
-   }
+   }*/
    //메뉴정보 입력 페이지 이동
       @RequestMapping(value = "/myProduct")
       public ModelAndView myProduct(RedirectAttributes ra) {

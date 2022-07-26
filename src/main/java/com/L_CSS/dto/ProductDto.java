@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ProductDto {
-	
+	private int rn;
 	private	String	pdcode;
 	private	String	pdname;
 	private	String	pdtype;
