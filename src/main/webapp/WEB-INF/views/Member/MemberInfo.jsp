@@ -49,6 +49,7 @@ request.setCharacterEncoding("UTF-8");
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/style.css"
 	type="text/css">
+	
 </head>
 <style>
 .imgClass {
@@ -109,6 +110,7 @@ label {
 .hero__text2 p {
 	font-weight: bold;
 }
+
 </style>
 <body>
 	<!-- Page Preloder -->

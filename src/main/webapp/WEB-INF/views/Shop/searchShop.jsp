@@ -60,18 +60,19 @@
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-8">
+								<div class="col-lg-9">
 									<div class="shoping__cart__btns">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
 
-										</select> <input type="text" placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-										<button type="submit">검색</button>
+										</select> <input type="text" placeholder="검색어 입력.." name="searchText" style="height: 40px;">&nbsp;&nbsp;
+										<button type="submit" class ="primary-btn text-white" style="background-color:#000000;">검색</button>
 									</div>
 								</div>
 							</div>
 						</form>
+						<h2>검색 상품</h2>
 					</div>
 					<div class="row">
 						<div class="row">

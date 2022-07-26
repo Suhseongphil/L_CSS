@@ -152,7 +152,7 @@
 										</div>
 									</div>
 
-									<div id="myCartList" class="item"></div>
+									<div id="myCartList" class="item" style="text-align: center;"></div>
 								</div>
 							</div>
 						</div>
@@ -160,7 +160,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__btns">
-								<a href="#" class="primary-btn cart-btn">더 쇼핑하기</a> <a href="#"
+								<a href="shopMain" class="primary-btn cart-btn">더 쇼핑하기</a> <a href="#"
 									class="primary-btn cart-btn cart-btn-right"> 새로고침</a>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6\">"
+			output += "<div class=\"col-6 divpadding \">"
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			output += "<h7>" + mycart[i].pdname
 					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
