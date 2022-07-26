@@ -53,6 +53,7 @@
 		<%@ include file="../includes/SideBar2.jsp"%>
 	</section>
 	<section>
+	
 		<div class="container" style="padding-left: 80px;">
 			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
 				<div class="product__discount">
@@ -86,7 +87,7 @@
 											<a
 												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
 												<i class="fa fa-shopping-cart"></i>
-											</a> <span>${pro.pdname}</span>
+											</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 											<h5>
 												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 											</h5>
