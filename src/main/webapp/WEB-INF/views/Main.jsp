@@ -92,7 +92,7 @@
 					<div class="hero__item set-bg"
 						data-setbg="${pageContext.request.contextPath }/resources/img/hero/016.jpg">
 						<div class="center">
-							<a href="#" style="font-family: text_ls;"> <span
+							<a href="shopMain" style="font-family: text_ls;"> <span
 								data-attr="Buy">Buy</span><span data-attr="Now">Now</span>
 							</a>
 						</div>

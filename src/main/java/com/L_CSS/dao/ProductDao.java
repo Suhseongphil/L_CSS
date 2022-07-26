@@ -10,44 +10,56 @@ import com.L_CSS.dto.ProductDto;
 
 public interface ProductDao {
 
-	String getmax();
+   String getmax();
 
-	void inserttbList(ProductDto productDto);
+   void inserttbList(ProductDto productDto);
 
-	void insertcmList(ProductDto productDto);
+   void insertcmList(ProductDto productDto);
 
-	void inserthdList(ProductDto productDto);
+   void inserthdList(ProductDto productDto);
 
-	ArrayList<ProductDto> selectPro();
+   ArrayList<ProductDto> selectPro();
 
-	ProductDto getProduct(@Param("type")String type, @Param("i")int i);
+   ProductDto getProduct(@Param("type")String type, @Param("i")int i);
 
-	ArrayList<ProductDto> proInfo(String cmcode);
+   ArrayList<ProductDto> proInfo(String cmcode);
 
-	ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
+   ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
 
-	ArrayList<ProductDto> searchType(String type);
+   ArrayList<ProductDto> searchType(String type);
 
-	CompanyDto MyProduct(String loginId);
+   CompanyDto MyProduct(String loginId);
 
-	int insertProduct(ProductDto product);
+   int insertProduct(ProductDto product);
 
 
-	int updateState(@Param("pdcode") String pdcode,@Param("pdstate") int pdstate);
+   int updateState(@Param("pdcode") String pdcode,@Param("pdstate") int pdstate);
 
-	int deleteProduct(String pdcode);
+   int deleteProduct(String pdcode);
 
-	CafeDto MyProductInfo(String loginId);
+   CafeDto MyProductInfo(String loginId);
 
-	ArrayList<ProductDto> getProduct2();
+   ArrayList<ProductDto> getProduct2();
 
-	ArrayList<ProductDto> getMyProduct(String pdcmcode);
+   ArrayList<ProductDto> getMyProduct(String pdcmcode);
 
-	String getMyProductImg(String pdcode);
+   String getMyProductImg(String pdcode);
 
-	int updateMyProduct(ProductDto product);
+   int updateMyProduct(ProductDto product);
 
-	ArrayList<String> getPdType();
-	
-	ProductDto productInfo(String pdcode);
+   ArrayList<String> getPdType();
+   
+   ProductDto productInfo(String pdcode);
+
+   ArrayList<ProductDto> selectproductList(@Param("start")int startRow,@Param("end")int endRow, @Param("type")String type);
+
+   int TotalCount2();
+   int TotalCount3();
+
+	ArrayList<ProductDto> selectproductList2(@Param("start")int startRow,@Param("end")int endRow);
+
+
+
+
+   
 }

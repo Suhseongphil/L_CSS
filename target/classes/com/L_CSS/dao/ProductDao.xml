@@ -10,13 +10,19 @@
 		from PRODUCT
 	</select>
 	<insert id="inserttbList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		PDCMCODE, PDSTATE)
+		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 	<insert id="insertcmList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		PDCMCODE, PDSTATE)
+		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 	<insert id="inserthdList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG, PDCMCODE, PDSTATE) VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		PDCMCODE, PDSTATE)
+		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 
 	<select id="selectPro" resultType="com.L_CSS.dto.ProductDto">
@@ -26,40 +32,43 @@
 
 	<select id="getProduct" resultType="com.L_CSS.dto.ProductDto">
 		SELECT P.*
-		FROM (SELECT ROWNUM AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type}) P
+		FROM (SELECT ROWNUM AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type})
+		P
 		WHERE P.RN = #{i}
 	</select>
-	<select id="proInfo" resultType="com.L_CSS.dto.ProductDto" >
-		select * 
+	<select id="proInfo" resultType="com.L_CSS.dto.ProductDto">
+		select *
 		from PRODUCT
 		where PDCMCODE = #{cmcode}
 	</select>
-		<select id="searchList" resultType="com.L_CSS.dto.ProductDto" >
-		select * 
+	<select id="searchList" resultType="com.L_CSS.dto.ProductDto">
+		select *
 		from PRODUCT
 		<if test="pdcategory == 'pdname'">
-		where PDNAME LIKE '%' || #{searchText} || '%'
+			where PDNAME LIKE '%' || #{searchText} || '%'
 		</if>
 		<if test="pdcategory == 'pdtype'">
-		where PDTYPE LIKE '%' || #{searchText} || '%'
+			where PDTYPE LIKE '%' || #{searchText} || '%'
 		</if>
 	</select>
-	
+
 	<select id="searchType" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
 		where PDTYPE = #{type}
 	</select>
-	
-	<select id ="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
-  		select *
-  		from COMPANY
-  		where CMMID = #{loginId}
-  		</select>
-  		
-  	<insert id="insertProduct">
-		insert into PRODUCT (PDCODE,PDNAME,PDTYPE,PDPRICE,PDAMOUNT,PDIMG,PDCMCODE,PDSTATE)
-		values (#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},1)
+
+	<select id="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
+		select *
+		from COMPANY
+		where CMMID = #{loginId}
+	</select>
+
+	<insert id="insertProduct">
+		insert into PRODUCT
+		(PDCODE,PDNAME,PDTYPE,PDPRICE,PDAMOUNT,PDIMG,PDCMCODE,PDSTATE)
+		values
+		(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},1)
 	</insert>
 
 	<select id="getProduct2" resultType="com.L_CSS.dto.ProductDto">
@@ -79,14 +88,14 @@
 		where PDCODE = #{pdcode}
 
 	</delete>
-	
-	
-	<select id ="MyProductInfo" resultType="com.L_CSS.dto.CompanyDto">
-  		select *
-  		from COMPANY
-  		where CMMID = #{loginId}
-  		</select>
-  	<select id="getMyProduct" resultType="com.L_CSS.dto.ProductDto">
+
+
+	<select id="MyProductInfo" resultType="com.L_CSS.dto.CompanyDto">
+		select *
+		from COMPANY
+		where CMMID = #{loginId}
+	</select>
+	<select id="getMyProduct" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
 		where PDCMCODE = #{pdcmcode}
@@ -94,34 +103,51 @@
 	</select>
 	<update id="updateMyProduct">
 		update PRODUCT
-		set PDSTATE = #{pdstate}, PDNAME = #{pdname}, PDPRICE = #{pdprice}, PDTYPE = #{pdtype}, PDIMG = #{pdimg}, PDAMOUNT = #{pdamount}
+		set PDSTATE = #{pdstate}, PDNAME = #{pdname}, PDPRICE = #{pdprice},
+		PDTYPE = #{pdtype}, PDIMG = #{pdimg}, PDAMOUNT = #{pdamount}
 		where PDCODE = #{pdcode}
 	</update>
-	
+
 	<select id="getMyProductImg" resultType="String">
-	SELECT PDIMG
-	FROM PRODUCT
-	WHERE PDCODE = #{pdcode}
+		SELECT PDIMG
+		FROM PRODUCT
+		WHERE PDCODE = #{pdcode}
 	</select>
-	
+
 	<select id="getPdType" resultType="String">
-	SELECT PDTYPE
-	FROM PRODUCT
-	GROUP BY PDTYPE
-	</select>	
-	
-	<select id="productInfo" resultType="com.L_CSS.dto.ProductDto">
-	select *
-	from PRODUCT
-	where PDCODE = #{pdcode}
+		SELECT PDTYPE
+		FROM PRODUCT
+		GROUP BY PDTYPE
 	</select>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	<select id="productInfo" resultType="com.L_CSS.dto.ProductDto">
+		select *
+		from PRODUCT
+		where PDCODE = #{pdcode}
+	</select>
+
+	<select id="selectproductList"
+		resultType="com.L_CSS.dto.ProductDto">
+		select p.*
+		from (select rownum rn, product.* from PRODUCT where pdtype = #{type}) p
+		where p.rn between #{start} and #{end}
+	</select>
+
+	<select id="TotalCount2" resultType="int">
+		select count(pdcode)
+		from
+		PRODUCT
+	</select>
+
+	<select id="TotalCount3" resultType="int">
+		select count(pdcode)
+		from
+		PRODUCT
+	</select>
+
+
+
+
+
+
 </mapper>
