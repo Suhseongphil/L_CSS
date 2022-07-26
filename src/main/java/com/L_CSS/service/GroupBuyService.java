@@ -65,7 +65,8 @@ public class GroupBuyService {
 		String productList = gson.toJson(getProductList);
 		return productList;
 	}
-
+	
+	// 공동구매 글 작성
 	public ModelAndView insertGroupBuy(GroupBuyDto groupBuy) {
 		System.out.println("AdminService.insertGroupBuy() 호출");
 		ModelAndView mav = new ModelAndView();
@@ -140,7 +141,7 @@ public class GroupBuyService {
 		
 		gbdao.insertGbpeopleDto(gbInfo);
 		
-		mav.setViewName("GroupBuy/GroupBuyChatRoom");
+		mav.setViewName("redirect:/chatRoom?gbcode="+gbInfo.getGpgbcode());
 		
 		return mav;
 	}
@@ -154,6 +155,21 @@ public class GroupBuyService {
 		gbdao.deleteGroupBuy(gbcode);
 		
 		mav.setViewName("redirect:/groupBuyBoard");
+		return mav;
+	}
+
+	public ModelAndView groupBuyChatRoom(String gbcode) {
+		System.out.println("AdminService.groupBuyChatRoom() 호출");
+		ModelAndView mav = new ModelAndView();
+		
+		GbreserveDto gbreserve = gbdao.getGroupbuy(gbcode);
+		int gbCnt = gbdao.gbpeopleCnt(gbcode);
+		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
+		
+		mav.addObject("gbpeopleList", gbpeopleList);
+		mav.addObject("gbCnt", gbCnt);
+		mav.addObject("gbreserve", gbreserve);
+		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
 
