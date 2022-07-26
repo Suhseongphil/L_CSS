@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.L_CSS.dao.ChatroomDao;
 import com.L_CSS.dao.GroupBuyDao;
+import com.L_CSS.dto.ChatroomDto;
 import com.L_CSS.dto.GbpeopleDto;
 import com.L_CSS.dto.GbreserveDto;
 import com.L_CSS.dto.GroupBuyDto;
@@ -23,6 +25,9 @@ public class GroupBuyService {
 
 	@Autowired
 	GroupBuyDao gbdao;
+
+	@Autowired
+	ChatroomDao chdao;
 
 	// 공동구매 게시판
 	public ModelAndView getGroupBuyInfo() {
@@ -65,7 +70,7 @@ public class GroupBuyService {
 		String productList = gson.toJson(getProductList);
 		return productList;
 	}
-	
+
 	// 공동구매 글 작성
 	public ModelAndView insertGroupBuy(GroupBuyDto groupBuy) {
 		System.out.println("AdminService.insertGroupBuy() 호출");
@@ -119,15 +124,15 @@ public class GroupBuyService {
 		// 줄바꿈, 띄어쓰기 처리
 		String gbcomment = gbreserve.getGbcomment();
 		gbcomment = gbcomment.replaceAll("&nbsp;", " ");
-		gbcomment = gbcomment.replaceAll( "<br>", "\r\n");
+		gbcomment = gbcomment.replaceAll("<br>", "\r\n");
 		gbreserve.setGbcomment(gbcomment);
-		
+
 		// 현재 참여인원
 		int gbCnt = gbdao.gbpeopleCnt(gbcode);
-		
+
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
 		System.out.println(gbpeopleList);
-		
+
 		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
 		mav.addObject("gbpeopleList", gbpeopleList);
@@ -138,48 +143,49 @@ public class GroupBuyService {
 	public ModelAndView insertGbpeople(GbpeopleDto gbInfo) {
 		System.out.println("AdminService.insertGbpeople() 호출");
 		ModelAndView mav = new ModelAndView();
-		
+
 		gbdao.insertGbpeopleDto(gbInfo);
-		
-		mav.setViewName("redirect:/chatRoom?gbcode="+gbInfo.getGpgbcode());
-		
+
+		mav.setViewName("redirect:/chatRoom?gbcode=" + gbInfo.getGpgbcode());
+
 		return mav;
 	}
 
 	public ModelAndView deleteGroupBuyBoard(String gbcode) {
 		System.out.println("AdminService.deleteGroupBuyBoard() 호출");
 		ModelAndView mav = new ModelAndView();
-		
+
 //		gbdao.deleteChatRoom(gbcode);
 		gbdao.deleteGbpeople(gbcode);
 		gbdao.deleteGroupBuy(gbcode);
-		
+
 		mav.setViewName("redirect:/groupBuyBoard");
 		return mav;
 	}
 
+	// 공동구매 채팅방 참여 요청
 	public ModelAndView groupBuyChatRoom(String gbcode) {
 		System.out.println("AdminService.groupBuyChatRoom() 호출");
 		ModelAndView mav = new ModelAndView();
-		
+
 		GbreserveDto gbreserve = gbdao.getGroupbuy(gbcode);
 		int gbCnt = gbdao.gbpeopleCnt(gbcode);
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
-		
+		ArrayList<ChatroomDto> chattingLog = chdao.getChatroom(gbcode);
+
 		mav.addObject("gbpeopleList", gbpeopleList);
 		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
+		mav.addObject("chattingLog", chattingLog);
 		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
-	
-	//테스트 게시판 지울것
+
+	// 테스트 게시판 지울것
 	public ModelAndView getGroupBuyInfo2() {
 		System.out.println("AdminService.insertCompany() 호출");
 		ModelAndView mav = new ModelAndView();
 		ArrayList<GbreserveDto> groupBuyList = gbdao.getGroupBuyInfo2();
-		
-		
 
 		mav.addObject("groupBuyList", groupBuyList);
 		mav.setViewName("GroupBuy/GroupBuyTest");

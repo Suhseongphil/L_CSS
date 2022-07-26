@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.L_CSS.dao.ChatroomDao">
+
+	<insert id="insertSendMsg">
+		INSERT INTO CHATROOM (CHGBCODE, CHMID, CHCOMMENT, CHDATE)
+		VALUES(#{chgbcode}, #{chmid}, #{chcomment}, SYSDATE)
+	</insert>
+	
+	<select id="getChatroom" resultType="com.L_CSS.dto.ChatroomDto">
+		SELECT * FROM CHATROOM WHERE CHGBCODE = #{gbcode}
+		ORDER BY CHDATE ASC
+	</select>
+
+</mapper>
