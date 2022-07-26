@@ -208,7 +208,7 @@ textarea {
 									<div class="row"
 										style="padding-bottom: 20px; text-align: center;">
 										<div class="col-2">
-											<h5>업체</h5>
+											<h5>이미지</h5>
 										</div>
 										<div class="col-3">
 											<h5>제품</h5>
@@ -234,10 +234,10 @@ textarea {
 								</div>
 
 								<c:forEach items="${OrderList}" var="odList">
-									<div class="item display">
-										<div class="row">
+									
+										<div class="row" style="text-align: center;">
 											<div class="col-2">
-												<h5>${odList.cmname }</h5>
+												<img alt="" src="${odList.pdimg }">
 											</div>
 											<div class="col-3">
 												<h5>${odList.pdname }</h5>
@@ -299,10 +299,10 @@ textarea {
 											</c:choose>
 										</div>
 										<hr>
-									</div>
+									
 								</c:forEach>
 
-
+								
 							</div>
 						</div>
 					</div>

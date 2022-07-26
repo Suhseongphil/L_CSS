@@ -152,7 +152,7 @@
 										</div>
 									</div>
 
-									<div id="myCartList" class="item"></div>
+									<div id="myCartList" class="item" style="text-align: center;"></div>
 								</div>
 							</div>
 						</div>
@@ -233,7 +233,7 @@
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6\">"
+			output += "<div class=\"col-6 divpadding \">"
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			output += "<h7>" + mycart[i].pdname
 					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
