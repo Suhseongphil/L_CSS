@@ -85,13 +85,13 @@ public class ProductController {
    }
    //검색창
    @RequestMapping(value="/searchProduct")
-   public  ModelAndView searchText(String pdcategory,String searchText) {
+   public  ModelAndView searchText(String pdcategory,String searchText,String page) {
       System.out.println("상품검색");
       System.out.println(pdcategory);
       System.out.println(searchText);
       ModelAndView mav = new ModelAndView();
 
-      mav = psv.searchProduct(pdcategory,searchText);
+      mav = psv.searchProduct(pdcategory,searchText,page);
       
       return mav;
    }
@@ -178,6 +178,13 @@ public class ProductController {
             return mav;
          }
          
-
+       //전체 상품 출력
+     	@RequestMapping(value="/fullMain")
+     	public ModelAndView fullMain(String page) {
+     		System.out.println("전체 상품 보기");
+     		ModelAndView mav = new ModelAndView();
+     		mav = psv.fullProduet(page);
+     		return mav;
+     	}
 
 }

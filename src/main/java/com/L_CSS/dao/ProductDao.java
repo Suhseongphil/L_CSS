@@ -24,7 +24,7 @@ public interface ProductDao {
 
    ArrayList<ProductDto> proInfo(String cmcode);
 
-   ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText);
+   ArrayList<ProductDto> searchList(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText, @Param("start")int startRow, @Param("end")int endRow);
 
    ArrayList<ProductDto> searchType(@Param("start")int startRow, @Param("end")int endRow, @Param("pdtype")String pdtype);
 

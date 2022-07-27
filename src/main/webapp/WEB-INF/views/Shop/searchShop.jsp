@@ -77,7 +77,7 @@
                </div>
                <div class="row">
                   <div class="row">
-							<c:forEach items="${searchList}" var="pro">
+							<c:forEach items="${selectproductList}" var="pro">
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
@@ -95,12 +95,44 @@
 									</div>
 								</div>
 							</c:forEach>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<div
+			style="font-size: 16px; margin-left: 600px; margin-bottom: 30px; margin-top: 30px;">
+
+			<c:choose>
+				<c:when test="${pagedto.page <= 1 }">
+                      [이전]
+                         </c:when>
+				<c:otherwise>
+					<a href="searchProduct?page=${pagedto.page - 1}">[이전]</a>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+				var="num" step="1">
+				<c:choose>
+					<c:when test="${pagedto.page == num }">
+						<span style="font-size: 20px;">${num }</span>
+					</c:when>
+					<c:otherwise>
+						<a href="searchProduct?page=${num}"> ${num } </a>&nbsp;&nbsp;
+                      </c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pagedto.page >= pagedto.maxPate }">
+                      [다음]
+                   </c:when>
+				<c:otherwise>
+					<a href="searchProduct?page=${pagedto.page + 1}">[다음]</a>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
