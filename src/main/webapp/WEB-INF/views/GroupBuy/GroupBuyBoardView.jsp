@@ -113,6 +113,18 @@ label {
 	height: 300px;
 	object-fit: cover;
 }
+.hero__text2 h3 {
+	text-align: right;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+}
+.hero__text4 {
+	text-align:center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: gray;
+}
 </style>
 </head>
 
@@ -142,8 +154,15 @@ label {
 	<!-- Hero Section End -->
 
 	<section class="featured spad">
-		<div class="text-center">
-			<h2>게시글 상세보기</h2>
+		<div class="row">
+			<div class="col-6 hero__text2" style="margin-bottom:40px;">
+			<h3>게시글 상세보기</h3>
+			</div>
+			<div class="col-4" style="text-align: right;">
+			<button class="primary-btn text-white" style="background-color: black;">수정</button>
+			<button class="primary-btn text-white" style="background-color: black;">삭제</button>	
+			</div>
+			<div class="col-2"></div>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -155,7 +174,7 @@ label {
 					</div>
 					<div class="row">
 						<div class="col-2 font-weight-bold">
-							<span>제품</span>
+							<span>제품 :</span>
 						</div>
 						<div class="col-10">
 							<span>${gbreserve.pdname}</span>
@@ -163,7 +182,7 @@ label {
 					</div>
 					<div class="row">
 						<div class="col-2 font-weight-bold">
-							<span>가격</span>
+							<span>가격 :</span>
 						</div>
 						<div class="col-10">
 							<span>
@@ -183,15 +202,9 @@ label {
 						<div class="col-7">
 							<input type="text" value="${gbreserve.gbmid}" class="bd_none" readonly="readonly">
 						</div>
-						<div class="col-2">
-							<c:if test="${gbreserve.gbmid == sessionScope.loginId }">
-								<button>수정</button>
-								<button onclick="deleteBoard('${gbreserve.gbcode}')">삭제</button>
-							</c:if>
-
+						
+						
 						</div>
-						<div class="col-2"></div>
-					</div>
 					<div class="row">
 						<div class="col-1">
 							<span class="font-weight-bold">제목</span>
@@ -238,18 +251,20 @@ label {
 						</c:forEach>
 					</div>
 					<div>
-						<button id="show">공동구매 참여</button>
+						<br>
+						<button class="primary-btn text-white" style="background-color: black;" id="show">공동구매 참여</button><br>
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:if test="${gpList.gpmid == sessionScope.loginId}">
-								<a href="chatRoom?gbcode=${gbreserve.gbcode}">채팅방 참여(버튼)</a>
+							<br><a class="primary-btn text-white" style="background-color: black;"  href="chatRoom?gbcode=${gbreserve.gbcode}">채팅방 참여(버튼)</a>
 							</c:if>
 						</c:forEach>
 					</div>
-					<div>
-						<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
-					</div>
 				</div>
 			</div>
+			<div class="row"></div>
+			<div class="col-12 hero__text4" style="margin-top: 30px;">
+						<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
+					</div>
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
