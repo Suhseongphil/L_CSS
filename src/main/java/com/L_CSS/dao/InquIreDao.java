@@ -20,4 +20,6 @@ public interface InquIreDao {
 
 	ArrayList<InquIreDto> selectInquireList();
 
+	ArrayList<InquIreDto> AdminInquireInfo(String iqcode);
+
 }

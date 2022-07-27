@@ -86,28 +86,16 @@
 	padding-top: 36px;
 }
 
-.center {
-	text-align: center;
+textarea {
+	width: 300px;
+	height: 300px;
+	border: none;
+	resize: none;
+	padding-bottom: 10px;
 }
 
-h7 {
-	text-align: center;
-}
-.w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-.w-btn-brown {
-    background-color: #ce6d39;
-    color: #ffeee4;
+h5 {
+	padding-bottom: 10px;
 }
 </style>
 
@@ -145,100 +133,39 @@ h7 {
 
 
 	<!-- Start Cart  -->
-	<div class="cart-box-main">
-		<div class="container">
-			<div class="row">
+	<div class="answer">
+		<div class="window2">
+			<form class="user" action="reViewInsert" method="post"
+				enctype="multipart/form-data">
+				<div class="popup2" id="modal">
 
-
-				<!--<section class="shoping-cart spad">  -->
-				<div class="container">
-					<div class="row" >
-						<div class="col-lg-12">
-							<div class="shoping__cart__table">
-
-								<div class="item display" style="padding-top: 30px;">
-
-
-									
-									<hr>
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-2">
-											<h5>작성자</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의제목</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의유형</h5>
-										</div>
-										<div class="col-2">
-											<h5>시간</h5>
-										</div>
-										<div class="col-2">
-											<h5>상태</h5>
-										</div>
-										<div class="col-2">
-											<h5>상세보기</h5>
-										</div>
-									</div>
-									<c:forEach items="${inquireList}" var="iqList">
-									<div class="row"
-										style="padding-bottom : 10px; padding-top : 10px; text-align: center;">
-										<div class="col-2">
-											<h6>${iqList.iqmid }</h6>
-										</div>
-											<div class="col-2">
-											<h5>${iqList.iqtitle }</h5>
-										</div>
-										<div class="col-2">
-											<h6>${iqList.iqcategory }</h6>
-										</div>
-										<div class="col-2">
-											<h5>${iqList.iqdate }</h5>
-										</div>
-										<div class="col-2">
-											<c:choose>
-											<c:when test="${iqList.iqstate == 0 }">
-											<h5>답변대기</h5>
-											</c:when>
-											<c:otherwise>
-											<h5>답변완료</h5>
-											</c:otherwise>
-											</c:choose>
-										</div>
-										<div class="col-2">
-											<button class="w-btn w-btn-brown" onclick="InquireInfo('${iqList.iqcode}')">  보기</button>
-										</div>
-									</div>
-									</c:forEach>
-
-
-
-								</div>
-
-
-
-
-
-
-							</div>
+						<div >
+							<h5>
+								답변내용 <br> <br>
+								<textarea name="rvcomment" id="recomment"
+									placeholder="내용을 입력해주세요.."></textarea>
+							</h5>
 						</div>
+					
+					<div>
+						<input type="radio" name="ancommend" value="0">공개
+						<input type="radio" name="ancommend" value="1">비공개
 					</div>
 
-
-
-					
+					<button type="submit" id="save" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 									
+						style="background-color: #000000; margin-left: 20px;">답변작성</button>
+					<button type="button" id="close" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 
+						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
-				<!--</section>  -->
-			</div>
-
-
+			</form>
 		</div>
 	</div>
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
+	<!--</section>  -->
+
+
 	<!-- End Cart -->
 
 	<!-- Start Instagram Feed  -->
@@ -273,24 +200,5 @@ h7 {
 	<!-- ALL JS FILES -->
 
 </body>
-<script type="text/javascript">
-	function InquireInfo(iqcode){
-		console.log(iqcode);
-		location.href = "AdminInquireInfo?iqcode=" + iqcode;
-	}
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>
