@@ -120,9 +120,9 @@
 						<div class="product__discount__item__text">
 							<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
 								<i class="fa fa-shopping-cart"></i>
-							</a> <span>${pro.pdname}</span>
+							</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 							<h5>
-								<a href="#">${pro.pdtype}</a>
+								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
 							<div class="product__item__price">${pro.pdprice}원</div>
 						</div>

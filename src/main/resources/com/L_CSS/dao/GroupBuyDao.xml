@@ -44,12 +44,6 @@
 		WHERE GB.GBPDCODE = PD.PDCODE AND GBCODE = #{gbcode}
 	</select>
 
-	<select id="gbpeopleCnt" resultType="int">
-		SELECT COUNT(GPGBCODE)
-		FROM GBPEOPLE
-		WHERE GPGBCODE = #{gbcode}
-	</select>
-
 	<select id="getGbpeople" resultType="com.L_CSS.dto.GbpeopleDto">
 		SELECT * FROM GBPEOPLE WHERE GPGBCODE = #{gbcode}
 	</select>
@@ -67,6 +61,26 @@
 	<delete id="deleteGroupBuy">
 		DELETE GROUPBUY
 		WHERE GBCODE = #{gbcode}
+	</delete>
+	
+	<select id="getGbInfo" resultType="com.L_CSS.dto.GbpeopleDto">
+		SELECT * FROM GBPEOPLE
+		WHERE GPGBCODE = #{gbcode} AND GPMID = #{loginId}
+	</select>
+	
+	<delete id="deleteChatRoom">
+		DELETE CHATROOM
+		WHERE CHGBCODE = #{gbcode}
+	</delete>
+	
+	<delete id="outGbpeople">
+		DELETE GBPEOPLE
+		WHERE GPGBCODE = #{gbcode} AND GPMID = #{loginId}
+	</delete>
+	
+	<delete id="outChatroom">
+		DELETE CHATROOM
+		WHERE CHGBCODE = #{gbcode} AND CHMID = #{loginId}
 	</delete>
 
 </mapper>
