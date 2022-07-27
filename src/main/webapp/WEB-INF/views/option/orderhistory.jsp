@@ -17,6 +17,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<style type="text/css">
+.btnLightBlue.btnPush {
+  box-shadow: 0px 5px 0px 0px #1E8185;
+}
+</style>
 <!-- Site Icons -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
@@ -261,7 +266,8 @@ textarea {
 												<c:when test="${odList.restate == 2}">
 													<div class="col-1">
 														<h5>배송완료</h5>
-														<button id="show" value="${odList.recode }">리뷰작성</button>	
+														<button title="Button push lightblue"
+														class="button btnPush btnLightBlue" id="show" value="${odList.recode }">리뷰작성</button>	
 													</div>
 												</c:when>
 												<c:when test="${odList.restate == 4}">
@@ -277,7 +283,8 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode"
-															style="margin-top: 60px;
+															style="margin-top: 60px;" title="Button push lightblue" 
+															class="button btnPush btnLightBlue"															
 																value="${odList.recode}">주 문<br>취 소</button>
 													</form>
 														</div>
@@ -286,7 +293,8 @@ textarea {
 														<div class="col-1">
 													<form action="orderCancel" method="get">
 
-															<button type="submit" name="recode"
+															<button type="submit" name="recode" title="Button push lightblue" 
+															class="button btnPush btnLightBlue"
 																value="${odList.recode}">환 불<br>요 청</button>
 													</form>
 														</div>
@@ -365,9 +373,9 @@ textarea {
 						<input type="radio" name="rvrecommend" value="1">비공개
 					</div>
 
-					<button type="submit" id="save" class="btn text-white"
+					<button type="submit" id="save" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 									
 						style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
-					<button type="button" id="close" class="btn text-white"
+					<button type="button" id="close" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 
 						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>

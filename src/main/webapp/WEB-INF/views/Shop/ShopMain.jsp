@@ -64,7 +64,7 @@
 							<div id="search" class="row">
 								<div class="col-lg-12" style="margin-top: 100px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 250px; margin-top: -70px;">
+										style="margin-left: 220px; margin-top: -130px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
@@ -79,7 +79,7 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -150px;">추천 상품</h2>
+						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
@@ -129,8 +129,8 @@
 			</c:forEach>
 		</div>
 		<div
-			style="font-size: 16px; margin-left: 600px; margin-bottom: 30px; margin-top: 30px;">
-
+			style="font-size: 24px; margin-left: 50px; margin-bottom: 30px; margin-top: 30px; font-weight: bold;"
+			class="back color-10 menu align-center expanded text-center SMN_effect-70">
 			<c:choose>
 				<c:when test="${pagedto.page <= 1 }">
                       [이전]
@@ -143,7 +143,7 @@
 				var="num" step="1">
 				<c:choose>
 					<c:when test="${pagedto.page == num }">
-						<span style="font-size: 20px;">${num }</span>
+						<span style="font-size: 24px;">${num }</span>
 					</c:when>
 					<c:otherwise>
 						<a href="shopMain?page=${num}"> ${num } </a>&nbsp;&nbsp;
