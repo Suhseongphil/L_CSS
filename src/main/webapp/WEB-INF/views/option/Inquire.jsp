@@ -93,6 +93,8 @@
 h7 {
 	text-align: center;
 }
+
+
 </style>
 
 <body>
@@ -137,74 +139,52 @@ h7 {
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-9"
+							style="margin-left: 200px; margin-right: 100px; margin-top: -20px;">
 							<div class="shoping__cart__table">
 
 								<div class="item display" style="padding-top: 30px;">
-							
-
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>자주묻는질문</h5>
-										</div>
-										<div class="col-3">
-											<h5>문의유형</h5>
-										</div>
-										<div class="col-3">
-											<h5>문의제목</h5>
-										</div>
-										
-									</div>
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>[배송 지연 질문]</h5>
-										</div>
-										<div class="col-3">
-											<h5>배송관련</h5>
-										</div>
-										<div class="col-3">
-											<h5>물건을 주문했는데 배송확인이 안됩니다.</h5>
-										</div>
-										
-									</div>
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>[결제 오류]</h5>
-										</div>
-										<div class="col-3">
-											<h5>결제관련</h5>
-										</div>
-										<div class="col-3">
-											<h5>상품 결제가 안됩니다.</h5>
-										</div>
-										
-									</div> <hr>
-											<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-											<h5>문의제목</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의유형</h5>
-										</div>
-										<div class="col-2">
-											<h5>시간</h5>
-										</div>
-										<div class="col-2">
-											<h5>상태</h5>
-										</div>
-									</div>
 
 
-									<div id="myInqurreList" class="item" style="text-align: center;">
-									</div>
+									<table class="type09">
+										<thead>
+											<tr>
+												<th scope="cols">자주묻는 질문</th>
+												<th scope="cols">문의 유형</th>
+												<th scope="cols">문의 제목</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">[배송 지연 질문]</th>
+												<td>배송 관련</td>
+												<td>물건을 주문했는데 배송확인이 안됩니다</td>
+											</tr>
+											<tr>
+												<th scope="row">[결제 오류]</th>
+												<td>결제 관련</td>
+												<td>상품 결제가 안됩니다</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<table class="type09">
+										<thead>
+											<tr>
+												<th scope="cols">문의 제목</th>
+												<th scope="cols">문의 유형</th>
+												<th scope="cols">시간</th>
+												<th scope="cols">상태</th>
+											</tr>
+										</thead>
+										
+									</table>
+									<div id="myInqurreList" class="item"
+										style=""></div>
 
 
 								</div>
-								
+
 
 
 
@@ -214,19 +194,19 @@ h7 {
 						</div>
 					</div>
 
-					
 
-					<div class="row" >
+
+					<div class="row">
 						<div class="col-lg-12">
-							<div class="shoping__cart__btns" >
+							<div class="shoping__cart__btns">
 
 								<a href="insertInquirePage"
-									class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px;">
-									문의작성</a>
+									class="primary-btn cart-btn cart-btn-right"
+									style="padding-bottom: 10px; background-color: #000000; color: white;"> 문의작성</a>
 							</div>
 						</div>
 
-							
+
 					</div>
 				</div>
 				<!--</section>  -->
@@ -294,7 +274,7 @@ h7 {
 		console.log(myInquire);
 		var output = "";
 		for (var i = 0; i < myInquire.length; i++) {
-			
+
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row \" >";
@@ -302,34 +282,35 @@ h7 {
 
 			output += "<h7 style=\"padding-top: 36px;\">"
 					+ myInquire[i].iqtitle
-					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+					+ "</h7>&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2\">";
-			output += "<a href=\"inquireInfo?iqcode="+myInquire[i].iqcode+"\">" + myInquire[i].iqcategory
-					+ "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			output += "<a href=\"inquireInfo?iqcode=" + myInquire[i].iqcode
+					+ "\">" + myInquire[i].iqcategory
+					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 
 			//output += "<td class=\"shoping__cart__quantity\">";
 
 			output += "<div class=\"col-2 \">"
-			
+
 			output += "<h5>" + myInquire[i].iqdate
 					+ "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 
 			//output += "</td>";
-	
+
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 \">"
-			if(myInquire[i].iqstate == 0){
-				
-			output += "<h5>답변대기</h5>"
-			}else{
-			output += "<h5>답변완료</h5>"
+			if (myInquire[i].iqstate == 0) {
+
+				output += "<h5>답변대기</h5>"
+			} else {
+				output += "<h5>답변완료</h5>"
 			}
 			output += "</div>";
 			output += "</div>";

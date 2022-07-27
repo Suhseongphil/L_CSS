@@ -355,3 +355,32 @@ a span {
 	text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0
 		#2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626;
 }
+.type09 {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
+}
+
+.type09 thead th {
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #369;
+	border-bottom: 3px solid #036;
+}
+
+.type09 tbody th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+	background: #f3f6f7;
+}
+
+.type09 td {
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #ccc;
+}
