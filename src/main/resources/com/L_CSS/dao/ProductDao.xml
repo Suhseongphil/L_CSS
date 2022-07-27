@@ -42,17 +42,17 @@
 		where PDCMCODE = #{cmcode}
 	</select>
 	<select id="searchList" resultType="com.L_CSS.dto.ProductDto">
-		select *
-		from PRODUCT
+		select p.*
 		<if test="pdcategory == 'pdname'">
-			where PDNAME LIKE '%' || #{searchText} || '%'
+		from (select rownum rn, product.* from PRODUCT where PDNAME LIKE '%' || #{searchText} || '%') p
+			where p.rn between #{start} and #{end}
 		</if>
 		<if test="pdcategory == 'pdtype'">
-			where PDTYPE LIKE '%' || #{searchText} || '%'
+		from (select rownum rn, product.* from PRODUCT where PDTYPE LIKE '%' || #{searchText} || '%') p
+			where p.rn between #{start} and #{end}
 		</if>
 	</select>
 
-	
 
 	<select id="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
 		select *
