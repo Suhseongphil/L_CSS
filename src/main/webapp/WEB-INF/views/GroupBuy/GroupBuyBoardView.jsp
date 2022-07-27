@@ -238,16 +238,10 @@ label {
 						</c:forEach>
 					</div>
 					<div>
-						<c:set var="loop_flag" value="false" />
+						<button id="show">공동구매 참여</button>
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:if test="${gpList.gpmid == sessionScope.loginId}">
 								<a href="chatRoom?gbcode=${gbreserve.gbcode}">채팅방 참여(버튼)</a>
-							</c:if>
-							<c:if test="${not loop_flag }">
-								<c:if test="${gpList.gpmid != sessionScope.loginId}">
-									<button id="show">공동구매 참여</button>
-									<c:set var="loop_flag" value="true"/>
-								</c:if>
 							</c:if>
 						</c:forEach>
 					</div>

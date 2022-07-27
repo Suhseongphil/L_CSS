@@ -41,6 +41,7 @@ public class ChatRoom extends TextWebSocketHandler {
 
 		Gson gson = new Gson();
 		ChatroomDto sendMsg = gson.fromJson(message.getPayload(), ChatroomDto.class);
+		System.out.println(sendMsg);
 		chdao.insertSendMsg(sendMsg);
 
 		for (int i = 0; i < sessionList.size(); i++) {
