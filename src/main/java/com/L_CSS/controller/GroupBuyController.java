@@ -99,5 +99,16 @@ public class GroupBuyController {
 
 		return mav;
 	}
-	
+
+	// 공동구매 삭제
+	@RequestMapping(value = "/outGroupBuy")
+	public ModelAndView outGroupBuy(String gbcode) {
+		System.out.println("공동구매 탈퇴 요청");
+		ModelAndView mav = new ModelAndView();
+
+		mav = gbsvc.outGroupBuy(gbcode);
+
+		return mav;
+	}
+
 }

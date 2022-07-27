@@ -35,6 +35,12 @@
 	height: 450px;
 }
 
+.scroll2 {
+	overflow: scroll;
+	width: auto;
+	height: 350px;
+}
+
 .scroll div {
 	padding: 2px 2px;
 }
@@ -61,6 +67,30 @@
 .recev {
 	margin: 4px 10px;
 	font-size: 4px;
+}
+
+.afDate {
+	text-align: center;
+}
+
+.bfDate {
+	background-color: white;
+	border-radius: 10px 10px;
+}
+
+.chBtn {
+	width: 100%;
+	border: none;
+	background-color: black;
+	color: white;
+	margin-bottom: 2px;
+}
+
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
 }
 </style>
 </head>
@@ -91,17 +121,14 @@
 	<!-- Hero Section End -->
 
 	<section class="featured spad">
-		<div class="text-center">
-			<h2>공동구매 채팅방</h2>
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+			<h3>공동구매 채팅방</h3>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-3" style="height: 500px;">
-					<div class="text-center font-weight-bold">
-						<span>제품</span>
-					</div>
 					<div>
-						<img alt="" src="${gbreserve.pdimg}">
+						<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
 					</div>
 					<div>
 						<span>${gbreserve.pdname}</span>
@@ -112,11 +139,26 @@
 							원
 						</span>
 					</div>
+					<div>수량 : ${myGbInfo.gpamount}</div>
+					<div>
+						가격 :
+						<fmt:formatNumber value="${myGbInfo.gpprice}" pattern="#,###" />
+					</div>
 				</div>
 
 				<div class="col-6" style="height: 500px;">
 					<div class="scroll" id="chatRoom" style="height: 450px; background-color: #9bbbd4;">
+						<c:set var="afterDate" />
 						<c:forEach items="${chattingLog}" var="chLog">
+							<c:choose>
+								<c:when test="${fn:split(chLog.chdate, ' ')[0] != afterDate }">
+									<div class="afDate">
+										<span class="bfDate">&nbsp;&nbsp;&nbsp;${fn:split(chLog.chdate, ' ')[0]}&nbsp;&nbsp;&nbsp;</span>
+									</div>
+									<c:set var="afterDate" value="${fn:split(chLog.chdate, ' ')[0]}" />
+								</c:when>
+							</c:choose>
+
 							<c:choose>
 								<c:when test="${chLog.chmid == sessionScope.loginId }">
 									<div class="font-weight-bold text-right">
@@ -135,6 +177,7 @@
 									</div>
 								</c:otherwise>
 							</c:choose>
+
 						</c:forEach>
 					</div>
 					<div class="text-center" style="background-color: #f8f9fa; padding: 5px 5px;">
@@ -144,16 +187,40 @@
 				</div>
 
 				<div class="col-3" style="height: 500px;">
+					<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
+						<button class="chBtn font-weight-bold" onclick="deleteChat('${gbreserve.gbcode}')">채팅방 삭제</button>
+					</c:if>
+					<button class="chBtn font-weight-bold" onclick="outChat('${gbreserve.gbcode}')">채팅방 나가기</button>
 					<div class="text-center font-weight-bold">
 						<span>참여자 목록 </span>
-						<span>${gbCnt}명</span>
+						<span>${fn:length(gbpeopleList)}명</span>
 					</div>
-					<div class="scroll">
-						<c:forEach items="${gbpeopleList}" var="gpList">
-							<div>
-								<span>${gpList.gpmid}</span>
+					<div class="scroll2">
+						<div class="row">
+							<div class="col-3 font-weight-bold">
+								<span>아이디</span>
 							</div>
-						</c:forEach>
+							<div class="col-3 text-right font-weight-bold">
+								<span>수량</span>
+							</div>
+							<div class="col-6 text-right font-weight-bold">
+								<span> 구매가격 </span>
+							</div>
+							<c:forEach items="${gbpeopleList}" var="gpList">
+								<div class="col-3">
+									<span>${gpList.gpmid}</span>
+								</div>
+								<div class="col-3 text-right">
+									<span>${gpList.gpamount}</span>
+								</div>
+								<div class="col-6 text-right">
+									<span>
+										<fmt:formatNumber value="${gpList.gpprice}" pattern="#,###" />
+										원
+									</span>
+								</div>
+							</c:forEach>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -193,6 +260,22 @@
 				$("#chatBtn").click();
 		});
 	});
+
+	function deleteChat(gbcode) {
+		if (confirm("삭제하시면 공동구매가 취소됩니다.\r\n정말 삭제 하시겠습니까 ?") == true) {
+			location.href = "deleteBoard?gbcode=" + gbcode;
+		} else {
+			return false;
+		}
+	}
+
+	function outChat(gbcode) {
+		if (confirm("구매가 취소됩니다.\r\n정말 탈퇴 하시겠습니까 ?") == true) {
+			location.href = "outGroupBuy?gbcode=" + gbcode;
+		} else {
+			return false;
+		}
+	}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>

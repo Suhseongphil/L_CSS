@@ -127,13 +127,9 @@ public class GroupBuyService {
 		gbcomment = gbcomment.replaceAll("<br>", "\r\n");
 		gbreserve.setGbcomment(gbcomment);
 
-		// 현재 참여인원
-		int gbCnt = gbdao.gbpeopleCnt(gbcode);
-
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
 		System.out.println(gbpeopleList);
 
-		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
 		mav.addObject("gbpeopleList", gbpeopleList);
 		mav.setViewName("GroupBuy/GroupBuyBoardView");
@@ -157,7 +153,7 @@ public class GroupBuyService {
 		System.out.println("AdminService.deleteGroupBuyBoard() 호출");
 		ModelAndView mav = new ModelAndView();
 
-//		gbdao.deleteChatRoom(gbcode);
+		gbdao.deleteChatRoom(gbcode);
 		gbdao.deleteGbpeople(gbcode);
 		gbdao.deleteGroupBuy(gbcode);
 
@@ -169,18 +165,35 @@ public class GroupBuyService {
 	public ModelAndView groupBuyChatRoom(String gbcode) {
 		System.out.println("AdminService.groupBuyChatRoom() 호출");
 		ModelAndView mav = new ModelAndView();
+		
+		String loginId = (String) session.getAttribute("loginId");
 
 		GbreserveDto gbreserve = gbdao.getGroupbuy(gbcode);
-		int gbCnt = gbdao.gbpeopleCnt(gbcode);
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
 		ArrayList<ChatroomDto> chattingLog = chdao.getChatroom(gbcode);
-
+		GbpeopleDto myGbInfo = gbdao.getGbInfo(gbcode, loginId);
+		
+		mav.addObject("myGbInfo", myGbInfo);
 		mav.addObject("gbpeopleList", gbpeopleList);
-		mav.addObject("gbCnt", gbCnt);
 		mav.addObject("gbreserve", gbreserve);
 		mav.addObject("chattingLog", chattingLog);
 		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
+	
+	// 공동구매 탈퇴 요청
+	public ModelAndView outGroupBuy(String gbcode) {
+		System.out.println("AdminService.outGroupBuy() 호출");
+		ModelAndView mav = new ModelAndView();
+		
+		String loginId = (String)session.getAttribute("loginId");
+		
+		gbdao.outGbpeople(gbcode, loginId);
+		gbdao.outChatroom(gbcode, loginId);
+		
+		mav.setViewName("redirect:/");
+		return mav;
+	}
+	
 
 }
