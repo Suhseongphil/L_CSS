@@ -35,7 +35,7 @@ height: 30px;
 					<a href="main">메인</a>
 				</li>
 				<li>
-					<a href="shopMain">상품</a>
+					<a href="fullMain">상품</a>
 				</li>
 				<c:choose>
 					<c:when test="${sessionScope.loginState == 1 }">
