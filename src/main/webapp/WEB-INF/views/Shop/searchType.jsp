@@ -13,6 +13,8 @@
 	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
 	type="text/css">
 <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">	
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
 	type="text/css">
 <link rel="stylesheet"
@@ -61,32 +63,33 @@
 	<section>
 
 		<div class="container" style="padding-left: 80px;">
-			<div class="col-lg-7 col-md-3" style="margin-left: 250px;">
+			<div class="col-lg-12 col-md-3" style="margin-left: 100px;">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
-						style="text-align: center; margin-top: -400px;">
+						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
 								<div class="col-lg-12" style="margin-top: 100px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 250px; margin-top: -70px;">
+										style="margin-left: 220px; margin-top: -80px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
 
 										</select> <input style="margin-left: -400px; padding: 7px;" type="text"
 											placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
-										<button type="submit" style="margin-left: -5px;">검색</button>
+										<button type="submit" class="primary-btn text-white"
+											style="background-color: #000000; margin-left: -5px;">검색</button>
 
 									</div>
 								</div>
 
 							</div>
 						</form>
-						<h2 style="margin-top: 100px;">상품 목록</h2>
+						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
 					</div>
 					<div class="row">
-						<div class="row">
+						<div class="product__discount__slider owl-carousel">
 
 							<c:forEach items="${searchType}" var="pro">
 								<div class="col-lg-4">
@@ -111,42 +114,43 @@
 			</div>
 		</div>
 	</section>
-
-	<section>
-
-		<div
-			style="font-size: 16px; margin-left: 600px; margin-bottom: 30px; margin-top: 30px;">
-
-			<c:choose>
-				<c:when test="${pagedto.page <= 1 }">
-                      [이전]
-                         </c:when>
-				<c:otherwise>
-					<a href="shopMain?page=${pagedto.page - 1}">[이전]</a>
-				</c:otherwise>
-			</c:choose>
-			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
-				var="num" step="1">
-				<c:choose>
-					<c:when test="${pagedto.page == num }">
-						<span style="font-size: 20px;">${num }</span>
-					</c:when>
-					<c:otherwise>
-						<a href="shopMain?page=${num}"> ${num } </a>&nbsp;&nbsp;
-                      </c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<c:choose>
-				<c:when test="${pagedto.page >= pagedto.maxPate }">
-                      [다음]
-                   </c:when>
-				<c:otherwise>
-					<a href="shopMain?page=${pagedto.page + 1}">[다음]</a>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</section>
-
+	
+	<div
+         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
+         <ul class="pagination">
+            <c:choose>
+               <c:when test="${pagedto.page <= 1 }">
+                  <li><a href="#"> <span>«</span>
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="shopMain?page=${pagedto.page - 1}">«</a>
+                  <li>
+               </c:otherwise>
+            </c:choose>
+            <c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+               var="num" step="1">
+               <c:choose>
+                  <c:when test="${pagedto.page == num }">
+                     <li><span style="font-size: 24px;">${num }</span></li>
+                  </c:when>
+                  <c:otherwise>
+                     <li><a href="shopMain?page=${num}"> ${num } </a></li>
+                  </c:otherwise>
+               </c:choose>
+            </c:forEach>
+            <c:choose>
+               <c:when test="${pagedto.page >= pagedto.maxPate }">
+                  <li><a href="#"> <span>»</span>
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
+               </c:otherwise>
+            </c:choose>
+         </ul>
+      </div>
+	
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
