@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
@@ -178,12 +179,24 @@ public class AdminController {
 		mav = adsvc.InquireInfo(iqcode);
 		return mav;
 	}
+	//문의코드 찾기
+	@RequestMapping(value="/selectIqcode")
+	public @ResponseBody String selectIqcode(String iqcode) {
+		System.out.println("코드 가져오기");
+		
+		String selectIqcode = adsvc.selectIqcode(iqcode);
+		return selectIqcode;
+	}
 	//문의 답변하기
 	@RequestMapping(value="/amindInsert")
-	public @ResponseBody String amindInsert(String iqcode) {
+	public  String amindInsert(String iqcode,String ancomment,String ancommend,RedirectAttributes ra) {
 		System.out.println("문의답변하기");
 		System.out.println(iqcode);
-		return null;
+		System.out.println(ancomment);
+		System.out.println(ancommend);
+		String insertInquire = adsvc.insertInquire(iqcode,ancomment,ancommend,ra);
+		System.out.println(insertInquire);
+		return insertInquire;
 	}
 
 }

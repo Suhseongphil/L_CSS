@@ -165,14 +165,14 @@ public class GroupBuyService {
 	public ModelAndView groupBuyChatRoom(String gbcode) {
 		System.out.println("AdminService.groupBuyChatRoom() 호출");
 		ModelAndView mav = new ModelAndView();
-		
+
 		String loginId = (String) session.getAttribute("loginId");
 
 		GbreserveDto gbreserve = gbdao.getGroupbuy(gbcode);
 		ArrayList<GbpeopleDto> gbpeopleList = gbdao.getGbpeople(gbcode);
 		ArrayList<ChatroomDto> chattingLog = chdao.getChatroom(gbcode);
 		GbpeopleDto myGbInfo = gbdao.getGbInfo(gbcode, loginId);
-		
+
 		mav.addObject("myGbInfo", myGbInfo);
 		mav.addObject("gbpeopleList", gbpeopleList);
 		mav.addObject("gbreserve", gbreserve);
@@ -180,20 +180,36 @@ public class GroupBuyService {
 		mav.setViewName("GroupBuy/ChatRoom");
 		return mav;
 	}
-	
+
 	// 공동구매 탈퇴 요청
 	public ModelAndView outGroupBuy(String gbcode) {
 		System.out.println("AdminService.outGroupBuy() 호출");
 		ModelAndView mav = new ModelAndView();
-		
-		String loginId = (String)session.getAttribute("loginId");
-		
+
+		String loginId = (String) session.getAttribute("loginId");
+
 		gbdao.outGbpeople(gbcode, loginId);
 		gbdao.outChatroom(gbcode, loginId);
-		
+
 		mav.setViewName("redirect:/");
 		return mav;
 	}
-	
+
+	public ModelAndView modGroupBuy(GroupBuyDto modGb) {
+		System.out.println("AdminService.modGroupBuy() 호출");
+		ModelAndView mav = new ModelAndView();
+
+		// 줄바꿈, 띄어쓰기 처리
+		String gbcomment = modGb.getGbcomment();
+		gbcomment = gbcomment.replaceAll(" ", "&nbsp;");
+		gbcomment = gbcomment.replaceAll("\r\n", "<br>");
+		modGb.setGbcomment(gbcomment);
+
+		gbdao.updateGroupBuy(modGb);
+
+		mav.setViewName("redirect:/groupBuyBoardView?gbcode=" + modGb.getGbcode());
+
+		return mav;
+	}
 
 }

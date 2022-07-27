@@ -35,24 +35,8 @@
 	height: 200px;
 }
 
-.row {
-	margin-bottom: 3px;
-}
-
-.row div {
-	padding: 0;
-}
-
-input {
-	width: 90%;
-}
-
 .bd_none {
 	border: none;
-}
-
-.hero__text2 p {
-	font-weight: bold;
 }
 
 .background2 {
@@ -66,6 +50,25 @@ input {
 	/* 숨기기 */
 	z-index: -1;
 	opacity: 0;
+}
+
+.background3 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	/* 숨기기 */
+	z-index: -1;
+	opacity: 0;
+}
+
+.show {
+	opacity: 1;
+	z-index: 1000;
+	transition: all .5s;
 }
 
 .show2 {
@@ -89,12 +92,26 @@ input {
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
 	width: 600px;
-	height: 300px;
+	height: 330px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
 }
 
-.show2 .popup2 {
+.popup3 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	/* 임시 지정 */
+	width: 600px;
+	height: 420px;
+	/* 초기에 약간 아래에 배치 */
+	transform: translate(-50%, -40%);
+}
+
+.show .popup2 .show2 .popup3 {
 	transform: translate(-50%, -50%);
 	transition: all .5s;
 }
@@ -114,31 +131,43 @@ label {
 	height: 300px;
 	object-fit: cover;
 }
+
 .hero__text2 h3 {
-	text-align: right;
+	text-align: center;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: saddlebrown;
 }
+
 .hero__text4 {
-	text-align:center;
+	text-align: center;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: gray;
+}
+
+.chBtn {
+	width: 100%;
+	border: none;
+	background-color: black;
+	color: white;
+	margin-bottom: 2px;
+}
+
+.chBtn2 {
+	width: 48%;
+	border: none;
+	background-color: black;
+	color: white;
+	margin-bottom: 2px;
 }
 </style>
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
 	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
 	<!-- Header Section End -->
 
@@ -155,96 +184,70 @@ label {
 	<!-- Hero Section End -->
 
 	<section class="featured spad">
-		<div class="row">
-			<div class="col-6 hero__text2" style="margin-bottom:40px;">
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
 			<h3>게시글 상세보기</h3>
-			</div>
-			<div class="col-4" style="text-align: right;">
-			<button class="primary-btn text-white" style="background-color: black;">수정</button>
-			<button class="primary-btn text-white" style="background-color: black;">삭제</button>	
-			</div>
-			<div class="col-2"></div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
-					<div class="row">
-						<div class="col-12">
-							<img alt="" src="${gbreserve.pdimg}">
-						</div>
+					<div>
+						<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
 					</div>
-					<div class="row">
-						<div class="col-2 font-weight-bold">
-							<span>제품 :</span>
-						</div>
-						<div class="col-10">
-							<span>${gbreserve.pdname}</span>
-						</div>
+					<div>
+						<span>${gbreserve.pdname}</span>
 					</div>
-					<div class="row">
-						<div class="col-2 font-weight-bold">
-							<span>가격 :</span>
-						</div>
-						<div class="col-10">
-							<span>
-								<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
-								원
-								<input type="hidden" id="pdprice2" value="${gbreserve.pdprice}">
-							</span>
-						</div>
+					<div>
+						<span>
+							<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
+							원
+							<input type="hidden" id="pdprice2" value="${gbreserve.pdprice}">
+						</span>
 					</div>
 				</div>
-				<div class="col-1"></div>
 				<div class="col-6">
-					<div class="row">
-						<div class="col-1">
+					<div class="row" style="background-color: #f8f9fa; height: 500px; padding: 10px 10px;">
+						<div class="col-2">
 							<span class="font-weight-bold">작성자</span>
 						</div>
-						<div class="col-7">
-							<input type="text" value="${gbreserve.gbmid}" class="bd_none" readonly="readonly">
+						<div class="col-9">
+							<span>${gbreserve.gbmid}</span>
 						</div>
-						
-						
-						</div>
-					<div class="row">
-						<div class="col-1">
+						<div class="col-2">
 							<span class="font-weight-bold">제목</span>
 						</div>
-						<div class="col-11">
-							<input type="text" name="gbtitle" value="${gbreserve.gbtitle}" class="bd_none" readonly="readonly">
+						<div class="col-9">
+							<span>${gbreserve.gbtitle}</span>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-1">
+						<div class="col-2">
 							<span class="font-weight-bold">내용</span>
 						</div>
-						<div class="col-11">
-							<textarea id="gbcomment" name="gbcomment" class="bd_none" readonly="readonly" rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
+						<div class="col-9">
+							<textarea class="bd_none" readonly="readonly" rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-1">
+						<div class="col-2">
 							<span class="font-weight-bold">지역</span>
 						</div>
-						<div class="col-11">
-							<input name="gbregion" class="bd_none" readonly="readonly" type="text" value="${gbreserve.gbregion}">
+						<div class="col-9">
+							<span>${gbreserve.gbregion}</span>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-1">
+						<div class="col-2">
 							<span class="font-weight-bold">기간</span>
 						</div>
-						<div class="col-11">
-							<input name="gbfdate" type="text" class="bd_none" readonly="readonly" value="${gbreserve.gbsdate} ~ ${gbreserve.gbfdate}">
+						<div class="col-9">
+							<span>${gbreserve.gbsdate} ~ ${gbreserve.gbfdate}</span>
 						</div>
 					</div>
 				</div>
-				<div class="col-2">
-					<div class="text-center font-weight-bold" style="background-color: grey;">
+				<div class="col-3">
+					<c:if test="${gbreserve.gbmid == sessionScope.loginId }">
+						<button class="chBtn2 font-weight-bold" id="show2">수정</button>
+						<button class="chBtn2 font-weight-bold" onclick="deleteBoard('${gbreserve.gbcode}')">삭제</button>
+					</c:if>
+					<div class="text-center font-weight-bold">
 						<span>참여자 목록 </span>
 						<span>${fn:length(gbpeopleList)}명</span>
 					</div>
-					<div class="scroll" style="border: 1px solid black;">
+					<div class="scroll">
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<div>
 								<span>${gpList.gpmid}</span>
@@ -252,20 +255,18 @@ label {
 						</c:forEach>
 					</div>
 					<div>
-						<br>
-						<button class="primary-btn text-white" style="background-color: black;" id="show">공동구매 참여</button><br>
+						<button class="chBtn font-weight-bold" id="show">공동구매 참여</button>
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:if test="${gpList.gpmid == sessionScope.loginId}">
-							<br><a class="primary-btn text-white" style="background-color: black;"  href="chatRoom?gbcode=${gbreserve.gbcode}">채팅방 참여(버튼)</a>
+								<button class="chBtn font-weight-bold" onclick="joinChatRoom('${gbreserve.gbcode}')">채팅방 입장</button>
 							</c:if>
 						</c:forEach>
 					</div>
 				</div>
 			</div>
-			<div class="row"></div>
 			<div class="col-12 hero__text4" style="margin-top: 30px;">
-						<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
-					</div>
+				<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
+			</div>
 		</div>
 	</section>
 	<!-- Footer Section Begin -->
@@ -273,13 +274,14 @@ label {
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 	<!-- Footer Section End -->
-	<!-- 모달 -->
+
+	<!-- 공동구매 참여 -->
 	<div class="background2">
 		<div class="window2">
 			<form class="user" action="joinGroupBuy" method="get">
 				<div class="popup2">
-					<div class="text-center" style="margin-top: 3px;">
-						<label>공동구매 참여</label>
+					<div class="text-center" style="margin-top: 15px; margin-bottom: 20px;">
+						<h4 class="font-weight-bold">공동구매 참여</h4>
 						<input type="hidden" name="gpmid" value="${sessionScope.loginId}">
 					</div>
 					<div class="row form-group" style="margin-left: 2px;">
@@ -320,6 +322,53 @@ label {
 		</div>
 	</div>
 
+	<!-- 게시글 수정 -->
+	<div class="background3">
+		<div class="window2">
+			<form class="user" action="modGroupBuy" method="get">
+				<div class="popup3">
+					<div class="text-center" style="margin-top: 15px; margin-bottom: 20px;">
+						<h4 class="font-weight-bold">게시글 수정</h4>
+						<input type="hidden" name="gbcode" value="${gbreserve.gbcode}">
+					</div>
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="col-1"></div>
+						<div class="col-2">
+							<span class="font-weight-bold">제목</span>
+						</div>
+						<div class="col-9">
+							<input type="text" name="gbtitle" placeholder="제목을 입력해주세요..." style="width: 90%;" value="${gbreserve.gbtitle}">
+						</div>
+					</div>
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="col-1"></div>
+						<div class="col-2">
+							<span class="font-weight-bold">내용</span>
+						</div>
+						<div class="col-9">
+							<textarea id="gbcomment" name="gbcomment" placeholder="내용을 입력해주세요..." rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
+							<div id="text_cnt" style="margin-top: 5px;">글자수(0 / 500)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-2">
+							<span class="font-weight-bold">마감</span>
+						</div>
+						<div class="col-9">
+							<input name="gbfdate" type="date" style="width: 30%;">
+							<input id="fdate" type="hidden" value="${gbreserve.gbfdate}">
+						</div>
+					</div>
+					<div class="text-center" style="margin-top: 20px;">
+						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">글 수정</button>
+						<button type="button" id="close2" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
@@ -339,8 +388,14 @@ label {
 </script>
 
 <script>
+	// 공구참여
 	function show() {
-		document.querySelector(".background2").className = "background2 show2";
+		if(${empty sessionScope.loginId}){
+			alert("로그인후 사용이 가능합니다.");
+			return false;
+		}
+		
+		document.querySelector(".background2").className = "background2 show";
 	}
 
 	function close() {
@@ -349,6 +404,36 @@ label {
 
 	document.querySelector("#show").addEventListener('click', show);
 	document.querySelector("#close").addEventListener('click', close);
+
+	// 게시글 수정
+	function show2() {
+		document.querySelector(".background3").className = "background3 show2";
+	}
+
+	function close2() {
+		document.querySelector(".background3").className = "background3";
+	}
+
+	document.querySelector("#show2").addEventListener('click', show2);
+	document.querySelector("#close2").addEventListener('click', close2);
+
+	// 공구 채팅방 이동
+	function joinChatRoom(gbcode) {
+		location.href = "chatRoom?gbcode=" + gbcode;
+	}
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#gbcomment').on('keyup', function() {
+			$('#text_cnt').html("(" + $(this).val().length + " / 500)");
+
+			if ($(this).val().length > 500) {
+				$(this).val($(this).val().substring(0, 500));
+				$('#text_cnt').html("(500 / 500)");
+			}
+		});
+	});
 </script>
 
 <script type="text/javascript">
@@ -360,6 +445,11 @@ label {
 			$("#gpprice").val(amount * pdprice);
 
 		});
+		
+		var fdate = $("#fdate").val().replaceAll("/","-");
+		
+		$("input[type=date]").val(fdate);
+
 	});
 </script>
 

@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class AnswerDto {
 	private String aniqcode;
-	private String ancooment;
+	private String ancomment;
 	private String ancommend;
+	private String andate;
 }

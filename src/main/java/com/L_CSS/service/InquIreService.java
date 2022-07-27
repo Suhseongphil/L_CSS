@@ -116,8 +116,10 @@ public class InquIreService {
 		System.out.println("inquireInfo()호출");
 		ModelAndView mav = new ModelAndView();
 		ArrayList<InquIreDto>inquireInfo = Idao.inquireInfo(iqcode);
+		ArrayList<InquIreDto>AnswerList = Idao.AnswerList(iqcode);
 		System.out.println(inquireInfo);
 		mav.addObject("inquireInfo",inquireInfo);
+		mav.addObject("AnswerList",AnswerList);
 		mav.setViewName("option/InquireInfo");
 		return mav;
 	}

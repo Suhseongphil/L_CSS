@@ -82,5 +82,11 @@
 		DELETE CHATROOM
 		WHERE CHGBCODE = #{gbcode} AND CHMID = #{loginId}
 	</delete>
+	
+	<update id="updateGroupBuy">
+		UPDATE GROUPBUY
+		SET GBTITLE = #{gbtitle}, GBCOMMENT = #{gbcomment}, GBFDATE = TO_DATE(#{gbfdate}, 'YYYY/MM/DD')
+		WHERE GBCODE = #{gbcode}
+	</update>
 
 </mapper>
