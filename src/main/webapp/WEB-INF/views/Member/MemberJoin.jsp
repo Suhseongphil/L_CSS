@@ -171,7 +171,7 @@
 								<input type="radio" name="mstate" value="2"
 									style="margin-left: 100px;"> 업체
 							</div>
-							<button type="submit" class="btn btn-primary btn-user btn-block">회원가입</button>
+							<button type="submit" class="btn text-white btn-user btn-block" style="background-color: black;">회원가입</button>
 							<hr>
 						</form>
 						<hr>

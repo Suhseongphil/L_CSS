@@ -100,16 +100,4 @@ public class GroupBuyController {
 		return mav;
 	}
 	
-	//테스트 게시판 (지울것)
-	@RequestMapping(value="/groupBuyTest")
-	public ModelAndView groupBuyBoard2() {
-		System.out.println("테스트게시판 호출");
-		System.out.println("공동구매");
-		ModelAndView mav = new ModelAndView();
-
-		mav = gbsvc.getGroupBuyInfo2();
-
-		return mav;
-		
-	}
 }
