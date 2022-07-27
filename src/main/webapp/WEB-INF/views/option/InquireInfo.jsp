@@ -175,6 +175,38 @@ h7 {
 						</div>
 					</div>		
 				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="shoping__cart__table">
+
+								<div class="item display" style="padding-top: 30px;">
+							
+
+									<c:forEach items="${AnswerList }" var="anList">
+									<div class="row"
+										style="padding-bottom: 20px; text-align: center;">
+										
+										<div class="col-8">
+										답변내용 :	<h5>${anList.ancomment }</h5>
+										</div>
+		
+										
+										<div class="col-5">
+										답변날짜 : <h5>${anList.andate }</h5>
+										</div>
+										
+										
+									</div>
+									
+									</c:forEach>
+
+								</div>
+
+							</div>
+						</div>
+					</div>		
+				</div>
 				<!--</section>  -->
 			</div>
 
