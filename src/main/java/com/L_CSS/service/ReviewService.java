@@ -49,24 +49,7 @@ public class ReviewService {
 	public String insertReview(String pdcode, String recomment, int rvrecommend, RedirectAttributes ra, String recode) {
 		System.out.println("insertReView()호출");
 		String loginId = (String)session.getAttribute("loginId");
-		/*
-		String max = rdao.getmax();
-		String rvrecode = "RV";
-		if(max == null) {
-			rvrecode = rvrecode + "001";
-		}else {
-			max = max.substring(2);
-			int maxCode = Integer.parseInt(max)+1;		
-			if(maxCode < 10) {
-				rvrecode = rvrecode + "00" + maxCode;
-		}else if(maxCode < 100) {
-			rvrecode = rvrecode + "0" + maxCode;
-		}else {
-			rvrecode = rvrecode + maxCode;
-		}
 		
-		
-		}*/
 		int insertResult = rdao.insertResult(pdcode,recomment,rvrecommend,loginId,recode);
 			
 			if(insertResult > 0) {

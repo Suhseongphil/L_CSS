@@ -93,6 +93,7 @@
 h7 {
 	text-align: center;
 }
+
 .answer {
 	position: fixed;
 	top: 0;
@@ -201,80 +202,91 @@ textarea {
 							<div class="shoping__cart__table">
 
 								<div class="item display" style="padding-top: 30px;">
-							
+
 
 									<c:forEach items="${inquireInfo }" var="iqList">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										제목 : <h5>${iqList.iqtitle }</h5>
+										<div class="row"
+											style="padding-bottom: 20px; text-align: center;">
+											<div class="col-6">
+												제목 :
+												<h5>${iqList.iqtitle }</h5>
+											</div>
+											<div class="col-3">
+												작성자 :
+												<h5>${iqList.iqmid }</h5>
+											</div>
+											<div class="col-3">
+												카테고리 :
+												<h5>${iqList.iqcategory }</h5>
+											</div>
+
 										</div>
-										<div class="col-3">
-										작성자 :	<h5>${iqList.iqmid }</h5>
+
+										<div style="padding-bottom: 20px; text-align: center;">
+											<div class="col-6">
+												문의내용 :
+												<h5>${iqList.iqcomment }</h5>
+											</div>
+
+
 										</div>
-										<div class="col-3">
-										카테고리 :	<h5>${iqList.iqcategory }</h5>
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="shoping__cart__btns">
+													
+													<button id="show" value="${iqList.iqcode }"
+														class="primary-btn cart-btn cart-btn-right"
+														style="padding-bottom: 10px;"> 답변작성</button>
+												</div>
+											</div>
+
+
 										</div>
-										
-									</div>
-									
-									<div 
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										문의내용 : <h5>${iqList.iqcomment }</h5>
-										</div>
-										
-										
-									</div>
-									
 									</c:forEach>
 
 								</div>
 
 							</div>
 						</div>
-					</div>		
-				</div>
-				<div class="row" >
-						<div class="col-lg-12">
-							<div class="shoping__cart__btns" >
-
-								<a href="amindInsert"
-									 id="show" class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px;">
-									답변작성</a>
-							</div>
-						</div>
-
-							
 					</div>
-				<!--</section>  -->
+				</div>
+
+
+
 			</div>
-
-
+			<!--</section>  -->
 		</div>
+
+
 	</div>
+	
 	<div class="answer">
 		<div class="window2">
-			<form class="user" action="reViewInsert" method="post"
+			<form class="user" action="amindInsert" method="post"
 				enctype="multipart/form-data">
 				<div class="popup2" id="modal">
 
-						<div >
-							<h5>
-								답변내용 <br> <br>
-								<textarea name="rvcomment" id="recomment"
-									placeholder="내용을 입력해주세요.."></textarea>
-							</h5>
-						</div>
-					
 					<div>
-						<input type="radio" name="ancommend" value="0">공개
-						<input type="radio" name="ancommend" value="1">비공개
+						<h5>
+							답변내용 <br> <br>
+							<textarea name="ancomment" id="ancomment"
+								placeholder="내용을 입력해주세요.."></textarea>
+						<input type="hidden" name="iqcode" id="iqcode" value="0">공개
+						</h5>
 					</div>
 
-					<button type="submit" id="save" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 									
+					<div>
+						<input type="radio" name="ancommend" value="0">공개 <input
+							type="radio" name="ancommend" value="1">비공개
+					</div>
+
+					<button type="submit" id="save"
+						class="btn text-white button btnPush btnLightBlue"
+						title="Button push lightblue"
 						style="background-color: #000000; margin-left: 20px;">답변작성</button>
-					<button type="button" id="close" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 
+					<button type="button" id="close"
+						class="btn text-white button btnPush btnLightBlue"
+						title="Button push lightblue"
 						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>
@@ -317,13 +329,31 @@ textarea {
 	<!-- ALL JS FILES -->
 
 </body>
-
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
 <script type="text/javascript">
 	function show() {
-		var recode = document.getElementById("show").value;
-		var output = "";
+		var iqcode = document.getElementById("show").value;
+		
 		console.log(iqcode);
-	document.querySelector(".answer").className = "answer show2";
+		
+		$.ajax({
+			type : "get",
+			url : "selectIqcode",
+			data : {"iqcode" : iqcode},
+			dataType : "json",
+			async : false,
+			success : function(insertResult){
+				console.log(insertResult);
+				$("#iqcode").val(insertResult.iqcode);
+			}
+			
+	});
+		document.querySelector(".answer").className = "answer show2";
 	}
 
 	function close() {

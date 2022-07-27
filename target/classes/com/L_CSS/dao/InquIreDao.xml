@@ -17,7 +17,7 @@
 	</insert>
   	
   	<select id="selectInquire" resultType="com.L_CSS.dto.InquIreDto">
-  	select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE ,'YYYY-MM-DD') AS IQDATE
+  	select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE ,'YYYY-MM-DD') AS IQDATE ,IQSTATE
   	from INQUIRE
   	where iqmid = #{loginId}
   	</select>
@@ -39,7 +39,7 @@
   	
   	<select id="selectInquireList" resultType="com.L_CSS.dto.InquIreDto">
 	select IQCODE,IQMID,IQCATEGORY,IQTITLE,IQCOMMENT,IQIMG,TO_CHAR(IQDATE
-	,'YYYY-MM-DD') AS IQDATE
+	,'YYYY-MM-DD') AS IQDATE , IQSTATE
 	from INQUIRE
 	
   	</select>
@@ -47,5 +47,10 @@
   		select *
   		from INQUIRE
   		where IQCODE = #{iqcode}
+  	</select>
+  	<select id="AnswerList" resultType="com.L_CSS.dto.AnswerDto" >
+  		select *
+		from answer an , inquire iq 
+		where an.aniqcode = iq.iqcode and an.aniqcode = #{iqcode}
   	</select>
   </mapper>

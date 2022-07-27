@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.AdminDao;
 import com.L_CSS.dao.InquIreDao;
@@ -16,6 +17,7 @@ import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.InquIreDto;
 import com.L_CSS.dto.MemberDto;
+import com.L_CSS.dto.ReservationDto;
 import com.google.gson.Gson;
 
 @Service
@@ -404,7 +406,7 @@ public class AdminService {
 		System.out.println("InquireList()호출");
 		ModelAndView mav = new ModelAndView();
 		ArrayList<InquIreDto>inquireList = Idao.selectInquireList();
-		
+		System.out.println(inquireList);
 		mav.addObject("inquireList", inquireList);
 		mav.setViewName("Admin/AdminInquire");
 		return mav;
@@ -418,6 +420,33 @@ public class AdminService {
 		mav.addObject("inquireInfo", inquireInfo);
 		mav.setViewName("Admin/AdminInquireInfo");
 		return mav;
+	}
+	//답변 저장
+	public String insertInquire(String iqcode, String ancomment, String ancommend, RedirectAttributes ra) {
+		System.out.println("insertInquire()호출");
+		int commend = Integer.parseInt(ancommend);
+		
+		int insertInquire = adao.insertInquire(iqcode,ancomment,commend);
+		System.out.println(insertInquire);
+		if(insertInquire > 0) {
+			int updateIqstate = adao.udpateIqstate(iqcode);
+			ra.addFlashAttribute("msg","답변 완료");
+			
+		}else {					
+			ra.addFlashAttribute("msg","답변 작성실패");
+		}
+		return "redirect:/admininquirePage";
+		
+	}
+	//코드찾기
+	public String selectIqcode(String iqcode) {
+		System.out.println("selectIqcode");
+		
+		InquIreDto selectIqcode = adao.selectIqcode(iqcode);
+		Gson gson = new Gson();
+		String IqcodeGson = gson.toJson(selectIqcode);
+		System.out.println(IqcodeGson);
+		return IqcodeGson;
 	}
 
 	
