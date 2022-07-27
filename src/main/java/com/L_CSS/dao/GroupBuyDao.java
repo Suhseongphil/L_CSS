@@ -43,4 +43,6 @@ public interface GroupBuyDao {
 
 	void outChatroom(@Param("gbcode")String gbcode, @Param("loginId")String loginId);
 
+	void updateGroupBuy(GroupBuyDto modGb);
+
 }

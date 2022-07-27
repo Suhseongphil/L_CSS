@@ -111,4 +111,15 @@ public class GroupBuyController {
 		return mav;
 	}
 
+	// 공동구매 게시글 수정
+	@RequestMapping(value = "/modGroupBuy")
+	public ModelAndView modGroupBuy(GroupBuyDto modGb) {
+		System.out.println("게시글 수정 요청");
+		ModelAndView mav = new ModelAndView();
+
+		mav = gbsvc.modGroupBuy(modGb);
+
+		return mav;
+	}
+
 }
