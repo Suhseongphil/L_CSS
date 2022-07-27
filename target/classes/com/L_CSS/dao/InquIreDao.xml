@@ -43,4 +43,9 @@
 	from INQUIRE
 	
   	</select>
+  	<select id="AdminInquireInfo" resultType="com.L_CSS.dto.InquIreDto" >
+  		select *
+  		from INQUIRE
+  		where IQCODE = #{iqcode}
+  	</select>
   </mapper>

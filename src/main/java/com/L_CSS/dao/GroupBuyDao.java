@@ -2,6 +2,8 @@ package com.L_CSS.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.L_CSS.dto.GbpeopleDto;
 import com.L_CSS.dto.GbreserveDto;
 import com.L_CSS.dto.GroupBuyDto;
@@ -23,8 +25,6 @@ public interface GroupBuyDao {
 
 	GbreserveDto getGroupbuy(String gbcode);
 
-	int gbpeopleCnt(String gbcode);
-
 	ArrayList<GbpeopleDto> getGbpeople(String gbcode);
 
 	void insertGbpeopleDto(GbpeopleDto gbInfo);
@@ -34,5 +34,13 @@ public interface GroupBuyDao {
 	void deleteGroupBuy(String gbcode);
 
 	ArrayList<GbreserveDto> getGroupBuyInfo2();
+
+	GbpeopleDto getGbInfo(@Param("gbcode")String gbcode, @Param("loginId")String loginId);
+
+	void deleteChatRoom(String gbcode);
+
+	void outGbpeople(@Param("gbcode")String gbcode, @Param("loginId")String loginId);
+
+	void outChatroom(@Param("gbcode")String gbcode, @Param("loginId")String loginId);
 
 }

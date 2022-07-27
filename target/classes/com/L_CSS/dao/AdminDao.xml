@@ -99,4 +99,5 @@
 		DELETE MEMBER
 		WHERE MID = #{mid}
 	</delete>
+	
 </mapper>

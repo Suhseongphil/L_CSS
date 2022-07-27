@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -241,7 +242,7 @@ label {
 				<div class="col-2">
 					<div class="text-center font-weight-bold" style="background-color: grey;">
 						<span>참여자 목록 </span>
-						<span>${gbCnt}명</span>
+						<span>${fn:length(gbpeopleList)}명</span>
 					</div>
 					<div class="scroll" style="border: 1px solid black;">
 						<c:forEach items="${gbpeopleList}" var="gpList">

@@ -169,5 +169,21 @@ public class AdminController {
 		mav = adsvc.InquireList();
 		return mav;
 	}
+	//고객정보 상세보기
+	@RequestMapping(value="/AdminInquireInfo")
+	public ModelAndView AdminInquireInfo(String iqcode) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("관리자 고객 문의 상세보기");
+		System.out.println(iqcode);
+		mav = adsvc.InquireInfo(iqcode);
+		return mav;
+	}
+	//문의 답변하기
+	@RequestMapping(value="/amindInsert")
+	public @ResponseBody String amindInsert(String iqcode) {
+		System.out.println("문의답변하기");
+		System.out.println(iqcode);
+		return null;
+	}
 
 }
