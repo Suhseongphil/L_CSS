@@ -13,6 +13,8 @@
 	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
 	type="text/css">
 <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
 	type="text/css">
 <link rel="stylesheet"
@@ -36,10 +38,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-
 
 <body>
 	<header class="header">
@@ -64,7 +62,7 @@
 							<div id="search" class="row">
 								<div class="col-lg-12" style="margin-top: 100px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 250px; margin-top: -70px;">
+										style="margin-left: 220px; margin-top: -80px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
@@ -79,12 +77,12 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -150px;">추천 상품</h2>
+						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
 
-						<!--  	<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
+							<!--  	<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
@@ -129,37 +127,41 @@
 			</c:forEach>
 		</div>
 		<div
-			style="font-size: 16px; margin-left: 600px; margin-bottom: 30px; margin-top: 30px;">
-
-			<c:choose>
-				<c:when test="${pagedto.page <= 1 }">
-                      [이전]
-                         </c:when>
-				<c:otherwise>
-					<a href="shopMain?page=${pagedto.page - 1}">[이전]</a>
-				</c:otherwise>
-			</c:choose>
-			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
-				var="num" step="1">
-				<c:choose>
-					<c:when test="${pagedto.page == num }">
-						<span style="font-size: 20px;">${num }</span>
-					</c:when>
-					<c:otherwise>
-						<a href="shopMain?page=${num}"> ${num } </a>&nbsp;&nbsp;
-                      </c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<c:choose>
-				<c:when test="${pagedto.page >= pagedto.maxPate }">
-                      [다음]
-                   </c:when>
-				<c:otherwise>
-					<a href="shopMain?page=${pagedto.page + 1}">[다음]</a>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</section>
+         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
+         <ul class="pagination">
+            <c:choose>
+               <c:when test="${pagedto.page <= 1 }">
+                  <li><a href="#"> <span>«</span>
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="shopMain?page=${pagedto.page - 1}">«</a>
+                  <li>
+               </c:otherwise>
+            </c:choose>
+            <c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+               var="num" step="1">
+               <c:choose>
+                  <c:when test="${pagedto.page == num }">
+                     <li><span style="font-size: 24px;">${num }</span></li>
+                  </c:when>
+                  <c:otherwise>
+                     <li><a href="shopMain?page=${num}"> ${num } </a></li>
+                  </c:otherwise>
+               </c:choose>
+            </c:forEach>
+            <c:choose>
+               <c:when test="${pagedto.page >= pagedto.maxPate }">
+                  <li><a href="#"> <span>»</span>
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
+               </c:otherwise>
+            </c:choose>
+         </ul>
+      </div>
+      </section>
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
@@ -180,6 +182,8 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+
+
 <script type="text/javascript">
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
