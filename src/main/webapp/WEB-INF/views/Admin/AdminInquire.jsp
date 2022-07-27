@@ -93,39 +93,35 @@
 h7 {
 	text-align: center;
 }
+
 .w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
 }
+
 .w-btn-brown {
-    background-color: #ce6d39;
-    color: #ffeee4;
+	background-color: #ce6d39;
+	color: #ffeee4;
 }
 </style>
 
 <body>
 	<!-- Start Main Top -->
-
 	<!-- End Main Top -->
-
 	<!-- Start Main Top -->
 	<%@ include file="../includes/TopBar.jsp"%>
 	<header class="main-header">
 		<!-- Start Navigation -->
-
 		<div class="container">
 			<!-- Start Header Navigation -->
-
 			<!-- End Header Navigation -->
-
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-menu"></div>
 			<!-- /.navbar-collapse -->
@@ -142,98 +138,62 @@ h7 {
 
 		<!-- End Navigation -->
 	</header>
-
-
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
 			<div class="row">
-
-
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
-					<div class="row" >
+					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-
-								<div class="item display" style="padding-top: 30px;">
-
-
-									
+								<div class="item display" style="padding-top: 10px;">
 									<hr>
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-2">
-											<h5>작성자</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의제목</h5>
-										</div>
-										<div class="col-2">
-											<h5>문의유형</h5>
-										</div>
-										<div class="col-2">
-											<h5>시간</h5>
-										</div>
-										<div class="col-2">
-											<h5>상태</h5>
-										</div>
-										<div class="col-2">
-											<h5>상세보기</h5>
-										</div>
+									<div class="row">
+										<table class="type09">
+											<thead>
+												<tr>
+													<th scope="cols">작성자</th>
+													<th scope="cols">문의 제목</th>
+													<th scope="cols">문의 유형</th>
+													<th scope="cols">시간</th>
+													<th scope="cols">상태</th>
+													<th scope="cols">상세 보기</th>
+												</tr>
+											</thead>
+
+										</table>
 									</div>
-									<c:forEach items="${inquireList}" var="iqList">
-									<div class="row"
-										style="padding-bottom : 10px; padding-top : 10px; text-align: center;">
-										<div class="col-2">
-											<h6>${iqList.iqmid }</h6>
-										</div>
-											<div class="col-2">
-											<h5>${iqList.iqtitle }</h5>
-										</div>
-										<div class="col-2">
-											<h6>${iqList.iqcategory }</h6>
-										</div>
-										<div class="col-2">
-											<h5>${iqList.iqdate }</h5>
-										</div>
-										<div class="col-2">
-											<c:choose>
-											<c:when test="${iqList.iqstate == 0 }">
-											<h5>답변대기</h5>
-											</c:when>
-											<c:otherwise>
-											<h5>답변완료</h5>
-											</c:otherwise>
-											</c:choose>
-										</div>
-										<div class="col-2">
-											<button class="w-btn w-btn-brown" onclick="InquireInfo('${iqList.iqcode}')">  보기</button>
-										</div>
-									</div>
-									</c:forEach>
-
-
-
+									<table class="type09">
+										<thead>
+											<c:forEach items="${inquireList}" var="iqList">
+												<tr>
+													<th style="vertical-align: middle;">${iqList.iqmid }</th>
+													<th style="vertical-align: middle;">${iqList.iqtitle }</th>
+													<th style="vertical-align: middle;">${iqList.iqcategory }</th>
+													<th style="vertical-align: middle;">${iqList.iqdate }</th>
+													<c:choose>
+														<c:when test="${iqList.iqstate == 0 }">
+															<th style="vertical-align: middle;">답변대기</th>
+														</c:when>
+														<c:otherwise>
+															<th style="vertical-align: middle;">답변완료</th>
+														</c:otherwise>
+													</c:choose>
+													<th>
+														<button class="w-btn w-btn-brown"
+															onclick="InquireInfo('${iqList.iqcode}')">보기</button>
+													</th>
+											</c:forEach>
+										<thead>
+									</table>
 								</div>
-
-
-
-
-
-
 							</div>
 						</div>
 					</div>
-
-
-
-					
 				</div>
 				<!--</section>  -->
 			</div>
-
-
 		</div>
 	</div>
 	<footer class="footer">
@@ -253,8 +213,6 @@ h7 {
 	<!-- Start copyright  -->
 
 	<!-- End copyright  -->
-
-
 	<script
 		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script
@@ -274,23 +232,10 @@ h7 {
 
 </body>
 <script type="text/javascript">
-	function InquireInfo(iqcode){
+	function InquireInfo(iqcode) {
 		console.log(iqcode);
 		location.href = "AdminInquireInfo?iqcode=" + iqcode;
 	}
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>

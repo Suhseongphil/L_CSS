@@ -12,8 +12,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
 	type="text/css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">	
+	
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
 	type="text/css">
@@ -117,7 +116,7 @@
 	
 	<div
          style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
-         <ul class="pagination">
+         
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
                   <li><a href="#"> <span>«</span>
@@ -148,7 +147,7 @@
                   <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
                </c:otherwise>
             </c:choose>
-         </ul>
+         
       </div>
 	
 	<footer class="footer">

@@ -202,32 +202,41 @@ textarea {
 
 								<div class="item display" style="padding-top: 30px;">
 							
-
+									<table class="type09">
 									<c:forEach items="${inquireInfo }" var="iqList">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										제목 : <h5>${iqList.iqtitle }</h5>
-										</div>
-										<div class="col-3">
-										작성자 :	<h5>${iqList.iqmid }</h5>
-										</div>
-										<div class="col-3">
-										카테고리 :	<h5>${iqList.iqcategory }</h5>
-										</div>
-										
-									</div>
-									
-									<div 
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										문의내용 : <h5>${iqList.iqcomment }</h5>
-										</div>
-										
-										
-									</div>
-									
+									<thead>
+									<tr>
+									<th scope="cols">제목</th>
+									<th scope="cols">작성자</th>
+									<th scope="cols">카테고리</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr><th>${iqList.iqtitle }</th>
+									<th>${iqList.iqmid }</th>
+									<th>${iqList.iqcategory }</th></tr>
+									</tbody>
 									</c:forEach>
+									</table>
+									
+									
+									<table class="type09">
+									<c:forEach items="${inquireInfo }" var="iqList">
+									<thead>
+									<tr>
+									<th scope="cols">문의내용</th>
+									</tr>
+									<tbody>
+									<tr><td>${iqList.iqcomment }</td></tr>
+									</tbody>
+									</c:forEach>
+									</table>
+										
+										
+										
+									</div>
+									
+									
 
 								</div>
 
@@ -240,7 +249,7 @@ textarea {
 							<div class="shoping__cart__btns" >
 
 								<a href="amindInsert"
-									 id="show" class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px;">
+									 id="show" class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px; background-color: #000000;">
 									답변작성</a>
 							</div>
 						</div>
