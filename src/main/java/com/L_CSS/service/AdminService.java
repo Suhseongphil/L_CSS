@@ -409,6 +409,16 @@ public class AdminService {
 		mav.setViewName("Admin/AdminInquire");
 		return mav;
 	}
+	//고객문의 상세보기
+	public ModelAndView InquireInfo(String iqcode) {
+		System.out.println("InquireInfo()호출");
+		ModelAndView mav = new ModelAndView();
+		ArrayList<InquIreDto>inquireInfo = Idao.AdminInquireInfo(iqcode);
+		
+		mav.addObject("inquireInfo", inquireInfo);
+		mav.setViewName("Admin/AdminInquireInfo");
+		return mav;
+	}
 
 	
 	
