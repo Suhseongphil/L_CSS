@@ -189,34 +189,43 @@ public class CafeService {
 		return mav;
 	}
 
-	public ModelAndView mycafeInfo(RedirectAttributes ra) {
+	public ModelAndView mycafeInfo(String loginId, RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("mycafeInfo() 호출");
-		String loginId = (String) session.getAttribute("loginId");
+		loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
+		int getLoginId = cdao.getintId(loginId);
 		
 		CafeDto mycafeInfo = cdao.MyCafeInfo(loginId);
 		
-		String[] mpost = mycafeInfo.getCfaddress().split("_");
 		
-		System.out.println("mpost.length : " + mpost.length);
-		if (mpost.length != 4) {
-
-			mycafeInfo.setCfaddr2(mpost[2]);
-			mycafeInfo.setCfextraaddress(mpost[2]);
-
+		
+		if (getLoginId == 0) {
+			ra.addFlashAttribute("msg", "등록된 카페가 없습니다.");
+			mav.setViewName("redirect:/");
 		} else {
-			System.out.println(mpost[3]);
-			mycafeInfo.setCfaddr2(mpost[2] + "  " + mpost[3]);
-			mycafeInfo.setCfdetailaddress(mpost[3]);
-			mycafeInfo.setCfextraaddress(mpost[2]);
+			String[] mpost = mycafeInfo.getCfaddress().split("_");
+			
+			System.out.println("mpost.length : " + mpost.length);
+			if (mpost.length != 4) {
+				
+				mycafeInfo.setCfaddr2(mpost[2]);
+				mycafeInfo.setCfextraaddress(mpost[2]);
+				
+			} else {
+				System.out.println(mpost[3]);
+				mycafeInfo.setCfaddr2(mpost[2] + "  " + mpost[3]);
+				mycafeInfo.setCfdetailaddress(mpost[3]);
+				mycafeInfo.setCfextraaddress(mpost[2]);
+			}
+			mycafeInfo.setCfpostcode(mpost[0]);
+			mycafeInfo.setCfaddr(mpost[1]);
+			System.out.println(mpost[0]);
+			
+			mav.addObject("mycafeInfo", mycafeInfo);
+			mav.setViewName("Cafe/MycafeInfo");
 		}
-		mycafeInfo.setCfpostcode(mpost[0]);
-		mycafeInfo.setCfaddr(mpost[1]);
-		System.out.println(mpost[0]);
 		
-		mav.addObject("mycafeInfo", mycafeInfo);
-		mav.setViewName("Cafe/MycafeInfo");
 		
 		
 		

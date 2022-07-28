@@ -343,7 +343,7 @@ text-transform: uppercase;
 			output += "&nbsp;<span class=\"font-weight-bold\">가격 : </span>";
 			output += "<input class=\"input_width\" id=\"priceMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].muprice +"\">";
 			output += "<br><span class=\"font-weight-bold\">메뉴타입 : </span>";
-			output += "<input class=\"input_width\" id=\"menuMod_"+menu[i].mucode+"\" type=\"text\" value=\""+ menu[i].mutype +"\">";
+			output += "<input style=\"border:none;\" class=\"input_width\" id=\"menuMod_"+menu[i].mucode+"\" readonly type=\"text\" value=\""+ menu[i].mutype +"\">";
 			output += "</div>";
 
 			output += "<div class=\"col-2\">";
@@ -429,7 +429,7 @@ text-transform: uppercase;
 		var inputFile = $("input[name = 'imgMod_" + mucode + "']");
 		var files = inputFile[0].files;
 		for (var i = 0; i < files.length; i++) {
-			formData.append("muims", files[i]);
+			formData.append("muims", files[0]);
 		}
 		console.log(files)
 		formData.append("mucode", $("#codeMod_" + mucode).val());
