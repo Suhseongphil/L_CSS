@@ -80,13 +80,13 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">상품</h2>
+						<h2 style="margin-top: 30px; margin-left: -280px;">상품</h2>
 					</div>
-					<div class="row">
+					<div class="row" style="margin-top: -400px; padding-left: 300px; padding-right: 300px;">
 						<div class="product__discount__slider owl-carousel">
 
 							<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
-								<div class="col-lg-4">
+								<div class="col-lg-2">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
@@ -109,9 +109,9 @@
 	</section>
 
 	<section>
-		<div class="row" style="margin-left: 200px; margin-right: 200px; ">
+		<div class="row" style="margin-left: 400px;  margin-right: 300px; margin-top: 200px;">
 			<c:forEach items="${selectproductList}" var="pro">
-				<div class="col-lg-2" style="margin: 20px;">
+				<div class="col-lg-3" >
 					<div class="product__discount__item">
 						<div class="product__discount__item__pic set-bg"
 							data-setbg="${pro.pdimg }"></div>

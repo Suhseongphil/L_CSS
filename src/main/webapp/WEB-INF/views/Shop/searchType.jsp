@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
 	type="text/css">
-	
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
 	type="text/css">
@@ -85,70 +85,76 @@
 
 							</div>
 						</form>
-						<h3 style="margin-top: 50px; margin-left: -280px; font-weight: bold;">전체 상품<br><br></h3>
+						<h3
+							style="margin-top: 50px; margin-left: -280px; font-weight: bold;">
+							전체 상품<br> <br>
+						</h3>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
-
-							<c:forEach items="${searchType}" var="pro">
-								<div class="col-lg-4">
-									<div class="product__discount__item">
-										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
-										<div class="product__discount__item__text">
-											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
-											</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
-											<h5>
-												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
-											</h5>
-											<div class="product__item__price">${pro.pdprice}원</div>
+							<div class="row">
+								<div class="row" style="margin-top: -50px;">
+									<c:forEach items="${searchType}" var="pro">
+										<div class="col-lg-4">
+											<div class="product__discount__item">
+												<div class="product__discount__item__pic set-bg"
+													data-setbg="${pro.pdimg }"></div>
+												<div class="product__discount__item__text">
+													<a
+														href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+														<i class="fa fa-shopping-cart"></i>
+													</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
+													<h5>
+														<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
+													</h5>
+													<div class="product__item__price">${pro.pdprice}원</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</c:forEach>
+									</c:forEach>
 
+								</div>
+								</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 	</section>
-	
+
 	<div class="">
-         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
-            <c:choose>
-               <c:when test="${pagedto.page <= 1 }">
-                  <li><a href="#">«
-                  </a></li>
-               </c:when>
-               <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page - 1}">«</a>
-                  <li>
-               </c:otherwise>
-            </c:choose>
-            <c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
-               var="num" step="1">
-               <c:choose>
-                  <c:when test="${pagedto.page == num }">
-                     <li><a href="#">${num }</a></li>
-                  </c:when>
-                  <c:otherwise>
-                     <li><a href="shopMain?page=${num}"> ${num } </a></li>
-                  </c:otherwise>
-               </c:choose>
-            </c:forEach>
-            <c:choose>
-               <c:when test="${pagedto.page >= pagedto.maxPate }">
-                  <li><a href="#">»
-                  </a></li>
-               </c:when>
-               <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
-               </c:otherwise>
-            </c:choose>
-            </ul>
-      </div>
-	
+		<ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
+			<c:choose>
+				<c:when test="${pagedto.page <= 1 }">
+					<li><a href="#">« </a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="shopMain?page=${pagedto.page - 1}">«</a>
+					<li>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+				var="num" step="1">
+				<c:choose>
+					<c:when test="${pagedto.page == num }">
+						<li><a href="#">${num }</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="shopMain?page=${num}"> ${num } </a></li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pagedto.page >= pagedto.maxPate }">
+					<li><a href="#">» </a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+	</div>
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
