@@ -38,7 +38,7 @@ height: 30px;
 					<a href="fullMain">상품</a>
 				</li>
 				<c:choose>
-					<c:when test="${sessionScope.loginState == 1 }">
+					<c:when test="${sessionScope.loginType == 1 }">
 						<li>
 							<a>카페</a>
 							<ul class="header__menu__dropdown">
@@ -65,7 +65,7 @@ height: 30px;
 							</ul>
 						</li>
 					</c:when>
-					<c:when test="${sessionScope.loginState == 2 }">
+					<c:when test="${sessionScope.loginType == 2 }">
 						<li>
 							<a>카페</a>
 							<ul class="header__menu__dropdown">
