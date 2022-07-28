@@ -189,10 +189,21 @@
 						<div class="col-6 text-right font-weight-bold">
 							<span> 구매가격 </span>
 						</div>
+						<c:set var="allAmount" />
+						<c:set var="allPrice" />
 						<c:forEach items="${gbpeopleList}" var="gpList">
-							<div class="col-3">
-								<span>${gpList.gpmid}</span>
-							</div>
+							<c:choose>
+								<c:when test="${gbreserve.gbmid == sessionScope.loginId}">
+									<div class="col-3" style="color: blue;">
+										<span>${gpList.gpmid}</span>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="col-3">
+										<span>${gpList.gpmid}</span>
+									</div>
+								</c:otherwise>
+							</c:choose>
 							<div class="col-3 text-right">
 								<span>${gpList.gpamount}</span>
 							</div>
@@ -202,9 +213,29 @@
 									원
 								</span>
 							</div>
+							<c:set var="allAmount" value="${allAmount + gpList.gpamount}" />
+							<c:set var="allPrice" value="${allPrice + gpList.gpprice}" />
 						</c:forEach>
+
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-3 font-weight-bold">
+						<span>전체</span>
+					</div>
+					<div class="col-3 text-right">
+						<span>${allAmount}</span>
+					</div>
+					<div class="col-6 text-right">
+						<span>
+							<fmt:formatNumber value="${allPrice}" pattern="#,###" />
+							원
+						</span>
+					</div>
+				</div>
+				<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
+					<button class="chBtn font-weight-bold" onclick="order('${gbreserve.gbcode}')">공동구매 결제</button>
+				</c:if>
 			</div>
 		</div>
 	</div>
