@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -196,7 +197,7 @@
 					+ "원</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
-
+			
 			//output += "<td class=\"shoping__cart__quantity\">";
 			output += "<div class=\"col-2 divpadding\">"
 			output += "<div id=\"amounList\" >";
@@ -228,9 +229,10 @@
 			//output += "</td>";
 			//output += "</tr>"
 			output += "</div>";
-			totalPrice = mycart[i].cttotal;
+			totalPrice = mycart[i].pdprice * mycart[i].ctamount;
 			maxPrice = maxPrice + totalPrice;
 		}
+		
 
 		$("#myCartList").html(output);
 		var sumPrice = 0;
