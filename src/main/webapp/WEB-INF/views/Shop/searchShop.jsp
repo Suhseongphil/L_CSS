@@ -62,7 +62,7 @@
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-12" style="margin-top: 100px;">
+								<div class="col-lg-12" style="margin-top: 50px;">
 									<div class="shoping__cart__btns"
 										style="margin-left: 220px; margin-top: -80px;">
 										<select name="pdcategory" id="pdcategory">
@@ -79,13 +79,13 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">검색 상품</h2>
+						<h3 style="margin-top: 50px; margin-left: -280px; font-weight: bold;">전체 상품<br><br></h3>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
                </div>
                <div class="row">
-                  <div class="row">
+                  <div class="row" style="margin-top: -50px;">
 							<c:forEach items="${selectproductList}" var="pro">
 								<div class="col-lg-3" style="margin-left: -50px; margin: 15px;">
 									<div class="product__discount__item">
@@ -109,7 +109,7 @@
 											<h5>
 												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
+											<div class="product__item__price">${pro.pdprice}원</div>
 										</div>
 									</div>
 								</div>

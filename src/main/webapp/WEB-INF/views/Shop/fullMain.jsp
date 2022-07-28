@@ -61,7 +61,7 @@
 							<div id="search" class="row">
 								<div class="col-lg-12" style="margin-top: 100px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 220px; margin-top: -80px;">
+										style="margin-left: 220px; margin-top: -150px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
@@ -76,9 +76,8 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
-					</div>
-					<div class="row">
+						<h3 style="margin-top: -80px; margin-left: -280px; font-weight: bold;">추천 상품<br><br></h3>
+						<div class="row">
 						<div class="product__discount__slider owl-carousel">
 
 							<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
@@ -102,14 +101,18 @@
 							</c:forEach>
 						</div>
 					</div>
-
+					<h3 style="margin-top: 50px; margin-left: -280px; font-weight: bold;">전체 상품<br><br></h3>
+					</div>
+					
+						
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section>
-		<div class="row" style="margin-left: 200px; margin-right: 200px;">
+		<div class="row" style="margin-left: 200px; margin-right: 200px; margin-top: -100px;">
+		
 			<c:forEach items="${selectproductList}" var="pro">
 				<div class="col-lg-2" style="margin: 20px;">
 					<div class="product__discount__item">
@@ -129,7 +132,7 @@
 			</c:forEach>
 		</div>
 		<div class="">
-         <ul class="ul3">
+         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
                   <li><a href="#">«
