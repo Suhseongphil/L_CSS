@@ -16,4 +16,6 @@ public class GbreserveDto {
 	private String pdname;
 	private String pdimg;
 	private int pdprice;
+	private String pdcode;
+	private String pdcmcode;
 }

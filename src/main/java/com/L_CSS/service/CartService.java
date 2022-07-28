@@ -1,21 +1,10 @@
 package com.L_CSS.service;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.CartDao;
@@ -113,11 +102,10 @@ public class CartService {
 	}
 
 	// 장바구니 담기
-	public String cartInsert(String pdcode, String pdcmcode, int amount, String loginId, RedirectAttributes ra) {
+	public String cartInsert(CartDto mycart, RedirectAttributes ra) {
 		System.out.println("cartInsert()호출");
 		String max = cdao.getmax();
 		String ctcode = "CT";
-
 		if (max == null) {
 			ctcode = ctcode + "001";
 		} else {
@@ -131,10 +119,14 @@ public class CartService {
 				ctcode = ctcode + maxCode;
 			}
 		}
-
-		int insertCart = cdao.InsertCart(pdcode, pdcmcode, loginId, ctcode, amount);
-
-		ra.addFlashAttribute("msg", "장바구니에 저장되었습니다.");
+		mycart.setCtcode(ctcode);
+		
+		int insertCart = cdao.InsertCart(mycart);
+		if(insertCart>0) {
+			ra.addFlashAttribute("msg", "장바구니에 저장되었습니다.");
+		}else {
+			ra.addFlashAttribute("msg", "장바구니에 담기지 않았습니다.");
+		}
 		return "redirect:/shopMain";
 	}
 

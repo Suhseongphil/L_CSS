@@ -11,8 +11,8 @@
    
       <div class="container">
          <div class="row">
-            <div class="col-lg-2 section-container-spacer"
-               style="margin-top: 50px;">
+            <div class="col2aa section-container-spacer"
+               style="margin-top: 40px; margin-left: 30px;">
                <div class="sidebar">
                   <div class="sidebar__item" id="category">
                      <h4>카테고리</h4>

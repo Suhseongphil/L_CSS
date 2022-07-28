@@ -925,3 +925,7 @@ text-decoration: none;
 text-align: center;
 list-style: none;
 }
+.col2aa {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+}

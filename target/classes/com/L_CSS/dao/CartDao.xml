@@ -50,7 +50,7 @@
   	</delete>
   	<insert id="InsertCart">
   		insert into cart (ctcode, ctmid, ctcfcmcode, ctmupdcode, ctamount) 
-  		values(#{ctcode},#{loginId},#{pdcmcode},#{pdcode},#{ctamount})
+  		values(#{ctcode},#{ctmid},#{ctcfcmcode},#{ctmupdcode},#{ctamount})
   	</insert>
   	<delete id="deleteCartList">
   		delete cart

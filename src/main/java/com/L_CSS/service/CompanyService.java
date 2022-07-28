@@ -210,34 +210,43 @@ public class CompanyService {
 return mav;
 }
 
-	public ModelAndView mycompanyInfo(RedirectAttributes ra) {
+	public ModelAndView mycompanyInfo(String loginId, RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("mycompanyInfo() 호출");
-		String loginId = (String) session.getAttribute("loginId");
+		 loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인아이디 : " + loginId);
+		int getLoginId = cdao.getintId(loginId);
 		
 		CompanyDto mycompanyInfo = cdao.MycompanyInfo(loginId);
 		
-		String[] mpost = mycompanyInfo.getCmaddress().split("_");
-		
-		System.out.println("mpost.length : " + mpost.length);
-		if (mpost.length != 4) {
-
-			mycompanyInfo.setCmaddr2(mpost[2]);
-			mycompanyInfo.setCmextraaddress(mpost[2]);
-
+		if (getLoginId == 0) {
+			ra.addFlashAttribute("msg", "등록된 업체가 없습니다.");
+			mav.setViewName("redirect:/");
 		} else {
-			System.out.println(mpost[3]);
-			mycompanyInfo.setCmaddr2(mpost[2] + "  " + mpost[3]);
-			mycompanyInfo.setCmdetailaddress(mpost[3]);
-			mycompanyInfo.setCmextraaddress(mpost[2]);
+			
+			String[] mpost = mycompanyInfo.getCmaddress().split("_");
+			
+			System.out.println("mpost.length : " + mpost.length);
+			if (mpost.length != 4) {
+				
+				mycompanyInfo.setCmaddr2(mpost[2]);
+				mycompanyInfo.setCmextraaddress(mpost[2]);
+				
+			} else {
+				System.out.println(mpost[3]);
+				mycompanyInfo.setCmaddr2(mpost[2] + "  " + mpost[3]);
+				mycompanyInfo.setCmdetailaddress(mpost[3]);
+				mycompanyInfo.setCmextraaddress(mpost[2]);
+			}
+			mycompanyInfo.setCmpostcode(mpost[0]);
+			mycompanyInfo.setCmaddr(mpost[1]);
+			System.out.println(mpost[0]);
+			
+			mav.addObject("mycompanyInfo", mycompanyInfo);
+			mav.setViewName("Company/MyCompanyInfo");
+			
 		}
-		mycompanyInfo.setCmpostcode(mpost[0]);
-		mycompanyInfo.setCmaddr(mpost[1]);
-		System.out.println(mpost[0]);
 		
-		mav.addObject("mycompanyInfo", mycompanyInfo);
-		mav.setViewName("Company/MyCompanyInfo");
 		
 		return mav;
 	}
@@ -291,6 +300,22 @@ return mav;
 		} else {
 			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
 			mav.setViewName("redirect:/mycompanyModify");
+		}
+		return mav;
+	}
+
+	public ModelAndView getloginId(String loginId, RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(loginId);
+		
+		String getLoginId = cdao.getLoginId(loginId);
+		System.out.println("getLoginId " + getLoginId);
+		
+		if (getLoginId != null) {
+			ra.addFlashAttribute("msg", "등록된 업체가 있습니다.");
+			mav.setViewName("redirect:/");
+		} else {
+			mav.setViewName("Company/MycompanyInsert");
 		}
 		return mav;
 	}

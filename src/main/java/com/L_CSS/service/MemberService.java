@@ -94,19 +94,27 @@ public class MemberService {
 		System.out.println(mpw);
 
 		MemberDto memberLogin = mdao.MemberLogin(mid, mpw);
-		
 		if (mid.equals("adMin") && mpw.equals("1234")) {
 			mav.setViewName("redirect:/admin");
 		} else {
-			if (memberLogin != null) {
+			
+			int mstateCheck = memberLogin.getMstate();
+			if (memberLogin != null && mstateCheck == 0) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
 				session.setAttribute("loginState", memberLogin.getMstate());
 				
 				mav.setViewName("Main");
 			} else {
-				ra.addFlashAttribute("msg","아이디또는 비밀번호가 틀렸습니다.");
-				mav.setViewName("redirect:/memberLoginPage");
+				
+				if(mstateCheck == 0) {
+					
+					ra.addFlashAttribute("msg","아이디또는 비밀번호가 틀렸습니다.");
+					mav.setViewName("redirect:/memberLoginPage");
+				}else {
+					ra.addFlashAttribute("msg","활동정지된 계정입니다.");
+					mav.setViewName("redirect:/memberLoginPage");
+				}
 				
 			}
 		}

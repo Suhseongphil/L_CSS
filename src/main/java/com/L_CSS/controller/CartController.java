@@ -33,6 +33,7 @@ public class CartController {
 	
 	@Autowired
 	CartService csv;
+	
 	@Autowired
 	private HttpSession session;
 	
@@ -156,10 +157,11 @@ public class CartController {
 	
 	//장바구니 담기
 	@RequestMapping(value="/cartIn")
-	public String cartinsert (String pdcode,String pdcmcode, int amount,RedirectAttributes ra) {
+	public String cartinsert (CartDto mycart,RedirectAttributes ra) {
 		System.out.println("장바구니 담기");
 		String loginId = (String)session.getAttribute("loginId");
-		String cartInsert = csv.cartInsert(pdcode,pdcmcode,amount,loginId,ra);
+		mycart.setCtmid(loginId);
+		String cartInsert = csv.cartInsert(mycart,ra);
 		return cartInsert;
 	}
 	
@@ -171,12 +173,5 @@ public class CartController {
 		String deleteCart = csv.deleteCart(ctcode,ra);
 		return "redirect:/myCartPage";
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 }

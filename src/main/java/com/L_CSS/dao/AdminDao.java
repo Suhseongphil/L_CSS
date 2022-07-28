@@ -46,7 +46,7 @@ public interface AdminDao {
 
 	ArrayList<MemberDto> getMemberInfo();
 
-	void memberStateModify(String mid, int mstate);
+	void memberStateModify(@Param("mid")String mid, @Param("mstate")int mstate);
 
 	MemberDto getDeleteMemberInfo(String mid);
 
