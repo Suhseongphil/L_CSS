@@ -263,15 +263,16 @@
 </script>
 
 <script type="text/javascript">
-function order(pdcode, pdcmcode, ctamount) {
+	function order(pdcode, pdcmcode, ctamount) {
 
-	if (confirm("총 구매 정보가 장바구니에 추가됩니다.\r\n결제는 장바구니에서 이용바랍니다.") == true) {
-		location.href = "cartIn?gbcode=" + gbcode;
-	} else {
-		return false;
+		if (confirm("총 구매 정보가 장바구니에 추가됩니다.\r\n결제는 장바구니에서 이용바랍니다.") == true) {
+			location.href = "cartIn?ctmupdcode=" + pdcode + "&ctcfcmcode="
+					+ pdcmcode + "&ctamount=" + ctamount;
+		} else {
+			return false;
+		}
+
 	}
-	
-}
 </script>
 
 <script type="text/javascript">
