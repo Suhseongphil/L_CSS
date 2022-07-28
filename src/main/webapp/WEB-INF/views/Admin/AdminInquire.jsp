@@ -181,8 +181,16 @@ h7 {
 														</c:otherwise>
 													</c:choose>
 													<th>
+													<c:choose>
+													<c:when test="${iqList.iqstate == 0 }">
 														<button class="w-btn w-btn-brown"
 															onclick="InquireInfo('${iqList.iqcode}')">보기</button>
+													</c:when>
+													<c:otherwise>
+													<button disabled class="w-btn w-btn-brown"
+															onclick="InquireInfo('${iqList.iqcode}')">답변완료</button>
+													</c:otherwise>
+													</c:choose>
 													</th>
 											</c:forEach>
 										<thead>

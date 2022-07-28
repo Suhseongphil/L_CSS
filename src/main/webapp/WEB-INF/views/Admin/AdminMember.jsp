@@ -178,7 +178,7 @@
 
 <script type="text/javascript">
 	function stateChange(selObj, mid) {
-
+	
 		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");
 			$(selObj).removeClass("cafeStateMod-blue-btn");

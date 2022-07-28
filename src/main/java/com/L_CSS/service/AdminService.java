@@ -382,7 +382,7 @@ public class AdminService {
 
 	public void memberStateModify(String mid, int mstate) {
 		System.out.println("AdminService.memberStateModify() 호출");
-
+		
 		adao.memberStateModify(mid, mstate);
 	}
 

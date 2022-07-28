@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +54,7 @@
 	</section>
 	<section>
 		<div class="container" style="padding-left: 80px; margin-left: 250px;">
-			<div class="col-lg-12 col-md-3" >
+			<div class="col-lg-12 col-md-3">
 				<div class="product__discount">
 					<div class="section-title product__discount__title"
 						style="text-align: center; margin-top: -450px;">
@@ -62,12 +63,11 @@
 								<div class="col-lg-12" style="margin-top: 200px;">
 									<div class="shoping__cart__btns"
 										style="margin-left: 400px; margin-top: -150px;">
-										<select name="pdcategory" id="pdcategory" >
+										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
 
-										</select> 
-										<input style="margin-left: -200px; padding: 7px;" type="text"
+										</select> <input style="margin-left: -200px; padding: 7px;" type="text"
 											placeholder="검색어 입력.." name="searchText">&nbsp;&nbsp;&nbsp;
 										<button type="submit" class="primary-btn text-white"
 											style="background-color: #000000; margin-left: -5px;">검색</button>
@@ -78,7 +78,7 @@
 							</div>
 						</form>
 						<h3
-							style="margin-top: -50px; margin-left: 50px; font-weight: bold; ">
+							style="margin-top: -50px; margin-left: 50px; font-weight: bold;">
 							추천 상품<br> <br>
 						</h3>
 
@@ -92,13 +92,23 @@
 	</section>
 	<section>
 		<div class="row">
-			<div class="product__discount__slider owl-carousel col-lg-6" style="margin-left: 500px; margin-top: -100px;">
+			<div class="product__discount__slider owl-carousel col-lg-6"
+				style="margin-left: 500px; margin-top: -100px;">
 
 				<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
 					<div class="col-lg-4">
 						<div class="product__discount__item">
-							<div class="product__discount__item__pic set-bg"
-								data-setbg="${rePro.pdimg }"></div>
+							<c:set var="imgCheck" value="${rePro.pdimg }" />
+							<c:choose>
+								<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+									<div class="product__discount__item__pic set-bg"
+										data-setbg="${rePro.pdimg }"></div>
+								</c:when>
+								<c:otherwise>
+									<div class="product__discount__item__pic set-bg"
+										data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${rePro.pdimg }"></div>
+								</c:otherwise>
+							</c:choose>
 							<div class="product__discount__item__text">
 
 								<a href=""><span>${rePro.pdname}</span></a>
@@ -112,20 +122,31 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section>
-			<div>
+		<div>
 			<h3 style="margin-top: 400px; margin-left: 800px; font-weight: bold;">
 				전체 상품<br> <br>
 			</h3>
-			</div>
+		</div>
 		<div class="row"
-			style="margin-left: 200px; margin-right: 200px; margin-top:50px;">
+			style="margin-left: 200px; margin-right: 200px; margin-top: 50px;">
 			<c:forEach items="${selectproductList}" var="pro">
 				<div class="col-lg-2" style="margin: 20px;">
 					<div class="product__discount__item">
-						<div class="product__discount__item__pic set-bg"
-							data-setbg="${pro.pdimg }"></div>
+
+						<c:set var="imgCheck" value="${pro.pdimg }" />
+						<c:choose>
+							<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+								<div class="product__discount__item__pic set-bg"
+									data-setbg="${pro.pdimg }"></div>
+							</c:when>
+							<c:otherwise>
+								<div class="product__discount__item__pic set-bg"
+									data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }"></div>
+							</c:otherwise>
+						</c:choose>
+
 						<div class="product__discount__item__text">
 							<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
 								<i class="fa fa-shopping-cart"></i>
@@ -172,7 +193,7 @@
 			</ul>
 		</div>
 	</section>
-	
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
