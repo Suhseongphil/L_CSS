@@ -85,7 +85,7 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
+						<h2 style="margin-top: 300px; margin-left: -280px;">검색 상품</h2>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
