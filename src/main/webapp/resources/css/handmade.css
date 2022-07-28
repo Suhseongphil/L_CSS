@@ -376,6 +376,7 @@ a span {
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
 	background: #f3f6f7;
+	
 }
 
 .type09 td {
@@ -383,4 +384,12 @@ a span {
 	padding: 10px;
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
+}
+
+#type09_ls td {
+	width: 350px;
+	padding: 10px;
+	
+ 	color:red;
+	text-align: center;
 }
