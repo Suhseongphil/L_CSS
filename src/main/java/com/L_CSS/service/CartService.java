@@ -127,7 +127,7 @@ public class CartService {
 		}else {
 			ra.addFlashAttribute("msg", "장바구니에 담기지 않았습니다.");
 		}
-		return "redirect:/shopMain";
+		return "redirect:/fullMain";
 	}
 
 	// 선택 목록 삭제
