@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,13 +129,15 @@
 							</c:otherwise>
 						</c:choose>
 						<div class="product__discount__item__text">
-							<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+							<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
 								<i class="fa fa-shopping-cart"></i>
 							</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 							<h5>
 								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
-							<div class="product__item__price">${pro.pdprice}원</div>
+							<div class="product__item__price">
+								<fmt:formatNumber value="${pro.pdprice}" pattern="#,###" />
+							원</div>
 						</div>
 					</div>
 				</div>
@@ -195,6 +198,15 @@
 <script
 	src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
+
+<script type="text/javascript">
+	var checkMsg = '${msg}';
+	console.log(checkMsg);
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
+
 <script type="text/javascript">
 	$(".submenu li a").click(function() {
 		console.log($(this).text());
