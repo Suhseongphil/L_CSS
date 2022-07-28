@@ -65,7 +65,7 @@
 	</div>
 
 	<div class="container">
-		<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px;">
+		<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px; padding:0px;">
 			<div class="col-12">
 				<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black; margin-left: 85%; margin-bottom: 20px;">게시글 작성</a>
 			</div>
