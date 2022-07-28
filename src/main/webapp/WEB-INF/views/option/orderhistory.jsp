@@ -265,15 +265,15 @@ textarea {
 												</c:when>
 												<c:when test="${odList.restate == 2}">
 													<div class="col-1">
-														<h5>배송완료</h5>
+														<h5 style="font-size: 18px; margin-top: 60px;">배 송<br>완 료</h5>
 														<button title="Button push lightblue"
-														class="button btnPush btnLightBlue" id="show" value="${odList.recode }">리뷰작성</button>	
+														class="text-white" style="font-size: 18px; background-color: black;" id="show" value="${odList.recode }">리 뷰<br>작 성</button>	
 													</div>
 												</c:when>
 												<c:when test="${odList.restate == 4}">
-													<div class="col-1">
-														<h5>배 송<br>완 료<hr></h5>
-														<h6>리 뷰<br>작 성<br>완 료</h6>														
+													<div class="col-1" style="font-size: 18px; margin-top: 60px;">
+														<h5 style="font-size: 18px; margin-bottom: 60px;">배 송<br>완 료</h5>
+														<h6 style="font-size: 18px;">리 뷰<br>작 성<br>완 료</h6>														
 													</div>
 												</c:when>
 											</c:choose>
@@ -294,14 +294,14 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode" title="Button push lightblue" 
-															class="button btnPush btnLightBlue"
+															class="text-white" style="font-size: 18px; margin-top: 60px; background-color: black;"
 																value="${odList.recode}">환 불<br>요 청</button>
 													</form>
 														</div>
 												</c:when>
 												<c:otherwise>
 													<div class="col-1">
-														<h5 style="margin-top: 50px;">취 소<br>대 기</h5>
+														<h5 style="margin-top: 60px;">취 소<br>대 기</h5>
 													</div>
 												</c:otherwise>
 

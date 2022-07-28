@@ -29,6 +29,8 @@ public interface CafeDao {
 
 	String getLoginId(String loginId);
 
+	int getintId(String loginId);
+
 
 
 }

@@ -71,11 +71,11 @@ public class CafeController {
 	
 	//내 카페정보 페이지 요청
 	@RequestMapping(value="mycafeInfo")
-	public ModelAndView mycafeInfo(RedirectAttributes ra) {
+	public ModelAndView mycafeInfo(String loginId,RedirectAttributes ra) {
 		System.out.println("내 카페정보 페이지 이동 요청");
 		ModelAndView mav = new ModelAndView();
 		
-		mav = csv.mycafeInfo(ra);
+		mav = csv.mycafeInfo(loginId,ra);
 		
 		return mav;
 	}
