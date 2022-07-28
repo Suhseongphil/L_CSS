@@ -35,20 +35,11 @@ public class CartController {
 	CartService csv;
 	@Autowired
 	private HttpSession session;
-	@RequestMapping (value="/cartUpLoad")
-	public ModelAndView cartUpLoad() {
-		System.out.println("장바구니 상품 정보 업로드");
-		ModelAndView mav = new ModelAndView();
-		
-		mav = csv.cartUpLoad();
-		
-		return mav;
-	}
+	
 	//장바구니 이동 요청
 	@RequestMapping(value="/myCart")
 	public @ResponseBody String myCart() {
 		System.out.println("장바구니 리스트요청");
-		
 		
 		String loginId = (String)session.getAttribute("loginId");
 		System.out.println(loginId);
@@ -56,6 +47,7 @@ public class CartController {
 		
 		return myCartList;
 	}
+	
 	//장바구니 수량 빼기
 	@RequestMapping(value="/updateMinus")
 	public @ResponseBody String updateMinus(String ctamount,String ctcode) {
@@ -91,9 +83,6 @@ public class CartController {
 	@RequestMapping(value="/kokopayTest")
 	public @ResponseBody String kokopayTest() {
 		System.out.println("카카오페이 테스트");
-		
-		
-		
 		
 		String loginId = (String)session.getAttribute("loginId");
 		ArrayList<CartDto>cartList = csv.selectCart(loginId);
@@ -164,16 +153,16 @@ public class CartController {
 		}
 		return "";
 	}
+	
 	//장바구니 담기
 	@RequestMapping(value="/cartIn")
-	public String cartinsert (String pdcode,String pdcmcode,RedirectAttributes ra) {
+	public String cartinsert (String pdcode,String pdcmcode, int amount,RedirectAttributes ra) {
 		System.out.println("장바구니 담기");
 		String loginId = (String)session.getAttribute("loginId");
-		System.out.println(pdcode);
-		System.out.println(pdcmcode);
-		String  cartInsert = csv.cartInsert(pdcode,pdcmcode,loginId,ra);
+		String cartInsert = csv.cartInsert(pdcode,pdcmcode,amount,loginId,ra);
 		return cartInsert;
 	}
+	
 	//장바구니 상품 삭제
 	@RequestMapping(value="/deleteCart")
 	public @ResponseBody String deleteCart(String ctcode,RedirectAttributes ra) {

@@ -62,7 +62,7 @@
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-12" style="margin-top: 100px;">
+								<div class="col-lg-12" style="margin-top: 50px;">
 									<div class="shoping__cart__btns"
 										style="margin-left: 220px; margin-top: -80px;">
 										<select name="pdcategory" id="pdcategory">
@@ -79,18 +79,28 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
+						<h3 style="margin-top: 50px; margin-left: -280px; font-weight: bold;">전체 상품<br><br></h3>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
                </div>
                <div class="row">
-                  <div class="row">
+                  <div class="row" style="margin-top: -50px;">
 							<c:forEach items="${selectproductList}" var="pro">
 								<div class="col-lg-3" style="margin-left: -50px; margin: 15px;">
 									<div class="product__discount__item">
+										<c:choose>
+										<c:when test="${pro.pdimg  == null}">
 										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
+											data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }">
+											</div>
+										</c:when>
+										<c:otherwise>
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${pro.pdimg }">
+											</div>
+										</c:otherwise>
+										</c:choose>
 										<div class="product__discount__item__text">
 											<a
 												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
@@ -99,7 +109,7 @@
 											<h5>
 												<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
+											<div class="product__item__price">${pro.pdprice}원</div>
 										</div>
 									</div>
 								</div>
@@ -113,16 +123,15 @@
 		</div>
 	</section>
 	
-	<div
-         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
-         
+	<div class="">
+         <ul class="ul3">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
-                  <li><a href="#"> <span>«</span>
+                  <li><a href="#">«
                   </a></li>
                </c:when>
                <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page - 1}">«</a>
+                  <li><a href="searchProduct?page=${pagedto.page - 1}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }">«</a>
                   <li>
                </c:otherwise>
             </c:choose>
@@ -130,23 +139,23 @@
                var="num" step="1">
                <c:choose>
                   <c:when test="${pagedto.page == num }">
-                     <li><span style="font-size: 24px;">${num }</span></li>
+                     <li><a href="#">${num }</a></li>
                   </c:when>
                   <c:otherwise>
-                     <li><a href="shopMain?page=${num}"> ${num } </a></li>
+                     <li><a href="searchProduct?page=${num}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }"> ${num } </a></li>
                   </c:otherwise>
                </c:choose>
             </c:forEach>
             <c:choose>
                <c:when test="${pagedto.page >= pagedto.maxPate }">
-                  <li><a href="#"> <span>»</span>
+                  <li><a href="#">»
                   </a></li>
                </c:when>
                <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
+                  <li><a href="searchProduct?page=${pagedto.page + 1}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }">»</a></li>
                </c:otherwise>
             </c:choose>
-        
+            </ul>
       </div>
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>

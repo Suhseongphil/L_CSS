@@ -165,110 +165,101 @@ label {
 </head>
 
 <body>
-	<!-- Header Section Begin -->
+
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 	</header>
-	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>게시글 상세보기</h3>
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
 
-	<section class="featured spad">
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-			<h3>게시글 상세보기</h3>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-3">
-					<div>
-						<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
-					</div>
-					<div>
-						<span>${gbreserve.pdname}</span>
-					</div>
-					<div>
-						<span>
-							<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
-							원
-							<input type="hidden" id="pdprice2" value="${gbreserve.pdprice}">
-						</span>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<div>
+					<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
 				</div>
-				<div class="col-6">
-					<div class="row" style="background-color: #f8f9fa; height: 500px; padding: 10px 10px;">
-						<div class="col-2">
-							<span class="font-weight-bold">작성자</span>
-						</div>
-						<div class="col-9">
-							<span>${gbreserve.gbmid}</span>
-						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">제목</span>
-						</div>
-						<div class="col-9">
-							<span>${gbreserve.gbtitle}</span>
-						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">내용</span>
-						</div>
-						<div class="col-9">
-							<textarea class="bd_none" readonly="readonly" rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
-						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">지역</span>
-						</div>
-						<div class="col-9">
-							<span>${gbreserve.gbregion}</span>
-						</div>
-						<div class="col-2">
-							<span class="font-weight-bold">기간</span>
-						</div>
-						<div class="col-9">
-							<span>${gbreserve.gbsdate} ~ ${gbreserve.gbfdate}</span>
-						</div>
-					</div>
+				<div>
+					<span>${gbreserve.pdname}</span>
 				</div>
-				<div class="col-3">
-					<c:if test="${gbreserve.gbmid == sessionScope.loginId }">
-						<button class="chBtn2 font-weight-bold" id="show2">수정</button>
-						<button class="chBtn2 font-weight-bold" onclick="deleteBoard('${gbreserve.gbcode}')">삭제</button>
-					</c:if>
-					<div class="text-center font-weight-bold">
-						<span>참여자 목록 </span>
-						<span>${fn:length(gbpeopleList)}명</span>
+				<div>
+					<span>
+						<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
+						원
+						<input type="hidden" id="pdprice2" value="${gbreserve.pdprice}">
+					</span>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="row" style="background-color: #f8f9fa; height: 500px; padding: 10px 10px;">
+					<div class="col-2">
+						<span class="font-weight-bold">작성자</span>
 					</div>
-					<div class="scroll">
-						<c:forEach items="${gbpeopleList}" var="gpList">
-							<div>
-								<span>${gpList.gpmid}</span>
-							</div>
-						</c:forEach>
+					<div class="col-9">
+						<span>${gbreserve.gbmid}</span>
 					</div>
-					<div>
-						<button class="chBtn font-weight-bold" id="show">공동구매 참여</button>
-						<c:forEach items="${gbpeopleList}" var="gpList">
-							<c:if test="${gpList.gpmid == sessionScope.loginId}">
-								<button class="chBtn font-weight-bold" onclick="joinChatRoom('${gbreserve.gbcode}')">채팅방 입장</button>
-							</c:if>
-						</c:forEach>
+					<div class="col-2">
+						<span class="font-weight-bold">제목</span>
+					</div>
+					<div class="col-9">
+						<span>${gbreserve.gbtitle}</span>
+					</div>
+					<div class="col-2">
+						<span class="font-weight-bold">내용</span>
+					</div>
+					<div class="col-9">
+						<textarea class="bd_none" readonly="readonly" rows="7" style="width: 90%; resize: none;">${gbreserve.gbcomment}</textarea>
+					</div>
+					<div class="col-2">
+						<span class="font-weight-bold">지역</span>
+					</div>
+					<div class="col-9">
+						<span>${gbreserve.gbregion}</span>
+					</div>
+					<div class="col-2">
+						<span class="font-weight-bold">기간</span>
+					</div>
+					<div class="col-9">
+						<span>${gbreserve.gbsdate} ~ ${gbreserve.gbfdate}</span>
 					</div>
 				</div>
 			</div>
-			<div class="col-12 hero__text4" style="margin-top: 30px;">
-				<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
+			<div class="col-3">
+				<c:if test="${gbreserve.gbmid == sessionScope.loginId }">
+					<button class="chBtn2 font-weight-bold" id="show2">수정</button>
+					<button class="chBtn2 font-weight-bold" onclick="deleteBoard('${gbreserve.gbcode}')">삭제</button>
+				</c:if>
+				<div class="text-center font-weight-bold">
+					<span>참여자 목록 </span>
+					<span>${fn:length(gbpeopleList)}명</span>
+				</div>
+				<div class="scroll">
+					<c:forEach items="${gbpeopleList}" var="gpList">
+						<div>
+							<span>${gpList.gpmid}</span>
+						</div>
+					</c:forEach>
+				</div>
+				<div>
+					<button class="chBtn font-weight-bold" id="show">공동구매 참여</button>
+					<c:forEach items="${gbpeopleList}" var="gpList">
+						<c:if test="${gpList.gpmid == sessionScope.loginId}">
+							<button class="chBtn font-weight-bold" onclick="joinChatRoom('${gbreserve.gbcode}')">채팅방 입장</button>
+						</c:if>
+					</c:forEach>
+				</div>
 			</div>
 		</div>
-	</section>
+		<div class="col-12 hero__text4" style="margin-top: 30px;">
+			<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
+		</div>
+	</div>
 	<!-- Footer Section Begin -->
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>

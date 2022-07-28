@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -18,41 +17,20 @@
 <meta name="author" content="">
 
 <!-- Site Icons -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
-	type="image/x-icon">
-<link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
 <!-- Bootstrap CSS -->
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -100,28 +78,12 @@
 	<!-- Start Main Top -->
 	<%@ include file="../includes/TopBar.jsp"%>
 	<header class="main-header">
-		<!-- Start Navigation -->
-
 		<div class="container">
-			<!-- Start Header Navigation -->
-
-			<!-- End Header Navigation -->
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-menu"></div>
-			<!-- /.navbar-collapse -->
-
-			<!-- Start Atribute Navigation -->
 			<div class="row">
 				<%@ include file="../includes/MiddleBar.jsp"%>
 			</div>
-			<!-- End Atribute Navigation -->
 		</div>
-		<!-- Start Side Menu -->
-
-		<!-- End Side Menu -->
-
-		<!-- End Navigation -->
 	</header>
 
 
@@ -136,8 +98,7 @@
 							<div class="shoping__cart__table">
 
 								<div class="item display" style="padding-top: 30px;">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center; margin-top: 50px;">
+									<div class="row" style="padding-bottom: 20px; text-align: center; margin-top: 50px;">
 										<div class="col-2">
 											<h5 style="font-weight: bold;">이미지</h5>
 										</div>
@@ -165,14 +126,12 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="back color-10 menu align-center expanded text-center SMN_effect-70" 
-							style="font-weight: bold;">
-								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> <a href="#"
-									class="primary-btn cart-btn cart-btn-right"
-									style="color: black;"> 새로고침</a>
+							<div class="back color-10 menu align-center expanded text-center SMN_effect-70" style="font-weight: bold;">
+								<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a>
+								<a href="myCartPage" class="primary-btn text-white" style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
-						<div id="checkOut" class="col-lg-4" style="margin-bottom:100px; margin-left: 800px; "></div>
+						<div id="checkOut" class="col-lg-4" style="margin-bottom: 100px; margin-left: 800px;"></div>
 					</div>
 				</div>
 				<!--</section>  -->
@@ -182,35 +141,17 @@
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- End Cart -->
-
-	<!-- Start Instagram Feed  -->
-
-	<!-- End Instagram Feed  -->
-
-	<!-- Start Footer  -->
-
-	<!-- End Footer  -->
-
-	<!-- Start copyright  -->
-
-	<!-- End copyright  -->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	
+	<!-- JS -->	
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<!-- ALL JS FILES -->
+
 
 </body>
 <script type="text/javascript">
@@ -272,17 +213,15 @@
 
 			//output += "<td class=\"shoping__cart__total\">";
 			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>"
-					+ mycart[i].pdprice
-					* mycart[i].ctamount
+			output += "<h5>" + mycart[i].pdprice * mycart[i].ctamount
 					+ "원</h5>";
 
 			output += "</div>";
 			output += "<div class=\"col-1 divpadding\">";
 			output += "<h5><input onclick=\"checkbox()\"  type=\"checkbox\" id=\"check\" name=\"check\" value=\""
-				+ mycart[i].ctcode + "\" ></h5>";
+					+ mycart[i].ctcode + "\" ></h5>";
 			output += "</div>";
-			
+
 			//output += "</td>";
 
 			//output += "<td class=\"shoping__cart__item__close\">";
@@ -361,23 +300,23 @@
 
 	function checkbox() {
 
-		
 		$("input[name=check]:checked").each(function() {
 			var chc = $(this).val();
 			console.log(chc);
-			
+
 			$.ajax({
 				type : "get",
 				url : "deleteCart",
-				data : {"ctcode" : chc},
-				
+				data : {
+					"ctcode" : chc
+				},
+
 				asyne : false,
-				success : function(paymentInsert){
+				success : function(paymentInsert) {
 					console.log(paymentInsert)
 					myCart();
 				}
 			});
-			 
 
 		});
 	}
@@ -385,16 +324,12 @@
 	function kokopay() {
 		console.log("카카오페이 테스트");
 		$.ajax({
-
 			url : "kokopayTest",
 			dataType : "json",
 			asyne : false,
 			success : function(data) {
-
 				var keydate = data.next_redirect_pc_url;
-
 				window.open(keydate);
-
 			}
 
 		});

@@ -56,4 +56,16 @@
   		WHERE CFMID = #{cfmid}
   		</select>
   		
+  		<select id="getLoginId" resultType="String">
+  		SELECT CFMID
+  		FROM CAFE
+  		WHERE CFMID = #{loginId}
+  		</select>
+  		
+  		<select id="getintId" resultType="int">
+  		SELECT COUNT(CFMID)
+  		FROM CAFE
+  		WHERE CFMID = #{loginId}
+  		</select>
+  		
   </mapper>

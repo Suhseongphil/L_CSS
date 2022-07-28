@@ -96,135 +96,153 @@
 </head>
 
 <body>
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 	</header>
-	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>공동구매 채팅방</h3>
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
 
-	<section class="featured spad">
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-			<h3>공동구매 채팅방</h3>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-3" style="height: 500px;">
-					<div>
-						<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
-					</div>
-					<div>
-						<span>${gbreserve.pdname}</span>
-					</div>
-					<div>
-						<span>
-							<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
-							원
-						</span>
-					</div>
-					<div>수량 : ${myGbInfo.gpamount}</div>
-					<div>
-						가격 :
-						<fmt:formatNumber value="${myGbInfo.gpprice}" pattern="#,###" />
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-3" style="height: 500px;">
+				<div>
+					<img alt="" src="${gbreserve.pdimg}" style="width: 100%;">
 				</div>
+				<div>
+					<span>${gbreserve.pdname}</span>
+				</div>
+				<div>
+					<span>
+						<fmt:formatNumber value="${gbreserve.pdprice}" pattern="#,###" />
+						원
+					</span>
+				</div>
+				<div>수량 : ${myGbInfo.gpamount}</div>
+				<div>
+					가격 :
+					<fmt:formatNumber value="${myGbInfo.gpprice}" pattern="#,###" />
+				</div>
+			</div>
 
-				<div class="col-6" style="height: 500px;">
-					<div class="scroll" id="chatRoom" style="height: 450px; background-color: #9bbbd4;">
-						<c:set var="afterDate" />
-						<c:forEach items="${chattingLog}" var="chLog">
-							<c:choose>
-								<c:when test="${fn:split(chLog.chdate, ' ')[0] != afterDate }">
-									<div class="afDate">
-										<span class="bfDate">&nbsp;&nbsp;&nbsp;${fn:split(chLog.chdate, ' ')[0]}&nbsp;&nbsp;&nbsp;</span>
-									</div>
-									<c:set var="afterDate" value="${fn:split(chLog.chdate, ' ')[0]}" />
-								</c:when>
-							</c:choose>
+			<div class="col-6" style="height: 500px;">
+				<div class="scroll" id="chatRoom" style="height: 450px; background-color: #9bbbd4;">
+					<c:set var="afterDate" />
+					<c:forEach items="${chattingLog}" var="chLog">
+						<c:choose>
+							<c:when test="${fn:split(chLog.chdate, ' ')[0] != afterDate }">
+								<div class="afDate">
+									<span class="bfDate">&nbsp;&nbsp;&nbsp;${fn:split(chLog.chdate, ' ')[0]}&nbsp;&nbsp;&nbsp;</span>
+								</div>
+								<c:set var="afterDate" value="${fn:split(chLog.chdate, ' ')[0]}" />
+							</c:when>
+						</c:choose>
+						<c:choose>
+							<c:when test="${chLog.chmid == sessionScope.loginId }">
+								<div class="font-weight-bold text-right">
+									<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
+									<span class="font-weight-lighter" style="font-size: 4px; color: white;">${fn:substring(chdate_split,0,5)}</span>
+									<span class="chatting">${chLog.chcomment}</span>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="text-left">
+									<span class="recev">${chLog.chmid}</span>
+									<br>
+									<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
+									<span class="chatting2 font-weight-bold">${chLog.chcomment}</span>
+									<span class="font-weight-lighter" style="font-size: 4px; color: white;">${fn:substring(chdate_split,0,5)}</span>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</div>
+				<div class="text-center" style="background-color: #f8f9fa; padding: 5px 5px;">
+					<input style="width: 84%;" type="text" id="inputChat" placeholder="내용을 입력해주세요....">
+					<button id="chatBtn" class="chatBtn" style="width: 13%;" onclick="chattingRoad('${gbreserve.gbcode}')">전송</button>
+				</div>
+			</div>
 
+			<div class="col-3" style="height: 500px;">
+				<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
+					<button class="chBtn font-weight-bold" onclick="deleteChat('${gbreserve.gbcode}')">채팅방 삭제</button>
+				</c:if>
+				<button class="chBtn font-weight-bold" onclick="outChat('${gbreserve.gbcode}')">채팅방 나가기</button>
+				<div class="text-center font-weight-bold">
+					<span>참여자 목록 </span>
+					<span>${fn:length(gbpeopleList)}명</span>
+				</div>
+				<div class="scroll2">
+					<div class="row">
+						<div class="col-3 font-weight-bold">
+							<span>아이디</span>
+						</div>
+						<div class="col-3 text-right font-weight-bold">
+							<span>수량</span>
+						</div>
+						<div class="col-6 text-right font-weight-bold">
+							<span> 구매가격 </span>
+						</div>
+						<c:set var="allAmount" />
+						<c:set var="allPrice" />
+						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:choose>
-								<c:when test="${chLog.chmid == sessionScope.loginId }">
-									<div class="font-weight-bold text-right">
-										<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
-										<span class="font-weight-lighter" style="font-size: 4px; color: white;">${fn:substring(chdate_split,0,5)}</span>
-										<span class="chatting">${chLog.chcomment}</span>
+								<c:when test="${gbreserve.gbmid == sessionScope.loginId}">
+									<div class="col-3" style="color: blue;">
+										<span>${gpList.gpmid}</span>
 									</div>
 								</c:when>
 								<c:otherwise>
-									<div class="text-left">
-										<span class="recev">${chLog.chmid}</span>
-										<br>
-										<c:set var="chdate_split" value="${fn:split(chLog.chdate,' ')[1]}"></c:set>
-										<span class="chatting2 font-weight-bold">${chLog.chcomment}</span>
-										<span class="font-weight-lighter" style="font-size: 4px; color: white;">${fn:substring(chdate_split,0,5)}</span>
+									<div class="col-3">
+										<span>${gpList.gpmid}</span>
 									</div>
 								</c:otherwise>
 							</c:choose>
-
+							<div class="col-3 text-right">
+								<span>${gpList.gpamount}</span>
+							</div>
+							<div class="col-6 text-right">
+								<span>
+									<fmt:formatNumber value="${gpList.gpprice}" pattern="#,###" />
+									원
+								</span>
+							</div>
+							<c:set var="allAmount" value="${allAmount + gpList.gpamount}" />
+							<c:set var="allPrice" value="${allPrice + gpList.gpprice}" />
 						</c:forEach>
-					</div>
-					<div class="text-center" style="background-color: #f8f9fa; padding: 5px 5px;">
-						<input style="width: 84%;" type="text" id="inputChat" placeholder="내용을 입력해주세요....">
-						<button id="chatBtn" class="chatBtn" style="width: 13%;" onclick="chattingRoad('${gbreserve.gbcode}')">전송</button>
-					</div>
-				</div>
 
-				<div class="col-3" style="height: 500px;">
-					<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
-						<button class="chBtn font-weight-bold" onclick="deleteChat('${gbreserve.gbcode}')">채팅방 삭제</button>
-					</c:if>
-					<button class="chBtn font-weight-bold" onclick="outChat('${gbreserve.gbcode}')">채팅방 나가기</button>
-					<div class="text-center font-weight-bold">
-						<span>참여자 목록 </span>
-						<span>${fn:length(gbpeopleList)}명</span>
-					</div>
-					<div class="scroll2">
-						<div class="row">
-							<div class="col-3 font-weight-bold">
-								<span>아이디</span>
-							</div>
-							<div class="col-3 text-right font-weight-bold">
-								<span>수량</span>
-							</div>
-							<div class="col-6 text-right font-weight-bold">
-								<span> 구매가격 </span>
-							</div>
-							<c:forEach items="${gbpeopleList}" var="gpList">
-								<div class="col-3">
-									<span>${gpList.gpmid}</span>
-								</div>
-								<div class="col-3 text-right">
-									<span>${gpList.gpamount}</span>
-								</div>
-								<div class="col-6 text-right">
-									<span>
-										<fmt:formatNumber value="${gpList.gpprice}" pattern="#,###" />
-										원
-									</span>
-								</div>
-							</c:forEach>
-						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-3 font-weight-bold">
+						<span>전체</span>
+					</div>
+					<div class="col-3 text-right">
+						<span>${allAmount}</span>
+					</div>
+					<div class="col-6 text-right">
+						<span>
+							<fmt:formatNumber value="${allPrice}" pattern="#,###" />
+							원
+						</span>
+					</div>
+				</div>
+				<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
+					<button class="chBtn font-weight-bold" onclick="order('${gbreserve.gbcode}')">공동구매 결제</button>
+				</c:if>
 			</div>
 		</div>
-	</section>
-	<!-- Footer Section Begin -->
+	</div>
+
 	<footer class="footer" style="margin-top: 200px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>

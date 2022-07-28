@@ -265,15 +265,15 @@ textarea {
 												</c:when>
 												<c:when test="${odList.restate == 2}">
 													<div class="col-1">
-														<h5>배송완료</h5>
+														<h5 style="font-size: 18px; margin-top: 60px;">배 송<br>완 료</h5>
 														<button title="Button push lightblue"
-														class="button btnPush btnLightBlue" id="show" value="${odList.recode }">리뷰작성</button>	
+														class="text-white" style="font-size: 18px; background-color: black;" id="show" value="${odList.recode }">리 뷰<br>작 성</button>	
 													</div>
 												</c:when>
 												<c:when test="${odList.restate == 4}">
-													<div class="col-1">
-														<h5>배 송<br>완 료<hr></h5>
-														<h6>리 뷰<br>작 성<br>완 료</h6>														
+													<div class="col-1" style="font-size: 18px; margin-top: 60px;">
+														<h5 style="font-size: 18px; margin-bottom: 60px;">배 송<br>완 료</h5>
+														<h6 style="font-size: 18px;">리 뷰<br>작 성<br>완 료</h6>														
 													</div>
 												</c:when>
 											</c:choose>
@@ -283,8 +283,8 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode"
-															style="margin-top: 60px;" title="Button push lightblue" 
-															class="button btnPush btnLightBlue"															
+															style="margin-top: 60px; background-color: black;" title="Button push lightblue" 
+															class="text-white"															
 																value="${odList.recode}">주 문<br>취 소</button>
 													</form>
 														</div>
@@ -294,14 +294,14 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode" title="Button push lightblue" 
-															class="button btnPush btnLightBlue"
+															class="text-white" style="font-size: 18px; margin-top: 60px; background-color: black;"
 																value="${odList.recode}">환 불<br>요 청</button>
 													</form>
 														</div>
 												</c:when>
 												<c:otherwise>
 													<div class="col-1">
-														<h5 style="margin-top: 50px;">취 소<br>대 기</h5>
+														<h5 style="margin-top: 60px;">취 소<br>대 기</h5>
 													</div>
 												</c:otherwise>
 
@@ -319,11 +319,10 @@ textarea {
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
-								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> 
-								<a href="orderhistory" 
-								class="primary-btn cart-btn cart-btn-right"
-								style="color: black;">
-									새로고침</a>
+								<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
+								<a href="orderhistory"
+									class="primary-btn text-white"
+									style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
 

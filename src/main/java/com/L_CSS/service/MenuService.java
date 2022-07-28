@@ -132,7 +132,7 @@ public class MenuService {
 	public void menuDelete(String mucode, String muimg) {
 		System.out.println("menuDelete()호출");
 
-		if (!muimg.contains("BS")) {
+		if (muimg != null) {
 			File file = new File(savePath_mu + "/" + muimg);
 			file.delete();
 		}
@@ -186,6 +186,7 @@ public class MenuService {
 			UUID uuid = UUID.randomUUID();
 			cfmuimg = uuid.toString() + "_" + imgs.getOriginalFilename();
 			imgs.transferTo(new File(savePath_mu, cfmuimg));
+			menu.setMuimg(cfmuimg);
 		}else {
 			
 			menu.setMuimg(cfmuimg);

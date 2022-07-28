@@ -43,10 +43,10 @@ height: 30px;
 							<a>카페</a>
 							<ul class="header__menu__dropdown">
 								<li>
-									<a href="mycafeInsert">내 카페등록</a>
+									<a href="mycafeInsert?loginId=${sessionScope.loginId }">내 카페등록</a>
 								</li>
 								<li>
-									<a href="mycafeInfo">내 카페정보</a>
+									<a href="mycafeInfo?loginId=${sessionScope.loginId }">내 카페정보</a>
 								</li>
 								<li>
 									<a href="mycafeMenu">메뉴등록</a>

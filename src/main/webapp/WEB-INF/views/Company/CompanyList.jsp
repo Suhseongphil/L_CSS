@@ -114,43 +114,46 @@
 						</div>
 					</c:forEach>
 
-					<div
-						style="font-size: 16px; margin-left: 550px; margin-bottom: 30px;">
-
-						<c:choose>
-							<c:when test="${pagedto.page <= 1 }">
-                      [이전]
-                         </c:when>
-							<c:otherwise>
-								<a href="companyList?page=${pagedto.page - 1}">[이전]</a>
-							</c:otherwise>
-						</c:choose>
-						<c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
-							var="num" step="1">
-							<c:choose>
-								<c:when test="${pagedto.page == num }">
-									<span style="font-size: 20px;">${num }</span>
-								</c:when>
-								<c:otherwise>
-
-									<a href="companyList?page=${num}"> ${num } </a>&nbsp;&nbsp;
-                            </c:otherwise>
-							</c:choose>
-						</c:forEach>
-
-						<c:choose>
-							<c:when test="${pagedto.page >= pagedto.maxPate }">
-                      [다음]
-                         </c:when>
-							<c:otherwise>
-								<a href="companyList?page=${pagedto.page + 1}">[다음]</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<div class="">
+         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
+            <c:choose>
+               <c:when test="${pagedto.page <= 1 }">
+                  <li><a href="#">«
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="companyList?page=${pagedto.page - 1}">«</a>
+                  <li>
+               </c:otherwise>
+            </c:choose>
+            <c:forEach begin="${pagedto.startPage }" end="${pagedto.endPage }"
+               var="num" step="1">
+               <c:choose>
+                  <c:when test="${pagedto.page == num }">
+                     <li><a href="#">${num }</a></li>
+                  </c:when>
+                  <c:otherwise>
+                     <li><a href="companyList?page=${num}"> ${num } </a></li>
+                  </c:otherwise>
+               </c:choose>
+            </c:forEach>
+            <c:choose>
+               <c:when test="${pagedto.page >= pagedto.maxPate }">
+                  <li><a href="#">»
+                  </a></li>
+               </c:when>
+               <c:otherwise>
+                  <li><a href="companyList?page=${pagedto.page + 1}">»</a></li>
+               </c:otherwise>
+            </c:choose>
+            </ul>
+      </div>
 
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>

@@ -68,7 +68,7 @@
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-12" style="margin-top: 100px;">
+								<div class="col-lg-12" style="margin-top: 50px;">
 									<div class="shoping__cart__btns"
 										style="margin-left: 220px; margin-top: -80px;">
 										<select name="pdcategory" id="pdcategory">
@@ -85,7 +85,7 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
+						<h3 style="margin-top: 50px; margin-left: -280px; font-weight: bold;">전체 상품<br><br></h3>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
@@ -114,12 +114,11 @@
 		</div>
 	</section>
 	
-	<div
-         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
-         
+	<div class="">
+         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
-                  <li><a href="#"> <span>«</span>
+                  <li><a href="#">«
                   </a></li>
                </c:when>
                <c:otherwise>
@@ -131,7 +130,7 @@
                var="num" step="1">
                <c:choose>
                   <c:when test="${pagedto.page == num }">
-                     <li><span style="font-size: 24px;">${num }</span></li>
+                     <li><a href="#">${num }</a></li>
                   </c:when>
                   <c:otherwise>
                      <li><a href="shopMain?page=${num}"> ${num } </a></li>
@@ -140,14 +139,14 @@
             </c:forEach>
             <c:choose>
                <c:when test="${pagedto.page >= pagedto.maxPate }">
-                  <li><a href="#"> <span>»</span>
+                  <li><a href="#">»
                   </a></li>
                </c:when>
                <c:otherwise>
                   <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
                </c:otherwise>
             </c:choose>
-         
+            </ul>
       </div>
 	
 	<footer class="footer">

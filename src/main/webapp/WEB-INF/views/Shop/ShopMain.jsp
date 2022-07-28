@@ -80,7 +80,7 @@
 
 							</div>
 						</form>
-						<h2 style="margin-top: 300px; margin-left: -280px;">추천 상품</h2>
+						<h2 style="margin-top: 300px; margin-left: -280px;">상품</h2>
 					</div>
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
@@ -96,21 +96,20 @@
 											<h5>
 												<a href="#">${pro.pdtype}</a>
 											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
+											<div class="product__item__price">${pro.pdprice}원</div>
 										</div>
 									</div>
 								</div>
-							</c:forEach> -->
+							</c:forEach> 
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<section>
-		<div class="row" style="margin-left: 200px; margin-right: 200px;">
+		<div class="row" style="margin-left: 200px; margin-right: 200px; ">
 			<c:forEach items="${selectproductList}" var="pro">
 				<div class="col-lg-2" style="margin: 20px;">
 					<div class="product__discount__item">
@@ -129,12 +128,13 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div
-         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
-         
+		</section>
+		<section>
+		<div class="">
+         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
-                  <li><a href="#"> <span>«</span>
+                  <li><a href="#">«
                   </a></li>
                </c:when>
                <c:otherwise>
@@ -146,7 +146,7 @@
                var="num" step="1">
                <c:choose>
                   <c:when test="${pagedto.page == num }">
-                     <li><span style="font-size: 24px;">${num }</span></li>
+                     <li><a href="#">${num }</a></li>
                   </c:when>
                   <c:otherwise>
                      <li><a href="shopMain?page=${num}"> ${num } </a></li>
@@ -155,14 +155,14 @@
             </c:forEach>
             <c:choose>
                <c:when test="${pagedto.page >= pagedto.maxPate }">
-                  <li><a href="#"> <span>»</span>
+                  <li><a href="#">»
                   </a></li>
                </c:when>
                <c:otherwise>
                   <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
                </c:otherwise>
             </c:choose>
-         
+            </ul>
       </div>
 	</section>
 	<footer class="footer">
