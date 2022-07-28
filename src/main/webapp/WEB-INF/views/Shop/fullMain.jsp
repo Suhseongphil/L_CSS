@@ -81,22 +81,25 @@
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
 
-							<!--  	<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
+							<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
+											data-setbg="${rePro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
-											</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
+											
+											<a href=""><span>${rePro.pdname}</span></a>
 											<h5>
-												<a href="#">${pro.pdtype}</a>
+												${rePro.rvcomment}
 											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
+											<h6>
+												${rePro.rvdate}
+											</h6>
+											
 										</div>
 									</div>
 								</div>
-							</c:forEach> -->
+							</c:forEach>
 						</div>
 					</div>
 

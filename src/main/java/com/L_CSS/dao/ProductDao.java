@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.ProductDto;
+import com.L_CSS.dto.ReviewProductDto;
+
 
 public interface ProductDao {
 
@@ -57,6 +59,10 @@ public interface ProductDao {
    int TotalCount3();
 
 ArrayList<ProductDto> productList(@Param("start")int startRow, @Param("end")int endRow);
+
+ArrayList<ReviewProductDto> ReviewProductList();
+
+
 
 	
 

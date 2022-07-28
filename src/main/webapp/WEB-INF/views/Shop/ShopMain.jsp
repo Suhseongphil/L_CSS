@@ -85,7 +85,7 @@
 					<div class="row">
 						<div class="product__discount__slider owl-carousel">
 
-							<!--  	<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
+							<c:forEach items="${selectPro}" var="pro" begin="0" end="20">
 								<div class="col-lg-4">
 									<div class="product__discount__item">
 										<div class="product__discount__item__pic set-bg"
