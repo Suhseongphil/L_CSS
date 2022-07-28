@@ -93,7 +93,12 @@
 h7 {
 	text-align: center;
 }
-
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+}
 
 </style>
 
@@ -133,6 +138,10 @@ h7 {
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
+		
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>고 객 문 의 게 시 판</h3>
+			</div>
 			<div class="row">
 
 
@@ -197,12 +206,14 @@ h7 {
 
 
 					<div class="row">
-						<div class="col-lg-12">
+					<div class="col-lg-9">
+					</div>
+						<div class="col-lg-3">
 							<div class="shoping__cart__btns">
 
 								<a href="insertInquirePage"
-									class="primary-btn cart-btn cart-btn-right"
-									style="padding-bottom: 10px; background-color: #000000; color: white;"> 문의작성</a>
+									class="primary-btn cart-btn"
+									style="padding-bottom: 10px; background-color: #000000; color: white; margin-bottom: 40px; margin-left: 40px;"> 문의작성</a>
 							</div>
 						</div>
 
@@ -280,9 +291,9 @@ h7 {
 			output += "<div class=\"row \" >";
 			output += "<div class=\"col-6\">";
 
-			output += "<h7 style=\"padding-top: 36px;\">"
+			output += "<a style=\"padding-top: 36px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode +"\">"
 					+ myInquire[i].iqtitle
-					+ "</h7>&nbsp;&nbsp;";
+					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
 			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";

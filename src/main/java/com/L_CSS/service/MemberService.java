@@ -102,7 +102,7 @@ public class MemberService {
 			if (memberLogin != null && mstateCheck == 0) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
-				session.setAttribute("loginState", memberLogin.getMstate());
+				session.setAttribute("loginType", memberLogin.getMtype());
 				
 				mav.setViewName("Main");
 			} else {

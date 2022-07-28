@@ -138,7 +138,7 @@ public class ProductController {
       // 메뉴 상태 변경
       @RequestMapping(value = "/pdstateModify")
       public @ResponseBody void pdstateModify(String pdcode, int pdstate) {
-         System.out.println("상품 수정");
+         System.out.println("상품 활동 수정");
          psv.pdstateModify(pdcode, pdstate);
       }
 
