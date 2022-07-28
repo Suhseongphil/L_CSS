@@ -134,13 +134,13 @@
 									<div class="featured__item__pic set-bg"
 										data-setbg="${product.pdimg}">
 										<ul class="featured__item__pic__hover">
-											<li><a href="#"> <i class="fa fa-shopping-cart"></i>
+											<li><a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
 											</a></li>
 										</ul>
 									</div>
 									<div class="featured__item__text2">
 										<h6>
-											<a href="#">${product.pdname }</a>
+											<a href="productInfo?pdcode=${pro.pdcode}">${product.pdname }</a>
 										</h6>
 										<h5>
 											<fmt:formatNumber value="${product.pdprice}" pattern="#,###" />

@@ -198,18 +198,16 @@ textarea {
 											</tbody>
 										</c:forEach>
 									</table>
-
-
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 
 		</div>
 	</div>
-
 	<div class="answer">
 		<div class="window2">
 			<form class="user" action="amindInsert" method="post"
@@ -220,7 +218,9 @@ textarea {
 							답변내용 <br> <br>
 							<textarea name="ancomment" id="ancomment"
 								placeholder="내용을 입력해주세요.."></textarea>
+
 							<input type="hidden" name="iqcode" id="iqcode" value="0">
+
 						</h5>
 					</div>
 					<div>

@@ -142,6 +142,7 @@ public class CompanyService {
 	}
 
 	public ModelAndView createMycompany(CompanyDto company, RedirectAttributes ra) throws IllegalStateException, IOException {
+		System.out.println("createMycompany()호출");
 		ModelAndView mav = new ModelAndView();
 		
 		// 업체코드 생성
@@ -200,7 +201,7 @@ public class CompanyService {
 		
 		if (resultCompany > 0) {
 			ra.addFlashAttribute("msg", "등록되었습니다.");
-			mav.setViewName("Company/MycompanyInsert");
+			mav.setViewName("redirect:/");
 		} else {
 			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
 			mav.setViewName("redirect:/");

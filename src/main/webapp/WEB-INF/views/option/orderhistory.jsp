@@ -283,8 +283,8 @@ textarea {
 													<form action="orderCancel" method="get">
 
 															<button type="submit" name="recode"
-															style="margin-top: 60px;" title="Button push lightblue" 
-															class="button btnPush btnLightBlue"															
+															style="margin-top: 60px; background-color: black;" title="Button push lightblue" 
+															class="text-white"															
 																value="${odList.recode}">주 문<br>취 소</button>
 													</form>
 														</div>
@@ -319,11 +319,10 @@ textarea {
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
-								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> 
-								<a href="orderhistory" 
-								class="primary-btn cart-btn cart-btn-right"
-								style="color: black;">
-									새로고침</a>
+								<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
+								<a href="orderhistory"
+									class="primary-btn text-white"
+									style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
 
