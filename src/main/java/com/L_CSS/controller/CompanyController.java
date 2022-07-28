@@ -72,10 +72,14 @@ public class CompanyController {
 	}
 	//내 업체등록 페이지 요청
 		@RequestMapping(value="/MycompanyInsert")
-		public String MycompanyInsert() {
+		public ModelAndView MycompanyInsert(String loginId, RedirectAttributes ra) {
 			System.out.println("내 업체등록 페이지 이동 요청");
+			ModelAndView mav = new ModelAndView();
 			
-			return "Company/MycompanyInsert";
+			System.out.println("로그인 아이디 : " + loginId);
+			mav = csv.getloginId(loginId,ra);
+			
+			return mav;
 		}
 		
 	//내 업체등록 등록요청
@@ -91,11 +95,11 @@ public class CompanyController {
 	}
 	//내 업체정보 페이지 요청
 		@RequestMapping(value="mycompanyInfo")
-		public ModelAndView mycompanyInfo(RedirectAttributes ra) {
+		public ModelAndView mycompanyInfo(String loginId,RedirectAttributes ra) {
 			System.out.println("내 업체정보 페이지 이동 요청");
 			ModelAndView mav = new ModelAndView();
 			
-			mav = csv.mycompanyInfo(ra);
+			mav = csv.mycompanyInfo(loginId,ra);
 			
 			return mav;
 		}

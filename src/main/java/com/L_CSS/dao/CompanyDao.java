@@ -25,6 +25,10 @@ public interface CompanyDao {
 	int updateMycompany(CompanyDto company);
 	
 	CompanyDto companyInfo(String pdcode);
+
+	String getLoginId(String loginId);
+
+	int getintId(String loginId);
 	
 
 }
