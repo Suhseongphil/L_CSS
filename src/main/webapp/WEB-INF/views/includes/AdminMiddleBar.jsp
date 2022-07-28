@@ -57,9 +57,6 @@
 					</ul>
 				</li>
 				<li>
-					<a href="#">공동구매</a>
-				</li>
-				<li>
 					<a href="admininquirePage">고객문의확인</a>
 				</li>
 				
