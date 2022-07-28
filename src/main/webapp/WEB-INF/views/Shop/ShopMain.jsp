@@ -96,11 +96,11 @@
 											<h5>
 												<a href="#">${pro.pdtype}</a>
 											</h5>
-											<div class="product__item__price">${pro.pdprice}</div>
+											<div class="product__item__price">${pro.pdprice}원</div>
 										</div>
 									</div>
 								</div>
-							</c:forEach> -->
+							</c:forEach> 
 						</div>
 					</div>
 
@@ -110,7 +110,7 @@
 	</section>
 
 	<section>
-		<div class="row" style="margin-left: 200px; margin-right: 200px;">
+		<div class="row" style="margin-left: 200px; margin-right: 200px; ">
 			<c:forEach items="${selectproductList}" var="pro">
 				<div class="col-lg-2" style="margin: 20px;">
 					<div class="product__discount__item">
@@ -129,8 +129,10 @@
 				</div>
 			</c:forEach>
 		</div>
+		</section>
+		<section>
 		<div class="">
-         <ul class="ul3">
+         <ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
                   <li><a href="#">«
