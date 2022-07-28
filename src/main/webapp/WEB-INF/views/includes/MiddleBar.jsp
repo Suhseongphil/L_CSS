@@ -78,13 +78,13 @@ height: 30px;
 							<a>업체</a>
 							<ul class="header__menu__dropdown">
 								<li>
-									<a href="MycompanyInsert">내 업체등록</a>
+									<a href="MycompanyInsert?loginId=${sessionScope.loginId }">내 업체등록</a>
 								</li>
 								<li>
-									<a href="mycompanyInfo">내 업체정보</a>
+									<a href="mycompanyInfo?loginId=${sessionScope.loginId }">내 업체정보</a>
 								</li>
 								<li>
-									<a href="myProduct">상품등록</a>
+									<a href="myProduct?loginId=${sessionScope.loginId }">상품등록</a>
 								</li>
 								<li>
 									<a href="orderList">주문목록</a>

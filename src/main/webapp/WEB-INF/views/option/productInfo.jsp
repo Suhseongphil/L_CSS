@@ -35,9 +35,8 @@
 	<section class="product-details spad">
 		<div class="container">
 
-
 			<div class="row">
-				<div class="col-2">
+				<div class="col2aa">
 					<%@ include file="../includes/SideBar2.jsp"%>
 				</div>
 				<div class="col-lg-4 col-md-4">
