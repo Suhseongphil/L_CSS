@@ -51,66 +51,52 @@
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>공동구매 게시판</h3>
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
 
-	<section class="featured spad" style="background-color: #ded8ce">
-		<div class="hero__text2" style="margin-bottom: 20px;">
-			<h3>공동구매 게시판</h3>
-		</div>
-		<div class="container">
-
-			<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px;">
-				<div class="col-12">
-					<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black; margin-left: 85%; margin-bottom: 20px;">게시글 작성</a>
-				</div>
-				<c:forEach items="${groupBuyList}" var="board" varStatus="num">
-					<div class="col-lg-4 col-md-4">
-						<div>
-							<a href="groupBuyBoardView?gbcode=${board.gbcode}">
-								<img class="imgZ" alt="" src="${board.pdimg}">
-							</a>
-						</div>
-						<div>
-							<a href="groupBuyBoardView?gbcode=${board.gbcode}">
-								<span class="text-black">${board.gbsdate} ~ ${board.gbfdate}</span>
-							</a>
-						</div>
-						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
-							<span>${board.pdname }</span>
-						</a>
-						<h5>
-							<a href="groupBuyBoardView?gbcode=${board.gbcode}">
-								<span style="font-weight: bold; font-size: 18px;">${board.gbtitle}</span>
-							</a>
-						</h5>
-					</div>
-				</c:forEach>
+	<div class="container">
+		<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px;">
+			<div class="col-12">
+				<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black; margin-left: 85%; margin-bottom: 20px;">게시글 작성</a>
 			</div>
+			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
+				<div class="col-lg-4 col-md-4" style="background-color: #f8f9fa; padding: 20px; border:2px solid white;">
+					<div>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
+							<img class="imgZ" alt="" src="${board.pdimg}">
+						</a>
+					</div>
+					<div>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
+							<span class="text-black">${board.gbsdate} ~ ${board.gbfdate}</span>
+						</a>
+					</div>
+					<a href="groupBuyBoardView?gbcode=${board.gbcode}">
+						<span>${board.pdname }</span>
+					</a>
+					<h5>
+						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
+							<span style="font-weight: bold; font-size: 18px;">${board.gbtitle}</span>
+						</a>
+					</h5>
+				</div>
+			</c:forEach>
 		</div>
-	</section>
-	<!-- Footer Section Begin -->
+	</div>
+
 	<footer class="footer" style="margin-top: 200px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
