@@ -152,6 +152,7 @@ public class AdminController {
 	@RequestMapping(value = "/memberStateModify")
 	public @ResponseBody void memberStateModify(String mid, int mstate) {
 		System.out.println("회원 상태 변경");
+		
 		adsvc.memberStateModify(mid, mstate);
 	}
 

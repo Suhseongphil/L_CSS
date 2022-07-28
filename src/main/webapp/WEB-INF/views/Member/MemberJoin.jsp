@@ -165,10 +165,10 @@
 								</div>
 							</div>
 							<div class="row form-group">
-								<input type="radio" name="mstate" value="0"
+								<input type="radio" name="mtype" value="0"
 									style="margin-left: 70px;"> 개인 <input type="radio"
-									name="mstate" value="1" style="margin-left: 90px;"> 카페
-								<input type="radio" name="mstate" value="2"
+									name="mtype" value="1" style="margin-left: 90px;"> 카페
+								<input type="radio" name="mtype" value="2"
 									style="margin-left: 100px;"> 업체
 							</div>
 							<button type="submit" class="btn text-white btn-user btn-block" style="background-color: black;">회원가입</button>

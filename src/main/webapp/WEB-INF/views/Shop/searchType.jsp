@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,8 +98,17 @@
 									<c:forEach items="${searchType}" var="pro">
 										<div class="col-lg-4">
 											<div class="product__discount__item">
-												<div class="product__discount__item__pic set-bg"
-													data-setbg="${pro.pdimg }"></div>
+												<c:set var="imgCheck" value="${pro.pdimg }" />
+												<c:choose>
+													<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+														<div class="product__discount__item__pic set-bg"
+															data-setbg="${pro.pdimg }"></div>
+													</c:when>
+													<c:otherwise>
+														<div class="product__discount__item__pic set-bg"
+															data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }"></div>
+													</c:otherwise>
+												</c:choose>
 												<div class="product__discount__item__text">
 													<a
 														href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
@@ -114,12 +124,12 @@
 									</c:forEach>
 
 								</div>
-								</div>
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 	</section>
 
 	<div class="">
