@@ -175,18 +175,12 @@ label {
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+				<h3>게시글 상세보기</h3>
 			</div>
 		</div>
 	</div>
 	<!-- Hero Section End -->
-
-	<section class="featured spad">
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-			<h3>게시글 상세보기</h3>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-3">
@@ -268,7 +262,6 @@ label {
 				<span>게시글 작성자 또한 '공동구매 참여'버튼으로 참여하여야 합니다.</span>
 			</div>
 		</div>
-	</section>
 	<!-- Footer Section Begin -->
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
