@@ -376,6 +376,7 @@ a span {
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
 	background: #f3f6f7;
+	
 }
 
 .type09 td {
@@ -384,39 +385,12 @@ a span {
 	vertical-align: top;
 	border-bottom: 1px solid #ccc;
 }
-.ul3 li {
-	display: inline-block;
-}
-.ul3 li a{
-text-decoration: none;
-color: black;
-float: left;
-text-align: center;
-border-color: silver;
-font-weight: 700;
-margin-right: 16px;
-width: 30px;
-height: 30px;
-border : 1px solid black;
-margin-left: 0px;
-line-height: 28px;
 
-}
-.ul3 li a:hover {
-text-decoration: none;
-background-color: saddlebrown;
-border-color: gray;
-text-align: center;
-margin-left: 0px;
-color : white;	
-}
-.ul3 li a:focus {
-text-decoration: none;
-}
-
-.ul3 {
-text-align: center;
-list-style: none;
-
+#type09_ls td {
+	width: 350px;
+	padding: 10px;
+	
+ 	color:red;
+	text-align: center;
 
 }
