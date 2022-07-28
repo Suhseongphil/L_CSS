@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +54,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/handmade.css"
 	type="text/css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/mainHover.css"
 	type="text/css">
 </head>
@@ -134,7 +134,9 @@
 									<div class="featured__item__pic set-bg"
 										data-setbg="${product.pdimg}">
 										<ul class="featured__item__pic__hover">
-											<li><a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}"> <i class="fa fa-shopping-cart"></i>
+											<li><a
+												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+													<i class="fa fa-shopping-cart"></i>
 											</a></li>
 										</ul>
 									</div>
@@ -224,6 +226,7 @@
 						</c:when>
 					</c:choose>
 				</c:forEach>
+
 			</div>
 		</div>
 	</section>
@@ -233,63 +236,32 @@
 	<section class="categories">
 		<div class="container">
 			<div class="row">
+				<h2 style="margin-left: 550px; padding-bottom: 15px;">리뷰 상품</h2>
 				<div class="categories__slider owl-carousel">
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-1.jpg">
-							<h5>
-								<a href="#">Fresh Fruit</a>
-							</h5>
+					<c:forEach items="${reviewList}" var="rePro">
+						<div class="col-lg-3">
+							<div class="product__discount__item">
+								<c:set var="imgCheck" value="${rePro.pdimg }" />
+								<c:choose>
+									<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${rePro.pdimg }"></div>
+									</c:when>
+									<c:otherwise>
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${rePro.pdimg }"></div>
+									</c:otherwise>
+								</c:choose>
+								<div class="product__discount__item__text">
+
+									<h5>${rePro.pdname}</h5>
+									<h6>${rePro.rvcomment}</h6>
+
+
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-2.jpg">
-							<h5>
-								<a href="#">Dried Fruit</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-3.jpg">
-							<h5>
-								<a href="#">Vegetables</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-4.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-5.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-5.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${pageContext.request.contextPath }/resources/img/categories/cat-5.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

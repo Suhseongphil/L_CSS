@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import com.L_CSS.dto.CompanyDto;
+import com.L_CSS.dto.ReviewProductDto;
 
 public interface CompanyDao {
 
@@ -29,6 +30,8 @@ public interface CompanyDao {
 	String getLoginId(String loginId);
 
 	int getintId(String loginId);
+
+	ArrayList<ReviewProductDto> reviewList();
 	
 
 }

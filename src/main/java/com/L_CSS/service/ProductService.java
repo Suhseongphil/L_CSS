@@ -52,7 +52,8 @@ public class ProductService {
 			productList.add(pdao.getProduct("의자", i));
 		}
 		System.out.println(productList);
-
+		ArrayList<ReviewProductDto>reviewList = cdao.reviewList();
+		mav.addObject("reviewList", reviewList);
 		mav.addObject("productList", productList);
 		mav.setViewName("/Main");
 

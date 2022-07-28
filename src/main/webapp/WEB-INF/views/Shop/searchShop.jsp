@@ -81,45 +81,49 @@
 							</div>
 						</form>
 						<h2 style="margin-top: 30px; margin-left: -280px;">상품</h2>
-					</div>				
-					</section>
-					
-					<section>
-					<div class="row" style="margin-left: 400px; margin-right:300px;  margin-top: -50px;">
-						
-							
-									<c:forEach items="${selectproductList}" var="pro">
-										<div class="col-lg-3">
-											<div class="product__discount__item">
-												<c:choose>
-													<c:when test="${pro.pdimg  == null}">
-														<div class="product__discount__item__pic set-bg"
-															data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }">
-														</div>
-													</c:when>
-													<c:otherwise>
-														<div class="product__discount__item__pic set-bg"
-															data-setbg="${pro.pdimg }"></div>
-													</c:otherwise>
-												</c:choose>
-												<div class="product__discount__item__text">
-													<a
-														href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
-														<i class="fa fa-shopping-cart"></i>
-													</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
-													<h5>
-														<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
-													</h5>
-													<div class="product__item__price">${pro.pdprice}원</div>
-												</div>
-											</div>
-										</div>
-									</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
 
-								</div>
-							
-						
-		
+	</section>
+
+	<section>
+		<div class="row"
+			style="margin-left: 400px; margin-right: 300px; margin-top: -50px;">
+
+
+			<c:forEach items="${selectproductList}" var="pro">
+				<div class="col-lg-3">
+					<div class="product__discount__item">
+						<c:set var="imgCheck" value="${pro.pdimg }" />
+						<c:choose>
+							<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+								<div class="product__discount__item__pic set-bg"
+									data-setbg="${pro.pdimg }"></div>
+							</c:when>
+							<c:otherwise>
+								<div class="product__discount__item__pic set-bg"
+									data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }"></div>
+							</c:otherwise>
+						</c:choose>
+						<div class="product__discount__item__text">
+							<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+								<i class="fa fa-shopping-cart"></i>
+							</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
+							<h5>
+								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
+							</h5>
+							<div class="product__item__price">${pro.pdprice}원</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+
+		</div>
+
+
+
 	</section>
 
 	<div class="">
