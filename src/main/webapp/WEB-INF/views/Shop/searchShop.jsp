@@ -65,7 +65,7 @@
 							<div id="search" class="row">
 								<div class="col-lg-12" style="margin-top: 50px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 220px; margin-top: -80px;">
+										style="margin-left: 220px; margin-top: -10px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
@@ -80,55 +80,50 @@
 
 							</div>
 						</form>
-						<h3
-							style="margin-top: 50px; margin-left: -280px; font-weight: bold;">
-							전체 상품<br>
-							<br>
-						</h3>
-					</div>
-					<div class="row">
-						<div class="product__discount__slider owl-carousel"></div>
-						<div class="row">
-							<div class="row" style="margin-top: -50px;">
-								<c:forEach items="${selectproductList}" var="pro">
-									<div class="col-lg-3" style="margin-left: -50px; margin: 15px;">
-										<div class="product__discount__item">
-											
-											<c:set var="imgCheck" value="${pro.pdimg }" />
+						<h2 style="margin-top: 30px; margin-left: -280px;">상품</h2>
+					</div>				
+					</section>
+					
+					<section>
+					<div class="row" style="margin-left: 400px; margin-right:300px;  margin-top: -50px;">
+						
+							
+									<c:forEach items="${selectproductList}" var="pro">
+										<div class="col-lg-3">
+											<div class="product__discount__item">
 												<c:choose>
-													<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+													<c:when test="${pro.pdimg  == null}">
 														<div class="product__discount__item__pic set-bg"
-															data-setbg="${imgCheck}"></div>
+															data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }">
+														</div>
 													</c:when>
 													<c:otherwise>
 														<div class="product__discount__item__pic set-bg"
-															data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${imgCheck}"></div>
+															data-setbg="${pro.pdimg }"></div>
 													</c:otherwise>
 												</c:choose>
-											<div class="product__discount__item__text">
-												<a
-													href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
-													<i class="fa fa-shopping-cart"></i>
-												</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
-												<h5>
-													<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
-												</h5>
-												<div class="product__item__price">${pro.pdprice}원</div>
+												<div class="product__discount__item__text">
+													<a
+														href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+														<i class="fa fa-shopping-cart"></i>
+													</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
+													<h5>
+														<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
+													</h5>
+													<div class="product__item__price">${pro.pdprice}원</div>
+												</div>
 											</div>
 										</div>
-									</div>
-								</c:forEach>
+									</c:forEach>
 
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+								</div>
+							
+						
+		
 	</section>
 
 	<div class="">
-		<ul class="ul3">
+		<ul class="ul3" style="margin-bottom: 30px; margin-top: 30px;">
 			<c:choose>
 				<c:when test="${pagedto.page <= 1 }">
 					<li><a href="#">« </a></li>
@@ -203,4 +198,5 @@
 
 	});
 </script>
+
 </html>

@@ -64,10 +64,10 @@
 				<div class="container">
 					<div class="row">
 						<div>
-							<p style="text-align: center; margin-top: 30px;">${cafeInfo.cfname}</p>
-							<h3 style="text-align: center;">${cafeInfo.cftel}</h3>
-							<div id="map" style="width: 100%; height: 350px;"></div>
-							<p style="text-align: center;">${cafeInfo.cfaddress}</p>
+							<h2 style="margin-left:-80px; margin-top: -80px;">${cafeInfo.cfname}</h2>
+							<div id="map" style="width: 100%; height: 500px; margin-top: 35px;"></div>
+							<h4 style="text-align: center;">${cafeInfo.cftel}</h4>
+							<h4 style="text-align: center;">${cafeInfo.cfaddress}</h4>
 							<input id="address" type="hidden" value="${cafeInfo.cfaddress}">
 							<input id="cfname" type="hidden" value="${cafeInfo.cfname}">
 						</div>

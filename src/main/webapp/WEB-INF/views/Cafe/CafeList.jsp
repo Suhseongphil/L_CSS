@@ -73,8 +73,8 @@
 									<h2 style="text-align: center;">
 										<a href="cafeInfo?cfcode=${cfList.cfcode}"> ${cfList.cfname } </a>
 									</h2>
-									<p>주소 : ${cfList.cfaddress }</p>
-									<p style="text-align: center;">${cfList.cftel }</p>
+									<h5>주소 : ${cfList.cfaddress }</h5>
+									<h5 style="text-align: center;">${cfList.cftel }</h5>
 								</div>
 							</div>
 						</div>

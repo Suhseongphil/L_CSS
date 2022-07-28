@@ -64,9 +64,9 @@
 						style="text-align: center; margin-top: -450px;">
 						<form action="searchProduct" method="get">
 							<div id="search" class="row">
-								<div class="col-lg-12" style="margin-top: 100px;">
+								<div class="col-lg-12" style="margin-top: 50px;">
 									<div class="shoping__cart__btns"
-										style="margin-left: 220px; margin-top: -80px;">
+										style="margin-left: 220px; margin-top: -10px;">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
@@ -93,9 +93,7 @@
 										<div class="product__discount__item__pic set-bg"
 											data-setbg="${pro.pdimg }"></div>
 										<div class="product__discount__item__text">
-											<a
-												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
-												<i class="fa fa-shopping-cart"></i>
+											<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1"> <i class="fa fa-shopping-cart"></i>
 											</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 											<h5>
 												<a href="#">${pro.pdtype}</a>
