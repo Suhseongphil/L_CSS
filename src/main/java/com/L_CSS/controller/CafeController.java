@@ -48,10 +48,14 @@ public class CafeController {
 	
 	//내 카페등록 페이지 요청
 	@RequestMapping(value="/mycafeInsert")
-	public String mycafeInsert() {
+	public ModelAndView mycafeInsert(RedirectAttributes ra,String loginId) {
 		System.out.println("내 카페등록 페이지 이동 요청");
+		System.out.println(loginId);
+		ModelAndView mav = new ModelAndView();
 		
-		return "Cafe/MycafeInsert";
+		mav = csv.getloginId(loginId,ra);
+		
+		return mav;
 	}
 	//내 카페등록 등록요청
 	@RequestMapping(value="/createMycafe")

@@ -27,6 +27,8 @@ public interface CafeDao {
 
 	String getCafesigImg(String cfmid);
 
+	String getLoginId(String loginId);
+
 
 
 }

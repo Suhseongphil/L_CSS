@@ -56,4 +56,10 @@
   		WHERE CFMID = #{cfmid}
   		</select>
   		
+  		<select id="getLoginId" resultType="String">
+  		SELECT CFMID
+  		FROM CAFE
+  		WHERE CFMID = #{loginId}
+  		</select>
+  		
   </mapper>

@@ -89,8 +89,18 @@
 							<c:forEach items="${selectproductList}" var="pro">
 								<div class="col-lg-3" style="margin-left: -50px; margin: 15px;">
 									<div class="product__discount__item">
+										<c:choose>
+										<c:when test="${pro.pdimg  == null}">
 										<div class="product__discount__item__pic set-bg"
-											data-setbg="${pro.pdimg }"></div>
+											data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }">
+											</div>
+										</c:when>
+										<c:otherwise>
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${pro.pdimg }">
+											</div>
+										</c:otherwise>
+										</c:choose>
 										<div class="product__discount__item__text">
 											<a
 												href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
@@ -121,7 +131,7 @@
                   </a></li>
                </c:when>
                <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page - 1}">«</a>
+                  <li><a href="searchProduct?page=${pagedto.page - 1}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }">«</a>
                   <li>
                </c:otherwise>
             </c:choose>
@@ -132,7 +142,7 @@
                      <li><a href="#">${num }</a></li>
                   </c:when>
                   <c:otherwise>
-                     <li><a href="shopMain?page=${num}"> ${num } </a></li>
+                     <li><a href="searchProduct?page=${num}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }"> ${num } </a></li>
                   </c:otherwise>
                </c:choose>
             </c:forEach>
@@ -142,7 +152,7 @@
                   </a></li>
                </c:when>
                <c:otherwise>
-                  <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
+                  <li><a href="searchProduct?page=${pagedto.page + 1}&pdcategory=${sessionScope.searchpdcategory }&searchText=${sessionScope.searchText }">»</a></li>
                </c:otherwise>
             </c:choose>
             </ul>
