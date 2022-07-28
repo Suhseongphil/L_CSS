@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jsoup.Jsoup;
@@ -25,6 +22,7 @@ import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.PageDto;
 import com.L_CSS.dto.ProductDto;
+import com.L_CSS.dto.ReviewProductDto;
 import com.google.gson.Gson;
 
 @Service
@@ -563,6 +561,7 @@ public class ProductService {
 			UUID uuid = UUID.randomUUID();
 			pdcmimg = uuid.toString() + "_" + imgs.getOriginalFilename();
 			imgs.transferTo(new File(savePath, pdcmimg));
+			product.setPdimg(pdcmimg);
 		} else {
 
 			product.setPdimg(pdcmimg);
@@ -695,7 +694,9 @@ public class ProductService {
 		pagedto.setStartPage(startPage);
 		pagedto.setEndPage(endPage);
 		mav.addObject("pagedto", pagedto);
+		ArrayList<ReviewProductDto> ReviewProduct = pdao.ReviewProductList();
 		ArrayList<ProductDto> fullProduct = pdao.productList(startRow, endRow);
+		mav.addObject("ReviewProduct", ReviewProduct);
 		mav.addObject("selectproductList", fullProduct);
 		mav.setViewName("Shop/fullMain");
 		return mav;

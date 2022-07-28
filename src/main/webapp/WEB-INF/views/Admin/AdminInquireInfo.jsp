@@ -228,6 +228,9 @@ textarea {
 									<tbody>
 									<tr><td>${iqList.iqcomment }</td></tr>
 									</tbody>
+								<button value="${iqList.iqcode }"
+									 id="show" class="primary-btn cart-btn cart-btn-sright" style="padding-bottom: 10px; background-color: #000000;">
+									답변작성</button>
 									</c:forEach>
 									</table>	
 									</div>
@@ -237,19 +240,9 @@ textarea {
 					</div>
 				</div>
 
-								<a href="amindInsert"
-									 id="show" class="primary-btn cart-btn cart-btn-right" style="padding-bottom: 10px; background-color: #000000;">
-									답변작성</a>
 							</div>
 						</div>
 
-
-			</div>
-			<!--</section>  -->
-		</div>
-
-
-	</div>
 	
 	<div class="answer">
 		<div class="window2">
@@ -262,7 +255,7 @@ textarea {
 							답변내용 <br> <br>
 							<textarea name="ancomment" id="ancomment"
 								placeholder="내용을 입력해주세요.."></textarea>
-						<input type="hidden" name="iqcode" id="iqcode" value="0">공개
+						<input type="hidden" name="iqcode" id="iqcode" value="0">
 						</h5>
 					</div>
 
