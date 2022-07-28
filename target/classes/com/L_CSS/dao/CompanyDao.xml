@@ -52,5 +52,16 @@
 		select * 
 		from company cm , product pd
 		where cm.cmcode = pd.pdcmcode and pd.pdcode= #{pdcode}
-	</select>	
+	</select>
+	<select id="getLoginId" resultType="String">
+	SELECT CMMID
+	FROM COMPANY
+	WHERE CMMID= #{loginId}
+	</select>
+	<select id="getintId" resultType="int">
+	SELECT COUNT(CMMID)
+	FROM COMPANY
+	WHERE CMMID= #{loginId}
+	</select>
+		
   </mapper>

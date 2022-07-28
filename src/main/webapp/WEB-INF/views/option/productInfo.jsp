@@ -58,7 +58,7 @@
 
 
             <div class="row">
-            <div class="col-2">
+            <div class="col2aa">
 			<%@ include file="../includes/SideBar2.jsp"%>
 			</div>
                 <div class="col-lg-4 col-md-4">
@@ -82,15 +82,15 @@
                             <span>(리뷰수)</span>
                         </div>
                         <div class="product__details__price">${productInfo.pdprice } 원</div>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
+                        <div class="">
+                            <div class="">
                                 <div class="">
-                                    <input name="amount" type="number">
+                                    <input name="amount" type="number" value="1" style="padding: 7px;">
                                 </div>
                             </div>
                         </div>
                         
-                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn text-white" style="background-color: #000000;">장바구니담기</a>
+                        <a href="cartIn?pdcode=${productInfo.pdcode }&pdcmcode=${productInfo.pdcmcode}" class="primary-btn text-white" style="background-color: #000000; margin-top: 30px;">장바구니담기</a>
                         <ul>
                             <li><b>업체명</b> <span>${companyInfo.cmname }</span></li>
                             <li><b>배송시간</b> <span>1~2일 소요 <samp>&nbsp;&nbsp; 연중무휴</samp></span></li>
