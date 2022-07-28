@@ -46,7 +46,7 @@ height: 30px;
 									<a href="mycafeInsert?loginId=${sessionScope.loginId }">내 카페등록</a>
 								</li>
 								<li>
-									<a href="mycafeInfo">내 카페정보</a>
+									<a href="mycafeInfo?loginId=${sessionScope.loginId }">내 카페정보</a>
 								</li>
 								<li>
 									<a href="mycafeMenu">메뉴등록</a>
