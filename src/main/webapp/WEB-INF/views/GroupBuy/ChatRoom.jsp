@@ -224,7 +224,7 @@
 						<span>전체</span>
 					</div>
 					<div class="col-3 text-right">
-						<span>${allAmount}</span>
+						<span id="allAmount2">${allAmount}</span>
 					</div>
 					<div class="col-6 text-right">
 						<span>
@@ -234,7 +234,7 @@
 					</div>
 				</div>
 				<c:if test="${gbreserve.gbmid == sessionScope.loginId}">
-					<button class="chBtn font-weight-bold" onclick="order('${gbreserve.gbcode}')">공동구매 결제</button>
+					<button class="chBtn font-weight-bold" onclick="order('${gbreserve.pdcode}','${gbreserve.pdcmcode}','${allAmount}')">공동구매 결제</button>
 				</c:if>
 			</div>
 		</div>
@@ -260,6 +260,18 @@
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
 	}
+</script>
+
+<script type="text/javascript">
+function order(pdcode, pdcmcode, ctamount) {
+
+	if (confirm("총 구매 정보가 장바구니에 추가됩니다.\r\n결제는 장바구니에서 이용바랍니다.") == true) {
+		location.href = "cartIn?gbcode=" + gbcode;
+	} else {
+		return false;
+	}
+	
+}
 </script>
 
 <script type="text/javascript">

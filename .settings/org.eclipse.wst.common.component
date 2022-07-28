@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                
+                    
+    
     
     
     
@@ -20,7 +21,8 @@
     
     
     <wb-module deploy-name="controller-1.0.0-BUILD-SNAPSHOT">
-                                
+                                        
+        
         
         
         
@@ -42,7 +44,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                
+                                        
+        
         
         
         
@@ -64,7 +67,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                                
+                                        
+        
         
         
         
@@ -86,7 +90,8 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-                                
+                                        
+        
         
         
         
@@ -108,10 +113,9 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                        
-        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
-                                
+                                        
+        
         
         
         
@@ -133,7 +137,8 @@
         
         
         <property name="java-output-path" value="target/classes"/>
-                                
+                                        
+        
         
         
         
@@ -155,7 +160,8 @@
         
         
         <property name="context-root" value="controller"/>
-                            
+                                    
+    
     
     
     
@@ -177,7 +183,8 @@
     
     
     </wb-module>
-            
+                
+
 
 
 </project-modules>
