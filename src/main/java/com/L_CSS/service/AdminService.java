@@ -441,7 +441,7 @@ public class AdminService {
 	//코드찾기
 	public String selectIqcode(String iqcode) {
 		System.out.println("selectIqcode");
-		
+		System.out.println(iqcode);
 		InquIreDto selectIqcode = adao.selectIqcode(iqcode);
 		Gson gson = new Gson();
 		String IqcodeGson = gson.toJson(selectIqcode);

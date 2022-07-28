@@ -10,17 +10,20 @@
 		from PRODUCT
 	</select>
 	<insert id="inserttbList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE,
+		PDAMOUNT, PDIMG,
 		PDCMCODE, PDSTATE)
 		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 	<insert id="insertcmList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE,
+		PDAMOUNT, PDIMG,
 		PDCMCODE, PDSTATE)
 		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
 	<insert id="inserthdList">
-		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE, PDAMOUNT, PDIMG,
+		INSERT INTO PRODUCT(PDCODE,PDNAME,PDTYPE, PDPRICE,
+		PDAMOUNT, PDIMG,
 		PDCMCODE, PDSTATE)
 		VALUES(#{pdcode},#{pdname},#{pdtype},#{pdprice},#{pdamount},#{pdimg},#{pdcmcode},#{pdstate})
 	</insert>
@@ -32,23 +35,28 @@
 
 	<select id="getProduct" resultType="com.L_CSS.dto.ProductDto">
 		SELECT P.*
-		FROM (SELECT ROWNUM AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type})
+		FROM (SELECT ROWNUM
+		AS RN, PRODUCT.* FROM PRODUCT WHERE PDTYPE = #{type})
 		P
-		WHERE P.RN = #{i}
+		WHERE P.RN =
+		#{i}
 	</select>
 	<select id="proInfo" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
-		where PDCMCODE = #{cmcode}
+		where
+		PDCMCODE = #{cmcode}
 	</select>
 	<select id="searchList" resultType="com.L_CSS.dto.ProductDto">
 		select p.*
 		<if test="pdcategory == 'pdname'">
-		from (select rownum rn, product.* from PRODUCT where PDNAME LIKE '%' || #{searchText} || '%') p
+			from (select rownum rn, product.* from PRODUCT where PDNAME LIKE '%' ||
+			#{searchText} || '%') p
 			where p.rn between #{start} and #{end}
 		</if>
 		<if test="pdcategory == 'pdtype'">
-		from (select rownum rn, product.* from PRODUCT where PDTYPE LIKE '%' || #{searchText} || '%') p
+			from (select rownum rn, product.* from PRODUCT where PDTYPE LIKE '%' ||
+			#{searchText} || '%') p
 			where p.rn between #{start} and #{end}
 		</if>
 	</select>
@@ -57,7 +65,8 @@
 	<select id="MyProduct" resultType="com.L_CSS.dto.CompanyDto">
 		select *
 		from COMPANY
-		where CMMID = #{loginId}
+		where
+		CMMID = #{loginId}
 	</select>
 
 	<insert id="insertProduct">
@@ -70,13 +79,15 @@
 	<select id="getProduct2" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
-		order by PDCODE desc
+		order by
+		PDCODE desc
 	</select>
 
 	<update id="updateState">
 		update PRODUCT
 		set PDSTATE = #{pdstate}
-		where PDCODE = #{pdcode}
+		where PDCODE =
+		#{pdcode}
 	</update>
 
 	<delete id="deleteProduct">
@@ -89,18 +100,22 @@
 	<select id="MyProductInfo" resultType="com.L_CSS.dto.CompanyDto">
 		select *
 		from COMPANY
-		where CMMID = #{loginId}
+		where
+		CMMID = #{loginId}
 	</select>
 	<select id="getMyProduct" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
-		where PDCMCODE = #{pdcmcode}
+		where
+		PDCMCODE = #{pdcmcode}
 		order by pdcode desc
 	</select>
 	<update id="updateMyProduct">
 		update PRODUCT
-		set PDSTATE = #{pdstate}, PDNAME = #{pdname}, PDPRICE = #{pdprice},
-		PDTYPE = #{pdtype}, PDIMG = #{pdimg}, PDAMOUNT = #{pdamount}
+		set PDSTATE = #{pdstate}, PDNAME =
+		#{pdname}, PDPRICE = #{pdprice},
+		PDTYPE = #{pdtype}, PDIMG = #{pdimg},
+		PDAMOUNT = #{pdamount}
 		where PDCODE = #{pdcode}
 	</update>
 
@@ -119,13 +134,15 @@
 	<select id="productInfo" resultType="com.L_CSS.dto.ProductDto">
 		select *
 		from PRODUCT
-		where PDCODE = #{pdcode}
+		where
+		PDCODE = #{pdcode}
 	</select>
 
 	<select id="selectproductList"
 		resultType="com.L_CSS.dto.ProductDto">
 		select p.*
-		from (select rownum rn, product.* from PRODUCT where pdtype = #{type}) p
+		from (select rownum rn, product.* from PRODUCT
+		where pdtype = #{type}) p
 		where p.rn between #{start} and #{end}
 	</select>
 
@@ -143,15 +160,24 @@
 
 	<select id="productList" resultType="com.L_CSS.dto.ProductDto">
 		select p.*
-		from (select rownum rn, product.* from PRODUCT) p
-		where p.rn between #{start} and #{end}
+		from (select
+		rownum rn, product.* from PRODUCT) p
+		where p.rn between #{start} and
+		#{end}
 	</select>
-	
-	<select id="searchType"
-		resultType="com.L_CSS.dto.ProductDto">
+
+	<select id="searchType" resultType="com.L_CSS.dto.ProductDto">
 		select p.*
-		from (select rownum rn, product.* from PRODUCT where pdtype = #{pdtype}) p
-		where p.rn between #{start} and #{end}
+		from (select rownum
+		rn, product.* from PRODUCT where pdtype = #{pdtype}) p
+		where p.rn
+		between #{start} and #{end}
+	</select>
+	<select id="ReviewProductList"
+		resultType="com.L_CSS.dto.ReviewProductDto">
+		select RVMID,RVPDCODE,RVCOMMENT,TO_CHAR(RVDATE, 'YYYY/MM/DD') AS RVDATE , PDNAME , PDIMG
+		from review re , product pd
+		where re.rvpdcode = pd.pdcode
 	</select>
 
 
