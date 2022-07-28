@@ -857,15 +857,16 @@ a span {
 .type09 {
 	border-collapse: collapse;
 	text-align: left;
-	line-height: 1.5;
+	line-height: 1;
 }
 
 .type09 thead th {
-	padding: 10px;
+	padding: -10px;
 	font-weight: bold;
-	vertical-align: top;
+	vertical-align: middle;
 	color: #369;
 	border-bottom: 3px solid #036;
+	
 }
 
 .type09 tbody th {

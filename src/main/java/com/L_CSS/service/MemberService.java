@@ -27,7 +27,7 @@ public class MemberService {
 
 	@Autowired
 	private HttpSession session;
-	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
+	private String savePath = "C:\\Users\\hi\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad";
 	
 	
 	// 회원가입 요청 메소드

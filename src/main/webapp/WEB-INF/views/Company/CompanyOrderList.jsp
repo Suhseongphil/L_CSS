@@ -134,86 +134,76 @@
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-12"
+							style="margin-left: 200px; margin-right: 100px; margin-top: -20px;">
 							<div class="shoping__cart__table">
 
 								<div class="item display" style="padding-top: 30px;">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-2">
-											<h5>업체</h5>
-										</div>
-										<div class="col-3">
-											<h5>제품</h5>
-										</div>
-										<div class="col-2">
-											<h5>가격</h5>
-										</div>
-										<div class="col-1">
-											<h5>수량</h5>
-										</div>
-										<div class="col-2">
-											<h5>총가격</h5>
-										</div>
-										<div class="col-1">
-											<h5>배송</h5>
-										</div>
-										<div class="col-1">
-											<h5>주문취소</h5>
-										</div>
-									</div>
+
+
+
+									<table class="type09" style="margin-left: -200px; width: 1100px; margin-top: 30px;">
+										<thead>
+											<tr>
+												<th scope="cols">업체</th>
+												<th scope="cols">제품</th>
+												<th scope="cols">가격</th>
+												<th scope="cols">수량</th>
+												<th scope="cols">총가격</th>
+												<th scope="cols">배송</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+
+											<c:forEach items="${orList}" var="odList">
+												<tr>
+													<td>${odList.cmname }</td>
+													<td>${odList.pdname }</td>
+													<td>${odList.pdprice }</td>
+													<td>${odList.reamount }</td>
+													<td>${odList.reprice }</td>
+
+													<c:choose>
+														<c:when test="${odList.restate == 0}">
+															
+																<td>
+																	<button type="submit" name="recode"
+																		value="${odList.recode}">배송</button>
+																</td>
+															
+														</c:when>
+														<c:when test="${odList.restate == 2}">
+															<td>
+																<h6>배송완료</h6>
+
+															</td>
+														</c:when>
+														<c:otherwise>
+															<td>
+																
+																	<button type="submit" name="recode"
+																		value="${odList.recode}">취소요청</button>
+																
+															</td>
+														</c:otherwise>
+
+
+													</c:choose>
+													
+												</tr>
+											</c:forEach>
+									</table>
+
+
+
 
 
 								</div>
-								
-									<c:forEach items="${orList}" var="odList">
-										<div class="row px">
-											<div class="col-2">
-												<h5>${odList.cmname }</h5>
-											</div>
-											<div class="col-3">
-												<h5>${odList.pdname }</h5>
-											</div>
-											<div class="col-2">
-												<h5>${odList.pdprice }</h5>
-											</div>
-											<div class="col-1">
-												<h5>${odList.reamount }</h5>
-											</div>
-											<div class="col-2">
-												<h5>${odList.reprice }</h5>
-											</div>
-											<c:choose>
-												<c:when test="${odList.restate == 0}">
-												<form action="orderCheck" method="get">
-													<div class="col-1">
-														<button type="submit" name="recode"
-															value="${odList.recode}">배송</button>
-													</div>
-												</form>
-												</c:when>
-												<c:when test="${odList.restate == 2}">
-												<div class="col-1">
-													<h6>배송완료</h6>	
-															
-													</div>
-												</c:when>
-												<c:otherwise>
-												<form action="deleteOrder" method="get">
-													<div class="col-1">
-														<button type="submit" name="recode"
-															value="${odList.recode}">취소요청</button>
-													</div>
-													</form>
-												</c:otherwise>
 
 
-											</c:choose>
-										</div>
-										<hr>
-									</c:forEach>
 
-								
+
 
 							</div>
 						</div>
@@ -221,8 +211,8 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__btns">
-								<a href="shopMain" class="primary-btn cart-btn">더 쇼핑하기</a> <a
-									href="orderhistory" class="primary-btn cart-btn cart-btn-right">
+								<a href="shopMain" class="primary-btn cart-btn" style="background-color: black; color: white;">더 쇼핑하기</a> <a
+									href="orderhistory" class="primary-btn cart-btn cart-btn-right" style="background-color: black; color: white;">
 									새로고침</a>
 							</div>
 						</div>
