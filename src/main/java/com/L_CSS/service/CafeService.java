@@ -179,10 +179,10 @@ public class CafeService {
 				int resultCafe = cdao.insertMyCafe(cafe);
 				
 				if (resultCafe > 0) {
-					ra.addFlashAttribute("msg", "등록되었습니다.");
+					ra.addFlashAttribute("msg","등록되었습니다.");
 					mav.setViewName("redirect:/");
 				} else {
-					ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
+					ra.addFlashAttribute("msg","수정에 실패하였습니다.");
 					mav.setViewName("redirect:/");
 				}
 		
@@ -278,6 +278,24 @@ public class CafeService {
 			ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
 			mav.setViewName("redirect:/mycafeModify");
 		}
+		return mav;
+	}
+
+	public ModelAndView getloginId(String loginId, RedirectAttributes ra) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(loginId);
+		
+		String getLoginId = cdao.getLoginId(loginId);
+		System.out.println("getLoginId " + getLoginId);
+		
+		if (getLoginId != null) {
+			ra.addFlashAttribute("msg", "등록된 카페가 있습니다.");
+			mav.setViewName("redirect:/");
+		} else {
+			mav.setViewName("Cafe/MycafeInsert");
+		}
+		
+		
 		return mav;
 	}
 
