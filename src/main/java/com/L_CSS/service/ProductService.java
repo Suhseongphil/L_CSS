@@ -344,7 +344,7 @@ public class ProductService {
 		}
 		System.out.println("??"+text);
 		// 한페이지에 보여줄 글 개수
-		int pageCount = 10;
+		int pageCount = 8;
 		// 한페이지에 보여줄 페이지 번호 개수
 		int pageNumCount = 10;
 
@@ -597,7 +597,7 @@ public class ProductService {
 		String rere = (String) session.getAttribute("typeResult");
 
 		// 한페이지에 보여줄 글 개수
-		int pageCount = 10;
+		int pageCount = 8;
 		// 한페이지에 보여줄 페이지 번호 개수
 		int pageNumCount = 5;
 
