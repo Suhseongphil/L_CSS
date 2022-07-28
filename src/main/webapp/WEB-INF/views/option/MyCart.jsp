@@ -167,9 +167,10 @@
 						<div class="col-lg-12">
 							<div class="back color-10 menu align-center expanded text-center SMN_effect-70" 
 							style="font-weight: bold;">
-								<a href="shopMain" class="primary-btn cart-btn" style="margin-left: -800px; color: black;">더 쇼핑하기</a> <a href="#"
-									class="primary-btn cart-btn cart-btn-right"
-									style="color: black;"> 새로고침</a>
+								<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
+								<a href="myCartPage"
+									class="primary-btn text-white"
+									style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
 						<div id="checkOut" class="col-lg-4" style="margin-bottom:100px; margin-left: 800px; "></div>

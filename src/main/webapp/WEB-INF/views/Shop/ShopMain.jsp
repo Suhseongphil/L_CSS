@@ -129,12 +129,11 @@
 				</div>
 			</c:forEach>
 		</div>
-		<div
-         style="font-size: 24px; margin-left: 680px; margin-bottom: 30px; margin-top: 30px;">
-         
+		<div class="">
+         <ul class="ul3">
             <c:choose>
                <c:when test="${pagedto.page <= 1 }">
-                  <li><a href="#"> <span>«</span>
+                  <li><a href="#">«
                   </a></li>
                </c:when>
                <c:otherwise>
@@ -146,7 +145,7 @@
                var="num" step="1">
                <c:choose>
                   <c:when test="${pagedto.page == num }">
-                     <li><span style="font-size: 24px;">${num }</span></li>
+                     <li><a href="#">${num }</a></li>
                   </c:when>
                   <c:otherwise>
                      <li><a href="shopMain?page=${num}"> ${num } </a></li>
@@ -155,14 +154,14 @@
             </c:forEach>
             <c:choose>
                <c:when test="${pagedto.page >= pagedto.maxPate }">
-                  <li><a href="#"> <span>»</span>
+                  <li><a href="#">»
                   </a></li>
                </c:when>
                <c:otherwise>
                   <li><a href="shopMain?page=${pagedto.page + 1}">»</a></li>
                </c:otherwise>
             </c:choose>
-         
+            </ul>
       </div>
 	</section>
 	<footer class="footer">

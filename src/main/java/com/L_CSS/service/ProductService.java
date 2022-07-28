@@ -561,6 +561,7 @@ public class ProductService {
 			UUID uuid = UUID.randomUUID();
 			pdcmimg = uuid.toString() + "_" + imgs.getOriginalFilename();
 			imgs.transferTo(new File(savePath, pdcmimg));
+			product.setPdimg(pdcmimg);
 		} else {
 
 			product.setPdimg(pdcmimg);

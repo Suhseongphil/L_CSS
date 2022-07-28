@@ -180,7 +180,7 @@ public class CafeService {
 				
 				if (resultCafe > 0) {
 					ra.addFlashAttribute("msg", "등록되었습니다.");
-					mav.setViewName("Cafe/MycafeInsert");
+					mav.setViewName("redirect:/");
 				} else {
 					ra.addFlashAttribute("msg", "수정에 실패하였습니다.");
 					mav.setViewName("redirect:/");

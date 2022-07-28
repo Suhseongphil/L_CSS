@@ -354,13 +354,13 @@ text-transform: uppercase;
 			output += "&nbsp;<span class=\"font-weight-bold\">가격 : </span>";
 			output += "<input class=\"input_width\" id=\"priceMod_"+product[i].pdcode+"\" type=\"text\" value=\""+ product[i].pdprice +"\">";
 			output += "<br><span class=\"font-weight-bold\">상품타입 : </span>";
-			output += "<input class=\"input_width\" id=\"menuMod_"+product[i].pdcode+"\" type=\"text\" value=\""+ product[i].pdtype +"\">";
+			output += "<input style=\"border:none;\" class=\"input_width\" id=\"menuMod_"+product[i].pdcode+"\" readonly type=\"text\" value=\""+ product[i].pdtype +"\">";
 			output += "<br><span class=\"font-weight-bold\">상품갯수 : </span>";
 			output += "<input class=\"input_width\" id=\"amountMod_"+product[i].pdcode+"\" type=\"text\" value=\""+ product[i].pdamount +"\">";
 			output += "</div>";
 
 			output += "<div class=\"col-2\">";
-			output += "<button class=\"productModInsert-btn\" type=\"button\" onclick=\"pdModify('"
+			output += "<button class=\"btn primary-btn text-white\" style=\"background-color: black;\" \ type=\"button\" onclick=\"pdModify('"
 					+ product[i].pdcode + "')\">수정완료</button>";
 			output += "</div>";
 

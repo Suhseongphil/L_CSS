@@ -138,8 +138,8 @@
 							</div>
 							<div class="row form-group">
 								<div class="col-6 form-group">
-									<input class="form-control form-control-user" type="button"
-										onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+									<input class="form-control form-control-user text-white" type="button"
+										onclick="sample6_execDaumPostcode()" style="background-color: black;" value="우편번호 찾기">
 									<br>
 								</div>
 								<div class="col-6 form-group">
