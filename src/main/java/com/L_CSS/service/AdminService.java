@@ -422,11 +422,10 @@ public class AdminService {
 		return mav;
 	}
 	//답변 저장
-	public String insertInquire(String iqcode, String ancomment, String ancommend, RedirectAttributes ra) {
+	public String insertInquire(String iqcode, String ancomment, RedirectAttributes ra) {
 		System.out.println("insertInquire()호출");
-		int commend = Integer.parseInt(ancommend);
 		
-		int insertInquire = adao.insertInquire(iqcode,ancomment,commend);
+		int insertInquire = adao.insertInquire(iqcode,ancomment);
 		System.out.println(insertInquire);
 		if(insertInquire > 0) {
 			int updateIqstate = adao.udpateIqstate(iqcode);

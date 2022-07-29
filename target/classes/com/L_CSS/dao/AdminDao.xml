@@ -101,8 +101,8 @@
 	</delete>
 	
 	<insert id="insertInquire">
-		insert into ANSWER(ANIQCODE,ANCOMMENT,ANCOMMEND,ANDATE)
-		values (#{iqcode},#{ancomment},#{ancommend},SYSDATE)
+		insert into ANSWER(ANIQCODE,ANCOMMENT,ANDATE)
+		values (#{iqcode},#{ancomment},SYSDATE)
 	</insert>
 	
 	<update id="udpateIqstate">

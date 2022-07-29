@@ -86,14 +86,6 @@ public class MemberController {
 
 	}
 
-	// 고객문의 페이지 이동요청
-	@RequestMapping(value = "/inquirePage")
-	public String InquirePage() {
-		System.out.println("고객문의 페이지 이동");
-
-		return "option/Inquire";
-	}
-
 	// 카카오 로그인
 	@RequestMapping(value = "/memberKakaoLogin")
 	public ModelAndView memberKakaoLogin(MemberDto member, RedirectAttributes ra) {

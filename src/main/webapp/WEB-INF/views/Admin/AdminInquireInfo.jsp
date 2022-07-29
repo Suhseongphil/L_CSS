@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -15,39 +14,18 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Site Icons -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
-	type="image/x-icon">
-<link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 <!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 </head>
 <style>
 .but_css {
@@ -181,18 +159,13 @@ textarea {
 													<th>${iqList.iqcategory }</th>
 												</tr>
 												<tr id="type09_ls">
-													<td><br><br><br>문의내용</td>
-												
-												
-													<td ><br><br><br>${iqList.iqcomment }</td>
-												
-												
-													<td >
-														<button value="${iqList.iqcode }" id="show"
-															class="btn primary-btn cart-btn-right"
-															style=" margin-top:450px; margin-left:200px;
-															padding-bottom: 10px; background-color: #000000; color:white;">
-															답변작성</button>
+													<td>
+														<br> <br> <br>문의내용
+													</td>
+													<td>
+														<br> <br> <br>${iqList.iqcomment }</td>
+													<td>
+														<button value="${iqList.iqcode }" id="show" class="btn primary-btn cart-btn-right" style="margin-top: 450px; margin-left: 200px; padding-bottom: 10px; background-color: #000000; color: white;">답변작성</button>
 													</td>
 												</tr>
 											</tbody>
@@ -210,31 +183,17 @@ textarea {
 	</div>
 	<div class="answer">
 		<div class="window2">
-			<form class="user" action="amindInsert" method="post"
-				enctype="multipart/form-data">
+			<form class="user" action="amindInsert" method="post" enctype="multipart/form-data">
 				<div class="popup2" id="modal" style="text-align: center;">
 					<div>
-						<h5 style="font-weight:700; margin-top: 20px;">
-							 고객문의 답변 <br> <br>
-							<textarea style="border: 1px solid gray;" name="ancomment" id="ancomment"
-								placeholder="내용을 입력해주세요.."></textarea>
-
+						<h5 style="font-weight: 700; margin-top: 20px;">
+							고객문의 답변 <br> <br>
+							<textarea style="border: 1px solid gray;" name="ancomment" id="ancomment" placeholder="내용을 입력해주세요.."></textarea>
 							<input type="hidden" name="iqcode" id="iqcode" value="0">
-
 						</h5>
 					</div>
-					<div>
-						<input type="radio" name="ancommend" value="0">공개 <input
-							type="radio" name="ancommend" value="1">비공개
-					</div>
-					<button type="button" id="close"
-						class="btn text-white"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px; margin-right:20px; float:right;">취소</button>
-					<button type="submit" id="save"
-						class="btn text-white button"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px; float:right;">답변작성</button>
+					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; margin-right: 20px; float: right;">취소</button>
+					<button type="submit" id="save" class="btn text-white button" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; float: right;">답변작성</button>
 				</div>
 			</form>
 		</div>
@@ -242,20 +201,13 @@ textarea {
 	<footer class="footer" style="margin-top: 100px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 	<!-- ALL JS FILES -->
 </body>

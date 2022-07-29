@@ -52,7 +52,7 @@ public interface AdminDao {
 
 	void deleteMember(String mid);
 
-	int insertInquire(@Param("iqcode")String iqcode, @Param("ancomment")String ancomment, @Param("ancommend")int commend);
+	int insertInquire(@Param("iqcode")String iqcode, @Param("ancomment")String ancomment);
 
 	int udpateIqstate(String iqcode);
 

@@ -13,7 +13,9 @@ public class InquIreDto {
 	private	String	iqtitle;
 	private	String	iqcomment;
 	private	String	iqimg;
+	
 	private MultipartFile iqfile;
+	
 	private	int	iqstate;
 	private String iqdate;
 }
