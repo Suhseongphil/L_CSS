@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Basic -->
 
 <head>
 <meta charset="utf-8">
@@ -33,107 +32,115 @@
 
 </head>
 <style>
-.but_css {
-	height: 20px;
-	width: 20px;
-	border: none;
-	font-size: 10;
-	font-weight: 800;
-	text-align: center;
-}
-
-.item display {
-	display: flex;
-	flex-direction: column;
-}
-
-.item {
-	padding-bottom: 30px;
-}
-
-.px {
-	padding-bottom: 30px;
-}
-
-.divpadding {
-	padding-top: 36px;
-}
-
 textarea {
-	width: 300px;
+	width: 90%;
 	height: 300px;
-	border: none;
 	resize: none;
 	padding-bottom: 10px;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
 }
 
-h5 {
-	padding-bottom: 10px;
+input {
+	width: 90%;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
+}
+
+.col-3 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: #036;
+}
+
+.row {
+	margin-bottom: 10px;
+}
+
+.inquireBtn {
+	font-weight: bold;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
+	width: 30%;
 }
 </style>
 
 <body>
-	<%@ include file="../includes/TopBar.jsp"%>
-	<header class="main-header">
-
-		<div class="container">
-			<div class="collapse navbar-collapse" id="navbar-menu"></div>
-			<div class="row">
-				<%@ include file="../includes/MiddleBar.jsp"%>
+	<header class="header">
+		<%@ include file="../includes/TopBar.jsp"%>
+	</header>
+	<div class="container">
+		<div class="row">
+			<%@ include file="../includes/MiddleBar.jsp"%>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
+				<h3>고객문의</h3>
 			</div>
 		</div>
-	</header>
+	</div>
 
-	<div class="cart-box-main">
-		<div class="container">
-			<div class="row">
-				<form action="insertInquire" method="post" enctype="multipart/form-data">
+	<div class="container" style="margin-bottom: 10px;">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6" style="border-top: 3px solid #036; border-bottom: 4px solid #036; padding: 5px 0px;">
+				<form action="insertInquire" method="post" enctype="multipart/form-data" onsubmit="return joinFormCheck();">
 					<div class="row">
-						<div class="row">
-							<div class="col-6">
-									작성자 : ${sessionScope.loginId}
-									<input type="hidden" id="iqmid" name="iqmid" value="${sessionScope.loginId}">
-							</div>
+						<div class="col-3">
+							<span>작성자</span>
 						</div>
-						<div class="row">
-							<div class="col-12">
-								<input type="text" id="iqtitle" name="iqtitle">
-							</div>
+						<div class="col-9">
+							<input type="text" name="iqmid" value="${sessionScope.loginId}">
 						</div>
-						<div class="row">
-							<div class="col-4">
-								<h5>카테고리</h5>
-							</div>
-							<div class="col-8">
-								<select name="iqcategory" id="iqcategory">
-									<option value="결제오류">결제오류</option>
-									<option value="배송관련">배송관련</option>
-									<option value="상품관련">상품관련</option>
-									<option value="기타">기타</option>
-								</select>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>제목</span>
 						</div>
-						<div class="row">
-							<div class="col-4">
-								<h5>
-									문의내용 <br> <br>
-									<textarea name="iqcomment" id="iqcomment" placeholder="내용을 입력해주세요.."></textarea>
-								</h5>
-							</div>
+						<div class="col-9">
+							<input type="text" id="iqtitle" name="iqtitle" placeholder="제목을 입력해주세요...">
 						</div>
-						<div class="row">
-							<div class="col-4">
-								<h5>
-									첨부파일 :
-									<input type="file" name="iqfile" id="iqdile">
-								</h5>
-							</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>카테고리</span>
 						</div>
-						<button>작성하기</button>
+						<div class="col-9">
+							<select name="iqcategory" id="iqcategory">
+								<option value="결제오류">결제오류</option>
+								<option value="배송관련">배송관련</option>
+								<option value="상품관련">상품관련</option>
+								<option value="기타">기타</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>내용</span>
+						</div>
+						<div class="col-9">
+							<textarea id="iqcomment" name="iqcomment" placeholder="내용을 입력해주세요.."></textarea>
+							<div id="text_cnt">글자수(0 / 200)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>첨부파일</span>
+						</div>
+						<div>
+							<input type="file" name="iqfile">
+						</div>
+					</div>
+					<div class="text-center" style="margin-bottom: 10px;">
+						<button class="inquireBtn">작성하기</button>
 					</div>
 				</form>
-
 			</div>
+			<div class="col-3"></div>
 		</div>
 	</div>
 	<footer class="footer">
@@ -152,4 +159,35 @@ h5 {
 
 </body>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#iqcomment').on('keyup', function() {
+			$('#text_cnt').html("(" + $(this).val().length + " / 200)");
+
+			if ($(this).val().length > 200) {
+				$(this).val($(this).val().substring(0, 200));
+				$('#text_cnt').html("(200 / 200)");
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	function joinFormCheck() {
+
+		/* 제목 입력 확인 */
+		if ($("#iqtitle").val().length == 0) {
+			alert("제목을 입력 해주세요!");
+			$("#iqtitle").focus();
+			return false;
+		}
+		/* 내용 입력 확인 */
+		if ($("#iqcomment").val().length == 0) {
+			alert("내용을 입력 해주세요!");
+			$("#iqcomment").focus();
+			return false;
+		}
+
+	}
+</script>
 </html>
