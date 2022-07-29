@@ -218,36 +218,24 @@ textarea {
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-
-								<div class="item display" style="padding-top: 30px;">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center; margin-top: 50px;">
-										<div class="col-2">
-											<h5 style="font-weight: bold;">이미지</h5>
-										</div>
-										<div class="col-3">
-											<h5 style="font-weight: bold;">제품</h5>
-										</div>
-										<div class="col-2">
-											<h5 style="font-weight: bold;">가격</h5>
-										</div>
-										<div class="col-1">
-											<h5 style="font-weight: bold;">수량</h5>
-										</div>
-										<div class="col-2">
-											<h5 style="font-weight: bold;">총가격</h5>
-										</div>
-										<div class="col-1">
-											<h5 style="font-weight: bold;">배 송<br>준 비</h5>
-										</div>
-										<div class="col-1">
-											<h5 style="font-weight: bold;">주 문<br>취 소</h5>
-										</div>
-									</div>
-
-
-								</div>
-
+								
+								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
+											<thead>
+												<tr>
+													<th id="lsy2" style="width: 290px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
+													<th id="lsy2" style="width: 250px;">제품</th>
+													<th id="lsy2" style="width: 150px;">가격</th>
+													<th id="lsy2" style="width: 130px;">수량</th>
+													<th id="lsy2" style="width: 160px;">총가격</th>
+													<th id="lsy2" style="width: 80px;">배송<br>준비</th>
+													<th id="lsy2" style="width: 80px;">주문<br>취소</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+										
 								<c:forEach items="${OrderList}" var="odList">
 									
 										<div class="row" style="text-align: center;">
