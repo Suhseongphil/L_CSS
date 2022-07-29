@@ -59,7 +59,7 @@
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-				<h3>공동구매 게시판</h3>
+				<h3>공 동 구 매 게 시 판</h3>
 			</div>
 		</div>
 	</div>

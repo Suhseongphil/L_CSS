@@ -97,7 +97,7 @@ h7 {
 	text-align: center;
 	font-weight: 700;
 	letter-spacing: 4px;
-	color: saddlebrown;
+	color: #036;
 }
 
 </style>
@@ -139,7 +139,7 @@ h7 {
 	<div class="cart-box-main">
 		<div class="container">
 		
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
 				<h3>고 객 문 의 게 시 판</h3>
 			</div>
 			<div class="row">
@@ -158,9 +158,9 @@ h7 {
 									<table class="type09">
 										<thead>
 											<tr>
-												<th scope="cols">자주묻는 질문</th>
-												<th scope="cols">문의 유형</th>
-												<th scope="cols">문의 제목</th>
+												<th>자주묻는 질문</th>
+												<th>문의 유형</th>
+												<th>문의 제목</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -180,15 +180,15 @@ h7 {
 									<table class="type09">
 										<thead>
 											<tr>
-												<th scope="cols">문의 제목</th>
-												<th scope="cols">문의 유형</th>
-												<th scope="cols">시간</th>
-												<th scope="cols">상태</th>
+												<th>문의 제목</th>
+												<th>문의 유형</th>
+												<th>시간</th>
+												<th>상태</th>
 											</tr>
 										</thead>
 										
 									</table>
-									<br>
+									
 									<div id="myInqurreList" class="item"
 										style=""></div>
 
@@ -289,20 +289,23 @@ h7 {
 
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
-			output += "<div class=\"row \" >";
-			output += "<div class=\"col-6\">";
+			output += "<div style=\"border-bottom: 1px solid gray; margin-top:15px;\" class=\"row \">";
+			output += "<div class=\"col-5\">";
 
-			output += "<a style=\"padding-top: 36px; font-size: 18px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode +"\">"
+			output += "<a style=\"padding-top: 36px; font-size: 18px; margin-left: 20px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode +"\">"
 					+ myInquire[i].iqtitle
 					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
-			output += "<hr></div>";
+			output += "</div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2\">";
 			output += "<a style=\"font-size: 18px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode
 					+ "\">" + myInquire[i].iqcategory
 					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
+			output += "</div>";
+			
+			output += "<div class=\"col-1\">";
 			output += "</div>";
 
 			//output += "<td class=\"shoping__cart__quantity\">";
@@ -322,7 +325,7 @@ h7 {
 
 				output += "<h5>답변대기</h5>"
 			} else {
-				output += "<h5>답변완료</h5>"
+				output += "<h5 style=\"font-weight:700;\">답변완료</h5>"
 			}
 			output += "</div>";
 			output += "</div>";

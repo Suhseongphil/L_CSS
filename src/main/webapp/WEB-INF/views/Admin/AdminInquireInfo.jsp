@@ -118,7 +118,7 @@ h7 {
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
 	width: 520px;
-	height: 630px;
+	height: 530px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
 }
@@ -169,9 +169,9 @@ textarea {
 										<c:forEach items="${inquireInfo }" var="iqList">
 											<thead>
 												<tr>
-													<th scope="cols">제목</th>
-													<th scope="cols">작성자</th>
-													<th scope="cols">카테고리</th>
+													<th>제목</th>
+													<th>작성자</th>
+													<th>카테고리</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -189,7 +189,7 @@ textarea {
 												
 													<td >
 														<button value="${iqList.iqcode }" id="show"
-															class="primary-btn cart-btn cart-btn-right"
+															class="btn primary-btn cart-btn-right"
 															style=" margin-top:450px; margin-left:200px;
 															padding-bottom: 10px; background-color: #000000; color:white;">
 															답변작성</button>
@@ -212,11 +212,11 @@ textarea {
 		<div class="window2">
 			<form class="user" action="amindInsert" method="post"
 				enctype="multipart/form-data">
-				<div class="popup2" id="modal">
+				<div class="popup2" id="modal" style="text-align: center;">
 					<div>
-						<h5>
-							답변내용 <br> <br>
-							<textarea name="ancomment" id="ancomment"
+						<h5 style="font-weight:700; margin-top: 20px;">
+							 고객문의 답변 <br> <br>
+							<textarea style="border: 1px solid gray;" name="ancomment" id="ancomment"
 								placeholder="내용을 입력해주세요.."></textarea>
 
 							<input type="hidden" name="iqcode" id="iqcode" value="0">
@@ -227,14 +227,14 @@ textarea {
 						<input type="radio" name="ancommend" value="0">공개 <input
 							type="radio" name="ancommend" value="1">비공개
 					</div>
-					<button type="submit" id="save"
-						class="btn text-white button btnPush btnLightBlue"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px;">답변작성</button>
 					<button type="button" id="close"
-						class="btn text-white button btnPush btnLightBlue"
+						class="btn text-white"
 						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px;">취소</button>
+						style="background-color: #000000; margin-left: 20px; margin-right:20px; float:right;">취소</button>
+					<button type="submit" id="save"
+						class="btn text-white button"
+						title="Button push lightblue"
+						style="background-color: #000000; margin-left: 20px; float:right;">답변작성</button>
 				</div>
 			</form>
 		</div>
