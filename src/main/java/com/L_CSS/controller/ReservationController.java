@@ -63,11 +63,11 @@ public class ReservationController {
 	}
 	//배송요청
 	@RequestMapping(value="/orderCheck")
-	public ModelAndView orderCheck(String recode) {
+	public ModelAndView orderCheck(String recode, RedirectAttributes ra) {
 		System.out.println("주문확인");
 		
 		ModelAndView mav = new ModelAndView();
-		mav = rsv.orderCheck(recode);
+		mav = rsv.orderCheck(recode,ra);
 		
 		
 		return mav;

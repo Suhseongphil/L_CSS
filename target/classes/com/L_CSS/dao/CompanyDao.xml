@@ -30,9 +30,9 @@
 	</select>
 	<insert id="insertMyCompany">
 		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE,
-		CMLINK, CMMID)
+		CMLINK,CMNUM, CMMID)
 		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel},
-		#{cmimg}, 0, #{cmlink}, #{cmmid})
+		#{cmimg}, 0, #{cmlink},#{CMNUM}, #{cmmid})
 	</insert>
 	<select id="MycompanyInfo" resultType="com.L_CSS.dto.CompanyDto">
 		SELECT *
@@ -75,6 +75,10 @@
 		PDNAME , PDIMG
 		from review re , product pd
 		where re.rvpdcode = pd.pdcode
+	</select>
+	<select id="getmaxnum" resultType="int">
+		select max(cmnum)
+		from COMPANY
 	</select>
 
 </mapper>

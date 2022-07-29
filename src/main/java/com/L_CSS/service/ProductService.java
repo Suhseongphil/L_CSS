@@ -347,7 +347,7 @@ public class ProductService {
 		// 한페이지에 보여줄 글 개수
 		int pageCount = 8;
 		// 한페이지에 보여줄 페이지 번호 개수
-		int pageNumCount = 10;
+		int pageNumCount = 5;
 
 		int startRow = (page2 - 1) * pageCount + 1;
 		int endRow = page2 * pageCount;

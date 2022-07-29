@@ -108,13 +108,13 @@
 							</c:otherwise>
 						</c:choose>
 						<div class="product__discount__item__text">
-							<a href="cartIn?pdcode=${pro.pdcode }&pdcmcode=${pro.pdcmcode}">
+							<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
 								<i class="fa fa-shopping-cart"></i>
 							</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 							<h5>
 								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
-							<div class="product__item__price">${pro.pdprice}원</div>
+							<div class="product__item__price">${pro.pdprice}</div>
 						</div>
 					</div>
 				</div>
