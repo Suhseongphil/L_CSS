@@ -478,12 +478,30 @@ a span {
 	border-bottom: 1px solid #ccc;
 }
 
-#type09_ls td {
-	width: 350px;
-	padding: 10px;
+.lsy {
+	border-collapse: collapse;
+	text-align: left;
+	line-height: 1.5;
 	
- 	color:red;
-	text-align: center;
+}
+
+#lsy2 {
+	text-align:left;
+	
+	font-weight: bold;
+	vertical-align: bottom;
+}
+#lsy3 {
+	text-align:center;
+	
+	font-weight: bold;
+	vertical-align: bottom;
+}
+#lsy4 {
+	text-align:right;
+	
+	font-weight: bold;
+	vertical-align: bottom;
 }
 
 .ul3 li {
