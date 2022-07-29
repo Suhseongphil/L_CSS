@@ -88,61 +88,82 @@ input {
 
 	<div class="container" style="margin-bottom: 10px;">
 		<div class="row">
-			<div class="col-3"></div>
-			<div class="col-6" style="border-top: 3px solid #036; border-bottom: 4px solid #036; padding: 5px 0px;">
-				<form action="insertInquire" method="post" enctype="multipart/form-data" onsubmit="return joinFormCheck();">
-					<div class="row">
-						<div class="col-3">
-							<span>작성자</span>
-						</div>
-						<div class="col-9">
-							<input type="text" name="iqmid" value="${inquireInfo.iqmid}">
-						</div>
+			<div class="col-3">
+				<c:if test="${inquireInfo.iqimg != null }">
+					<div class="text-center" style="border-top: 3px solid #036; padding: 5px 0px;">
+						<img alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/InquireFile/${inquireInfo.iqimg}" style="width: 300px;">
 					</div>
-					<div class="row">
-						<div class="col-3">
-							<span>제목</span>
-						</div>
-						<div class="col-9">
-							<input type="text" id="iqtitle" name="iqtitle" value="${inquireInfo.iqtitle}">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<span>카테고리</span>
-						</div>
-						<div class="col-9">
-							<select name="iqcategory" id="iqcategory">
-								<option value="결제오류">결제오류</option>
-								<option value="배송관련">배송관련</option>
-								<option value="상품관련">상품관련</option>
-								<option value="기타">기타</option>
-							</select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<span>내용</span>
-						</div>
-						<div class="col-9">
-							<textarea id="iqcomment" name="iqcomment" placeholder="내용을 입력해주세요.."></textarea>
-							<div id="text_cnt">글자수(0 / 200)</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-3">
-							<span>첨부파일</span>
-						</div>
-						<div>
-							<input type="file" name="iqfile">
-						</div>
-					</div>
-					<div class="text-center" style="margin-bottom: 10px;">
-						<button class="inquireBtn">작성하기</button>
-					</div>
-				</form>
+				</c:if>
 			</div>
-			<div class="col-3"></div>
+			<div class="col-6" style="border-top: 3px solid #036; border-bottom: 4px solid #036; padding: 5px 0px;">
+				<div class="row">
+					<div class="col-3">
+						<span>작성자</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqmid}" style="border: none;" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>제목</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqtitle}" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>카테고리</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqcategory}" style="border: none;">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>작성일</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqdate}" style="border: none;" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>내용</span>
+					</div>
+					<div class="col-9">
+						<textarea readonly>${inquireInfo.iqcomment}</textarea>
+					</div>
+				</div>
+				<c:if test="${AnswerList == null}">
+					<div class="text-center" style="margin-bottom: 10px;">
+						<button class="inquireBtn" onclick="deleteInquire('${inquireInfo.iqcode}')">삭제하기</button>
+					</div>
+				</c:if>
+			</div>
+			<div class="col-3">
+				<c:if test="${AnswerList != null }">
+					<div style="border-top: 3px solid #036; padding: 5px 0px;">
+						<div class="row">
+							<div class="col-3">
+								<span>답변<br>내용</span>
+							</div>
+							<div class="col-9">
+								<textarea readonly>${AnswerList.ancomment}</textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<span>작성일</span>
+							</div>
+							<div class="col-9">
+								<input type="text" value="${AnswerList.andate}" style="border: none;" readonly>
+							</div>
+						</div>
+					</div>
+				</c:if>
+			</div>
 		</div>
 	</div>
 
@@ -161,4 +182,11 @@ input {
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 
 </body>
+
+<script type="text/javascript">
+	function deleteInquire(iqcode){
+		location.href="deleteInquire?iqcode="+iqcode;
+		
+	}
+</script>
 </html>

@@ -25,4 +25,8 @@ public interface InquIreDao {
 
 	AnswerDto AnswerList(String iqcode);
 
+	void deleteInquire(String iqcode);
+
+	InquIreDto delIqInfo(String iqcode);
+
 }

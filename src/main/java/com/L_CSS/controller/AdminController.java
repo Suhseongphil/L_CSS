@@ -190,12 +190,11 @@ public class AdminController {
 	}
 	//문의 답변하기
 	@RequestMapping(value="/amindInsert")
-	public  String amindInsert(String iqcode,String ancomment,String ancommend,RedirectAttributes ra) {
+	public  String amindInsert(String iqcode,String ancomment,RedirectAttributes ra) {
 		System.out.println("문의답변하기");
 		System.out.println(iqcode);
 		System.out.println(ancomment);
-		System.out.println(ancommend);
-		String insertInquire = adsvc.insertInquire(iqcode,ancomment,ancommend,ra);
+		String insertInquire = adsvc.insertInquire(iqcode,ancomment,ra);
 		System.out.println(insertInquire);
 		return insertInquire;
 	}
