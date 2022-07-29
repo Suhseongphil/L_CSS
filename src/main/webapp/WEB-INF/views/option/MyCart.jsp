@@ -69,6 +69,12 @@
 	border: none;
 	background: #f5f5f5;
 }
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+}
 </style>
 
 <body>
@@ -91,6 +97,9 @@
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
+				<h3>장 바 구 니</h3>
+			</div>
 			<div class="row">
 				<!--<section class="shoping-cart spad">  -->
 				<div class="container">

@@ -21,6 +21,7 @@
 .btnLightBlue.btnPush {
   box-shadow: 0px 5px 0px 0px #1E8185;
 }
+
 </style>
 <!-- Site Icons -->
 <link rel="shortcut icon"
@@ -162,6 +163,12 @@ textarea {
 	resize: none;
 	padding-bottom: 10px;
 }
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+}
 </style>
 
 <body>
@@ -200,6 +207,9 @@ textarea {
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
+		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
+				<h3>주 문 내 역</h3>
+			</div>
 			<div class="row">
 
 
@@ -319,9 +329,9 @@ textarea {
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
-								<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
+								<a href="shopMain" class="btn primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
 								<a href="orderhistory"
-									class="primary-btn text-white"
+									class="btn primary-btn text-white"
 									style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
@@ -372,9 +382,9 @@ textarea {
 						<input type="radio" name="rvrecommend" value="1">비공개
 					</div>
 
-					<button type="submit" id="save" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 									
+					<button type="submit" id="save" class="btn text-white" title="Button push lightblue" 									
 						style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
-					<button type="button" id="close" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" 
+					<button type="button" id="close" class="btn text-white" title="Button push lightblue" 
 						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>
