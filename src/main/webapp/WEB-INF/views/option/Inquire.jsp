@@ -188,6 +188,7 @@ h7 {
 										</thead>
 										
 									</table>
+									<br>
 									<div id="myInqurreList" class="item"
 										style=""></div>
 
@@ -291,14 +292,14 @@ h7 {
 			output += "<div class=\"row \" >";
 			output += "<div class=\"col-6\">";
 
-			output += "<a style=\"padding-top: 36px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode +"\">"
+			output += "<a style=\"padding-top: 36px; font-size: 18px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode +"\">"
 					+ myInquire[i].iqtitle
 					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
-			output += "</div>";
+			output += "<hr></div>";
 			//output += "<td class=\"shoping__cart__price\">";
 			output += "<div class=\"col-2\">";
-			output += "<a href=\"inquireInfo?iqcode=" + myInquire[i].iqcode
+			output += "<a style=\"font-size: 18px;\" href=\"inquireInfo?iqcode=" + myInquire[i].iqcode
 					+ "\">" + myInquire[i].iqcategory
 					+ "</a>&nbsp;&nbsp;";
 			//output += "</td>";
