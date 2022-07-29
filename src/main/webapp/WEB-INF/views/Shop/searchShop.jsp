@@ -114,7 +114,7 @@
 							<h5>
 								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
-							<div class="product__item__price">${pro.pdprice}원</div>
+							<div class="product__item__price">${pro.pdprice}</div>
 						</div>
 					</div>
 				</div>

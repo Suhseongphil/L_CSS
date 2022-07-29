@@ -43,7 +43,7 @@
 				<div class="container">
 					<div class="row">
 
-						<div class="col-lg-12 col-md-12 ">
+						
 							<div class="blog__item__pic">
 								<c:choose>
 									<c:when test="${cafeInfo.cfimg == null }">
@@ -54,20 +54,11 @@
 									</c:otherwise>
 								</c:choose>
 							</div>
-
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="blog-details spad">
-				<div class="container">
-					<div class="row">
-						<div>
-							<h2 style="margin-left:-80px; margin-top: -80px;">${cafeInfo.cfname}</h2>
-							<div id="map" style="width: 100%; height: 500px; margin-top: 35px;"></div>
+						<div style="margin-left: 100px;">
+							<h2 style="margin-left: -130px; margin-top: -80px; font-weight: bold;">${cafeInfo.cfname}</h2>
+							<div id="map" style="width: 500px; height: 500px; margin-top: 35px; "></div>
 							<h4 style="text-align: center;">${cafeInfo.cftel}</h4>
-							<h4 style="text-align: center;">${cafeInfo.cfaddress}</h4>
+							<h4 style="text-align: center; width: 500px;">${cafeInfo.cfaddress}</h4>
 							<input id="address" type="hidden" value="${cafeInfo.cfaddress}">
 							<input id="cfname" type="hidden" value="${cafeInfo.cfname}">
 						</div>

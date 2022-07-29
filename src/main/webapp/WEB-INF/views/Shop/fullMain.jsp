@@ -35,44 +35,32 @@
 		<%@ include file="../includes/SideBar2.jsp"%>
 	</section>
 	<section>
-		<div class="container" style="padding-left: 80px; margin-left: 250px;">
-			<div class="col-lg-12 col-md-3">
-				<div class="product__discount">
-					<div class="section-title product__discount__title" style="text-align: center; margin-top: -450px;">
-						<form action="searchProduct" method="get">
+		<div class="container">
+			<div class="row">
+			
+						<form action="searchProduct" method="get" style="margin-left: 400px; margin-top: -400px;">
 							<div id="search" class="row">
-								<div class="col-lg-12" style="margin-top: 200px;">
-									<div class="shoping__cart__btns" style="margin-left: 400px; margin-top: -150px;">
+							
+									<div class="shoping__cart__btns">
 										<select name="pdcategory" id="pdcategory">
 											<option value="pdname">이름</option>
 											<option value="pdtype">종류</option>
 
 										</select>
-										<input style="margin-left: -200px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
+										<input style="margin-left: 20px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
 										&nbsp;&nbsp;&nbsp;
 										<button type="submit" class="primary-btn text-white" style="background-color: #000000; margin-left: -5px;">검색</button>
 
 									</div>
-								</div>
-
+								
 							</div>
 						</form>
-						<h3 style="margin-top: -50px; margin-left: 50px; font-weight: bold;">
+						
+						<h2 style="margin-top: -300px; margin-left: 530px; font-weight: bold;">
 							추천 상품<br> <br>
-						</h3>
-
-
-					</div>
-
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="row">
-			<div class="product__discount__slider owl-carousel col-lg-6" style="margin-left: 500px; margin-top: -100px;">
-
+						</h2>
+			
+			<div class="product__discount__slider owl-carousel col-lg-9" style="margin-left: 200px; margin-top: -200px;">
 				<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
 					<div class="col-lg-4">
 						<div class="product__discount__item">
@@ -97,13 +85,15 @@
 						</div>
 					</div>
 				</c:forEach>
+				</div>
+				
 			</div>
 		</div>
 	</section>
 
 	<section>
 		<div>
-			<h3 style="margin-top: 400px; margin-left: 800px; font-weight: bold;">
+			<h3 style="margin-top: 100px; margin-left: 800px; font-weight: bold;">
 				전체 상품<br> <br>
 			</h3>
 		</div>
