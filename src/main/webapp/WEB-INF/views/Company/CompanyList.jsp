@@ -101,12 +101,12 @@
 										src="./assets/images/img-12.jpg">
 
 									<div class="item">
-										<h4 style="text-align: center; margin-bottom: 30px;">
+										<h2 style="text-align: center; margin-bottom: 30px;">
 											<a href="compnayInfo?cmcode=${comList.cmcode }">
 												${comList.cmname } </a>
-										</h4>
-										<p>주소 : ${comList.cmaddress }</p>
-										<p style="text-align: center;">${comList.cmtel }</p>
+										</h2>
+										<h5>주소 : ${comList.cmaddress }</h5>
+										<h5 style="text-align: center;">${comList.cmtel }</h5>
 
 									</div>
 								</div>
