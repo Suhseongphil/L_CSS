@@ -63,11 +63,11 @@ public class CompanyController {
 	}
 	//주문 삭제
 	@RequestMapping(value="/deleteOrder")
-	public ModelAndView deleteOrder(String recode) {
+	public ModelAndView deleteOrder(String recode, RedirectAttributes ra) {
 		System.out.println("주문 취소 호출");
 		ModelAndView mav = new ModelAndView();
 		
-		mav = csv.deleteOrder(recode);
+		mav = csv.deleteOrder(recode,ra);
 		return mav;
 	}
 	//내 업체등록 페이지 요청

@@ -184,7 +184,7 @@
 									<div class="featured__item__pic set-bg"
 										data-setbg="${product.pdimg}">
 										<ul class="featured__item__pic__hover">
-											<li><a href="#"> <i class="fa fa-shopping-cart"></i>
+											<li><a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1"> <i class="fa fa-shopping-cart"></i>
 											</a></li>
 										</ul>
 									</div>
