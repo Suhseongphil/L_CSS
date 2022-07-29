@@ -19,9 +19,8 @@
 
 <style type="text/css">
 .btnLightBlue.btnPush {
-  box-shadow: 0px 5px 0px 0px #1E8185;
+	box-shadow: 0px 5px 0px 0px #1E8185;
 }
-
 </style>
 <!-- Site Icons -->
 <link rel="shortcut icon"
@@ -163,6 +162,7 @@ textarea {
 	resize: none;
 	padding-bottom: 10px;
 }
+
 .hero__text2 h3 {
 	text-align: center;
 	font-weight: 700;
@@ -207,7 +207,8 @@ textarea {
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
+			<div class="hero__text2"
+				style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
 				<h3>주 문 내 역</h3>
 			</div>
 			<div class="row">
@@ -218,108 +219,138 @@ textarea {
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-								
-								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
-											<thead>
-												<tr>
-													<th id="lsy2" style="width: 290px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
-													<th id="lsy2" style="width: 250px;">제품</th>
-													<th id="lsy2" style="width: 150px;">가격</th>
-													<th id="lsy2" style="width: 130px;">수량</th>
-													<th id="lsy2" style="width: 160px;">총가격</th>
-													<th id="lsy2" style="width: 80px;">배송<br>준비</th>
-													<th id="lsy2" style="width: 80px;">주문<br>취소</th>
-												</tr>
-											</thead>
-											<tbody>
-												
-											</tbody>
-										</table>
-										
+
+								<table class="type09"
+									style="width: auto; margin-bottom: 30px; margin-top: 30px;">
+									<thead>
+										<tr>
+											<th id="lsy2" style="width: 290px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
+											<th id="lsy2" style="width: 250px;">제품</th>
+											<th id="lsy2" style="width: 150px;">가격</th>
+											<th id="lsy2" style="width: 130px;">수량</th>
+											<th id="lsy2" style="width: 160px;">총가격</th>
+											<th id="lsy2" style="width: 80px;">배송<br>준비
+											</th>
+											<th id="lsy2" style="width: 80px;">주문<br>취소
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+
+									</tbody>
+								</table>
+
 								<c:forEach items="${OrderList}" var="odList">
-									
-										<div class="row" style="text-align: center;">
-											<div class="col-2">
-												<img alt="" src="${odList.pdimg }">
-											</div>
-											<div class="col-3" style="margin-top: 60px;">
-												<h5>${odList.pdname }</h5>
-											</div>
-											<div class="col-2" style="margin-top: 60px;">
-												<h5>${odList.pdprice }</h5>
-											</div>
-											<div class="col-1" style="margin-top: 60px;">
-												<h5>${odList.reamount }</h5>
-											</div>
-											<div class="col-2" style="margin-top: 60px;">
-												<h5>${odList.reprice }</h5>
-											</div>
+
+									<div class="row" style="text-align: center;">
+										<div class="col-2">
+											<img alt="" src="${odList.pdimg }">
+										</div>
+										<div class="col-3" style="margin-top: 60px;">
+											<h5>${odList.pdname }</h5>
+										</div>
+										<div class="col-2" style="margin-top: 60px;">
+											<h5>${odList.pdprice }</h5>
+										</div>
+										<div class="col-1" style="margin-top: 60px;">
+											<h5>${odList.reamount }</h5>
+										</div>
+										<div class="col-2" style="margin-top: 60px;">
+											<h5>${odList.reprice }</h5>
+										</div>
+										<div class="col-1">
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
-													<div class="col-1">
-														<h5 style="font-size: 18px; margin-top: 60px;"
-														>배 송<br>준 비</h5>
-													</div>
+
+													<h5 style="font-size: 18px; margin-top:40px;">
+														배 송<br>준 비
+													</h5>
+
 												</c:when>
 												<c:when test="${odList.restate == 2}">
-													<div class="col-1">
-														<h5 style="font-size: 18px; margin-top: 60px;">배 송<br>완 료</h5>
-														<button title="Button push lightblue"
-														class="text-white" style="font-size: 18px; background-color: black;" id="show" value="${odList.recode }">리 뷰<br>작 성</button>	
-													</div>
+
+													<h5 style="font-size: 18px;">
+														배 송<br>완 료
+													</h5><hr style="margin-top: 30px; height:1px; background-color: black;">
+													<button class="text-white"
+														style="font-size: 18px; background-color: black;"
+														id="show" value="${odList.recode }">
+														리 뷰<br>작 성
+													</button>
+
 												</c:when>
 												<c:when test="${odList.restate == 4}">
-													<div class="col-1" style="font-size: 18px; margin-top: 60px;">
-														<h5 style="font-size: 18px; margin-bottom: 60px;">배 송<br>완 료</h5>
-														<h6 style="font-size: 18px;">리 뷰<br>작 성<br>완 료</h6>														
-													</div>
+
+													<h5 style="font-size: 18px;">
+														배 송<br>완 료 
+													</h5><hr style="margin-top: 30px; height:1px; background-color: black;">
+													<h6 style="font-size: 18px; margin-top: 20px;">
+														리 뷰<br>작 성<br>완 료
+													</h6>
+
 												</c:when>
-											</c:choose>
-											<c:choose>
-												<c:when test="${odList.restate == 0}">
-														<div class="col-1">
-													<form action="orderCancel" method="get">
-
-															<button type="submit" name="recode"
-															style="margin-top: 60px; background-color: black;" title="Button push lightblue" 
-															class="text-white"															
-																value="${odList.recode}">주 문<br>취 소</button>
-													</form>
-														</div>
-												</c:when>
-												<c:when test="${odList.restate == 2}">
-														<div class="col-1">
-													<form action="orderCancel" method="get">
-
-															<button type="submit" name="recode" title="Button push lightblue" 
-															class="text-white" style="font-size: 18px; margin-top: 60px; background-color: black;"
-																value="${odList.recode}">환 불<br>요 청</button>
-													</form>
-														</div>
-												</c:when>
-												<c:otherwise>
-													<div class="col-1">
-														<h5 style="margin-top: 60px;">취 소<br>대 기</h5>
-													</div>
-												</c:otherwise>
-
-
 											</c:choose>
 										</div>
-										<hr>
-									
+										<c:choose>
+											<c:when test="${odList.restate == 0}">
+												<div class="col-1">
+													<form action="orderCancel" method="get">
+
+														<button type="submit" name="recode"
+															style="margin-top: 37px; background-color: black;"
+															title="Button push lightblue" class="text-white"
+															value="${odList.recode}">
+															주 문<br>취 소
+														</button>
+													</form>
+												</div>
+											</c:when>
+											<c:when test="${odList.restate == 2}">
+												<div class="col-1">
+													<form action="orderCancel" method="get">
+
+														<button type="submit" name="recode"
+															title="Button push lightblue" class="text-white"
+															style="font-size: 18px; margin-top: 60px; background-color: black;"
+															value="${odList.recode}">
+															환 불<br>요 청
+														</button>
+													</form>
+												</div>
+											</c:when>
+											<c:when test="${odList.restate == 4 }">
+											<div class="col-1">
+													<h5 style="margin-top: 60px;">
+													</h5>
+												</div>
+											</c:when>
+											
+											<c:otherwise>
+												<div class="col-1">
+													<h5 style="margin-top: 60px;">
+														취 소<br>대 기
+													</h5>
+												</div>
+											</c:otherwise>
+
+
+										</c:choose>
+									</div>
+									<hr>
+
 								</c:forEach>
 
-								
+
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
-								<a href="shopMain" class="btn primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a> 
-								<a href="orderhistory"
-									class="btn primary-btn text-white"
+							<div
+								class="back color-10 menu align-center expanded text-center SMN_effect-70">
+								<a href="shopMain" class="btn primary-btn text-white"
+									style="margin-left: -800px; background-color: black;">더
+									쇼핑하기</a> <a href="orderhistory" class="btn primary-btn text-white"
 									style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
@@ -344,35 +375,36 @@ textarea {
 						style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
 						<label>회사명</label> <input type="text" id="cmname"
 							style="border: none;" readonly="readonly" name="cmname"
-							 class="form-control form-control-user">
+							class="form-control form-control-user">
 					</div>
 					<br>
 					<div style="margin-left: 20px; margin-right: 400px;">
 						<label>제품명</label> <input type="text" style="border: none;"
 							readonly="readonly" id="pdname" name="pdname"
-							
-							class="form-control form-control-user">
-							<input type="hidden" id="pdcode" name="pdcode">
-							<input type="hidden" id="recode" name="recode">
+							class="form-control form-control-user"> <input
+							type="hidden" id="pdcode" name="pdcode"> <input
+							type="hidden" id="recode" name="recode">
 					</div>
 					<br>
-					
-						<div >
-							<h5>
-								리뷰내용 <br> <br>
-								<textarea name="recomment" id="recomment"
-									placeholder="내용을 입력해주세요.."></textarea>
-							</h5>
-						</div>
-					
+
 					<div>
-						<input type="radio" name="rvrecommend" value="0">공개
-						<input type="radio" name="rvrecommend" value="1">비공개
+						<h5>
+							리뷰내용 <br> <br>
+							<textarea name="recomment" id="recomment"
+								placeholder="내용을 입력해주세요.."></textarea>
+						</h5>
 					</div>
 
-					<button type="submit" id="save" class="btn text-white" title="Button push lightblue" 									
+					<div>
+						<input type="radio" name="rvrecommend" value="0">공개 <input
+							type="radio" name="rvrecommend" value="1">비공개
+					</div>
+
+					<button type="submit" id="save" class="btn text-white"
+						title="Button push lightblue"
 						style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
-					<button type="button" id="close" class="btn text-white" title="Button push lightblue" 
+					<button type="button" id="close" class="btn text-white"
+						title="Button push lightblue"
 						style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>
@@ -430,21 +462,23 @@ textarea {
 		$.ajax({
 			type : "get",
 			url : "selectRecode",
-			data : {"recode" : recode},
+			data : {
+				"recode" : recode
+			},
 			dataType : "json",
 			async : false,
-			success : function(reCode){
+			success : function(reCode) {
 				console.log(reCode);
-				
+
 				$("#cmname").val(reCode.cmname);
 				$("#pdname").val(reCode.pdname);
 				$("#pdcode").val(reCode.pdcode);
 				$("#recode").val(reCode.recode);
 
 			}
-			
-		});		
-		
+
+		});
+
 		document.querySelector(".reView").className = "reView show2";
 	}
 

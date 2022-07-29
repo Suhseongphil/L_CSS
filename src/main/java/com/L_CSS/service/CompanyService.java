@@ -132,11 +132,19 @@ public class CompanyService {
 	}
 
 	// 주문 취소
-	public ModelAndView deleteOrder(String recode) {
+	public ModelAndView deleteOrder(String recode, RedirectAttributes ra) {
 		System.out.println("주문취소");
 		ModelAndView mav = new ModelAndView();
 		int deleteOrder = rdao.deleteOrder(recode);
-
+		
+		if (deleteOrder > 0) {
+			ra.addFlashAttribute("msg", "주문이 취소되었습니다.");
+			mav.setViewName("redirect:/");
+		} else {
+			ra.addFlashAttribute("msg", "주문취소에 실패하였습니다.");
+			mav.setViewName("redirect:/");
+		}
+		
 		mav.setViewName("Company/CompanyOrderList");
 		return mav;
 	}
@@ -147,6 +155,7 @@ public class CompanyService {
 		
 		// 업체코드 생성
 		String max = cdao.getmax();
+		int maxnum = cdao.getmaxnum();
 		String cmcode = "CM";
 		System.out.println(max);
 		if (max == null) {
@@ -162,6 +171,7 @@ public class CompanyService {
 				cmcode = cmcode + maxCode;
 			}
 		}
+		company.setCmnum(maxnum);
 		company.setCmcode(cmcode);
 		System.out.println(cmcode);
 

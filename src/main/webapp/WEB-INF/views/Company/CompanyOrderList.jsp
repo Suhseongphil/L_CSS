@@ -163,12 +163,19 @@
 
                                        <c:choose>
                                           <c:when test="${odList.restate == 0}">
-                                             
-                                                <td>
-                                                   <button type="submit" name="recode" style="background-color: black; color: white;"
+													<td>
+                                            <form action="orderCheck" method="get">
+														<button type="submit" name="recode" style="background-color: black; color: white;"
                                                       value="${odList.recode}">배송</button>
-                                                </td>
-                                             
+												</form>
+												<form action="deleteOrder" method="get">
+					
+														<button type="submit" name="recode" style="background-color: black; color: white; margin-top: 10px;"
+															value="${odList.recode}">취소요청</button>
+													
+													</form>
+													</td>
+												 
                                           </c:when>
                                           <c:when test="${odList.restate == 2}">
                                              <td>
@@ -176,15 +183,22 @@
 
                                              </td>
                                           </c:when>
-                                          <c:otherwise>
-                                             <td>
-                                                
-                                                   <button type="submit" name="recode"
-                                                      value="${odList.recode}" style="background-color: black; color: white;">취소요청</button>
-                                                
+                                          
+                                          <c:when test="${odList.restate == 4 }">
+                                          	<td>
+                                                <h6>배송완료</h6>
                                              </td>
+                                          </c:when>
+                                          
+                                          <c:otherwise>
+                                          
+                                          <form action="deleteOrder" method="get">
+														<td>
+														<button type="submit" name="recode" style="background-color: black; color: white; margin-top: 10px;"
+															value="${odList.recode}">취소요청</button>
+														</td>
+													</form>
                                           </c:otherwise>
-
 
                                        </c:choose>
                                        
@@ -205,8 +219,8 @@
                <div class="row">
                   <div class="col-lg-12">
                      <div class="shoping__cart__btns">
-                        <a href="shopMain" class="primary-btn cart-btn" style="background-color: black; color: white;">더 쇼핑하기</a> <a
-                           href="orderhistory" class="primary-btn cart-btn cart-btn-right" style="background-color: black; color: white;">
+                        <a
+                           href="orderList" class="primary-btn cart-btn cart-btn-right" style="background-color: black; color: white;">
                            새로고침</a>
                      </div>
                   </div>
@@ -258,6 +272,13 @@
       <%@ include file="../includes/FooterBar.jsp"%>
    </footer>
 </body>
+
+<script type="text/javascript">
+	var checkMsg = '${msg}'
+	if (checkMsg.length > 0) {
+		alert(checkMsg);
+	}
+</script>
 
 <script type="text/javascript">
    /*

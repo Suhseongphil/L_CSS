@@ -26,5 +26,7 @@ public class CompanyDto {
 	private	int	cmstate;
 	private	String	cmlink;
 	
+	private int cmnum;
+	
 	
 }

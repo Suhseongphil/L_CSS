@@ -32,6 +32,8 @@ public interface CompanyDao {
 	int getintId(String loginId);
 
 	ArrayList<ReviewProductDto> reviewList();
+
+	int getmaxnum();
 	
 
 }

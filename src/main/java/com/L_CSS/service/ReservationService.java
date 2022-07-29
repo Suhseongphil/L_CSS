@@ -133,17 +133,23 @@ public class ReservationService {
 		
 		
 		mav.setViewName("redirect:/orderhistory");
-		
 		return mav;
 	}
 	//주문확인
-	public ModelAndView orderCheck(String recode) {
+	public ModelAndView orderCheck(String recode, RedirectAttributes ra) {
 		System.out.println("orderCheck()호출");
 		ModelAndView mav = new ModelAndView();
 		
 		int orderCheck = rdao.orderCheck(recode);
 		
-		mav.setViewName("redirect:/orderhistory");
+		if (orderCheck > 0) {
+			ra.addFlashAttribute("msg","배송이 시작되었습니다.");
+			mav.setViewName("redirect:/");
+		} else {
+			ra.addFlashAttribute("msg","배송에 실패하였습니다.");
+			mav.setViewName("redirect:/");
+		}
+		
 		return mav;
 	}
 	//리뷰 모달 호출
