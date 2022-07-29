@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.L_CSS.dto.AnswerDto;
 import com.L_CSS.dto.InquIreDto;
 
 public interface InquIreDao {
@@ -16,12 +17,12 @@ public interface InquIreDao {
 
 	ArrayList<InquIreDto> searchList(@Param("search")String iqcategory, @Param("text")String searchText);
 
-	ArrayList<InquIreDto> inquireInfo(String iqcode);
+	InquIreDto inquireInfo(String iqcode);
 
 	ArrayList<InquIreDto> selectInquireList();
 
 	ArrayList<InquIreDto> AdminInquireInfo(String iqcode);
 
-	ArrayList<InquIreDto> AnswerList(String iqcode);
+	AnswerDto AnswerList(String iqcode);
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dao.InquIreDao;
+import com.L_CSS.dto.AnswerDto;
 import com.L_CSS.dto.InquIreDto;
 import com.google.gson.Gson;
 
@@ -45,6 +46,7 @@ public class InquIreService {
 		System.out.println(iqcode);
 		return null;
 	}
+	
 	//문의 내용 작성 
 	public ModelAndView insertInquire(InquIreDto in) throws IllegalStateException, IOException {
 		System.out.println("insertInquire()호출 ");
@@ -91,6 +93,7 @@ public class InquIreService {
 		mav.setViewName("option/Inquire");
 		return mav;
 	}
+	
 	//내 문의내용 출력
 	public String selectInquire(String loginId) {
 		System.out.println("selectInquire()호출");
@@ -101,6 +104,7 @@ public class InquIreService {
 		
 		return inquire;
 	}
+	
 	//검색기능
 	public ModelAndView searchText(String iqcategory, String searchText) {
 		System.out.println("serchText()호출");
@@ -111,13 +115,15 @@ public class InquIreService {
 		mav.setViewName("option/searchInquire");
 		return mav;
 	}
+	
 	//문의 상세보기
 	public ModelAndView inquireInfo(String iqcode) {
 		System.out.println("inquireInfo()호출");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<InquIreDto>inquireInfo = Idao.inquireInfo(iqcode);
-		ArrayList<InquIreDto>AnswerList = Idao.AnswerList(iqcode);
-		System.out.println(inquireInfo);
+		
+		InquIreDto inquireInfo = Idao.inquireInfo(iqcode);
+		AnswerDto AnswerList = Idao.AnswerList(iqcode);
+		
 		mav.addObject("inquireInfo",inquireInfo);
 		mav.addObject("AnswerList",AnswerList);
 		mav.setViewName("option/InquireInfo");

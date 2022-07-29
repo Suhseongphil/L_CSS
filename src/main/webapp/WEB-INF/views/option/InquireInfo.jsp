@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -12,305 +11,154 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+<title>고객문의 게시글</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
 
 <!-- Site Icons -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
-	type="image/x-icon">
-<link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
 <!-- Bootstrap CSS -->
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 
 </head>
 <style>
-.but_css {
-	height: 20px;
-	width: 20px;
-	border: none;
-	font-size: 10;
-	font-weight: 800;
+textarea {
+	width: 90%;
+	height: 300px;
+	resize: none;
+	padding-bottom: 10px;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
+}
+
+input {
+	width: 90%;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
+}
+
+.col-3 {
 	text-align: center;
+	font-weight: bold;
 }
 
-.item display {
-	display: flex;
-	flex-direction: column;
-}
-
-.item {
-	padding-bottom: 30px;
-}
-
-.px {
-	padding-bottom: 30px;
-}
-
-.divpadding {
-	padding-top: 36px;
-}
-
-.center {
+.hero__text2 h3 {
 	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: #036;
 }
 
-h7 {
-	text-align: center;
+.row {
+	margin-bottom: 10px;
+}
+
+.inquireBtn {
+	font-weight: bold;
+	border: solid 1px #e8e8e8;
+	border-radius: 5px;
+	width: 30%;
 }
 </style>
 
 <body>
-	<!-- Start Main Top -->
-
-	<!-- End Main Top -->
-
-	<!-- Start Main Top -->
-	<%@ include file="../includes/TopBar.jsp"%>
-	<header class="main-header">
-		<!-- Start Navigation -->
-
-		<div class="container">
-			<!-- Start Header Navigation -->
-
-			<!-- End Header Navigation -->
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbar-menu"></div>
-			<!-- /.navbar-collapse -->
-
-			<!-- Start Atribute Navigation -->
-			<div class="row">
-				<%@ include file="../includes/MiddleBar.jsp"%>
-			</div>
-			<!-- End Atribute Navigation -->
-		</div>
-		<!-- Start Side Menu -->
-
-		<!-- End Side Menu -->
-
-		<!-- End Navigation -->
+	<header class="header">
+		<%@ include file="../includes/TopBar.jsp"%>
 	</header>
-
-
-	<!-- Start Cart  -->
-	<div class="cart-box-main">
-		<div class="container">
-			<div class="row">
-
-
-				<!--<section class="shoping-cart spad">  -->
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="shoping__cart__table">
-
-								<div class="item display" style="padding-top: 30px;">
-							
-
-									<c:forEach items="${inquireInfo }" var="iqList">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										제목 : <h5>${iqList.iqtitle }</h5>
-										</div>
-										<div class="col-3">
-										작성자 :	<h5>${iqList.iqmid }</h5>
-										</div>
-										<div class="col-3">
-										카테고리 :	<h5>${iqList.iqcategory }</h5>
-										</div>
-										
-									</div>
-									
-									<div 
-										style="padding-bottom: 20px; text-align: center;">
-										<div class="col-6">
-										문의내용 : <h5>${iqList.iqcomment }</h5>
-										</div>
-										
-										
-									</div>
-									
-									</c:forEach>
-
-								</div>
-
-							</div>
-						</div>
-					</div>		
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="shoping__cart__table">
-
-								<div class="item display" style="padding-top: 30px;">
-							
-
-									<c:forEach items="${AnswerList }" var="anList">
-									<div class="row"
-										style="padding-bottom: 20px; text-align: center;">
-										
-										<div class="col-8">
-										답변내용 :	<h5>${anList.ancomment }</h5>
-										</div>
-		
-										
-										<div class="col-5">
-										답변날짜 : <h5>${anList.andate }</h5>
-										</div>
-										
-										
-									</div>
-									
-									</c:forEach>
-
-								</div>
-
-							</div>
-						</div>
-					</div>		
-				</div>
-				<!--</section>  -->
+	<div class="container">
+		<div class="row">
+			<%@ include file="../includes/MiddleBar.jsp"%>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
+				<h3>고객문의 상세보기</h3>
 			</div>
-
-
 		</div>
 	</div>
+
+	<div class="container" style="margin-bottom: 10px;">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6" style="border-top: 3px solid #036; border-bottom: 4px solid #036; padding: 5px 0px;">
+				<form action="insertInquire" method="post" enctype="multipart/form-data" onsubmit="return joinFormCheck();">
+					<div class="row">
+						<div class="col-3">
+							<span>작성자</span>
+						</div>
+						<div class="col-9">
+							<input type="text" name="iqmid" value="${inquireInfo.iqmid}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>제목</span>
+						</div>
+						<div class="col-9">
+							<input type="text" id="iqtitle" name="iqtitle" value="${inquireInfo.iqtitle}">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>카테고리</span>
+						</div>
+						<div class="col-9">
+							<select name="iqcategory" id="iqcategory">
+								<option value="결제오류">결제오류</option>
+								<option value="배송관련">배송관련</option>
+								<option value="상품관련">상품관련</option>
+								<option value="기타">기타</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>내용</span>
+						</div>
+						<div class="col-9">
+							<textarea id="iqcomment" name="iqcomment" placeholder="내용을 입력해주세요.."></textarea>
+							<div id="text_cnt">글자수(0 / 200)</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<span>첨부파일</span>
+						</div>
+						<div>
+							<input type="file" name="iqfile">
+						</div>
+					</div>
+					<div class="text-center" style="margin-bottom: 10px;">
+						<button class="inquireBtn">작성하기</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-3"></div>
+		</div>
+	</div>
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- End Cart -->
 
-	<!-- Start Instagram Feed  -->
-
-	<!-- End Instagram Feed  -->
-
-
-	<!-- Start Footer  -->
-
-	<!-- End Footer  -->
-
-	<!-- Start copyright  -->
-
-	<!-- End copyright  -->
-
-
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<!-- JS -->
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<!-- ALL JS FILES -->
 
 </body>
-<script type="text/javascript">
-	$(document).ready(function() {
-		myInquire();
-	});
-
-	function myInquire() {
-		$.ajax({
-			type : "get",
-			url : "myInquire",
-			dataType : "json",
-			success : function(myInquire) {
-				console.log(myInquire);
-				InquirePrint(myInquire);
-			}
-		});
-	}
-
-	function InquirePrint(myInquire) {
-
-		console.log(myInquire);
-		var output = "";
-		for (var i = 0; i < myInquire.length; i++) {
-
-			//output += "<tr>"
-			//output += "<td class=\"shoping__cart__item\">";
-			output += "<div class=\"row px\">";
-			output += "<div class=\"col-6 center\">"
-
-			output += "<h7 style=\"padding-top: 36px;\">"
-					+ myInquire[i].iqcategory
-					+ "</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			//output += "</td>";
-			output += "</div>";
-			//output += "<td class=\"shoping__cart__price\">";
-			output += "<div class=\"col-2 divpadding \">"
-			output += "<a href=\"inquireInfo?iqtitle="+myInquire[i].iqtitle+"\">" + myInquire[i].iqtitle
-					+ "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			//output += "</td>";
-			output += "</div>";
-
-			//output += "<td class=\"shoping__cart__quantity\">";
-
-			output += "<div class=\"col-2 divpadding \">"
-			output += "<h5>" + myInquire[i].iqdate
-					+ "</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-			//output += "</td>";
-			output += "</div>";
-
-			//output += "</td>";
-
-			//output += "<td class=\"shoping__cart__total\">";
-			output += "<div class=\"col-2 divpadding\">"
-			output += "<h5>" + myInquire[i].iqstate
-					+ " &nbsp;&nbsp;<span class=\"icon_close\"></span></h5>";
-			output += "</div>";
-			output += "</div>";
-
-		}
-
-		$("#myInqurreList").html(output);
-
-	}
-</script>
 </html>
