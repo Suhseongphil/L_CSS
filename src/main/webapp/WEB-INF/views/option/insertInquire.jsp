@@ -124,7 +124,7 @@ input {
 						</div>
 						<div class="col-9">
 							<textarea id="iqcomment" name="iqcomment" placeholder="내용을 입력해주세요.."></textarea>
-							<div id="text_cnt">글자수(0 / 200)</div>
+							<div id="text_cnt">글자수(0 / 500)</div>
 						</div>
 					</div>
 					<div class="row">
@@ -162,11 +162,11 @@ input {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#iqcomment').on('keyup', function() {
-			$('#text_cnt').html("(" + $(this).val().length + " / 200)");
+			$('#text_cnt').html("(" + $(this).val().length + " / 500)");
 
-			if ($(this).val().length > 200) {
-				$(this).val($(this).val().substring(0, 200));
-				$('#text_cnt').html("(200 / 200)");
+			if ($(this).val().length > 500) {
+				$(this).val($(this).val().substring(0, 500));
+				$('#text_cnt').html("(500 / 500)");
 			}
 		});
 	});

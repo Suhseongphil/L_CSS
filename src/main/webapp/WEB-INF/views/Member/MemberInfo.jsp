@@ -96,6 +96,7 @@ request.setCharacterEncoding("UTF-8");
 	height: 790px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
+	border-radius:10px;
 }
 
 .show2 .popup2 {
