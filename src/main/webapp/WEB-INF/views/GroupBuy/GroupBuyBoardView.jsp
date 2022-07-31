@@ -95,6 +95,7 @@
 	height: 330px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
+	border-radius:10px;
 }
 
 .popup3 {
@@ -106,9 +107,10 @@
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
 	width: 600px;
-	height: 420px;
+	height: 600px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
+	border-radius:10px;
 }
 
 .show .popup2 .show2 .popup3 {
@@ -160,6 +162,10 @@ label {
 	background-color: black;
 	color: white;
 	margin-bottom: 2px;
+}
+
+textarea{
+	border:1px solid black;
 }
 </style>
 </head>
