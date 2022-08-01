@@ -146,7 +146,7 @@
 					<c:choose>
 						<c:when test="${pagedto.page == num }">
 							<li>
-								<a href="#">${num }</a>
+								<span class="pageNum">${num }</span>
 							</li>
 						</c:when>
 						<c:otherwise>

@@ -197,7 +197,7 @@ public class CafeService {
 		int getLoginId = cdao.getintId(loginId);
 		
 		CafeDto mycafeInfo = cdao.MyCafeInfo(loginId);
-		
+		System.out.println(mycafeInfo);
 		
 		
 		if (getLoginId == 0) {

@@ -360,10 +360,7 @@ public class ProductService {
 		if (endPage > maxPage) {
 			endPage = maxPage;
 		}
-		System.out.println(startRow);
-		System.out.println(endRow);
-		System.out.println("값2"+category);
-		System.out.println("값"+text);
+		
 		// null > 원두
 		if(category != null &&  text != null) {
 			pdcategory = category;

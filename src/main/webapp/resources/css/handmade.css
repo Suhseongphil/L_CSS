@@ -539,3 +539,20 @@ list-style: none;
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
 }
+.pageNum{
+text-decoration: none;
+color: black;
+float: left;
+text-align: center;
+border-color: silver;
+font-weight: 700;
+background-color :  saddlebrown;
+color: white;
+margin-right: 16px;
+width: 30px;
+height: 30px;
+border : 1px solid black;
+font-size : 20px;
+margin-left: 0px;
+line-height: 28px;
+}
