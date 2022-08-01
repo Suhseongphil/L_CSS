@@ -31,6 +31,8 @@ public interface CafeDao {
 
 	int getintId(String loginId);
 
+	ArrayList<CafeDto> selectAddr(String cfaddress);
+
 
 
 }

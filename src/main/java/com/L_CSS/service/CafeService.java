@@ -308,5 +308,20 @@ public class CafeService {
 		return mav;
 	}
 
+	public ModelAndView selectCheck(String cfaddress) {
+		System.out.println("selectCheck()호출");
+		
+		ArrayList<CafeDto>addressSelect = cdao.selectAddr(cfaddress);
+		System.out.println(addressSelect);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("addressSelect", addressSelect);
+		mav.setViewName("Cafe/CafeAddressList");
+		
+		return mav;
+	}
+	
+
 	
 }
