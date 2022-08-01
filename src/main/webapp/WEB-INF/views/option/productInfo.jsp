@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html" />
 
 <title>Insert title here</title>
-</head>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -18,9 +18,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-
-
-
+<style type="text/css">
+.cartBtn{
+	background-color:black;
+	color:white;
+	border-radius:5px;
+}
+</style>
+</head>
 <body>
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
@@ -58,11 +63,11 @@
 						<div class="product__details__quantity">
 							<div class="quantity">
 								<div class="">
-									<input id="amount" type="number" value="1">
+									수량 : <input id="amount" type="number" value="1" style="width:40px;">
 								</div>
 							</div>
 						</div>
-						<button onclick="cartIn('${productInfo.pdcode}','${productInfo.pdcmcode}')" class="font-weight-bold text-white" style="background-color: #000000;">장바구니담기</button>
+						<button onclick="cartIn('${productInfo.pdcode}','${productInfo.pdcmcode}')" class="font-weight-bold cartBtn">장바구니담기</button>
 						<ul>
 							<li>
 								<b>업체명</b>
