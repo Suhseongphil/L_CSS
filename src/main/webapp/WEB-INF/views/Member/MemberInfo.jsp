@@ -115,9 +115,6 @@ label {
 </style>
 <body>
 	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
 
 	<!-- Humberger Begin -->
 	<div class="humberger__menu__overlay"></div>
@@ -213,7 +210,7 @@ label {
 							<p>아이디&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mid }</p>
 							<p>이름&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mname }</p>
 							<p>전화번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mtel }</p>
-							<p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail }</p>
+							<p>이메일&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.memail2 }</p>
 							<p>우편번호&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.mpostercode }</p>
 							<p>
 								주소&nbsp;&nbsp;:&nbsp;&nbsp;${memberInfo.maddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${memberInfo.maddr2 }
