@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,41 +18,20 @@
 <meta name="author" content="">
 
 <!-- Site Icons -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
-	type="image/x-icon">
-<link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
 <!-- Bootstrap CSS -->
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -91,11 +69,19 @@
 	border: none;
 	background: #f5f5f5;
 }
+
 .hero__text2 h3 {
 	text-align: center;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: saddlebrown;
+}
+
+.cancelBtn{
+	border: none;
+	background-color: black;
+	color:white;
+	border-radius:3px;
 }
 </style>
 
@@ -119,7 +105,7 @@
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
-		<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
 				<h3>장 바 구 니</h3>
 			</div>
 			<div class="row">
@@ -129,66 +115,54 @@
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
 
-								
-										<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
-											<thead>
-												<tr>
-													<th id="lsy2" style="width: 450px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
-													<th id="lsy2" style="width: 400px;">이름</th>
-													<th id="lsy2" style="width: 300px;">가격</th>
-													<th id="lsy2" style="width: 300px;">수량</th>
-													<th id="lsy2" style="width: 250px;">총가격</th>
-													<th id="lsy2" style="width: 80px;">취소</th>
-												</tr>
-											</thead>
-											<tbody>
-												
-											</tbody>
-										</table>
 
-										<div id="myCartList" class="item" style="text-align: center;"></div>
-									</div>
-								</div>
+								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
+									<thead>
+										<tr>
+											<th id="lsy2" style="width: 450px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
+											<th id="lsy2" style="width: 400px;">이름</th>
+											<th id="lsy2" style="width: 300px;">가격</th>
+											<th id="lsy2" style="width: 300px;">수량</th>
+											<th id="lsy2" style="width: 250px;">총가격</th>
+											<th id="lsy2" style="width: 80px;">취소</th>
+										</tr>
+									</thead>
+									<tbody>
+
+									</tbody>
+								</table>
+
+								<div id="myCartList" class="item" style="text-align: center;"></div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div
-									class="back color-10 menu align-center expanded text-center SMN_effect-70"
-									style="font-weight: bold;">
-									<a href="shopMain" class="primary-btn text-white"
-										style="margin-left: -800px; background-color: black;">더
-										쇼핑하기</a> <a href="myCartPage" class="primary-btn text-white"
-										style="background-color: black; float: right;"> 새로고침</a>
-								</div>
-							</div>
-							<div id="checkOut" class="col-lg-4"
-								style="margin-bottom: 100px; margin-left: 800px;"></div>
 						</div>
 					</div>
-					<!--</section>  -->
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="back color-10 menu align-center expanded text-center SMN_effect-70" style="font-weight: bold;">
+							<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black; border-radius:3px;">더 쇼핑하기</a>
+							<a href="myCartPage" class="primary-btn text-white" style="background-color: black; float: right; border-radius:3px;"> 새로고침</a>
+						</div>
+					</div>
+					<div id="checkOut" class="col-lg-4" style="margin-bottom: 100px; margin-left: 800px;"></div>
 				</div>
 			</div>
-	
+			<!--</section>  -->
+		</div>
+	</div>
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 
 	<!-- JS -->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
 
 
@@ -257,8 +231,8 @@
 
 			output += "</div>";
 			output += "<div class=\"col-1 divpadding\">";
-			output += "<h5><input onclick=\"checkbox()\"  type=\"checkbox\" id=\"check\" name=\"check\" value=\""
-					+ mycart[i].ctcode + "\" ></h5>";
+			output += "<button class=\"cancelBtn\" onclick=\"checkbox('" + mycart[i].ctcode
+					+ "')\" id=\"check\">취소</button>";
 			output += "</div>";
 
 			//output += "</td>";
@@ -337,26 +311,20 @@
 		});
 	}
 
-	function checkbox() {
+	function checkbox(ctcode) {
 
-		$("input[name=check]:checked").each(function() {
-			var chc = $(this).val();
-			console.log(chc);
+		$.ajax({
+			type : "get",
+			url : "deleteCart",
+			data : {
+				"ctcode" : ctcode
+			},
 
-			$.ajax({
-				type : "get",
-				url : "deleteCart",
-				data : {
-					"ctcode" : chc
-				},
-
-				asyne : false,
-				success : function(paymentInsert) {
-					console.log(paymentInsert)
-					myCart();
-				}
-			});
-
+			asyne : false,
+			success : function(paymentInsert) {
+				console.log(paymentInsert)
+				myCart();
+			}
 		});
 	}
 
