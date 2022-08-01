@@ -32,7 +32,7 @@
 		INSERT INTO COMPANY(CMCODE, CMNAME, CMADDRESS, CMTEL, CMIMG, CMSTATE,
 		CMLINK,CMNUM, CMMID)
 		VALUES(#{cmcode}, #{cmname}, #{cmaddress}, #{cmtel},
-		#{cmimg}, 0, #{cmlink},#{CMNUM}, #{cmmid})
+		#{cmimg}, 0, #{cmlink},#{cmnum}, #{cmmid})
 	</insert>
 	<select id="MycompanyInfo" resultType="com.L_CSS.dto.CompanyDto">
 		SELECT *
