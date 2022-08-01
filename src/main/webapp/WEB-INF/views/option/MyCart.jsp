@@ -114,7 +114,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-
+	
 
 								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
 									<thead>
@@ -191,11 +191,15 @@
 
 		var output = "";
 		for (var i = 0; i < mycart.length; i++) {
-
+			
+			
+			
+			
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row \">";
 			output += "<div class=\"col-2  \">"
+			
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			output += "</div>";
 			output += "<div class=\"col-3  \">"
