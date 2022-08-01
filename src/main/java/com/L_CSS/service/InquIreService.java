@@ -21,8 +21,8 @@ public class InquIreService {
 	@Autowired
 	InquIreDao Idao;
 	// 사용자 변경시 주소 변경 확인하기
-	private String savePath = "/Users/suhseongphil/Programming/github_project/L_CSS/src/main/webapp/resources/fileUpLoad/InquireFile";
-
+	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\InquireFile";
+	
 	public ModelAndView InquIreUpLoad() {
 
 		String max = Idao.getmax();
