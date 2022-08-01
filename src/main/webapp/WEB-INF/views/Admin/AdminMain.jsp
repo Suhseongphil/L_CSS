@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 페이지</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">
@@ -30,64 +30,28 @@
 </head>
 
 <body>
-
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
-
-	<!-- Hero Section Begin -->
+	
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/AdminMiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
 	
-	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-				
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Featured Section End -->
-
-	<!-- Categories Section Begin -->
-	<!-- Categories Section End -->
 	<br>
-
-	<!-- Banner Begin -->
-
-	<!-- Banner End -->
-
-	<!-- Latest Product Section Begin -->
-
-	<!-- Latest Product Section End -->
-
-	<!-- Blog Section Begin -->
-
-	<!-- Blog Section End -->
-
-	<!-- Footer Section Begin -->
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
