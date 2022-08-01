@@ -36,29 +36,22 @@
 	<section>
 		<div class="container">
 			<div class="row">
-
 				<form action="searchProduct" method="get" style="margin-left: 400px; margin-top: -400px;">
 					<div id="search" class="row">
-
 						<div class="shoping__cart__btns">
 							<select name="pdcategory" id="pdcategory">
 								<option value="pdname">이름</option>
 								<option value="pdtype">종류</option>
-
 							</select>
 							<input style="margin-left: 20px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
 							&nbsp;&nbsp;&nbsp;
 							<button type="submit" class="primary-btn text-white" style="background-color: #000000; margin-left: -5px;">검색</button>
-
 						</div>
-
 					</div>
 				</form>
-
 				<h2 style="margin-top: -300px; margin-left: 530px; font-weight: bold;">
 					추천 상품<br> <br>
 				</h2>
-
 				<div class="product__discount__slider owl-carousel col-lg-9" style="margin-left: 200px; margin-top: -200px;">
 					<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
 						<div class="col-lg-4">
@@ -73,23 +66,19 @@
 									</c:otherwise>
 								</c:choose>
 								<div class="product__discount__item__text">
-
 									<a href="">
 										<span>${rePro.pdname}</span>
 									</a>
 									<h5>${rePro.rvcomment}</h5>
 									<h6>${rePro.rvdate}</h6>
-
 								</div>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
-
 			</div>
 		</div>
 	</section>
-
 	<section>
 		<div>
 			<h3 style="margin-top: 100px; margin-left: 800px; font-weight: bold;">

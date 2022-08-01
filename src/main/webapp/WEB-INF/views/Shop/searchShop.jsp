@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,7 +115,10 @@
 							<h5>
 								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
-							<div class="product__item__price">${pro.pdprice}</div>
+							<div class="product__item__price">
+							<fmt:formatNumber value="${pro.pdprice}" pattern="#,###" />
+							원
+							</div>
 						</div>
 					</div>
 				</div>

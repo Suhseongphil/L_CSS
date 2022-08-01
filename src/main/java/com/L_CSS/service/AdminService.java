@@ -13,11 +13,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.AdminDao;
 import com.L_CSS.dao.InquIreDao;
+import com.L_CSS.dto.AnswerDto;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.InquIreDto;
 import com.L_CSS.dto.MemberDto;
-import com.L_CSS.dto.ReservationDto;
 import com.google.gson.Gson;
 
 @Service
@@ -415,7 +415,21 @@ public class AdminService {
 	public ModelAndView InquireInfo(String iqcode) {
 		System.out.println("InquireInfo()호출");
 		ModelAndView mav = new ModelAndView();
-		ArrayList<InquIreDto>inquireInfo = Idao.AdminInquireInfo(iqcode);
+		InquIreDto inquireInfo = Idao.AdminInquireInfo(iqcode);
+		AnswerDto AnswerList = Idao.AnswerList(iqcode);
+		
+		
+		if (AnswerList != null) {
+			String gbcomment = AnswerList.getAncomment();
+			gbcomment = gbcomment.replaceAll("&nbsp;", " ");
+			gbcomment = gbcomment.replaceAll("<br>", "\r\n");
+			AnswerList.setAncomment(gbcomment);
+		}
+
+		String gbcomment2 = inquireInfo.getIqcomment();
+		gbcomment2 = gbcomment2.replaceAll("&nbsp;", " ");
+		gbcomment2 = gbcomment2.replaceAll("<br>", "\r\n");
+		inquireInfo.setIqcomment(gbcomment2);
 		
 		mav.addObject("inquireInfo", inquireInfo);
 		mav.setViewName("Admin/AdminInquireInfo");

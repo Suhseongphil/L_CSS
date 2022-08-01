@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +20,26 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 <style type="text/css">
-.cartBtn{
-	background-color:black;
-	color:white;
-	border-radius:5px;
+.cartBtn {
+	background-color: #007bff;
+	color: white;
+	border-radius: 5px;
+	border:none;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.cntBtn {
+	border-radius: 3px;
+	width: 30px;
+	height: 29px;
+	background-color: white;
+	color: black;
+	border: 1px solid grey;
+	background-color: white;
 }
 </style>
 </head>
@@ -59,11 +76,17 @@
 							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i>
 							<span>(리뷰수)</span>
 						</div>
-						<div class="product__details__price">${productInfo.pdprice }원</div>
+						<div class="product__details__price">
+							<fmt:formatNumber value="${productInfo.pdprice}" pattern="#,###" />
+							원
+						</div>
 						<div class="product__details__quantity">
 							<div class="quantity">
 								<div class="">
-									수량 : <input id="amount" type="number" value="1" style="width:40px;">
+									수량 :
+									<button class="cntBtn" onclick="minus()">-</button>
+									<input id="amount" type="number" value="1" style="width: 30px; height: 29px;">
+									<button class="cntBtn" onclick="plus()">+</button>
 								</div>
 							</div>
 						</div>
@@ -121,9 +144,30 @@
 </script>
 
 <script type="text/javascript">
-	function cartIn(pdcode, pdcmcode){
+	function plus() {
 		var ctamount = $("#amount").val();
-		location.href="cartIn?ctmupdcode="+pdcode+"&ctcfcmcode="+pdcmcode+"&ctamount="+ctamount;
+		ctamount = parseInt(ctamount) + 1;
+		$("#amount").val(ctamount);
+	}
+
+	function minus() {
+		var ctamount = $("#amount").val();
+		if (ctamount > 1) {
+			ctamount = parseInt(ctamount) - 1;
+		}
+		$("#amount").val(ctamount);
+	}
+</script>
+
+<script type="text/javascript">
+	function cartIn(pdcode, pdcmcode) {
+		if(${empty sessionScope.loginId}){
+			alert("로그인 후 이용 가능합니다.");
+			return false;
+		}
+		var ctamount = $("#amount").val();
+		location.href = "cartIn?ctmupdcode=" + pdcode + "&ctcfcmcode="
+				+ pdcmcode + "&ctamount=" + ctamount;
 	}
 </script>
 

@@ -21,7 +21,7 @@ public interface InquIreDao {
 
 	ArrayList<InquIreDto> selectInquireList();
 
-	ArrayList<InquIreDto> AdminInquireInfo(String iqcode);
+	InquIreDto AdminInquireInfo(String iqcode);
 
 	AnswerDto AnswerList(String iqcode);
 
