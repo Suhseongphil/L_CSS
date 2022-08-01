@@ -21,7 +21,6 @@
 <link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
 <!-- Bootstrap CSS -->
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
@@ -155,7 +154,7 @@ input {
 						</div>
 						<div class="row">
 							<div class="col-3">
-								<span>작성일</span>
+								<span>날짜</span>
 							</div>
 							<div class="col-9">
 								<input type="text" value="${AnswerList.andate}" style="border: none;" readonly>
