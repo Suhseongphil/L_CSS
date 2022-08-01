@@ -152,7 +152,7 @@ public class AdminController {
 	@RequestMapping(value = "/memberStateModify")
 	public @ResponseBody void memberStateModify(String mid, int mstate) {
 		System.out.println("회원 상태 변경");
-		
+
 		adsvc.memberStateModify(mid, mstate);
 	}
 
@@ -163,16 +163,18 @@ public class AdminController {
 
 		adsvc.deleteMember(mid);
 	}
-	//고객문의 내용 확인
-	@RequestMapping(value="/admininquirePage")
+
+	// 고객문의 내용 확인
+	@RequestMapping(value = "/admininquirePage")
 	public ModelAndView admininquirePage() {
 		ModelAndView mav = new ModelAndView();
-		
+
 		mav = adsvc.InquireList();
 		return mav;
 	}
-	//고객정보 상세보기
-	@RequestMapping(value="/AdminInquireInfo")
+
+	// 고객정보 상세보기
+	@RequestMapping(value = "/AdminInquireInfo")
 	public ModelAndView AdminInquireInfo(String iqcode) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("관리자 고객 문의 상세보기");
@@ -180,21 +182,14 @@ public class AdminController {
 		mav = adsvc.InquireInfo(iqcode);
 		return mav;
 	}
-	//문의코드 찾기
-	@RequestMapping(value="/selectIqcode")
-	public @ResponseBody String selectIqcode(String iqcode) {
-		System.out.println("코드 가져오기");
-		
-		String selectIqcode = adsvc.selectIqcode(iqcode);
-		return selectIqcode;
-	}
-	//문의 답변하기
-	@RequestMapping(value="/amindInsert")
-	public  String amindInsert(String iqcode,String ancomment,RedirectAttributes ra) {
+
+	// 문의 답변하기
+	@RequestMapping(value = "/amindInsert")
+	public String amindInsert(String iqcode, String ancomment, RedirectAttributes ra) {
 		System.out.println("문의답변하기");
 		System.out.println(iqcode);
 		System.out.println(ancomment);
-		String insertInquire = adsvc.insertInquire(iqcode,ancomment,ra);
+		String insertInquire = adsvc.insertInquire(iqcode, ancomment, ra);
 		System.out.println(insertInquire);
 		return insertInquire;
 	}

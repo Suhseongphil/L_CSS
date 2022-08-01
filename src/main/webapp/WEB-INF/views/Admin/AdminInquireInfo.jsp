@@ -9,7 +9,7 @@
 <!-- Mobile Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Site Metas -->
-<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+<title>관리자 문의 상세보기</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -122,6 +122,7 @@ textarea {
 	resize: none;
 	padding-bottom: 10px;
 }
+
 .hero__text2 h3 {
 	text-align: center;
 	font-weight: 700;
@@ -135,13 +136,12 @@ textarea {
 	</header>
 	<div class="container">
 		<div class="row">
-			<%@ include file="../includes/MiddleBar.jsp"%>
+			<%@ include file="../includes/AdminMiddleBar.jsp"%>
 			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
 				<h3>고객문의 상세보기</h3>
 			</div>
 		</div>
 	</div>
-
 	<div class="container" style="margin-bottom: 10px;">
 		<div class="row">
 			<div class="col-3">
@@ -203,7 +203,9 @@ textarea {
 					<div style="border-top: 3px solid #036; padding: 5px 0px;">
 						<div class="row">
 							<div class="col-3">
-								<span>답변<br>내용</span>
+								<span>
+									답변<br>내용
+								</span>
 							</div>
 							<div class="col-9">
 								<textarea readonly>${AnswerList.ancomment}</textarea>
@@ -222,50 +224,21 @@ textarea {
 			</div>
 		</div>
 	</div>
-	
 	<div class="answer">
 		<div class="window2">
-			<form class="user" action="amindInsert" method="post"
-				enctype="multipart/form-data">
+			<form class="user" action="amindInsert" method="post" enctype="multipart/form-data">
 				<div class="popup2" id="modal">
-
 					<div>
-						<h4 style="text-align:center; font-weight: 700; margin-top: 20px;">
+						<h4 style="text-align: center; font-weight: 700; margin-top: 20px;">
 							답변내용 <br> <br>
 						</h4>
 					</div>
 					<div class="textcenter">
-							<textarea style="border: 1px solid black; margin-left: 93px; margin-bottom: 20px;" name="ancomment" id="ancomment"
-								placeholder="내용을 입력해주세요.."></textarea>
-						<input type="hidden" name="iqcode" id="iqcode" value="0">
-						</div>
-				
-
-					<button type="submit" id="save"
-						class="btn text-white button btnPush btnLightBlue"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 93px;">작성</button>
-					<button type="button" id="close"
-						class="btn text-white button btnPush btnLightBlue"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 180px;">취소</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="answer">
-		<div class="window2">
-			<form class="user" action="amindInsert" method="post" enctype="multipart/form-data">
-				<div class="popup2" id="modal" style="text-align: center;">
-					<div>
-						<h5 style="font-weight: 700; margin-bottom: 50px; margin-top: 20px;">
-							고객문의 답변 <br> <br>
-							<textarea style="border: 1px solid gray;" name="ancomment" id="ancomment" placeholder="내용을 입력해주세요.."></textarea>
-							<input type="hidden" name="iqcode" id="iqcode" value="0">
-						</h5>
+						<textarea style="border: 1px solid black; margin-left: 93px; margin-bottom: 20px;" name="ancomment" id="ancomment" placeholder="내용을 입력해주세요.."></textarea>
+						<input type="hidden" name="iqcode" id="iqcode" value="${inquireInfo.iqcode}">
 					</div>
-					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; margin-right: 80px; float: right;">취소</button>
-					<button type="submit" id="save" class="btn text-white button" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; float: right;">답변작성</button>
+					<button type="submit" id="save" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" style="background-color: #000000; margin-left: 93px;">작성</button>
+					<button type="button" id="close" class="btn text-white button btnPush btnLightBlue" title="Button push lightblue" style="background-color: #000000; margin-left: 180px;">취소</button>
 				</div>
 			</form>
 		</div>
@@ -291,21 +264,6 @@ textarea {
 </script>
 <script type="text/javascript">
 	function show() {
-		var iqcode = document.getElementById("show").value;
-		console.log(iqcode);
-		$.ajax({
-			type : "get",
-			url : "selectIqcode",
-			data : {
-				"iqcode" : iqcode
-			},
-			dataType : "json",
-			async : false,
-			success : function(insertResult) {
-				console.log(insertResult);
-				$("#iqcode").val(insertResult.iqcode);
-			}
-		});
 		document.querySelector(".answer").className = "answer show2";
 	}
 	function close() {

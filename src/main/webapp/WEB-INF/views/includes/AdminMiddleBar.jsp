@@ -43,9 +43,6 @@
 						<li>
 							<a href="admincafeInsert">카페관리</a>
 						</li>
-						<li>
-							<a href="adminmenuInsert">카페메뉴</a>
-						</li>
 					</ul>
 				</li>
 				<li>
