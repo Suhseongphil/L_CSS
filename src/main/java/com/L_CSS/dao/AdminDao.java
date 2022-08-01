@@ -6,9 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
-import com.L_CSS.dto.InquIreDto;
 import com.L_CSS.dto.MemberDto;
-import com.L_CSS.dto.ReservationDto;
+
 
 public interface AdminDao {
 
@@ -55,8 +54,5 @@ public interface AdminDao {
 	int insertInquire(@Param("iqcode")String iqcode, @Param("ancomment")String ancomment);
 
 	int udpateIqstate(String iqcode);
-
-	InquIreDto selectIqcode(String iqcode);
 	
-
 }
