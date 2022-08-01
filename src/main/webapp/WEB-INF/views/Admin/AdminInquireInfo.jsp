@@ -95,10 +95,11 @@ h7 {
 	background-color: #ffffff;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
-	width: 520px;
+	width: 480px;
 	height: 530px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
+	border-radius: 10px;
 }
 
 .show2 .popup2 {
@@ -121,64 +122,135 @@ textarea {
 	resize: none;
 	padding-bottom: 10px;
 }
+.hero__text2 h3 {
+	text-align: center;
+	font-weight: 700;
+	letter-spacing: 4px;
+	color: saddlebrown;
+}
 </style>
 <body>
-	<%@ include file="../includes/TopBar.jsp"%>
-	<header class="main-header">
-		<div class="container">
-			<div class="collapse navbar-collapse" id="navbar-menu"></div>
-			<div class="row">
-				<%@ include file="../includes/MiddleBar.jsp"%>
+	<header class="header">
+		<%@ include file="../includes/TopBar.jsp"%>
+	</header>
+	<div class="container">
+		<div class="row">
+			<%@ include file="../includes/MiddleBar.jsp"%>
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 30px; margin-left: auto; margin-right: auto;">
+				<h3>고객문의 상세보기</h3>
 			</div>
 		</div>
-	</header>
-	<!-- Start Cart  -->
-	<div class="cart-box-main">
-		<div class="container">
-			<div class="row">
-				<!--<section class="shoping-cart spad">  -->
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="shoping__cart__table">
+	</div>
 
-								<div class="item display" style="padding-top: 30px;">
-									<table class="type09">
-										<c:forEach items="${inquireInfo }" var="iqList">
-											<thead>
-												<tr>
-													<th>제목</th>
-													<th>작성자</th>
-													<th>카테고리</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<th>${iqList.iqtitle }</th>
-													<th>${iqList.iqmid }</th>
-													<th>${iqList.iqcategory }</th>
-												</tr>
-												<tr id="type09_ls">
-													<td>
-														<br> <br> <br>문의내용
-													</td>
-													<td>
-														<br> <br> <br>${iqList.iqcomment }</td>
-													<td>
-														<button value="${iqList.iqcode }" id="show" class="btn primary-btn cart-btn-right" style="margin-top: 450px; margin-left: 200px; padding-bottom: 10px; background-color: #000000; color: white;">답변작성</button>
-													</td>
-												</tr>
-											</tbody>
-										</c:forEach>
-									</table>
-								</div>
+	<div class="container" style="margin-bottom: 10px;">
+		<div class="row">
+			<div class="col-3">
+				<c:if test="${inquireInfo.iqimg != null }">
+					<div class="text-center" style="border-top: 3px solid #036; padding: 5px 0px;">
+						<img alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/InquireFile/${inquireInfo.iqimg}" style="width: 300px;">
+					</div>
+				</c:if>
+			</div>
+			<div class="col-6" style="border-top: 3px solid #036; border-bottom: 4px solid #036; padding: 5px 0px;">
+				<div class="row">
+					<div class="col-3">
+						<span>작성자</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqmid}" style="border: none;" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>제목</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqtitle}" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>카테고리</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqcategory}" style="border: none;">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>작성일</span>
+					</div>
+					<div class="col-9">
+						<input type="text" value="${inquireInfo.iqdate}" style="border: none;" readonly>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">
+						<span>내용</span>
+					</div>
+					<div class="col-9">
+						<textarea readonly>${inquireInfo.iqcomment}</textarea>
+					</div>
+				</div>
+				<c:if test="${AnswerList == null}">
+					<div class="text-center" style="margin-bottom: 10px;">
+						<button class="inquireBtn" id="show">답변하기</button>
+					</div>
+				</c:if>
+			</div>
+			<div class="col-3">
+				<c:if test="${AnswerList != null }">
+					<div style="border-top: 3px solid #036; padding: 5px 0px;">
+						<div class="row">
+							<div class="col-3">
+								<span>답변<br>내용</span>
+							</div>
+							<div class="col-9">
+								<textarea readonly>${AnswerList.ancomment}</textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-3">
+								<span>작성일</span>
+							</div>
+							<div class="col-9">
+								<input type="text" value="${AnswerList.andate}" style="border: none;" readonly>
 							</div>
 						</div>
 					</div>
-				</div>
-
+				</c:if>
 			</div>
+		</div>
+	</div>
+	
+	<div class="answer">
+		<div class="window2">
+			<form class="user" action="amindInsert" method="post"
+				enctype="multipart/form-data">
+				<div class="popup2" id="modal">
 
+					<div>
+						<h4 style="text-align:center; font-weight: 700; margin-top: 20px;">
+							답변내용 <br> <br>
+						</h4>
+					</div>
+					<div class="textcenter">
+							<textarea style="border: 1px solid black; margin-left: 93px; margin-bottom: 20px;" name="ancomment" id="ancomment"
+								placeholder="내용을 입력해주세요.."></textarea>
+						<input type="hidden" name="iqcode" id="iqcode" value="0">
+						</div>
+				
+
+					<button type="submit" id="save"
+						class="btn text-white button btnPush btnLightBlue"
+						title="Button push lightblue"
+						style="background-color: #000000; margin-left: 93px;">작성</button>
+					<button type="button" id="close"
+						class="btn text-white button btnPush btnLightBlue"
+						title="Button push lightblue"
+						style="background-color: #000000; margin-left: 180px;">취소</button>
+				</div>
+			</form>
 		</div>
 	</div>
 	<div class="answer">
@@ -186,13 +258,13 @@ textarea {
 			<form class="user" action="amindInsert" method="post" enctype="multipart/form-data">
 				<div class="popup2" id="modal" style="text-align: center;">
 					<div>
-						<h5 style="font-weight: 700; margin-top: 20px;">
+						<h5 style="font-weight: 700; margin-bottom: 50px; margin-top: 20px;">
 							고객문의 답변 <br> <br>
 							<textarea style="border: 1px solid gray;" name="ancomment" id="ancomment" placeholder="내용을 입력해주세요.."></textarea>
 							<input type="hidden" name="iqcode" id="iqcode" value="0">
 						</h5>
 					</div>
-					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; margin-right: 20px; float: right;">취소</button>
+					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; margin-right: 80px; float: right;">취소</button>
 					<button type="submit" id="save" class="btn text-white button" title="Button push lightblue" style="background-color: #000000; margin-left: 20px; float: right;">답변작성</button>
 				</div>
 			</form>
