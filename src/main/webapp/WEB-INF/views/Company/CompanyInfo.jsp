@@ -92,6 +92,7 @@
 
 			<section class="blog-details spad">
 				<div class="container">
+						<h2 style="text-align: center; padding-bottom: 30px;">[주력 상품]</h2>
 					<div class="row">
 						<c:forEach items="${proInfo }" var="pdList" begin="0" end="5">
 							<div class="col-lg-4 col-md-4">

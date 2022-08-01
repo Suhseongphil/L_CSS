@@ -73,24 +73,25 @@
 				style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
 				<h3>카 페 목 록</h3>
 			</div>
+
+			지역검색 : <select style="float: right; height: 20%; width: 8%;"
+				name="cfaddress" id="cfaddress" onchange="selectCheck()">
 				
-				지역검색 : <select style="float: right; height: 20%; width: 8%;" name="cfaddress" id="cfaddress" onchange="selectCheck()">
-					
-					<option value="선택">선택</option>
-					<option value="1">전체</option>
-					<option value="인천">인천</option>
-					<option value="서울">서울</option>
-					<option value="경기">경기</option>
-					<option value="충남">충남</option>
-					<option value="강원">강원</option>
-					<option value="경북">경북</option>
-					<option value="전남">전남</option>
-					<option value="전북">전북</option>
-				</select>
-				
+				<option value="선택">선택</option>
+				<option value="1">전체</option>
+				<option value="인천">인천</option>
+				<option value="서울">서울</option>
+				<option value="경기">경기</option>
+				<option value="충남">충남</option>
+				<option value="강원">강원</option>
+				<option value="경북">경북</option>
+				<option value="전남">전남</option>
+				<option value="전북">전북</option>
+			</select>
+
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
-					<c:forEach items="${selectCafeList}" var="cfList">
+					<c:forEach items="${addressSelect}" var="cfList">
 						<div class="col-lg-3 col-md-3 col-sm-3">
 							<div class="blog__item">
 								<c:choose>

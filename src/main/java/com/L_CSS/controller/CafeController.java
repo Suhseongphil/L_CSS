@@ -44,6 +44,7 @@ public class CafeController {
 		ModelAndView mav = new ModelAndView();
 		mav = csv.cafeInfo(cfcode);
 		return mav;
+	
 	}
 	
 	//내 카페등록 페이지 요청
@@ -90,6 +91,18 @@ public class CafeController {
 		
 		return mav;
 	}
+	//지역별 카페 검색
+	@RequestMapping(value="/selectCheck")
+	public ModelAndView selectCheck(String cfaddress) {
+		System.out.println("지역별 카페 검색");
+		
+		System.out.println(cfaddress);
+		
+		ModelAndView mav = csv.selectCheck(cfaddress);
+		
+		return mav;
+	}
+	
 	
 	
 }

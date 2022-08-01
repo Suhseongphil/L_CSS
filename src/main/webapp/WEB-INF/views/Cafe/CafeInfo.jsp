@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,7 @@
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-xs-12 section-container-spacer">
-				<h3>카페 목록</h3>
+				<h3>카페 목록</h3> 
 			</div>
 			<section class="blog-details spad">
 				<div class="container">
@@ -68,14 +69,25 @@
 
 			<section class="blog-details spad">
 				<div class="container">
+					<h2 style="text-align: center; padding-bottom: 30px;">[메뉴]</h2>
 					<div class="row">
 						<c:forEach items="${menuInfo}" var="muList">
 							<div class="col-lg-2 col-md-2">
 								<div class="blog__details__text" style="margin: 30px;">
+						
+									<c:set var="imgCheck" value="${muList.muimg}" />
+									<c:choose>
+									<c:when test="${fn:substring(imgCheck,0,1) == 'BS'}">
 									<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }" alt="">
+									</c:when>
+									<c:otherwise>
+									<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/${muList.muimg }" alt="">
+									</c:otherwise>
+									</c:choose>
+									
 									<p style="font-weight: 100px;">${muList.muname}</p>
 									<h3>${muList.muprice}</h3>
-									<!--<p style="margin-right: 700px;">${muList.mutype}</p>-->
+									
 								</div>
 								<div class="blog__details__content"></div>
 							</div>

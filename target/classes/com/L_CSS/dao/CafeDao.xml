@@ -68,4 +68,11 @@
   		WHERE CFMID = #{loginId}
   		</select>
   		
+  		<select id="selectAddr" resultType="com.L_CSS.dto.CafeDto">
+  		select *
+  		from cafe
+  		where CFADDRESS LIKE '%' || #{cfaddress} || '%'
+  		
+  		</select>
+  		
   </mapper>
