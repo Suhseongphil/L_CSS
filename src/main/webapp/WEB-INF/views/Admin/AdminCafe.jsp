@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 카페 관리</title>
+<title>카페 관리</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">
@@ -29,45 +29,24 @@
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
-
-	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/AdminMiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
-
-	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="text-center">
 			<h2>카페 정보 입력</h2>
 		</div>
 		<div class="container">
 			<form action="adminCreateCafeInfo" enctype="multipart/form-data">
-
 				<div class="row cafeInsert">
-
 					<div class="row">
-
 						<div class="col-2">
 							<span class="font-weight-bold">카페이름</span>
-
 							<br>
 							<input type="text" id="cfname" name="cfname" placeholder="카페 이름">
 						</div>
@@ -105,13 +84,10 @@
 							<button class="cafeInsert-btn" type="button" id="cafeSend">카페추가</button>
 						</div>
 					</div>
-
-
 				</div>
 			</form>
 		</div>
 	</section>
-	<!-- Featured Section End -->
 
 	<section class="featured spad">
 		<div class="text-center">
@@ -119,11 +95,9 @@
 		</div>
 		<div class="container" id="cafeList"></div>
 	</section>
-	<!-- Footer Section Begin -->
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
@@ -194,6 +168,7 @@
 									$("#cflink").val("");
 									$("#cfimgs").val("");
 									$("#cfsigimgs").val("");
+									getCafeInfo();
 								}
 							});
 

@@ -17,6 +17,8 @@ public class MemberDto {
 	private int mstate;
 	private String emailDomain;
 	private String mtel;
+	
+	private String memail2;
 
 	private MultipartFile mfile;
 	private String mpostercode;

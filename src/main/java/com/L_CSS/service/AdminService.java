@@ -443,36 +443,15 @@ public class AdminService {
 		System.out.println(insertInquire);
 		if(insertInquire > 0) {
 			int updateIqstate = adao.udpateIqstate(iqcode);
-			ra.addFlashAttribute("msg","답변 완료");
-			
+			if(updateIqstate>0) {
+				ra.addFlashAttribute("msg","답변 완료");				
+			}else {
+				ra.addFlashAttribute("msg","답변 작성실패");
+			}
 		}else {					
 			ra.addFlashAttribute("msg","답변 작성실패");
 		}
 		return "redirect:/admininquirePage";
-		
 	}
-	//코드찾기
-	public String selectIqcode(String iqcode) {
-		System.out.println("selectIqcode");
-		System.out.println(iqcode);
-		InquIreDto selectIqcode = adao.selectIqcode(iqcode);
-		Gson gson = new Gson();
-		String IqcodeGson = gson.toJson(selectIqcode);
-		System.out.println(IqcodeGson);
-		return IqcodeGson;
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
