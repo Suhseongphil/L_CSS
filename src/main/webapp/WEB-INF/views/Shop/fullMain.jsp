@@ -25,7 +25,6 @@
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 	</header>
-	<!-- Header Section End -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
@@ -37,56 +36,56 @@
 	<section>
 		<div class="container">
 			<div class="row">
-			
-						<form action="searchProduct" method="get" style="margin-left: 400px; margin-top: -400px;">
-							<div id="search" class="row">
-							
-									<div class="shoping__cart__btns">
-										<select name="pdcategory" id="pdcategory">
-											<option value="pdname">이름</option>
-											<option value="pdtype">종류</option>
 
-										</select>
-										<input style="margin-left: 20px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
-										&nbsp;&nbsp;&nbsp;
-										<button type="submit" class="primary-btn text-white" style="background-color: #000000; margin-left: -5px;">검색</button>
+				<form action="searchProduct" method="get" style="margin-left: 400px; margin-top: -400px;">
+					<div id="search" class="row">
 
-									</div>
-								
-							</div>
-						</form>
-						
-						<h2 style="margin-top: -300px; margin-left: 530px; font-weight: bold;">
-							추천 상품<br> <br>
-						</h2>
-			
-			<div class="product__discount__slider owl-carousel col-lg-9" style="margin-left: 200px; margin-top: -200px;">
-				<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
-					<div class="col-lg-4">
-						<div class="product__discount__item">
-							<c:set var="imgCheck" value="${rePro.pdimg }" />
-							<c:choose>
-								<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
-									<div class="product__discount__item__pic set-bg" data-setbg="${rePro.pdimg }"></div>
-								</c:when>
-								<c:otherwise>
-									<div class="product__discount__item__pic set-bg" data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${rePro.pdimg }"></div>
-								</c:otherwise>
-							</c:choose>
-							<div class="product__discount__item__text">
+						<div class="shoping__cart__btns">
+							<select name="pdcategory" id="pdcategory">
+								<option value="pdname">이름</option>
+								<option value="pdtype">종류</option>
 
-								<a href="">
-									<span>${rePro.pdname}</span>
-								</a>
-								<h5>${rePro.rvcomment}</h5>
-								<h6>${rePro.rvdate}</h6>
+							</select>
+							<input style="margin-left: 20px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
+							&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="primary-btn text-white" style="background-color: #000000; margin-left: -5px;">검색</button>
 
+						</div>
+
+					</div>
+				</form>
+
+				<h2 style="margin-top: -300px; margin-left: 530px; font-weight: bold;">
+					추천 상품<br> <br>
+				</h2>
+
+				<div class="product__discount__slider owl-carousel col-lg-9" style="margin-left: 200px; margin-top: -200px;">
+					<c:forEach items="${ReviewProduct}" var="rePro" begin="0" end="20">
+						<div class="col-lg-4">
+							<div class="product__discount__item">
+								<c:set var="imgCheck" value="${rePro.pdimg }" />
+								<c:choose>
+									<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+										<div class="product__discount__item__pic set-bg" data-setbg="${rePro.pdimg }"></div>
+									</c:when>
+									<c:otherwise>
+										<div class="product__discount__item__pic set-bg" data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${rePro.pdimg }"></div>
+									</c:otherwise>
+								</c:choose>
+								<div class="product__discount__item__text">
+
+									<a href="">
+										<span>${rePro.pdname}</span>
+									</a>
+									<h5>${rePro.rvcomment}</h5>
+									<h6>${rePro.rvdate}</h6>
+
+								</div>
 							</div>
 						</div>
-					</div>
-				</c:forEach>
+					</c:forEach>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -101,21 +100,30 @@
 			<c:forEach items="${selectproductList}" var="pro">
 				<div class="col-lg-2" style="margin: 20px;">
 					<div class="product__discount__item">
-
-						<c:set var="imgCheck" value="${pro.pdimg }" />
-						<c:choose>
-							<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
-								<div class="product__discount__item__pic set-bg" data-setbg="${pro.pdimg }"></div>
-							</c:when>
-							<c:otherwise>
-								<div class="product__discount__item__pic set-bg" data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }"></div>
-							</c:otherwise>
-						</c:choose>
-
+						<a href="productInfo?pdcode=${pro.pdcode}">
+							<c:set var="imgCheck" value="${pro.pdimg }" />
+							<c:choose>
+								<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+									<div class="product__discount__item__pic set-bg" data-setbg="${pro.pdimg }"></div>
+								</c:when>
+								<c:otherwise>
+									<div class="product__discount__item__pic set-bg" data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${pro.pdimg }"></div>
+								</c:otherwise>
+							</c:choose>
+						</a>
 						<div class="product__discount__item__text">
-							<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
-								<i class="fa fa-shopping-cart"></i>
-							</a>
+							<c:choose>
+								<c:when test="${sessionScope.loginId !=null}">
+									<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
+										<i class="fa fa-shopping-cart"></i>
+									</a>
+								</c:when>
+								<c:otherwise>
+									<a onclick="loginCheck()">
+										<i class="fa fa-shopping-cart"></i>
+									</a>
+								</c:otherwise>
+							</c:choose>
 							<a href="productInfo?pdcode=${pro.pdcode}">
 								<span>${pro.pdname}</span>
 							</a>
@@ -194,6 +202,10 @@
 	console.log(checkMsg);
 	if (checkMsg.length > 0) {
 		alert(checkMsg);
+	}
+
+	function loginCheck() {
+		alert("로그인 후 이용가능합니다.");
 	}
 </script>
 
