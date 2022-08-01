@@ -133,10 +133,12 @@ public class MemberService {
 
 		if (MyInfoResult != null) {
 			MemberDto MemberInfo = mdao.MemberInfo(loginId);
-
+			String memail2 = MemberInfo.getMemail();
+			MemberInfo.setMemail2(memail2);
 			String[] mpost = MemberInfo.getMaddress().split("_");
 			String[] email = MemberInfo.getMemail().split("@");
-
+			
+			System.out.println("memail2 :" + memail2);
 			System.out.println("mpost.length : " + mpost.length);
 			if (mpost.length != 4) {
 

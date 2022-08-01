@@ -77,7 +77,7 @@ public class CompanyService {
 		;
 
 		// 한페이지에 보여줄 글 개수
-		int pageCount = 9;
+		int pageCount = 8;
 		// 한페이지에 보여줄 페이지 번호 개수
 		int pageNumCount = 5;
 

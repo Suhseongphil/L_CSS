@@ -122,6 +122,7 @@ height: 30px;
 				<c:when test="${sessionScope.loginId != null }">
 				<img class="imgO" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${sessionScope.myProfile}">
 				${sessionScope.loginId }님 환영합니다!
+				
 				</c:when>
 				</c:choose>
 				</li>
