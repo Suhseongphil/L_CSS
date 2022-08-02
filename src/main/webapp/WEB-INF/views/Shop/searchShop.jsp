@@ -95,6 +95,8 @@
 
 
 			<c:forEach items="${selectproductList}" var="pro">
+				<c:choose>
+					<c:when test="${pro.pdstate == 0  }">
 				<div class="col-lg-3">
 					<div class="product__discount__item">
 						<c:set var="imgCheck" value="${pro.pdimg }" />
@@ -109,19 +111,24 @@
 							</c:otherwise>
 						</c:choose>
 						<div class="product__discount__item__text">
-							<a href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
+							<a
+								href="cartIn?ctmupdcode=${pro.pdcode }&ctcfcmcode=${pro.pdcmcode}&ctamount=1">
 								<i class="fa fa-shopping-cart"></i>
 							</a> <a href="productInfo?pdcode=${pro.pdcode}"><span>${pro.pdname}</span></a>
 							<h5>
 								<a href="productInfo?pdcode=${pro.pdcode}">${pro.pdtype}</a>
 							</h5>
 							<div class="product__item__price">
-							<fmt:formatNumber value="${pro.pdprice}" pattern="#,###" />
-							원
+								<fmt:formatNumber value="${pro.pdprice}" pattern="#,###" />
+								원
 							</div>
 						</div>
 					</div>
 				</div>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
 			</c:forEach>
 
 		</div>
@@ -146,7 +153,7 @@
 				var="num" step="1">
 				<c:choose>
 					<c:when test="${pagedto.page == num }">
-						<li><span class="pageNum" >${num }</span></li>
+						<li><span class="pageNum">${num }</span></li>
 					</c:when>
 					<c:otherwise>
 						<li><a

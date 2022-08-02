@@ -96,6 +96,8 @@
 							<div class="row">
 								<div class="row" style="margin-top: -50px;">
 									<c:forEach items="${searchType}" var="pro">
+										<c:choose>
+										<c:when test="${pro.pdstate == 0  }">
 										<div class="col-lg-4">
 											<div class="product__discount__item">
 												<c:set var="imgCheck" value="${pro.pdimg }" />
@@ -121,6 +123,10 @@
 												</div>
 											</div>
 										</div>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+										</c:choose>
 									</c:forEach>
 
 								</div>

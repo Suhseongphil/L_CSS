@@ -188,7 +188,7 @@ public class CafeService {
 		
 		return mav;
 	}
-
+	//내 카페 상세보기
 	public ModelAndView mycafeInfo(String loginId, RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("mycafeInfo() 호출");
@@ -221,7 +221,11 @@ public class CafeService {
 			mycafeInfo.setCfpostcode(mpost[0]);
 			mycafeInfo.setCfaddr(mpost[1]);
 			System.out.println(mpost[0]);
+			String imgcut = mycafeInfo.getCfimg();
 			
+			String [] imgcut2 = imgcut.split("/");
+			
+			mycafeInfo.setCfimg(imgcut2[1]);
 			mav.addObject("mycafeInfo", mycafeInfo);
 			mav.setViewName("Cafe/MycafeInfo");
 		}
