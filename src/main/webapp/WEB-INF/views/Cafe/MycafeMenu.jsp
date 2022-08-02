@@ -291,12 +291,13 @@ text-transform: uppercase;
 			output += "<div class=\"row cafeInsert\">"; // 맨위
 
 			output += "<div class=\"col-3\">";
-			if (menu[i].muimg != null) {
+			if (menu[i].muimg.indexOf("BS") >= 0) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
-				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
+				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/"
 						+ menu[i].muimg + "\">";
 			} else {
-				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
+				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
+						+ menu[i].muimg + "\">";
 			}
 			output += "</div>";
 
