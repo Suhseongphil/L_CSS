@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -190,7 +191,15 @@ textarea {
 
 									<div class="row" style="text-align: center;">
 										<div class="col-2">
+										<c:set var="imgCheck" value="${odList.pdimg }" />
+										<c:choose>
+										<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
 											<img alt="" src="${odList.pdimg }">
+										</c:when>
+										<c:otherwise>
+											<img alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${odList.pdimg }">
+										</c:otherwise>
+										</c:choose>
 										</div>
 										<div class="col-3" style="margin-top: 60px;">
 											<h5>${odList.pdname }</h5>

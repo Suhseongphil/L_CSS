@@ -107,6 +107,7 @@ public class CafeService {
 		ArrayList<MenuDto>menuInfo = mdao.MenuInfo(cfcode);
 		mav.addObject("cafeInfo", cafeInfo);
 		mav.addObject("menuInfo", menuInfo);
+		System.out.println(menuInfo);
 		mav.setViewName("Cafe/CafeInfo");
 		return mav;
 	}
