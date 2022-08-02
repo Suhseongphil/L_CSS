@@ -74,7 +74,7 @@
 								<div class="blog__details__text" style="margin: 30px;">
 									<c:set var="imgCheck" value="${muList.muimg}" />
 									<c:choose>
-										<c:when test="${fn:substring(imgCheck,0,1) == 'BS'}">
+										<c:when test="${fn:substring(imgCheck,0,4) == 'BS00'}">
 											<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }" alt="">
 										</c:when>
 										<c:otherwise>

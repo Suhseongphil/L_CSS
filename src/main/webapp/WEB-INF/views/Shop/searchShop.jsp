@@ -57,31 +57,55 @@ footer {
 				<%@ include file="../includes/SideBar2.jsp"%>
 			</section>
 			<section>
-				<div class="container" style="padding-left: 80px;">
-					<div class="col-lg-12 col-md-3" style="margin-left: 100px;">
-						<div class="product__discount">
-							<div class="section-title product__discount__title" style="text-align: center; margin-top: -450px;">
-								<form action="searchProduct" method="get">
-									<div id="search" class="row">
-										<div class="col-lg-12" style="margin-top: 50px;">
-											<div class="shoping__cart__btns" style="margin-left: 220px; margin-top: -10px;">
-												<select name="pdcategory" id="pdcategory">
-													<option value="pdname">이름</option>
-													<option value="pdtype">종류</option>
-												</select>
-												<input style="margin-left: -400px; padding: 7px;" type="text" placeholder="검색어 입력.." name="searchText">
-												&nbsp;&nbsp;&nbsp;
-												<button type="submit" class="primary-btn text-white" style="background-color: #000000; margin-left: -5px;">검색</button>
-											</div>
-										</div>
-									</div>
-								</form>
-								<h2 style="margin-top: 30px; margin-left: -280px;">상품</h2>
-							</div>
+		<div class="container">
+			<div class="row">
+				<form action="searchProduct" method="get"
+					style="margin-left: 400px; margin-top: -400px;">
+					<div id="search" class="row">
+						<div class="shoping__cart__btns">
+							<select name="pdcategory" id="pdcategory">
+								<option value="pdname">이름</option>
+								<option value="pdtype">종류</option>
+							</select> <input style="margin-left: 20px; padding: 7px;" type="text"
+								placeholder="검색어 입력.." name="searchText">
+							&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="primary-btn text-white"
+								style="background-color: #000000; margin-left: -5px;">검색</button>
 						</div>
 					</div>
+				</form>
+				<h2
+					style="margin-top: -300px; margin-left: 530px; font-weight: bold;">
+					추천 상품<br> <br>
+				</h2>
+				<div class="product__discount__slider owl-carousel col-lg-9"
+					style="margin-left: 200px; margin-top: -200px; margin-bottom: 200px;">
+					<c:forEach items="${reverseList}" var="rePro" begin="0" end="20">
+						<div class="col-lg-4">
+							<div class="product__discount__item">
+								<c:set var="imgCheck" value="${rePro.pdimg }" />
+								<c:choose>
+									<c:when test="${fn:substring(imgCheck,0,4) == 'http'}">
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${rePro.pdimg }"></div>
+									</c:when>
+									<c:otherwise>
+										<div class="product__discount__item__pic set-bg"
+											data-setbg="${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/${rePro.pdimg }"></div>
+									</c:otherwise>
+								</c:choose>
+								<div class="product__discount__item__text">
+									<a href=""> <span>${rePro.pdname}</span>
+									</a>
+									
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
-			</section>
+			</div>
+		</div>
+	</section>
 
 			<section>
 				<div class="row" style="margin-left: 400px; margin-right: 300px; margin-top: -50px;">
