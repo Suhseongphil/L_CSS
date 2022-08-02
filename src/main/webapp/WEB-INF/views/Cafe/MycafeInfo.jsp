@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -17,38 +16,18 @@ request.setCharacterEncoding("UTF-8");
 
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 </head>
 
 <Style>
@@ -120,11 +99,8 @@ label {
 
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
 	<div class="container">
-
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
@@ -135,15 +111,14 @@ label {
 	</div>
 
 	<section class="hero">
-
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
 
 					<div class="p-3" style="margin-top: 10px;">
 						<div class="hero__text2">
-							<span style="font-size: 22px;">내&nbsp;카페정보</span> <br> <br>
-							<br>
+							<span style="font-size: 22px;">내&nbsp;카페정보</span>
+							<br> <br> <br>
 							<p>카페이름&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cfname }</p>
 							<p>전화번호&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cftel }</p>
 							<p>카페링크&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cflink }</p>
@@ -151,148 +126,114 @@ label {
 							<p>
 								주소&nbsp;&nbsp;:&nbsp;&nbsp;${mycafeInfo.cfaddr }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${mycafeInfo.cfaddr2 }
 							</p>
-							<button type="button" id="show" class="btn text-white"
-								style="background-color: #000000;">정보수정</button>
+							<button type="button" id="show" class="btn text-white" style="background-color: #000000;">정보수정</button>
 						</div>
 					</div>
-
-
-
-
-
 				</div>
 				<div class="row col-lg-8">
 
 					<div class="p-3" style="margin-top: 20px;">
 						<div class="hero__text">
-							<label>카페이미지</label><br> <img class="imgclass" alt=""
-								src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}">
+							<label>카페이미지</label>
+							<br>
+							<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfimg}">
 						</div>
 					</div>
 					<div class="p-3" style="margin-left: 20px; margin-top: 20px;">
 						<div class="hero__text">
-							<label>시그니처 이미지</label><br> <img class="imgclass" alt=""
-								src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}">
+							<label>시그니처 이미지</label>
+							<br>
+							<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${mycafeInfo.cfsigimg}">
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
+		
 		<div class="background2">
 			<div class="window2">
-				<form class="user" action="mycafeModify" method="post"
-					enctype="multipart/form-data">
+				<form class="user" action="mycafeModify" method="post" enctype="multipart/form-data">
 					<div class="popup2">
-						<div
-							style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
-							<label>카페이름</label> <input type="text" id="cfname" name="cfname"
-								value="${mycafeInfo.cfname }"
-								class="form-control form-control-user">
+						<div style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
+							<label>카페이름</label>
+							<input type="text" id="cfname" name="cfname" value="${mycafeInfo.cfname }" class="form-control form-control-user">
 						</div>
 						<br>
 						<div class="row form-group">
 							<div class="col-5 form-group" style="margin-left: 20px;">
-								<label>전화번호</label> <input type="text" id="cftel" name="cftel"
-									value="${mycafeInfo.cftel }">
-
+								<label>전화번호</label>
+								<input type="text" id="cftel" name="cftel" value="${mycafeInfo.cftel }">
 							</div>
 							<br>
 							<div class="col-5 form-group" style="margin-left: 20px;">
-								<label>카페링크</label> <input type="text" id="cflink" name="cflink"
-									value="${mycafeInfo.cflink }">
+								<label>카페링크</label>
+								<input type="text" id="cflink" name="cflink" value="${mycafeInfo.cflink }">
 							</div>
 						</div>
 						<br>
 						<div class="row form-group">
 							<div class="col-6 form-group">
-								<label>카페 이미지</label> <input type="file"
-									class="form-control form-control-user" id="cfimgs2"
-									name="cfimgs2" onchange="readURL(this);"> <img
-									class="imgsize" id="preview" />
+								<label>카페 이미지</label>
+								<input type="file" class="form-control form-control-user" id="cfimgs2" name="cfimgs2" onchange="readURL(this);">
+								<img class="imgsize" id="preview" />
 							</div>
 							<div class="col-6 form-group">
-								<label>시그니처 이미지</label> <input type="file"
-									class="form-control form-control-user" id="cfsigimgs"
-									name="cfsigimgs" onchange="sigURL(this);"> <img
-									class="imgsize" id="sigpreview" />
+								<label>시그니처 이미지</label>
+								<input type="file" class="form-control form-control-user" id="cfsigimgs" name="cfsigimgs" onchange="sigURL(this);">
+								<img class="imgsize" id="sigpreview" />
 							</div>
 						</div>
-
 						<div style="margin-left: 20px;">
 							<label>주소</label>
 						</div>
 						<div class="row form-group">
 							<div class="col-5 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user btn text-white"
-									type="button" onclick="sample6_execDaumPostcode()"
-									style="background-color: #000000;" value="우편번호 찾기"> <br>
+								<input class="form-control form-control-user btn text-white" type="button" onclick="sample6_execDaumPostcode()" style="background-color: #000000;" value="우편번호 찾기">
+								<br>
 							</div>
 							<div class="col-6 form-group" style="margin-right: 20px;">
-								<input class="form-control form-control-user" type="text"
-									id="cfpostcode" name="cfpostcode"
-									value="${mycafeInfo.cfpostcode }" placeholder="우편번호">
+								<input class="form-control form-control-user" type="text" id="cfpostcode" name="cfpostcode" value="${mycafeInfo.cfpostcode }" placeholder="우편번호">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-6" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text"
-									id="cfaddr" name="cfaddr" value="${mycafeInfo.cfaddr }"
-									placeholder="주소"> <br>
+								<input class="form-control form-control-user" type="text" id="cfaddr" name="cfaddr" value="${mycafeInfo.cfaddr }" placeholder="주소">
+								<br>
 							</div>
 						</div>
-
 						<div class="row form-group">
 							<div class="col-4 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text"
-									id="cfdetailaddress" name="cfdetailaddress"
-									value="${mycafeInfo.cfdetailaddress }" placeholder="상세주소">
+								<input class="form-control form-control-user" type="text" id="cfdetailaddress" name="cfdetailaddress" value="${mycafeInfo.cfdetailaddress }" placeholder="상세주소">
 							</div>
 							<div class="col-6 form-group" style="margin-left: 20px;">
-								<input class="form-control form-control-user" type="text"
-									id="cfextraaddress" name="cfextraaddress"
-									value="${mycafeInfo.cfextraaddress }" placeholder="참고항목">
+								<input class="form-control form-control-user" type="text" id="cfextraaddress" name="cfextraaddress" value="${mycafeInfo.cfextraaddress }" placeholder="참고항목">
 							</div>
 						</div>
-						<input type="hidden" id="cfmid" name="cfmid"
-							value="${mycafeInfo.cfmid }">
-						<button type="submit" id="save" class="btn text-white"
-							style="background-color: #000000; margin-left: 20px;">정보수정</button>
-						<button type="button" id="close" class="btn text-white"
-							style="background-color: #000000; margin-left: 20px;">취소</button>
+						<input type="hidden" id="cfmid" name="cfmid" value="${mycafeInfo.cfmid }">
+						<button type="submit" id="save" class="btn text-white" style="background-color: #000000; margin-left: 20px;">정보수정</button>
+						<button type="button" id="close" class="btn text-white" style="background-color: #000000; margin-left: 20px;">취소</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</section>
 
-
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 
-
 	<!-- Js Plugins -->
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 </body>
-
 
 <script type="text/javascript">
 	var checkMsg = '${msg}'
@@ -341,8 +282,7 @@ label {
 	}
 </script>
 
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(

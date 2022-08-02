@@ -34,7 +34,7 @@ public class CartService {
 	public String updateMinus(String ctamount, String ctcode, String loginId) {
 		System.out.println("updateMinus()호출");
 		int amount = Integer.parseInt(ctamount);
-		int updateMinus = cdao.updateMinus(amount, ctcode);
+		cdao.updateMinus(amount, ctcode);
 
 		Gson gson = new Gson();
 		ArrayList<CartDto> myCart = cdao.selectMyCart(loginId);
@@ -53,7 +53,7 @@ public class CartService {
 			System.out.println(i + "]" + price);
 			toTal = count * price;
 			System.out.println(toTal);
-			int updateTotal = cdao.updateTotal(ctctcode, toTal);
+			cdao.updateTotal(ctctcode, toTal);
 
 		}
 
@@ -67,7 +67,7 @@ public class CartService {
 	public String updatePlus(String ctamount, String ctcode, String loginId) {
 		System.out.println("updatePlus()호출");
 		int amount = Integer.parseInt(ctamount);
-		int updatePlus = cdao.updatePlus(amount, ctcode);
+		cdao.updatePlus(amount, ctcode);
 
 		Gson gson = new Gson();
 		ArrayList<CartDto> myCart = cdao.selectMyCart(loginId);
@@ -86,7 +86,7 @@ public class CartService {
 			toTal = count * price;
 			System.out.println(toTal);
 
-			int updateTotal = cdao.updateTotal(ctctcode, toTal);
+			cdao.updateTotal(ctctcode, toTal);
 
 		}
 		String update = gson.toJson(myCart);
@@ -131,20 +131,13 @@ public class CartService {
 	}
 
 	// 선택 목록 삭제
-	public String deleteCart(String ctcode, RedirectAttributes ra) {
+	public void deleteCart(String ctcode) {
 		System.out.println("deleteCart()호출");
 
 		int deleteCart = cdao.deleteCartList(ctcode);
 		System.out.println(ctcode);
 		System.out.println(deleteCart);
-		if (deleteCart > 0) {
-			ra.addFlashAttribute("msg", "선택 물품 삭제");
-			return "redirect:/myCartPage";
-		} else {
-			ra.addFlashAttribute("msg", "잘못 선택하셨습니다.");
-			return "redirect:/myCartPage";
-		}
-
+		
 	}
 
 }

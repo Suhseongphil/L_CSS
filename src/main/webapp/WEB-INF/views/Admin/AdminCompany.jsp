@@ -27,19 +27,10 @@
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 
 	</header>
-	<!-- Header Section End -->
-
-	<!-- Hero Section Begin -->
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/AdminMiddleBar.jsp"%>
@@ -49,9 +40,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
-
-	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="text-center">
 			<h2>회사 정보 입력</h2>
@@ -102,7 +90,6 @@
 			</form>
 		</div>
 	</section>
-	<!-- Featured Section End -->
 
 	<section class="featured spad">
 		<div class="text-center">
@@ -110,11 +97,10 @@
 		</div>
 		<div class="container" id="companyList"></div>
 	</section>
-	<!-- Footer Section Begin -->
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>

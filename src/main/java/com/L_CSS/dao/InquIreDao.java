@@ -11,7 +11,7 @@ public interface InquIreDao {
 
 	String getmax();
 
-	int insertInquire(InquIreDto in);
+	void insertInquire(InquIreDto in);
 
 	ArrayList<InquIreDto> selectInquire(String loginId);
 

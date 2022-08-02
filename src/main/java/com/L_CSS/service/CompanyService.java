@@ -17,7 +17,6 @@ import com.L_CSS.dao.CompanyDao;
 import com.L_CSS.dao.OrderDao;
 import com.L_CSS.dao.ProductDao;
 import com.L_CSS.dao.ReservationDao;
-import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.PageDto;

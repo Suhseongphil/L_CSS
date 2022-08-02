@@ -240,7 +240,8 @@ public class CafeService {
 		System.out.println("mycafeModify()호출");
 		System.out.println("수정할 카페 정보");
 		ModelAndView mav = new ModelAndView();
-		String imgFile = "";
+//		String imgFile = "";
+		
 		//기존이미지 가져오기
 		String cfimg = cdao.getCafeImg(cafe.getCfmid());
 		String cfsgimg = cdao.getCafesigImg(cafe.getCfmid());

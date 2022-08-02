@@ -98,7 +98,6 @@
 						</li>
 					</ul>
 				</li>
-				<!-- href="cafeList"  -->
 			</ul>
 		</div>
 	</div>

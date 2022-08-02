@@ -101,7 +101,7 @@ public class MenuService {
 		}
 
 		menu.setMuimg(muimg);
-		int insertMenu = mdao.insertMenu(menu);
+		mdao.insertMenu(menu);
 	}
 
 	// 메뉴정보 출력
@@ -124,7 +124,7 @@ public class MenuService {
 			mustate = 0;
 		}
 
-		int updateMustate = mdao.updateState(mucode, mustate);
+		mdao.updateState(mucode, mustate);
 
 	}
 
@@ -137,7 +137,7 @@ public class MenuService {
 			file.delete();
 		}
 
-		int deleteMenu = mdao.deleteMenu(mucode);
+		mdao.deleteMenu(mucode);
 
 	}
 
@@ -173,7 +173,6 @@ public class MenuService {
 
 		System.out.println("MymuModify() 호출");
 		
-		String imgFile = "";
 		//기존이미지 가져오기
 		String cfmuimg = mdao.getMyMenuImg(menu.getMucode());
 		System.out.println(menu);
@@ -192,7 +191,7 @@ public class MenuService {
 			menu.setMuimg(cfmuimg);
 		}
 		System.out.println("이미지 담음" + menu);
-		int updateMymenu = mdao.updateMymenu(menu);
+		mdao.updateMymenu(menu);
 		
 	}
 	 

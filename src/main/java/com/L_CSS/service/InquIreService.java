@@ -92,7 +92,7 @@ public class InquIreService {
 		gbcomment = gbcomment.replaceAll("\r\n", "<br>");
 		in.setIqcomment(gbcomment);
 
-		int insertInquire = Idao.insertInquire(in);
+		Idao.insertInquire(in);
 
 		mav.setViewName("option/Inquire");
 		return mav;

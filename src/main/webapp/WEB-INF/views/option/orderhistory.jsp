@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Basic -->
@@ -12,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+<title>주문목록</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -23,45 +22,19 @@
 }
 </style>
 <!-- Site Icons -->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/resources/images/favicon.ico"
-	type="image/x-icon">
-<link rel="apple-touch-icon"
-	href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath }/resources/images/apple-touch-icon.png">
 
 <!-- Bootstrap CSS -->
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
 
 </head>
 <style>
@@ -172,56 +145,28 @@ textarea {
 </style>
 
 <body>
-	<!-- Start Main Top -->
-
-	<!-- End Main Top -->
-
-	<!-- Start Main Top -->
 	<%@ include file="../includes/TopBar.jsp"%>
 	<header class="main-header">
-		<!-- Start Navigation -->
-
 		<div class="container">
-			<!-- Start Header Navigation -->
-
-			<!-- End Header Navigation -->
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbar-menu"></div>
-			<!-- /.navbar-collapse -->
-
-			<!-- Start Atribute Navigation -->
 			<div class="row">
 				<%@ include file="../includes/MiddleBar.jsp"%>
 			</div>
-			<!-- End Atribute Navigation -->
 		</div>
-		<!-- Start Side Menu -->
-
-		<!-- End Side Menu -->
-
-		<!-- End Navigation -->
 	</header>
 
 
 	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
-			<div class="hero__text2"
-				style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
+			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
 				<h3>주 문 내 역</h3>
 			</div>
 			<div class="row">
-
-
-				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-
-								<table class="type09"
-									style="width: auto; margin-bottom: 30px; margin-top: 30px;">
+								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
 									<thead>
 										<tr>
 											<th id="lsy2" style="width: 290px;">&nbsp;&nbsp;&nbsp;&nbsp;이미지</th>
@@ -229,14 +174,15 @@ textarea {
 											<th id="lsy2" style="width: 150px;">가격</th>
 											<th id="lsy2" style="width: 130px;">수량</th>
 											<th id="lsy2" style="width: 160px;">총가격</th>
-											<th id="lsy2" style="width: 80px;">배송<br>준비
+											<th id="lsy2" style="width: 80px;">
+												배송<br>준비
 											</th>
-											<th id="lsy2" style="width: 80px;">주문<br>취소
+											<th id="lsy2" style="width: 80px;">
+												주문<br>취소
 											</th>
 										</tr>
 									</thead>
 									<tbody>
-
 									</tbody>
 								</table>
 
@@ -262,7 +208,7 @@ textarea {
 											<c:choose>
 												<c:when test="${odList.restate == 0}">
 
-													<h5 style="font-size: 18px; margin-top:40px;">
+													<h5 style="font-size: 18px; margin-top: 40px;">
 														배 송<br>준 비
 													</h5>
 
@@ -271,10 +217,9 @@ textarea {
 
 													<h5 style="font-size: 18px;">
 														배 송<br>완 료
-													</h5><hr style="margin-top: 30px; height:1px; background-color: black;">
-													<button class="text-white"
-														style="font-size: 18px; background-color: black;"
-														id="show" value="${odList.recode }">
+													</h5>
+													<hr style="margin-top: 30px; height: 1px; background-color: black;">
+													<button class="text-white" style="font-size: 18px; background-color: black;" id="show" value="${odList.recode }">
 														리 뷰<br>작 성
 													</button>
 
@@ -282,8 +227,9 @@ textarea {
 												<c:when test="${odList.restate == 4}">
 
 													<h5 style="font-size: 18px;">
-														배 송<br>완 료 
-													</h5><hr style="margin-top: 30px; height:1px; background-color: black;">
+														배 송<br>완 료
+													</h5>
+													<hr style="margin-top: 30px; height: 1px; background-color: black;">
 													<h6 style="font-size: 18px; margin-top: 20px;">
 														리 뷰<br>작 성<br>완 료
 													</h6>
@@ -296,10 +242,7 @@ textarea {
 												<div class="col-1">
 													<form action="orderCancel" method="get">
 
-														<button type="submit" name="recode"
-															style="margin-top: 37px; background-color: black;"
-															title="Button push lightblue" class="text-white"
-															value="${odList.recode}">
+														<button type="submit" name="recode" style="margin-top: 37px; background-color: black;" title="Button push lightblue" class="text-white" value="${odList.recode}">
 															주 문<br>취 소
 														</button>
 													</form>
@@ -308,23 +251,17 @@ textarea {
 											<c:when test="${odList.restate == 2}">
 												<div class="col-1">
 													<form action="orderCancel" method="get">
-
-														<button type="submit" name="recode"
-															title="Button push lightblue" class="text-white"
-															style="font-size: 18px; margin-top: 60px; background-color: black;"
-															value="${odList.recode}">
+														<button type="submit" name="recode" title="Button push lightblue" class="text-white" style="font-size: 18px; margin-top: 60px; background-color: black;" value="${odList.recode}">
 															환 불<br>요 청
 														</button>
 													</form>
 												</div>
 											</c:when>
 											<c:when test="${odList.restate == 4 }">
-											<div class="col-1">
-													<h5 style="margin-top: 60px;">
-													</h5>
+												<div class="col-1">
+													<h5 style="margin-top: 60px;"></h5>
 												</div>
 											</c:when>
-											
 											<c:otherwise>
 												<div class="col-1">
 													<h5 style="margin-top: 60px;">
@@ -332,80 +269,55 @@ textarea {
 													</h5>
 												</div>
 											</c:otherwise>
-
-
 										</c:choose>
 									</div>
 									<hr>
-
 								</c:forEach>
-
-
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12">
-							<div
-								class="back color-10 menu align-center expanded text-center SMN_effect-70">
-								<a href="shopMain" class="btn primary-btn text-white"
-									style="margin-left: -800px; background-color: black;">더
-									쇼핑하기</a> <a href="orderhistory" class="btn primary-btn text-white"
-									style="background-color: black; float: right;"> 새로고침</a>
+							<div class="back color-10 menu align-center expanded text-center SMN_effect-70">
+								<a href="shopMain" class="btn primary-btn text-white" style="margin-left: -800px; background-color: black;">더 쇼핑하기</a>
+								<a href="orderhistory" class="btn primary-btn text-white" style="background-color: black; float: right;"> 새로고침</a>
 							</div>
 						</div>
-
-
-
-
 					</div>
 				</div>
-				<!--</section>  -->
 			</div>
-
-
 		</div>
 	</div>
 	<div class="reView">
 		<div class="window2">
-			<form class="user" action="reViewInsert" method="post"
-				enctype="multipart/form-data">
+			<form class="user" action="reViewInsert" method="post" enctype="multipart/form-data">
 				<div class="popup2" id="modal">
-					<div
-						style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
-						<label>회사명</label> <input type="text" id="cmname"
-							style="border: none;" readonly="readonly" name="cmname"
-							class="form-control form-control-user">
+					<div style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
+						<label>회사명</label>
+						<input type="text" id="cmname" style="border: none;" readonly="readonly" name="cmname" class="form-control form-control-user">
 					</div>
 					<br>
 					<div style="margin-left: 20px; margin-right: 400px;">
-						<label>제품명</label> <input type="text" style="border: none;"
-							readonly="readonly" id="pdname" name="pdname"
-							class="form-control form-control-user"> <input
-							type="hidden" id="pdcode" name="pdcode"> <input
-							type="hidden" id="recode" name="recode">
+						<label>제품명</label>
+						<input type="text" style="border: none;" readonly="readonly" id="pdname" name="pdname" class="form-control form-control-user">
+						<input type="hidden" id="pdcode" name="pdcode">
+						<input type="hidden" id="recode" name="recode">
 					</div>
 					<br>
-
 					<div>
 						<h5>
 							리뷰내용 <br> <br>
-							<textarea name="recomment" id="recomment"
-								placeholder="내용을 입력해주세요.."></textarea>
+							<textarea name="recomment" id="recomment" placeholder="내용을 입력해주세요.."></textarea>
 						</h5>
 					</div>
-
 					<div>
-						<input type="radio" name="rvrecommend" value="0">공개 <input
-							type="radio" name="rvrecommend" value="1">비공개
+						<input type="radio" name="rvrecommend" value="0">
+						공개
+						<input type="radio" name="rvrecommend" value="1">
+						비공개
 					</div>
-
-					<button type="submit" id="save" class="btn text-white"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
-					<button type="button" id="close" class="btn text-white"
-						title="Button push lightblue"
-						style="background-color: #000000; margin-left: 20px;">취소</button>
+					<button type="submit" id="save" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
+					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>
 		</div>
@@ -414,38 +326,16 @@ textarea {
 	<footer class="footer" style="margin-top: 200px;">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- End Cart -->
 
-	<!-- Start Instagram Feed  -->
-
-	<!-- End Instagram Feed  -->
-
-
-	<!-- Start Footer  -->
-
-	<!-- End Footer  -->
-
-	<!-- Start copyright  -->
-
-	<!-- End copyright  -->
-
-
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<!-- JS -->
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<!-- ALL JS FILES -->
 
 </body>
 <script type="text/javascript">

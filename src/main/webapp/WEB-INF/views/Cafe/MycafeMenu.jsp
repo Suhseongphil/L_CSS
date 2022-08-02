@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -49,60 +48,36 @@ span, h1 {
 .btn_width {
 	width: 90px;
 }
+
 .text-center h2 {
-text-transform: uppercase;
+	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: black;
 }
-
-
 </style>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 </head>
 
 <body>
-
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
-	<div class="container">
 
+	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-lg-3"></div>
@@ -111,70 +86,67 @@ text-transform: uppercase;
 			</div>
 		</div>
 	</div>
-	<section class="featured spad">	
-	<div class="text-center">
-		<h2>메뉴 정보 입력</h2>
-	</div>
-	<div class="container">
-		<form action="menuInsert" enctype="multipart/form-data">
-			<div class="row cafeInsert">
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">메뉴이름</span>
+	
+	<section class="featured spad">
+		<div class="text-center">
+			<h2>메뉴 정보 입력</h2>
+		</div>
+		<div class="container">
+			<form action="menuInsert" enctype="multipart/form-data">
+				<div class="row cafeInsert">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">메뉴이름</span>
+						</div>
+						<div class="items">
+							<input type="text" id="muname" name="muname" placeholder="메뉴 이름">
+						</div>
 					</div>
-					<div class="items">
-						<input type="text" id="muname" name="muname" placeholder="메뉴 이름">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">메뉴가격</span>
+						</div>
+						<div class="items">
+							<input type="text" id="muprice" name="muprice" placeholder="가격">
+						</div>
 					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">메뉴가격</span>
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">메뉴타입</span>
+						</div>
+						<div class="items">
+							<select id="mutype" name="mutype">
+								<c:forEach items="${menuType}" var="mutype2">
+									<option value="${mutype2 }">${mutype2}</option>
+								</c:forEach>
+							</select>
+						</div>
 					</div>
-					<div class="items">
-						<input type="text" id="muprice" name="muprice" placeholder="가격">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">카페코드</span>
+						</div>
+						<div class="items">
+							<input type="text" id="mucfcode" name="mucfcode" value="${mycafeInfo.cfcode }">
+						</div>
 					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">메뉴타입</span>
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">메뉴 이미지</span>
+						</div>
+						<div class="items">
+							<input type="file" id="muims" name="muims">
+						</div>
 					</div>
-					<div class="items">
-						<select id="mutype" name="mutype">
-						<c:forEach items="${menuType}" var="mutype2">
-						<option value="${mutype2 }">${mutype2}</option>
-						</c:forEach>
-						</select>
-					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">카페코드</span>
-					</div>
-					<div class="items">
-						<input type="text" id="mucfcode" name="mucfcode"  value="${mycafeInfo.cfcode }">
-					</div>
-				</div>
-
-
-
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">메뉴 이미지</span>
-					</div>
-					<div class="items">
-
-						<input type="file" id="muims" name="muims">
-					</div>
-				</div>
-				<div class="col-2">
-					<br> <br>
-					<div class="items">
-						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px">메뉴등록</button>
+					<div class="col-2">
+						<br> <br>
+						<div class="items">
+							<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px">메뉴등록</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		</form>
-	</div>
+			</form>
+		</div>
 	</section>
 	<hr>
 	<section class="featured spad">
@@ -184,14 +156,11 @@ text-transform: uppercase;
 		<div class="container" id="menuList"></div>
 	</section>
 
-
-
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-
-	<!-- Js Plugins -->
-	<!-- Js Plugins -->
+	
+	<!-- Js -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
@@ -200,9 +169,8 @@ text-transform: uppercase;
 	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-	
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
@@ -216,64 +184,55 @@ text-transform: uppercase;
 </script>
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#menuSend").on(
-						"click",
-						function() {
-							var formData = new FormData();
-							var inputFile = $("input[name = 'muims']");
-							var files = inputFile[0].files;
-							console.log(files);
+	$(document).ready(function() {
+		$("#menuSend").on("click", function() {
+			var formData = new FormData();
+			var inputFile = $("input[name = 'muims']");
+			var files = inputFile[0].files;
+			console.log(files);
 
-							
+			for (var i = 0; i < files.length; i++) {
+				formData.append("muims", files[i]);
+			}
+			formData.append("muname", $("#muname").val());
+			formData.append("mutype", $("#mutype").val());
+			formData.append("muprice", $("#muprice").val());
+			formData.append("mucfcode", $("#mucfcode").val());
 
-							for (var i = 0; i < files.length; i++) {
-								formData.append("muims", files[i]);
-							}
-							formData.append("muname", $("#muname").val());
-							formData.append("mutype",
-									$("#mutype").val());
-							formData.append("muprice", $("#muprice")
-									.val());
-							formData.append("mucfcode", $("#mucfcode")
-									.val());
-							
-							
-							
-							$.ajax({
-								type : "POST",
-								url : "menuInsert",
-								processData : false,
-								contentType : false,
-								data : formData,
-								success : function(result) {
-									console.log("업로드 성공");
-									$("#muname").val("");
-									$("#mutype").val("");
-									$("#muprice").val("");
-									$("#mucfcode").val("");
-									
-									getMyMenuInfo();
-								}
-							});
-						});
+			$.ajax({
+				type : "POST",
+				url : "menuInsert",
+				processData : false,
+				contentType : false,
+				data : formData,
+				success : function(result) {
+					console.log("업로드 성공");
+					$("#muname").val("");
+					$("#mutype").val("");
+					$("#muprice").val("");
+					$("#mucfcode").val("");
 
+					getMyMenuInfo();
+				}
 			});
+		});
 
+	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		 getMyMenuInfo();
+		getMyMenuInfo();
 	});
-	
-	function getMyMenuInfo(){
+
+	function getMyMenuInfo() {
 		var mucfcode = $("#mucfcode").val();
 		$.ajax({
 			type : "get",
 			url : "getMyMenuInfo",
-			data : {"mucfcode" : mucfcode},
+			data : {
+				"mucfcode" : mucfcode
+			},
 			dataType : "json",
 			success : function(menu) {
 				console.log(menu);
@@ -377,7 +336,7 @@ text-transform: uppercase;
 			var mustate = '0';
 		}
 		var muims = $("#muims").val();
-		var muname =$("#muname").val();
+		var muname = $("#muname").val();
 		var muprice = $("#muprice").val();
 		var mutype = $("#mutype").val();
 		$.ajax({
@@ -398,7 +357,6 @@ text-transform: uppercase;
 		});
 
 	}
-
 
 	function muDelete(mucode) {
 		$.ajax({
@@ -453,8 +411,7 @@ text-transform: uppercase;
 	}
 </script>
 
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(

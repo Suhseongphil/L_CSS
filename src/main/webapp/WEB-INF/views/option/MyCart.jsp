@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Site Metas -->
-<title>ThewayShop - Ecommerce Bootstrap 4 HTML Template</title>
+<title>장바구니</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -32,11 +32,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <style>
 .but_css {
@@ -77,45 +72,34 @@
 	color: saddlebrown;
 }
 
-.cancelBtn{
+.cancelBtn {
 	border: none;
 	background-color: black;
-	color:white;
-	border-radius:3px;
+	color: white;
+	border-radius: 3px;
 }
 </style>
 
 <body>
-	<!-- Start Main Top -->
-
-	<!-- End Main Top -->
-
-	<!-- Start Main Top -->
 	<%@ include file="../includes/TopBar.jsp"%>
 	<header class="main-header">
 		<div class="container">
-			<div class="collapse navbar-collapse" id="navbar-menu"></div>
 			<div class="row">
 				<%@ include file="../includes/MiddleBar.jsp"%>
 			</div>
 		</div>
 	</header>
 
-
-	<!-- Start Cart  -->
 	<div class="cart-box-main">
 		<div class="container">
 			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 10px; margin-left: auto; margin-right: auto;">
 				<h3>장 바 구 니</h3>
 			</div>
 			<div class="row">
-				<!--<section class="shoping-cart spad">  -->
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="shoping__cart__table">
-	
-
 								<table class="type09" style="width: auto; margin-bottom: 30px; margin-top: 30px;">
 									<thead>
 										<tr>
@@ -128,10 +112,8 @@
 										</tr>
 									</thead>
 									<tbody>
-
 									</tbody>
 								</table>
-
 								<div id="myCartList" class="item" style="text-align: center;"></div>
 							</div>
 						</div>
@@ -140,14 +122,13 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="back color-10 menu align-center expanded text-center SMN_effect-70" style="font-weight: bold;">
-							<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black; border-radius:3px;">더 쇼핑하기</a>
-							<a href="myCartPage" class="primary-btn text-white" style="background-color: black; float: right; border-radius:3px;"> 새로고침</a>
+							<a href="shopMain" class="primary-btn text-white" style="margin-left: -800px; background-color: black; border-radius: 3px;">더 쇼핑하기</a>
+							<a href="myCartPage" class="primary-btn text-white" style="background-color: black; float: right; border-radius: 3px;"> 새로고침</a>
 						</div>
 					</div>
 					<div id="checkOut" class="col-lg-4" style="margin-bottom: 100px; margin-left: 800px;"></div>
 				</div>
 			</div>
-			<!--</section>  -->
 		</div>
 	</div>
 
@@ -191,15 +172,12 @@
 
 		var output = "";
 		for (var i = 0; i < mycart.length; i++) {
-			
-			
-			
-			
+
 			//output += "<tr>"
 			//output += "<td class=\"shoping__cart__item\">";
 			output += "<div class=\"row \">";
 			output += "<div class=\"col-2  \">"
-			
+
 			output += "<img style=\"width:100px;\" alt=\"\" src="+mycart[i].pdimg+">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 			output += "</div>";
 			output += "<div class=\"col-3  \">"
@@ -235,8 +213,8 @@
 
 			output += "</div>";
 			output += "<div class=\"col-1 divpadding\">";
-			output += "<button class=\"cancelBtn\" onclick=\"checkbox('" + mycart[i].ctcode
-					+ "')\" id=\"check\">취소</button>";
+			output += "<button class=\"cancelBtn\" onclick=\"checkbox('"
+					+ mycart[i].ctcode + "')\" id=\"check\">취소</button>";
 			output += "</div>";
 
 			//output += "</td>";

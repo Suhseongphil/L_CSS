@@ -65,12 +65,12 @@
 	</div>
 
 	<div class="container">
-		<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px; padding:0px;">
+		<div class="row product__discount__item__text" style="background-color: #ffffff; margin-top: 2px; padding: 0px;">
 			<div class="col-12">
 				<a class="btn text-white" href="gbBoardWrite_form" style="background-color: black; margin-left: 85%; margin-bottom: 20px;">게시글 작성</a>
 			</div>
 			<c:forEach items="${groupBuyList}" var="board" varStatus="num">
-				<div class="col-lg-4 col-md-4" style="background-color: #f8f9fa; padding: 20px; border:2px solid white;">
+				<div class="col-lg-4 col-md-4" style="background-color: #f8f9fa; padding: 20px; border: 2px solid white;">
 					<div>
 						<a href="groupBuyBoardView?gbcode=${board.gbcode}">
 							<img class="imgZ" alt="" src="${board.pdimg}">

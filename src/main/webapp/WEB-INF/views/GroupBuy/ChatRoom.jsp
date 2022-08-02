@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공동구매 게시판</title>
+<title>공동구매 채팅방</title>
 <head>
 <meta charset="UTF-8">
 <meta name="description" content="Ogani Template">

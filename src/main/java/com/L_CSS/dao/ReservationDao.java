@@ -2,7 +2,6 @@ package com.L_CSS.dao;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.L_CSS.dto.OrderDto;
 import com.L_CSS.dto.ReservationDto;
 
 public interface ReservationDao {
@@ -11,13 +10,13 @@ public interface ReservationDao {
 
 	int insertReTable(ReservationDto reserv);
 
-	int orderCancel(@Param("recode")String recode);
+	void orderCancel(@Param("recode")String recode);
 
 	int deleteOrder(String recode);
 
 	int orderCheck(String recode);
 
-	int updateResult(String recode);
+	void updateResult(String recode);
 
 	
 

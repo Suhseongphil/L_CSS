@@ -53,19 +53,10 @@ input {
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Header Section Begin -->
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
-
-	<!-- Hero Section Begin -->
+	
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
@@ -75,7 +66,6 @@ input {
 			</div>
 		</div>
 	</div>
-	<!-- Hero Section End -->
 
 	<section class="featured spad">
 		<div class="text-center">
@@ -150,11 +140,10 @@ input {
 			</div>
 		</div>
 	</section>
-	<!-- Footer Section Begin -->
+	
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
