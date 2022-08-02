@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-lg-4 col-md-12">
 					<div class="footer__widget">
-						<a href="InquirePage">고객문의</a>
+						<a href="inquirePage">고객문의</a>
 					</div>
 				</div>
 			</div>
