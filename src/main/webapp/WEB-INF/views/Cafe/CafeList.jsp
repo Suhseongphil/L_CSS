@@ -46,11 +46,14 @@
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="hero__text2" style="margin-top: 30px; margin-bottom: 50px; margin-left: auto; margin-right: auto;">
-				<h3>카 페 목 록</h3>
+				<h3 style="margin-left: 300px;">카 페 목 록</h3>
 			</div>
-
-			지역검색 :
-			<select style="float: right; height: 20%; width: 8%;" name="cfaddress" id="cfaddress" onchange="selectCheck()">
+			
+			
+			<h5 style=" margin-top: 30px; font-weight: bold;" >지역검색 :</h5>
+			
+			<select style=" margin-top: 25px; margin-right:80px; padding:8px; margin-left:15px; font-weight:bold; font-size:15px;
+			float: right; height: 20%;" name="cfaddress" id="cfaddress" onchange="selectCheck()">
 
 				<option value="선택">선택</option>
 				<option value="1">전체</option>
@@ -63,7 +66,8 @@
 				<option value="전남">전남</option>
 				<option value="전북">전북</option>
 			</select>
-
+		
+			
 			<div class="col-lg-12 col-md-12">
 				<div class="row">
 					<c:forEach items="${selectCafeList}" var="cfList">
