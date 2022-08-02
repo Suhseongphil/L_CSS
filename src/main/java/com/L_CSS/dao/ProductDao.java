@@ -62,6 +62,12 @@ ArrayList<ProductDto> productList(@Param("start")int startRow, @Param("end")int 
 
 ArrayList<ReviewProductDto> ReviewProductList();
 
+ArrayList<ProductDto> reverseList(@Param("start")int startRow, @Param("end")int endRow);
+
+ArrayList<ProductDto> reverseType(@Param("start")int startRow, @Param("end")int endRow, @Param("pdtype")String pdtype);
+
+ArrayList<ProductDto> reversesearch(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText, @Param("start")int startRow, @Param("end")int endRow);
+
 
 
 	
