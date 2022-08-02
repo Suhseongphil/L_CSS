@@ -373,8 +373,10 @@ public class ProductService {
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			ArrayList<ProductDto> reversesearch= pdao.reversesearch(pdcategory,searchText,startRow, endRow);
 			ArrayList<ProductDto> searchList = pdao.searchList(pdcategory,searchText,startRow, endRow);
 			System.out.println(searchList);
+			mav.addObject("reverseList",reversesearch);
 			mav.addObject("selectproductList", searchList);
 			mav.setViewName("Shop/searchShop");
 		}
@@ -622,7 +624,9 @@ public class ProductService {
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			ArrayList<ProductDto> reverseList = pdao.reverseList(startRow, endRow);
 			ArrayList<ProductDto> productList = pdao.productList(startRow, endRow);
+			mav.addObject("reverseList",reverseList);
 			mav.addObject("selectproductList", productList);
 			mav.setViewName("Shop/ShopMain");
 			return mav;
@@ -638,8 +642,10 @@ public class ProductService {
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			ArrayList<ProductDto> reverseList = pdao.reverseType(startRow, endRow,pdtype);
 			ArrayList<ProductDto> searchType = pdao.searchType(startRow, endRow, pdtype);
 			session.setAttribute("typeResult", pdtype);
+			mav.addObject("reverseList",reverseList);
 			mav.addObject("selectproductList", searchType);
 			mav.setViewName("Shop/ShopMain");
 			return mav;
