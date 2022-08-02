@@ -9,14 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&family=Gowun+Batang:wght@700&family=Hahmlet:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style type="text/css">
-
 .header__logo a:hover {
- color: saddlebrown;
+	color: saddlebrown;
 }
+
 .imgO {
-border-radius: 70%;
-width:30px;
-height: 30px;
+	border-radius: 70%;
+	width: 30px;
+	height: 30px;
 }
 </style>
 </head>
@@ -118,13 +118,13 @@ height: 30px;
 					<a href="groupBuyBoard">공동구매</a>
 				</li>
 				<li style="text-align: right; float: right;">
-				<c:choose>
-				<c:when test="${sessionScope.loginId != null }">
-				<img class="imgO" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${sessionScope.myProfile}">
+					<c:choose>
+						<c:when test="${sessionScope.loginId != null }">
+							<img class="imgO" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/MemberFrofile/${sessionScope.myProfile}">
 				${sessionScope.loginId }님 환영합니다!
 				
 				</c:when>
-				</c:choose>
+					</c:choose>
 				</li>
 			</ul>
 		</nav>

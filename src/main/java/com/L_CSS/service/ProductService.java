@@ -477,7 +477,7 @@ public class ProductService {
 
 		product.setPdimg(pdimg);
 
-		int insertProduct = pdao.insertProduct(product);
+		pdao.insertProduct(product);
 	}
 
 	// 메뉴정보 출력
@@ -493,14 +493,7 @@ public class ProductService {
 	// 메뉴 상태 변경 기능
 	public void pdstateModify(String pdcode, int pdstate) {
 		System.out.println("pdstateModify()호출");
-
-		if (pdstate == 0) {
-			pdstate = 1;
-		} else {
-			pdstate = 0;
-		}
-
-		int updateMustate = pdao.updateState(pdcode, pdstate);
+		pdao.updateState(pdcode, pdstate);
 
 	}
 
@@ -513,7 +506,7 @@ public class ProductService {
 			file.delete();
 		}
 
-		int deleteProduct = pdao.deleteProduct(pdcode);
+		pdao.deleteProduct(pdcode);
 
 	}
 
@@ -546,7 +539,6 @@ public class ProductService {
 
 		System.out.println("MypdModify() 호출");
 
-		String imgFile = "";
 		// 기존이미지 가져오기
 		String pdcmimg = pdao.getMyProductImg(product.getPdcode());
 		System.out.println(product);
@@ -565,7 +557,7 @@ public class ProductService {
 			product.setPdimg(pdcmimg);
 		}
 		System.out.println("이미지 담음" + product);
-		int updateMymenu = pdao.updateMyProduct(product);
+		pdao.updateMyProduct(product);
 
 	}
 

@@ -14,7 +14,7 @@
 <meta name="msapplication-tap-highlight" content="no">
 
 
-<title>Insert title here</title>
+<title>카페 상세보기</title>
 <link href="${pageContext.request.contextPath }/resources/css/main.82cfd66e.css" rel="stylesheet">
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -38,26 +38,24 @@
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
 			<div class="col-xs-12 section-container-spacer">
-				<h3>카페 목록</h3> 
+				<h3>카페 목록</h3>
 			</div>
 			<section class="blog-details spad">
 				<div class="container">
 					<div class="row">
-
-						
-							<div class="blog__item__pic">
-								<c:choose>
-									<c:when test="${cafeInfo.cfimg == null }">
-										<img alt="" style="width: 500px; height: 500px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
-									</c:when>
-									<c:otherwise>
-										<img alt="" style="width: 500px; height: 500px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${cafeInfo.cfimg.split('/')[1]}">
-									</c:otherwise>
-								</c:choose>
-							</div>
+						<div class="blog__item__pic">
+							<c:choose>
+								<c:when test="${cafeInfo.cfimg == null }">
+									<img alt="" style="width: 500px; height: 500px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS010.png">
+								</c:when>
+								<c:otherwise>
+									<img alt="" style="width: 500px; height: 500px; padding-right: 30px; padding-left: 30px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/CafeFile/${cafeInfo.cfimg.split('/')[1]}">
+								</c:otherwise>
+							</c:choose>
+						</div>
 						<div style="margin-left: 100px;">
 							<h2 style="margin-left: -130px; margin-top: -80px; font-weight: bold;">${cafeInfo.cfname}</h2>
-							<div id="map" style="width: 500px; height: 500px; margin-top: 35px; "></div>
+							<div id="map" style="width: 500px; height: 500px; margin-top: 35px;"></div>
 							<h4 style="text-align: center;">${cafeInfo.cftel}</h4>
 							<h4 style="text-align: center; width: 500px;">${cafeInfo.cfaddress}</h4>
 							<input id="address" type="hidden" value="${cafeInfo.cfaddress}">
@@ -74,20 +72,17 @@
 						<c:forEach items="${menuInfo}" var="muList">
 							<div class="col-lg-2 col-md-2">
 								<div class="blog__details__text" style="margin: 30px;">
-						
 									<c:set var="imgCheck" value="${muList.muimg}" />
 									<c:choose>
-									<c:when test="${fn:substring(imgCheck,0,1) == 'BS'}">
-									<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }" alt="">
-									</c:when>
-									<c:otherwise>
-									<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/${muList.muimg }" alt="">
-									</c:otherwise>
+										<c:when test="${fn:substring(imgCheck,0,1) == 'BS'}">
+											<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/${muList.muimg }" alt="">
+										</c:when>
+										<c:otherwise>
+											<img style="width: 150px; width: 80px; height: 80px;" src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/${muList.muimg }" alt="">
+										</c:otherwise>
 									</c:choose>
-									
 									<p style="font-weight: 100px;">${muList.muname}</p>
 									<h3>${muList.muprice}</h3>
-									
 								</div>
 								<div class="blog__details__content"></div>
 							</div>
@@ -119,7 +114,7 @@
 	var address = $("#address").val();
 	address = address.split("_")[1];
 	console.log(address);
-	
+
 	var cfname = $("#cfname").val();
 
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -156,9 +151,10 @@
 							// 인포윈도우로 장소에 대한 설명을 표시합니다
 							var infowindow = new kakao.maps.InfoWindow(
 									{
-										content : '<div style="width:150px;text-align:center;padding:6px 0;">'+cfname+'</div>'
+										content : '<div style="width:150px;text-align:center;padding:6px 0;">'
+												+ cfname + '</div>'
 									});
-							infowindow.open(map, marker);			
+							infowindow.open(map, marker);
 
 							// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 							map.setCenter(coords);

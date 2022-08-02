@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Basic -->
 
 <head>
 <meta charset="utf-8">
@@ -146,7 +145,9 @@ input {
 					<div style="border-top: 3px solid #036; padding: 5px 0px;">
 						<div class="row">
 							<div class="col-3">
-								<span>답변<br>내용</span>
+								<span>
+									답변<br>내용
+								</span>
 							</div>
 							<div class="col-9">
 								<textarea readonly>${AnswerList.ancomment}</textarea>
@@ -183,9 +184,9 @@ input {
 </body>
 
 <script type="text/javascript">
-	function deleteInquire(iqcode){
-		location.href="deleteInquire?iqcode="+iqcode;
-		
+	function deleteInquire(iqcode) {
+		location.href = "deleteInquire?iqcode=" + iqcode;
+
 	}
 </script>
 </html>

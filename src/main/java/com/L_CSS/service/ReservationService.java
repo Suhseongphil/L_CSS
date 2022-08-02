@@ -56,10 +56,7 @@ public class ReservationService {
 		String max = rdao.getmax();
 		String recode = "RE";
 		ArrayList<CartDto>selectCartList = cdao.selectCartList(loginId,ctcode);
-		
-		
-		
-		
+
 		String recfcode = null;
 		String repdcode = null;
 		int amount = 0;
@@ -70,7 +67,6 @@ public class ReservationService {
 			repdcode = selectCartList.get(i).getCtmupdcode();
 			amount = selectCartList.get(i).getCtamount();
 			price = selectCartList.get(i).getCttotal();
-			ReservationDto rv = null;
 			reserv.setRemid(loginId);
 			reserv.setRecfcmcode(recfcode);
 			reserv.setReprice(price);
@@ -102,7 +98,7 @@ public class ReservationService {
 		}
 		int insertReTable = rdao.insertReTable(reserv);
 		if(insertReTable > 0 ) {
-			int deleteCart = cdao.deleteCart(ctcode);
+			cdao.deleteCart(ctcode);
 			ra.addFlashAttribute("msg", "결제가 완료되었습니다.");
 			mav.setViewName("redirect:/orderhistory");
 		}else {
@@ -126,11 +122,7 @@ public class ReservationService {
 		System.out.println("orderCancel()호출");
 		ModelAndView mav  = new ModelAndView();
 		
-		
-		
-		
-		int orderCancel = rdao.orderCancel(recode);
-		
+		rdao.orderCancel(recode);
 		
 		mav.setViewName("redirect:/orderhistory");
 		return mav;

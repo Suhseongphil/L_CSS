@@ -2,7 +2,6 @@ package com.L_CSS.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.L_CSS.dao.MemberDao;
 import com.L_CSS.dto.MemberDto;
-import com.google.gson.Gson;
 
 @Service
 public class MemberService {
@@ -249,11 +247,8 @@ public class MemberService {
 	public String idCheck(String inputId) {
 		System.out.println("idCheck()호출");
 		System.out.println(inputId);
-		Gson gson = new Gson();
 		
 		String idCheck = mdao.idCheck(inputId);
-		
-		
 		
 		if(idCheck == null) {
 			return "OK";

@@ -2,15 +2,12 @@ package com.L_CSS.controller;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.service.CompanyService;
 
@@ -19,8 +16,7 @@ public class CompanyController {
 	
 	@Autowired
 	CompanyService csv;
-	@Autowired
-	private HttpSession session;
+
 	@RequestMapping (value="/comPanyUpLoad")
 	public ModelAndView comPanyUpLoad() {
 		System.out.println("업체 업로드 ");

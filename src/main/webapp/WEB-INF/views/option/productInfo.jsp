@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="content-type" content="text/html" />
 
-<title>Insert title here</title>
+<title>상품 상세보기</title>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
@@ -24,7 +24,7 @@
 	background-color: #007bff;
 	color: white;
 	border-radius: 5px;
-	border:none;
+	border: none;
 }
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
@@ -47,7 +47,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
 	</header>
-	<!-- Header Section End -->
+	
 	<div class="container">
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
@@ -56,7 +56,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 	<section class="product-details spad">
 		<div class="container">
-
 			<div class="row">
 				<div class="col2aa">
 					<%@ include file="../includes/SideBar2.jsp"%>
@@ -66,7 +65,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 						<div class="product__details__pic__item">
 							<img class="product__details__pic__item--large" src="${productInfo.pdimg }" alt="">
 						</div>
-
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4">
@@ -103,7 +101,6 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 									<samp>&nbsp;&nbsp; 연중무휴</samp>
 								</span>
 							</li>
-
 						</ul>
 					</div>
 				</div>

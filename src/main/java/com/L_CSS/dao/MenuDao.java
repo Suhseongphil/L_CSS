@@ -11,13 +11,13 @@ public interface MenuDao {
 
 	String getmax();
 
-	int insertMenu(MenuDto menu);
+	void insertMenu(MenuDto menu);
 
 	ArrayList<MenuDto> getMenu();
 
-	int updateState(@Param("mucode") String mucode, @Param("mustate") int mustate);
+	void updateState(@Param("mucode") String mucode, @Param("mustate") int mustate);
 
-	int deleteMenu(String mucode);
+	void deleteMenu(String mucode);
 
 	ArrayList<MenuDto> MenuInfo(String cfcode);
 
@@ -25,7 +25,7 @@ public interface MenuDao {
 
 	ArrayList<MenuDto> getMyMenu(String mucfcode);
 
-	int updateMymenu(MenuDto menu);
+	void updateMymenu(MenuDto menu);
 
 	String getMyMenuImg(String muimg);
 

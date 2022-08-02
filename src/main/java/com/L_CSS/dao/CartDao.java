@@ -3,7 +3,6 @@ package com.L_CSS.dao;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.L_CSS.dto.CartDto;
 
@@ -13,17 +12,17 @@ public interface CartDao {
 
 	ArrayList<CartDto> selectMyCart(String loginId);
 
-	int updateMinus(@Param("amount")int amount, @Param("ctcode")String ctcode);
+	void updateMinus(@Param("amount")int amount, @Param("ctcode")String ctcode);
 
-	int updatePlus(@Param("amount")int amount, @Param("ctcode")String ctcode);
+	void updatePlus(@Param("amount")int amount, @Param("ctcode")String ctcode);
 
-	int updateTotal(@Param("ctcode")String ctctcode, @Param("cttotal")int toTal);
+	void updateTotal(@Param("ctcode")String ctctcode, @Param("cttotal")int toTal);
 
 	ArrayList<CartDto> selectCart(String loginId);
 
 	ArrayList<CartDto> selectCartList(@Param("loginId")String loginId, @Param("ctcode")String ctcode);
 
-	int deleteCart(String ctcode);
+	void deleteCart(String ctcode);
 
 	int InsertCart(CartDto mycart);
 

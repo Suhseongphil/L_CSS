@@ -53,7 +53,7 @@ public class ReviewService {
 		int insertResult = rdao.insertResult(pdcode,recomment,rvrecommend,loginId,recode);
 			
 			if(insertResult > 0) {
-				int updateResult = redao.updateResult(recode);
+				redao.updateResult(recode);
 				ra.addFlashAttribute("msg", "리뷰가 작성되었습니다.");
 				return "redirect:/orderhistory";
 			}else {

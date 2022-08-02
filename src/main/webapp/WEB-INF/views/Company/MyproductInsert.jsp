@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <%
@@ -50,8 +49,9 @@ span, h1 {
 .btn_width {
 	width: 90px;
 }
+
 .text-center h2 {
-text-transform: uppercase;
+	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: black;
@@ -59,124 +59,90 @@ text-transform: uppercase;
 </style>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/handmade.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/resources/css/style.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
 </head>
 
 <body>
-
 	<header class="header">
 		<%@ include file="../includes/TopBar.jsp"%>
-
 	</header>
-	<!-- Header Section End -->
 	<div class="container">
-
 		<div class="row">
 			<%@ include file="../includes/MiddleBar.jsp"%>
-			<div class="col-lg-3"></div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
 		</div>
 	</div>
 	<section class="featured spad">
-	<div class="text-center">
-		<h2>상품 정보 입력</h2>
-	</div>
-	<div class="container">
-		<form action="productInsert" enctype="multipart/form-data">
-			<div class="row cafeInsert">
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">상품이름</span>
+		<div class="text-center">
+			<h2>상품 정보 입력</h2>
+		</div>
+		<div class="container">
+			<form action="productInsert" enctype="multipart/form-data">
+				<div class="row cafeInsert">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">상품이름</span>
+						</div>
+						<div class="items">
+							<input type="text" id="pdname" name="pdname" placeholder="상품 이름">
+						</div>
 					</div>
-					<div class="items">
-						<input type="text" id="pdname" name="pdname" placeholder="상품 이름">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">상품가격</span>
+						</div>
+						<div class="items">
+							<input type="text" id="pdprice" name="pdprice" placeholder="가격">
+						</div>
 					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">상품가격</span>
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">상품타입</span>
+						</div>
+						<div class="items">
+							<select id="pdtype" name="pdtype">
+								<c:forEach items="${productType}" var="pdtype2">
+									<option value="${pdtype2 }">${pdtype2}</option>
+								</c:forEach>
+							</select>
+						</div>
 					</div>
-					<div class="items">
-						<input type="text" id="pdprice" name="pdprice" placeholder="가격">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">상품개수</span>
+						</div>
+						<div class="items">
+							<input type="text" id="pdamount" name="pdamount" placeholder="상품 갯수">
+						</div>
 					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">상품타입</span>
+					<input type="hidden" id="pdcmcode" name="pdcmcode" value="${mycompanyInfo.cmcode }">
+					<div class="col-2">
+						<div class="items">
+							<span class="font-weight-bold">상품 이미지</span>
+						</div>
+						<div class="items">
+							<input type="file" id="pdimgs" name="pdimgs">
+						</div>
 					</div>
-					<div class="items">
-						
-						<select id="pdtype" name="pdtype">
-						<c:forEach items="${productType}" var="pdtype2">
-						<option value="${pdtype2 }">${pdtype2}</option>
-						</c:forEach>
-						</select>
-					</div>
-				</div>
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">상품개수</span>
-					</div>
-					<div class="items">
-					<input type="text" id="pdamount" name="pdamount" placeholder="상품 갯수">
-					</div>
-				</div>
-						<input type="hidden" id="pdcmcode" name="pdcmcode"  value="${mycompanyInfo.cmcode }">
-						
-
-
-
-				<div class="col-2">
-					<div class="items">
-						<span class="font-weight-bold">상품 이미지</span>
-					</div>
-					<div class="items">
-
-						<input type="file" id="pdimgs" name="pdimgs">
-					</div>
-				</div>
-				<div class="col-2">
-					<br> <br>
-					<div class="items">
-						<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px;">메뉴등록</button>
+					<div class="col-2">
+						<br> <br>
+						<div class="items">
+							<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px;">메뉴등록</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		</form>
-	</div>
+			</form>
+		</div>
 	</section>
 	<hr>
 	<section class="featured spad">
@@ -185,14 +151,12 @@ text-transform: uppercase;
 		</div>
 		<div class="container" id="productList"></div>
 	</section>
-
-
+	
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 
-	<!-- Js Plugins -->
-	<!-- Js Plugins -->
+	<!-- Js -->
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
@@ -201,10 +165,8 @@ text-transform: uppercase;
 	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
-	
-	
+	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+
 </body>
 
 <script type="text/javascript">
@@ -215,67 +177,57 @@ text-transform: uppercase;
 </script>
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#menuSend").on(
-						"click",
-						function() {
-							var formData = new FormData();
-							var inputFile = $("input[name = 'pdimgs']");
-							var files = inputFile[0].files;
-							console.log(files);
+	$(document).ready(function() {
+		$("#menuSend").on("click", function() {
+			var formData = new FormData();
+			var inputFile = $("input[name = 'pdimgs']");
+			var files = inputFile[0].files;
+			console.log(files);
 
-							
+			for (var i = 0; i < files.length; i++) {
+				formData.append("pdimgs", files[i]);
+			}
+			formData.append("pdname", $("#pdname").val());
+			formData.append("pdtype", $("#pdtype").val());
+			formData.append("pdprice", $("#pdprice").val());
+			formData.append("pdamount", $("#pdamount").val());
+			formData.append("pdcmcode", $("#pdcmcode").val());
 
-							for (var i = 0; i < files.length; i++) {
-								formData.append("pdimgs", files[i]);
-							}
-							formData.append("pdname", $("#pdname").val());
-							formData.append("pdtype",
-									$("#pdtype").val());
-							formData.append("pdprice", $("#pdprice")
-									.val());
-							formData.append("pdamount", $("#pdamount")
-									.val());
-							formData.append("pdcmcode", $("#pdcmcode")
-									.val());
-							
-							
-							
-							$.ajax({
-								type : "POST",
-								url : "productInsert",
-								processData : false,
-								contentType : false,
-								data : formData,
-								success : function(result) {
-									console.log("업로드 성공");
-									$("#pdname").val("");
-									$("#pdtype").val("");
-									$("#pdprice").val("");
-									$("#pdcmcode").val("");
-									$("#pdamount").val("");
-									
-									getMyProductInfo();
-								}
-							});
-						});
+			$.ajax({
+				type : "POST",
+				url : "productInsert",
+				processData : false,
+				contentType : false,
+				data : formData,
+				success : function(result) {
+					console.log("업로드 성공");
+					$("#pdname").val("");
+					$("#pdtype").val("");
+					$("#pdprice").val("");
+					$("#pdcmcode").val("");
+					$("#pdamount").val("");
 
+					getMyProductInfo();
+				}
 			});
+		});
 
+	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		 getMyProductInfo();
+		getMyProductInfo();
 	});
-	
-	function getMyProductInfo(){
+
+	function getMyProductInfo() {
 		var pdcmcode = $("#pdcmcode").val();
 		$.ajax({
 			type : "get",
 			url : "getMyProductInfo",
-			data : {"pdcmcode" : pdcmcode},
+			data : {
+				"pdcmcode" : pdcmcode
+			},
 			dataType : "json",
 			success : function(product) {
 				console.log(product);
@@ -289,7 +241,6 @@ text-transform: uppercase;
 
 		for (var i = 0; i < product.length; i++) {
 			output += "<br>";
-			
 
 			output += "<div class=\"row cafeInsert\">"; // 맨위
 
@@ -297,13 +248,14 @@ text-transform: uppercase;
 			if (product[i].pdimg != null) {
 				/* console.log(i + "번 이미지 :" + company[i].cmimg.split("/")[1]); */
 				if (product[i].pdimg.indexOf('http') == 0) {
-				output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=" + product[i].pdimg + ">";
-					
-				}else {
+					output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src="
+							+ product[i].pdimg + ">";
+
+				} else {
 					output += "<img style=\"width:150px; height:80px; margin-top:8%;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/ProductFile/"
-						+ product[i].pdimg + "\">";
+							+ product[i].pdimg + "\">";
 				}
-						
+
 			} else {
 				output += "<span style=\"margint:10px 30px 10px;\">이미지없음</span>";
 			}
@@ -330,10 +282,10 @@ text-transform: uppercase;
 
 			if (product[i].pdstate == 0) {
 				output += "<button class=\"cafeStateMod-blue-btn\" type=\"button\" onclick=\"stateChange(this,'"
-						+ product[i].pdcode + "')\">활동중</button>";
+						+ product[i].pdcode + "')\">판매중</button>";
 			} else {
 				output += "<button class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"stateChange(this,'"
-						+ product[i].pdcode + "')\">활동중지</button>";
+						+ product[i].pdcode + "')\">판매중지</button>";
 			}
 
 			output += "</div></div>";
@@ -376,15 +328,14 @@ text-transform: uppercase;
 
 <script type="text/javascript">
 	function stateChange(selObj, pdcode) {
-		
 
-		if ($(selObj).text() == "활동중") {
-			$(selObj).text("활동중지");
+		if ($(selObj).text() == "판매중") {
+			$(selObj).text("판매중지");
 			$(selObj).removeClass("cafeStateMod-blue-btn");
 			$(selObj).addClass("cafeStateMod-red-btn");
 			var pdstate = '1';
 		} else {
-			$(selObj).text("활동중");
+			$(selObj).text("판매중");
 			$(selObj).removeClass("cafeStateMod-red-btn");
 			$(selObj).addClass("cafeStateMod-blue-btn");
 			var pdstate = '0';
@@ -403,7 +354,6 @@ text-transform: uppercase;
 		});
 
 	}
-
 
 	function pdDelete(pdcode) {
 		var pdimg = $("#pdimgs").val();

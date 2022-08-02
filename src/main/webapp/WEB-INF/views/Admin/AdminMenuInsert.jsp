@@ -33,16 +33,20 @@
 span, h1 {
 	color: black;
 }
-.bc-blue{
+
+.bc-blue {
 	background-color: blue;
 }
-.bc-red{
+
+.bc-red {
 	background-color: red;
 }
-.c-white{
+
+.c-white {
 	color: white;
 }
-.btn_width{
+
+.btn_width {
 	width: 90px;
 }
 </style>
@@ -55,7 +59,7 @@ span, h1 {
 		<h1>메뉴 정보 입력</h1>
 	</div>
 	<div>
-		<form action="menuInsert"  enctype="multipart/form-data">
+		<form action="menuInsert" enctype="multipart/form-data">
 			<div class="row text-center borderOn">
 				<div class="col-2">
 					<div class="items">
@@ -86,12 +90,12 @@ span, h1 {
 						<span class="font-weight-bold">카페코드</span>
 					</div>
 					<div class="items">
-						<input type="text" id="mucfcode" name="mucfcode"  value="CF001">
+						<input type="text" id="mucfcode" name="mucfcode" value="CF001">
 					</div>
 				</div>
-			
-			
-				
+
+
+
 				<div class="col-2">
 					<div class="items">
 						<span class="font-weight-bold">메뉴 이미지</span>
@@ -111,66 +115,54 @@ span, h1 {
 		</form>
 	</div>
 	<hr>
-	<div id="companyList">
+	<div id="companyList"></div>
 
-	</div>
-	
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
 </body>
 
 <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#menuSend").on(
-						"click",
-						function() {
-							var formData = new FormData();
-							var inputFile = $("input[name = 'muims']");
-							var files = inputFile[0].files;
-							console.log(files);
+	$(document).ready(function() {
+		$("#menuSend").on("click", function() {
+			var formData = new FormData();
+			var inputFile = $("input[name = 'muims']");
+			var files = inputFile[0].files;
+			console.log(files);
 
-							
+			for (var i = 0; i < files.length; i++) {
+				formData.append("muims", files[i]);
+			}
+			formData.append("muname", $("#muname").val());
+			formData.append("mutype", $("#mutype").val());
+			formData.append("muprice", $("#muprice").val());
+			formData.append("mucfcode", $("#mucfcode").val());
 
-							for (var i = 0; i < files.length; i++) {
-								formData.append("muims", files[i]);
-							}
-							formData.append("muname", $("#muname").val());
-							formData.append("mutype",
-									$("#mutype").val());
-							formData.append("muprice", $("#muprice")
-									.val());
-							formData.append("mucfcode", $("#mucfcode")
-									.val());
-							
-							
-							
-							$.ajax({
-								type : "POST",
-								url : "menuInsert",
-								processData : false,
-								contentType : false,
-								data : formData,
-								success : function(result) {
-									console.log("업로드 성공");
-									$("#muname").val("");
-									$("#mutype").val("");
-									$("#muprice").val("");
-									
-									getMenuInfo();
-								}
-							});
-						});
+			$.ajax({
+				type : "POST",
+				url : "menuInsert",
+				processData : false,
+				contentType : false,
+				data : formData,
+				success : function(result) {
+					console.log("업로드 성공");
+					$("#muname").val("");
+					$("#mutype").val("");
+					$("#muprice").val("");
+
+					getMenuInfo();
+				}
 			});
+		});
+	});
 </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		 getMenuInfo();
+		getMenuInfo();
 	});
-	
-	function getMenuInfo(){
+
+	function getMenuInfo() {
 		$.ajax({
 			type : "get",
 			url : "getMenuInfo",
@@ -187,47 +179,52 @@ span, h1 {
 
 		for (var i = 0; i < menu.length; i++) {
 			output += "<br>";
-			
-			if(menu[i].muimg.includes('BS')){
+
+			if (menu[i].muimg.includes('BS')) {
 				output += "<div class=\"row text-center borderOn\">";
 				output += "<div class=\"col-2\"><div class=\"items\">";
-				
+
 				output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/"
 							+ menu[i].muimg + "\">";
 				output += "</div></div>";
-			}else{
+			} else {
 				output += "<div class=\"row text-center borderOn\">";
 				output += "<div class=\"col-2\"><div class=\"items\">";
-				
+
 				output += "<img style=\"width:150px; height:80px;\" alt=\"\" src=\"${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/"
 							+ menu[i].muimg + "\">";
 				output += "</div></div>";
 			}
-			
 
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">메뉴코드</span></div>";
-			output += "<div class=\"items\">"+ menu[i].mucode +"</div></div>";
-			
+			output += "<div class=\"items\">" + menu[i].mucode + "</div></div>";
+
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">이름</span></div>";
-			output += "<div class=\"items\">"+ menu[i].muname +"</div></div>";
-			
+			output += "<div class=\"items\">" + menu[i].muname + "</div></div>";
+
 			output += "<div class=\"col-1\"><div class=\"items\">";
 			output += "<span class=\"font-weight-bold\">가격</span></div>";
-			output += "<div class=\"items\">"+ menu[i].muprice +"</div></div>";
-			
+			output += "<div class=\"items\">" + menu[i].muprice
+					+ "</div></div>";
+
 			output += "<div class=\"col-1\"><div class=\"items\">";
-			output += "<button type=\"button\" onclick=\"muModify('"+ menu[i].mucode +"')\">수정</button>&nbsp;";
-			output += "<button type=\"button\" onclick=\"muDelete('"+ menu[i].mucode +"','"+menu[i].muimg+"')\">삭제</button>";
+			output += "<button type=\"button\" onclick=\"muModify('"
+					+ menu[i].mucode + "')\">수정</button>&nbsp;";
+			output += "<button type=\"button\" onclick=\"muDelete('"
+					+ menu[i].mucode + "','" + menu[i].muimg
+					+ "')\">삭제</button>";
 			output += "</div><div class=\"items\">";
-			
-			if(menu[i].mustate == 0){
-				output += "<button class=\"bc-blue c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ menu[i].mucode +"')\">활동중</button>";			
-			}else{
-				output += "<button class=\"bc-red c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"+ menu[i].mucode +"')\">활동중지</button>";
+
+			if (menu[i].mustate == 0) {
+				output += "<button class=\"bc-blue c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"
+						+ menu[i].mucode + "')\">활동중</button>";
+			} else {
+				output += "<button class=\"bc-red c-white btn_width\" type=\"button\" onclick=\"stateChange(this,'"
+						+ menu[i].mucode + "')\">활동중지</button>";
 			}
-			
+
 			output += "</div></div></div>";
 		}
 
@@ -236,40 +233,46 @@ span, h1 {
 </script>
 
 <script type="text/javascript">
-	function stateChange(selObj, mucode){
-		
-		if($(selObj).text() == "활동중"){
+	function stateChange(selObj, mucode) {
+
+		if ($(selObj).text() == "활동중") {
 			$(selObj).text("활동중지");
 			$(selObj).removeClass("bc-blue");
 			$(selObj).addClass("bc-red");
 			var mustate = '1';
-		}else{
+		} else {
 			$(selObj).text("활동중");
 			$(selObj).removeClass("bc-red");
 			$(selObj).addClass("bc-blue");
 			var mustate = '0';
 		}
-		
+
 		$.ajax({
 			type : "get",
 			url : "mustateModify",
-			data : {"mucode" : mucode, "mustate" : mustate },
+			data : {
+				"mucode" : mucode,
+				"mustate" : mustate
+			},
 			async : false,
-			success : function(result){
+			success : function(result) {
 				console.log("success");
 			}
 		});
 	}
-	
-	function muDelete(mucode, muimg){
-		
-		console.log("muimg : "+muimg)
+
+	function muDelete(mucode, muimg) {
+
+		console.log("muimg : " + muimg)
 		$.ajax({
 			type : "get",
 			url : "menuDelete",
-			data : {"mucode" : mucode, "muimg" : muimg},
+			data : {
+				"mucode" : mucode,
+				"muimg" : muimg
+			},
 			async : false,
-			success : function(result){
+			success : function(result) {
 				console.log("success");
 				getMenuInfo();
 			}
