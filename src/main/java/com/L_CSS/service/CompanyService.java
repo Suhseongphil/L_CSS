@@ -145,7 +145,6 @@ public class CompanyService {
 			mav.setViewName("redirect:/");
 		}
 		
-		mav.setViewName("Company/CompanyOrderList");
 		return mav;
 	}
 
