@@ -81,7 +81,6 @@
 									</form>
 									<hr>
 									<div class="atag">
-										<a class="small" href="#" style="margin-right: 50px;">비밀번호 찾기</a>
 										<a class="small" href="memberJoinPage">회원가입</a>
 									</div>
 								</div>

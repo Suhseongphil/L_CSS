@@ -211,6 +211,7 @@ var formPwCheck = false;
 			$("#mpw").focus();
 			return false;
 		}
+		
 		/* 이름 입력 확인 */
 		if ($("#mname").val().length == 0) {
 			alert("이름을 입력 해주세요!");
