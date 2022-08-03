@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.ProductDto;
+import com.L_CSS.dto.ReviewDto;
 import com.L_CSS.dto.ReviewProductDto;
 
 
@@ -69,6 +70,8 @@ ArrayList<ProductDto> reverseType(@Param("start")int startRow, @Param("end")int 
 ArrayList<ProductDto> reversesearch(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText, @Param("start")int startRow, @Param("end")int endRow);
 
 int selectProduct(@Param("pdcategory")String pdcategory, @Param("searchText")String searchText);
+
+ArrayList<ReviewDto> reviewList(String pdcode);
 
 
 

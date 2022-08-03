@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,7 +83,10 @@
 										</c:otherwise>
 									</c:choose>
 									<p style="font-weight: 100px;">${muList.muname}</p>
-									<h3>${muList.muprice}</h3>
+									<h4>
+									<fmt:formatNumber  value="${muList.muprice}" pattern="#,###" />
+							원
+									</h4>
 								</div>
 								<div class="blog__details__content"></div>
 							</div>
