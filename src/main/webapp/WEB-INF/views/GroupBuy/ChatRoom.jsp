@@ -194,7 +194,7 @@
 						<c:forEach items="${gbpeopleList}" var="gpList">
 							<c:choose>
 								<c:when test="${gbreserve.gbmid == sessionScope.loginId}">
-									<div class="col-3" style="color: blue;">
+									<div class="col-3">
 										<span>${gpList.gpmid}</span>
 									</div>
 								</c:when>

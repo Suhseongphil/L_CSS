@@ -7,7 +7,7 @@
 
 	<insert id="insertSendMsg">
 		INSERT INTO CHATROOM (CHGBCODE, CHMID, CHCOMMENT, CHDATE)
-		VALUES(#{chgbcode}, #{chmid}, #{chcomment}, TO_DATE(#{chdate}, 'YYYY/MM/DD HH24:MI'))
+		VALUES(#{chgbcode}, #{chmid}, #{chcomment}, TO_DATE(#{chdate}, 'YYYY/MM/DD HH24:MI:SS'))
 	</insert>
 	
 	<select id="getChatroom" resultType="com.L_CSS.dto.ChatroomDto">
