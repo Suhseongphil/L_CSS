@@ -162,7 +162,7 @@
 					</c:choose>
 				</c:forEach>
 				<c:choose>
-					<c:when test="${pagedto.page >= pagedto.maxPate }">
+					<c:when test="${pagedto.page >= pagedto.maxPate}">
 						<li>
 							<a href="#">» </a>
 						</li>

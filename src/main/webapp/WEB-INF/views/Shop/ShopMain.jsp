@@ -153,6 +153,7 @@
 							</li>
 						</c:when>
 						<c:otherwise>
+						
 							<li>
 								<a href="shopMain?page=${num}"> ${num } </a>
 							</li>
