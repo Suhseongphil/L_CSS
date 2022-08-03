@@ -22,6 +22,7 @@ import com.L_CSS.dto.CafeDto;
 import com.L_CSS.dto.CompanyDto;
 import com.L_CSS.dto.PageDto;
 import com.L_CSS.dto.ProductDto;
+import com.L_CSS.dto.ReviewDto;
 import com.L_CSS.dto.ReviewProductDto;
 import com.google.gson.Gson;
 
@@ -389,38 +390,6 @@ public class ProductService {
 	
 	}
 
-	/*
-	 * // 카테고리 선택 public ModelAndView searchType(String type) {
-	 * 
-	 * //ArrayList<ProductDto> searchType = pdao.searchType(type); ModelAndView mav
-	 * = new ModelAndView();
-	 * 
-	 * int TotalCount3 = pdao.TotalCount3(); int page2 = 1;
-	 * 
-	 * // 한페이지에 보여줄 글 개수 int pageCount = 10; // 한페이지에 보여줄 페이지 번호 개수 int pageNumCount
-	 * = 10;
-	 * 
-	 * int startRow = (page2 - 1) * pageCount + 1; int endRow = page2 * pageCount;
-	 * 
-	 * int maxPage = (int) (Math.ceil((double) TotalCount3 / pageCount)); int
-	 * startPage = (int) (Math.ceil((double) page2 / pageCount));
-	 * 
-	 * int endPage = startPage + pageNumCount - 1;
-	 * 
-	 * if (endPage > maxPage) { endPage = maxPage; } System.out.println(startRow);
-	 * System.out.println(endRow);
-	 * 
-	 * ArrayList<ProductDto> selectproductList = pdao.selectproductList(startRow,
-	 * endRow, type); PageDto pagedto = new PageDto(); pagedto.setPage(page2);
-	 * pagedto.setMaxPate(maxPage); pagedto.setStartPage(startPage);
-	 * pagedto.setEndPage(endPage); mav.addObject("pagedto", pagedto);
-	 * mav.addObject("searchType", selectproductList);
-	 * mav.setViewName("Shop/searchType"); System.out.println(pagedto);
-	 * 
-	 * //System.out.println(searchType); return mav;
-	 * 
-	 * }
-	 */
 	public ModelAndView myProduct(RedirectAttributes ra) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("myProduct() 호출");
@@ -574,7 +543,10 @@ public class ProductService {
 		ModelAndView mav = new ModelAndView();
 		ProductDto productInfo = pdao.productInfo(pdcode);
 		CompanyDto companyInfo = cdao.companyInfo(pdcode);
+		ArrayList<ReviewDto> reviewInfo = pdao.reviewList(pdcode);
+		System.out.println(reviewInfo);
 		mav.addObject("productInfo", productInfo);
+		mav.addObject("reviewInfo", reviewInfo);
 		mav.addObject("companyInfo", companyInfo);
 		mav.setViewName("option/productInfo");
 
