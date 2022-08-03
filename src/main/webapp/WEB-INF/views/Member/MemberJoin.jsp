@@ -78,6 +78,7 @@
 							<div class="form-group">
 								<label>비밀번호 확인</label>
 								<input type="password" class="form-control form-control-user" id="mpwCheck" name="mpwCheck">
+								<span id="pwCheck"></span>
 							</div>
 							<div class="form-group">
 								<label>전화번호</label>
@@ -197,10 +198,13 @@
 		$("#emailDomain").val(selDomain);
 	});
 </script>
+
 <script type="text/javascript">
+var formPwCheck = false;
 	function joinFormCheck() {
 		/* 아이디 입력 확인 */
 		
+	
 		/* 비밀번호 입력 확인 */
 		if ($("#mpw").val().length == 0) {
 			alert("비밀번호를 입력 해주세요!");
@@ -240,6 +244,28 @@
 		}
 		
 	}
+	$(document).ready(function () {
+		$("#mpwCheck").focusout(function () {
+		var pwConfirm = $("#mpwCheck").val();
+		var mpw = $("#mpw").val();
+		console.log(pwConfirm);
+		console.log(mpw);
+		if(pwConfirm == mpw){
+			$("#pwCheck").text("비밀번호 일치합니다.").css("color","green");
+			
+			if(mpw.length > 0 || mpw.length > 10){
+				formPwCheck = true;
+			}else{
+				formPwCheck = false;
+			}
+		}else{
+			$("#pwCheck").text("비밀번호가 틀립니다.").css("color","red");
+		}
+			
+		});
+
+	
+	});
 </script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

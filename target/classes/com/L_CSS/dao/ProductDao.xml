@@ -230,7 +230,11 @@
 		</if>
 	</select>
 	
-	
+	<select id="reviewList" resultType="com.L_CSS.dto.ReviewProductDto">
+		select RVMID,RVPDCODE,RVCOMMENT,TO_CHAR(RVDATE, 'YYYY/MM/DD') AS RVDATE , PDNAME , PDIMG
+		from review re , product pd
+		where re.rvpdcode = pd.pdcode and pd.pdcode = #{pdcode}
+	</select>
 
 
 </mapper>
