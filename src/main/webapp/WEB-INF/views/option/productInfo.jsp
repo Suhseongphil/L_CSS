@@ -64,6 +64,34 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	border: 1px solid grey;
 	background-color: white;
 }
+
+.divreview {
+	border: 1px solid black;
+	border-color: gray;
+	border-radius: 5px;
+}
+
+div p {
+	font-size: 13px;
+	font-family: "Cairo", sans-serif;
+	font-weight: 400;
+	line-height: 26px;
+	margin: 0 0 15px 0;
+	color: black;
+}
+
+.reviewcs {
+	border-radius: 5px;
+	background-color: #ffff0;
+}
+
+.categories{
+	padding:5px;
+}
+
+.categories div{
+	margin-bottom:5px;
+}
 </style>
 </head>
 <body>
@@ -139,39 +167,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 			</div>
 		</div>
 	</section>
-	<section class="categories">
-		<div class="row" style="text-align: center;">
-		
-		
-		<div class="col-3" style="margin-top: 60px;">
-			<h5>작성자</h5>
-		</div>
-		<div class="col-3" style="margin-top: 60px;">
-			<h5>제품명</h5>
-		</div>
-		<div class="col-6" style="margin-top: 60px;">
-			<h5>리뷰내용</h5>
-		</div>
-		
-		
-	</div>
-		<div class="row" style=" padding-bottom: 30px;">
-		<c:forEach items="${reviewInfo}" var="rePro">
-		
-		<div class="col-3" style="margin-top: 60px; text-align: center;">
-			<h5>${rePro.rvmid }</h5>
-		</div>
-		<div class="col-3" style="margin-top: 60px; ">
-			<h5>${rePro.pdname}</h5>
-		</div>
-		<div class="col-6" style="margin-top: 60px; ">
-			<h5>${rePro.rvcomment}</h5>
-		</div>
-		
-		</c:forEach>
-	</div>
-	</section>
-
+	
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
