@@ -73,7 +73,7 @@
 									</c:otherwise>
 								</c:choose>
 								<div class="product__discount__item__text">
-									<a href=""> <span>${rePro.pdname}</span>
+									<a href="productInfo?pdcode=${rePro.pdcode}"> <span>${rePro.pdname}</span>
 									</a>
 									
 								</div>

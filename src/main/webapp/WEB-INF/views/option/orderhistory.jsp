@@ -114,6 +114,7 @@
 	height: 630px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
+	border-radius: 10px;
 }
 
 .show2 .popup2 {
@@ -142,6 +143,15 @@ textarea {
 	font-weight: 700;
 	letter-spacing: 4px;
 	color: saddlebrown;
+}
+.borderText {
+background-color: #e9ecef;
+display: block;
+border-radius: 0.25rem;
+color: #495057;
+font-weight: 700;
+width: 200%;
+text-align: center;
 }
 </style>
 
@@ -301,31 +311,28 @@ textarea {
 		<div class="window2">
 			<form class="user" action="reViewInsert" method="post" enctype="multipart/form-data">
 				<div class="popup2" id="modal">
-					<div style="margin-left: 20px; margin-right: 400px; margin-top: 20px;">
+					<div class="row" style="margin-left: 20px; margin-top: 20px;">
+						<div class= "col-2">
 						<label>회사명</label>
-						<input type="text" id="cmname" style="border: none;" readonly="readonly" name="cmname" class="form-control form-control-user">
-					</div>
-					<br>
-					<div style="margin-left: 20px; margin-right: 400px;">
+						<input type="text" id="cmname" style="border: none;" readonly="readonly" name="cmname" class="borderText">
+						</div>
+						<div class="col-3">
+						</div>
+						<div class="col-2">
 						<label>제품명</label>
-						<input type="text" style="border: none;" readonly="readonly" id="pdname" name="pdname" class="form-control form-control-user">
+						<input type="text" style="border: none; width: 400%;" readonly="readonly" id="pdname" name="pdname" class="borderText">
 						<input type="hidden" id="pdcode" name="pdcode">
 						<input type="hidden" id="recode" name="recode">
+						</div>
 					</div>
 					<br>
 					<div>
-						<h5>
+						<h5 style="margin-left:210px; font-weight: 700;" >
 							리뷰내용 <br> <br>
-							<textarea name="recomment" id="recomment" placeholder="내용을 입력해주세요.."></textarea>
 						</h5>
+							<textarea name="recomment" id="recomment" placeholder="내용을 입력해주세요.." style="border:1px solid black; margin-left: 100px; margin-bottom: 40px;"></textarea>
 					</div>
-					<div>
-						<input type="radio" name="rvrecommend" value="0">
-						공개
-						<input type="radio" name="rvrecommend" value="1">
-						비공개
-					</div>
-					<button type="submit" id="save" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px;">리뷰작성</button>
+					<button type="submit" id="save" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 310px;">리뷰작성</button>
 					<button type="button" id="close" class="btn text-white" title="Button push lightblue" style="background-color: #000000; margin-left: 20px;">취소</button>
 				</div>
 			</form>

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -58,18 +59,38 @@ span, h1 {
 </style>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/handmade.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/handmade.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/resources/css/style.css"
+	type="text/css">
 </head>
 
 <body>
@@ -86,7 +107,7 @@ span, h1 {
 			</div>
 		</div>
 	</div>
-	
+
 	<section class="featured spad">
 		<div class="text-center">
 			<h2>메뉴 정보 입력</h2>
@@ -127,7 +148,8 @@ span, h1 {
 							<span class="font-weight-bold">카페코드</span>
 						</div>
 						<div class="items">
-							<input type="text" id="mucfcode" name="mucfcode" value="${mycafeInfo.cfcode }">
+							<input type="text" id="mucfcode" name="mucfcode"
+								value="${mycafeInfo.cfcode }">
 						</div>
 					</div>
 					<div class="col-2">
@@ -141,7 +163,8 @@ span, h1 {
 					<div class="col-2">
 						<br> <br>
 						<div class="items">
-							<button type="button" id="menuSend" class="btn text-white" style="background-color: #000000; margin-left: 50px">메뉴등록</button>
+							<button type="button" id="menuSend" class="btn text-white"
+								style="background-color: #000000; margin-left: 50px">메뉴등록</button>
 						</div>
 					</div>
 				</div>
@@ -159,17 +182,25 @@ span, h1 {
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
 	</footer>
-	
+
 	<!-- Js -->
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/mixitup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/owl.carousel.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/main.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/resources/js/handmade.js"></script>
 
 	<footer class="footer">
 		<%@ include file="../includes/FooterBar.jsp"%>
@@ -221,12 +252,13 @@ span, h1 {
 </script>
 
 <script type="text/javascript">
+	var mucfcode = $("#mucfcode").val();
+
 	$(document).ready(function() {
 		getMyMenuInfo();
 	});
 
 	function getMyMenuInfo() {
-		var mucfcode = $("#mucfcode").val();
 		$.ajax({
 			type : "get",
 			url : "getMyMenuInfo",
@@ -279,10 +311,10 @@ span, h1 {
 
 			if (menu[i].mustate == 0) {
 				output += "<button class=\"cafeStateMod-blue-btn\" type=\"button\" onclick=\"stateChange(this,'"
-						+ menu[i].mucode + "')\">활동중</button>";
+						+ menu[i].mucode + "')\">판매중</button>";
 			} else {
 				output += "<button class=\"cafeStateMod-red-btn\" type=\"button\" onclick=\"stateChange(this,'"
-						+ menu[i].mucode + "')\">활동중지</button>";
+						+ menu[i].mucode + "')\">판매중지</button>";
 			}
 
 			output += "</div></div>";
@@ -324,13 +356,13 @@ span, h1 {
 <script type="text/javascript">
 	function stateChange(selObj, mucode) {
 
-		if ($(selObj).text() == "활동중") {
-			$(selObj).text("활동중지");
+		if ($(selObj).text() == "판매중") {
+			$(selObj).text("판매중지");
 			$(selObj).removeClass("cafeStateMod-blue-btn");
 			$(selObj).addClass("cafeStateMod-red-btn");
 			var mustate = '1';
 		} else {
-			$(selObj).text("활동중");
+			$(selObj).text("판매중");
 			$(selObj).removeClass("cafeStateMod-red-btn");
 			$(selObj).addClass("cafeStateMod-blue-btn");
 			var mustate = '0';
@@ -411,7 +443,8 @@ span, h1 {
 	}
 </script>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(

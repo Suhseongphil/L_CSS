@@ -92,7 +92,7 @@
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 	/* 임시 지정 */
 	width: 600px;
-	height: 330px;
+	height: 360px;
 	/* 초기에 약간 아래에 배치 */
 	transform: translate(-50%, -40%);
 	border-radius:10px;
