@@ -147,9 +147,19 @@
 	</select>
 
 	<select id="TotalCount2" resultType="int">
-		select count(pdcode)
+		select count(*)
+		<if test="rere == null">
 		from
 		PRODUCT
+	
+		</if>
+		<if test="rere != null">
+		from
+		PRODUCT
+		where pdtype = #{rere}
+		</if>
+		
+		
 	</select>
 
 	<select id="TotalCount3" resultType="int">
@@ -183,7 +193,7 @@
 	<select id="reverseList" resultType="com.L_CSS.dto.ProductDto">
 		select p.*
 		from (select rownum
-		rn, product.* from PRODUCT where pdtype = #{pdtype}) p
+		rn, product.* from PRODUCT) p
 		where p.rn
 		between #{start} and #{end} ORDER BY rn DESC
 	</select>
@@ -209,7 +219,18 @@
 			where p.rn between #{start} and #{end} ORDER BY rn DESC
 		</if>
 	</select>
-
+	<select id="selectProduct" resultType="int">
+	select count(*)
+	from product
+	<if test="pdcategory == 'pdname'">
+			where pdname LIKE '%' || #{searchText} || '%'
+		</if>
+		<if test="pdcategory == 'pdtype'">
+			where pdtype LIKE '%' || #{searchText} || '%'
+		</if>
+	</select>
+	
+	
 
 
 </mapper>

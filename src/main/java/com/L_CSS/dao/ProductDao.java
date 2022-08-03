@@ -55,7 +55,7 @@ public interface ProductDao {
 
    ArrayList<ProductDto> selectproductList(@Param("start")int startRow,@Param("end")int endRow, @Param("type")String type);
 
-   int TotalCount2();
+   int TotalCount2(String rere);
    int TotalCount3();
 
 ArrayList<ProductDto> productList(@Param("start")int startRow, @Param("end")int endRow);
@@ -67,6 +67,8 @@ ArrayList<ProductDto> reverseList(@Param("start")int startRow, @Param("end")int 
 ArrayList<ProductDto> reverseType(@Param("start")int startRow, @Param("end")int endRow, @Param("pdtype")String pdtype);
 
 ArrayList<ProductDto> reversesearch(@Param("pdcategory")String pdcategory,@Param("searchText")String searchText, @Param("start")int startRow, @Param("end")int endRow);
+
+int selectProduct(@Param("pdcategory")String pdcategory, @Param("searchText")String searchText);
 
 
 

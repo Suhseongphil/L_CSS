@@ -27,7 +27,6 @@ public class MemberService {
 	private HttpSession session;
 	private String savePath = "C:\\Users\\user\\git\\L_CSS\\src\\main\\webapp\\resources\\fileUpLoad\\MemberFrofile";
 	
-	
 	// 회원가입 요청 메소드
 	public ModelAndView memberJoin(MemberDto member, RedirectAttributes ra, HttpServletResponse response) throws IllegalStateException, IOException {
 		System.out.println("memberJoin ()호출");
@@ -95,14 +94,13 @@ public class MemberService {
 		if (mid.equals("adMin") && mpw.equals("1234")) {
 			mav.setViewName("redirect:/admin");
 		} else {
-			
 			int mstateCheck = memberLogin.getMstate();
 			if (memberLogin != null && mstateCheck == 0) {
 				session.setAttribute("loginId", memberLogin.getMid());
 				session.setAttribute("myProfile", memberLogin.getMprofile());
 				session.setAttribute("loginType", memberLogin.getMtype());
 				
-				mav.setViewName("Main");
+				mav.setViewName("redirect:/");
 			} else {
 				
 				if(mstateCheck == 0) {

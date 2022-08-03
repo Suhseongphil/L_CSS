@@ -327,13 +327,6 @@ public class ProductService {
 		String category =null ;
 		String text = null;
 		ModelAndView mav = new ModelAndView();
-		int TotalCount2 = pdao.TotalCount2();
-		int page2 = 1;
-
-		if (page != null) {
-			page2 = Integer.parseInt(page);
-		}
-		
 		if(pdcategory != null && searchText !=null) {
 			System.out.println("실행");
 			session.setAttribute("searchpdcategory", pdcategory);
@@ -343,36 +336,48 @@ public class ProductService {
 		}else {
 			
 		}
+		pdcategory = category;
+		searchText = text;
+		int TotalCount2 = pdao.selectProduct(pdcategory,searchText);
+		int page2 = 1;
+		
+		if (page != null) {
+			page2 = Integer.parseInt(page);
+		}
+		
 		System.out.println("??"+text);
 		// 한페이지에 보여줄 글 개수
 		int pageCount = 8;
 		// 한페이지에 보여줄 페이지 번호 개수
 		int pageNumCount = 5;
-
+		
 		int startRow = (page2 - 1) * pageCount + 1;
 		int endRow = page2 * pageCount;
-
+		
 		int maxPage = (int) (Math.ceil((double) TotalCount2 / pageCount));
 		int startPage = (int) (Math.ceil((double) page2 / pageCount));
-
+		
 		int endPage = startPage + pageNumCount - 1;
-
+			
 		if (endPage > maxPage) {
 			endPage = maxPage;
 		}
-		
+		System.out.println(startPage);
+		System.out.println(maxPage);
+		System.out.println(endPage);
 		// null > 원두
 		if(category != null &&  text != null) {
-			pdcategory = category;
-			searchText = text;
-			System.out.println("??2"+pdcategory);
-			System.out.println("??1"+searchText);
+			
+			
+			
 			PageDto pagedto = new PageDto();
 			pagedto.setPage(page2);
 			pagedto.setMaxPate(maxPage);
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			System.out.println(pagedto.getStartPage());
+			System.out.println(pagedto.getEndPage());
 			ArrayList<ProductDto> reversesearch= pdao.reversesearch(pdcategory,searchText,startRow, endRow);
 			ArrayList<ProductDto> searchList = pdao.searchList(pdcategory,searchText,startRow, endRow);
 			System.out.println(searchList);
@@ -580,50 +585,57 @@ public class ProductService {
 	public ModelAndView productList(String page, String pdtype) {
 		System.out.println("productList()호출");
 		ModelAndView mav = new ModelAndView();
-		int TotalCount2 = pdao.TotalCount2();
-		int page2 = 1;
-
-		if (page != null) {
-			page2 = Integer.parseInt(page);
-		}
-		String rere = (String) session.getAttribute("typeResult");
-
-		// 한페이지에 보여줄 글 개수
-		int pageCount = 8;
-		// 한페이지에 보여줄 페이지 번호 개수
-		int pageNumCount = 5;
-
-		int startRow = (page2 - 1) * pageCount + 1;
-		int endRow = page2 * pageCount;
-
-		int maxPage = (int) (Math.ceil((double) TotalCount2 / pageCount));
-		int startPage = (int) (Math.ceil((double) page2 / pageCount));
-
-		int endPage = startPage + pageNumCount - 1;
-
-		if (endPage > maxPage) {
-			endPage = maxPage;
-		}
-		System.out.println(startRow);
-		System.out.println(endRow);
+		System.out.println(page);
 		// null > 원두
-
-		if (rere == pdtype) {
+		String rere = (String) session.getAttribute("typeResult");
+		System.out.println("??" + rere);
+		if (rere == pdtype) { 
 			session.removeAttribute("typeResult");
 			session.setAttribute("typeResult", pdtype);
 			String rdrd = (String) session.getAttribute("typeResult");
 			rere = rdrd;
 
 		}
-
+		
 		if (pdtype == null && rere == null) {
+			
+			int TotalCount2 = pdao.TotalCount2(rere);
+			int page2 = 1;
 
+			if (page != null) {
+				page2 = Integer.parseInt(page);
+			}
+			System.out.println("p2"+page2);
+
+			// 한페이지에 보여줄 글 개수
+			int pageCount = 8;
+			// 한페이지에 보여줄 페이지 번호 개수
+			int pageNumCount = 5;
+
+			int startRow = (page2 - 1) * pageCount + 1;
+			int endRow = page2 * pageCount;
+
+			int maxPage = (int) (Math.ceil((double) TotalCount2 / pageCount));
+			int startPage = (int) (Math.ceil((double) page2 / pageCount));
+
+			int endPage = startPage + pageNumCount - 1;
+
+			if (endPage > maxPage) {
+				endPage = maxPage;
+			}
+			System.out.println(startPage);
+			System.out.println(maxPage);
+			System.out.println(endPage);
 			PageDto pagedto = new PageDto();
+			
 			pagedto.setPage(page2);
 			pagedto.setMaxPate(maxPage);
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			System.out.println("dto   "+pagedto);
+			System.out.println(pagedto.getStartPage());
+			System.out.println(pagedto.getEndPage());
 			ArrayList<ProductDto> reverseList = pdao.reverseList(startRow, endRow);
 			ArrayList<ProductDto> productList = pdao.productList(startRow, endRow);
 			mav.addObject("reverseList",reverseList);
@@ -636,12 +648,40 @@ public class ProductService {
 			}
 			session.setAttribute("typeResult", pdtype);
 			PageDto pagedto = new PageDto();
+			int TotalCount2 = pdao.TotalCount2(rere);
+			int page2 = 1;
 
+			if (page != null) {
+				page2 = Integer.parseInt(page);
+			}
+			
+
+			// 한페이지에 보여줄 글 개수
+			int pageCount = 8;
+			// 한페이지에 보여줄 페이지 번호 개수
+			int pageNumCount = 5;
+
+			int startRow = (page2 - 1) * pageCount + 1;
+			int endRow = page2 * pageCount;
+
+			int maxPage = (int) (Math.ceil((double) TotalCount2 / pageCount));
+			int startPage = (int) (Math.ceil((double) page2 / pageCount));
+
+			int endPage = startPage + pageNumCount - 1;
+
+			if (endPage > maxPage) {
+				endPage = maxPage;
+			}
+			System.out.println(startPage);
+			System.out.println(maxPage);
+			System.out.println(endPage);
 			pagedto.setPage(page2);
 			pagedto.setMaxPate(maxPage);
 			pagedto.setStartPage(startPage);
 			pagedto.setEndPage(endPage);
 			mav.addObject("pagedto", pagedto);
+			System.out.println(pagedto.getStartPage());
+			System.out.println(pagedto.getEndPage());
 			ArrayList<ProductDto> reverseList = pdao.reverseType(startRow, endRow,pdtype);
 			ArrayList<ProductDto> searchType = pdao.searchType(startRow, endRow, pdtype);
 			session.setAttribute("typeResult", pdtype);
@@ -658,7 +698,7 @@ public class ProductService {
 		System.out.println("fullProduct()호출");
 		ModelAndView mav = new ModelAndView();
 		session.removeAttribute("typeResult");
-		int TotalCount2 = pdao.TotalCount2();
+		int TotalCount2 = pdao.TotalCount3();
 		int page2 = 1;
 
 		if (page != null) {

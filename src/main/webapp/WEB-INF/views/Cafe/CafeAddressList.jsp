@@ -49,8 +49,9 @@
 				<h3>카 페 목 록</h3>
 			</div>
 
-			지역검색 :
-			<select style="float: right; height: 20%; width: 8%;" name="cfaddress" id="cfaddress" onchange="selectCheck()">
+			<h5 style=" margin-top: 30px; font-weight: bold;" >지역검색 :</h5>
+			<select style=" margin-top: 25px; margin-right:80px; padding:8px; margin-left:15px; font-weight:bold; font-size:15px;
+			float: right; height: 20%;" name="cfaddress" id="cfaddress" onchange="selectCheck()">
 
 				<option value="선택">선택</option>
 				<option value="1">전체</option>
