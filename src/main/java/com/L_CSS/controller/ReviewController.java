@@ -25,13 +25,12 @@ public class ReviewController {
 	
 	//리뷰작성 요청
 	@RequestMapping (value="/reViewInsert")
-	public String reViewInsert(String pdcode,String recomment, int rvrecommend,RedirectAttributes ra,String recode ) {
+	public String reViewInsert(String pdcode,String recomment,RedirectAttributes ra,String recode ) {
 		System.out.println("리뷰작성요청");
 		System.out.println(pdcode);
 		System.out.println(recomment);
-		System.out.println(rvrecommend);
 		System.out.println(recode);
-		String ReViewInsert = rsv.insertReview(pdcode,recomment,rvrecommend,ra,recode);
+		String ReViewInsert = rsv.insertReview(pdcode,recomment,ra,recode);
 		
 		return ReViewInsert;
 	}

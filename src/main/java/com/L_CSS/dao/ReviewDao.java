@@ -7,6 +7,6 @@ public interface ReviewDao {
 	String getmax();
 
 	int insertResult(@Param("pdcode")String pdcode,@Param("recomment")String recomment, 
-			@Param("rvrecommend")int rvrecommend, @Param("loginId")String loginId, @Param("rvrecode")String recode);
+			@Param("loginId")String loginId, @Param("rvrecode")String recode);
 
 }

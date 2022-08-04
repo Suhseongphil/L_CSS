@@ -31,7 +31,7 @@
 	<div class="col-lg-9">
 		<nav class="header__menu2" style="padding-left: 50px; margin-top: 10px;">
 			<ul>
-				<li class="active">
+				<li>
 					<a href="main">메인</a>
 				</li>
 				<li>
