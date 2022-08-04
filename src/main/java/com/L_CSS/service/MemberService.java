@@ -83,39 +83,38 @@ public class MemberService {
 		return mav;
 	}
 
-	// 로그인 요청 메소드
-	public ModelAndView memberLogin(String mid, String mpw, RedirectAttributes ra) {
-		System.out.println("memberLogin()호출");
-		ModelAndView mav = new ModelAndView();
-		System.out.println(mid);
-		System.out.println(mpw);
+	 // 로그인 요청 메소드
+	   public ModelAndView memberLogin(String mid, String mpw, RedirectAttributes ra) {
+	      System.out.println("memberLogin()호출");
+	      ModelAndView mav = new ModelAndView();
+	      System.out.println(mid);
+	      System.out.println(mpw);
 
-		MemberDto memberLogin = mdao.MemberLogin(mid, mpw);
-		if (mid.equals("adMin") && mpw.equals("1234")) {
-			mav.setViewName("redirect:/admin");
-		} else {
-			int mstateCheck = memberLogin.getMstate();
-			if (memberLogin != null && mstateCheck == 0) {
-				session.setAttribute("loginId", memberLogin.getMid());
-				session.setAttribute("myProfile", memberLogin.getMprofile());
-				session.setAttribute("loginType", memberLogin.getMtype());
-				
-				mav.setViewName("redirect:/");
-			} else {
-				
-				if(mstateCheck == 0) {
-					
-					ra.addFlashAttribute("msg","아이디또는 비밀번호가 틀렸습니다.");
-					mav.setViewName("redirect:/memberLoginPage");
-				}else {
-					ra.addFlashAttribute("msg","활동정지된 계정입니다.");
-					mav.setViewName("redirect:/memberLoginPage");
-				}
-				
-			}
-		}
-		return mav;
-	}
+	      MemberDto memberLogin = mdao.MemberLogin(mid, mpw);
+	      
+	      if (mid.equals("adMin") && mpw.equals("1234")) {
+	         mav.setViewName("redirect:/admin");
+	      } else {
+	         if(memberLogin == null) {
+	            ra.addFlashAttribute("msg","아이디 또는 비밀번호가 틀렸습니다.");
+	            mav.setViewName("redirect:/memberLoginPage");
+	         }
+	         if (memberLogin != null) {
+	            int mstateCheck = memberLogin.getMstate();
+	            session.setAttribute("loginId", memberLogin.getMid());
+	            session.setAttribute("myProfile", memberLogin.getMprofile());
+	            session.setAttribute("loginType", memberLogin.getMtype());
+	            
+	            if(mstateCheck == 0) {
+	               mav.setViewName("redirect:/");
+	            }else {
+	               ra.addFlashAttribute("msg","활동정지된 계정입니다.");
+	               mav.setViewName("redirect:/memberLoginPage");
+	            }
+	         }
+	      }
+	      return mav;
+	   }
 
 	// 내정보 페이지 요청
 	public ModelAndView memberInfo(String mpw, RedirectAttributes ra) {
@@ -190,7 +189,7 @@ public class MemberService {
 		if (kakaoMember != null) {
 			// 로그인 처리
 			session.setAttribute("loginId", kakaoMember.getMid());
-			session.setAttribute("loginProfile", kakaoMember.getMprofile());
+			session.setAttribute("myProfile", kakaoMember.getMprofile());
 			ra.addFlashAttribute("msg", "카카오 계정으로 로그인 되었습니다.");
 			mav.setViewName("redirect:/");
 
@@ -199,7 +198,7 @@ public class MemberService {
 			member.setMpw("1234");
 			mdao.insertMemberKakao(member);
 			ra.addFlashAttribute("msg", "회원정보가 등록 되었습니다. 다시 로그인 해주세요!");
-			mav.setViewName("redirect:/MemberLoginPage");
+			mav.setViewName("redirect:/");
 		}
 
 		return mav;

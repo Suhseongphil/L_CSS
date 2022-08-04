@@ -113,8 +113,8 @@ public class CartController {
 			String parem = "cid=TC0ONETIME" + "&partner_order_id=partner_order_id" + "&partner_user_id=partner_user_id"
 					+ "&item_name=" + URLEncoder.encode(name, "UTF-8") + "" + "&quantity=5" + "&total_amount=" + sum
 					+ "" + "&tax_free_amount=100"
-					+ "&approval_url=http://localhost:8080/controller/reservInsert?ctcode=" + ctcode + ""
-					+ "&cancel_url=http://localhost:8080/controller/" + "&fail_url=http://localhost:8080/controller/";
+					+ "&approval_url=http://121.65.47.77:7774/controller/reservInsert?ctcode=" + ctcode + ""
+					+ "&cancel_url=http://121.65.47.77:7774/controller/" + "&fail_url=http://121.65.47.77:7774/controller/";
 			// 데이터를 주는클래스
 			OutputStream stream = httpConnection.getOutputStream();
 			// 데이터 주는 클래스

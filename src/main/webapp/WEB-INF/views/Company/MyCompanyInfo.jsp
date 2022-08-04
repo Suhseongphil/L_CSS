@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <%
 request.setCharacterEncoding("UTF-8");
@@ -146,7 +147,15 @@ label {
 									<c:otherwise>
 										<div class="blog__item__pic">
 											<a href="compnayInfo?cmcode=${mycompanyInfo.cmcode }">
+											<c:choose>
+												<c:when test="${fn:substring(mycompanyInfo.cmimg,0,1)=='/'}">
 												<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${mycompanyInfo.cmimg.split('/')[1]}">
+												</c:when>
+												<c:otherwise>
+												<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${mycompanyInfo.cmimg}">
+												</c:otherwise>
+											</c:choose>
+												
 											</a>
 										</div>
 									</c:otherwise>

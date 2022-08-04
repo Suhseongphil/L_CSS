@@ -617,6 +617,8 @@ public class ProductService {
 		} else {
 			if (pdtype == null) {
 				pdtype = rere;
+			}else {
+				rere = pdtype;
 			}
 			session.setAttribute("typeResult", pdtype);
 			PageDto pagedto = new PageDto();
