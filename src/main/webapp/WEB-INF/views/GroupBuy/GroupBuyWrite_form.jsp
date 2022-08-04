@@ -31,7 +31,7 @@
 .scroll {
 	overflow: scroll;
 	width: auto;
-	height: 370px;
+	height: 376px;
 }
 
 .row {
@@ -75,15 +75,16 @@ input {
 			<h3 style="text-align: center;">제품선택</h3>
 			<div class="row">
 				<div class="col-2"></div>
-				<div class="col-2 font-weight-bold" id="pdtype">
+				<div class="col-2 font-weight-bold" id="pdtype" style="border-bottom:2px solid saddlebrown; height:400px;">
 					<div>상품(선택)</div>
 					<c:forEach items="${productType}" var="pdtype">
 						<div style="margin: 1px auto 1px;" onclick="selectType(this)">${pdtype}</div>
+						
 					</c:forEach>
 				</div>
 				<div class="col-7">
 					<div class="font-weight-bold">제품이름(선택)</div>
-					<div class="scroll" id="pdname"></div>
+					<div class="scroll" id="pdname" style="border-bottom:2px solid saddlebrown;"></div>
 				</div>
 				<div class="col-1"></div>
 			</div>
@@ -91,7 +92,7 @@ input {
 				<div class="col-3"></div>
 				<div class="col-6">
 					<form action="groupBuyWrite" method="get">
-						<div class="row">
+						<div class="row" style="margin-top: 30px;">
 							<div class="col-1">
 								<span class="font-weight-bold">제품</span>
 							</div>
@@ -113,7 +114,7 @@ input {
 								<span class="font-weight-bold">내용</span>
 							</div>
 							<div class="col-11">
-								<textarea id="gbcomment" name="gbcomment" placeholder="내용을 입력해주세요..." rows="7" style="width: 100%; resize: none;"></textarea>
+								<textarea  id="gbcomment" name="gbcomment" placeholder="내용을 입력해주세요..." rows="7" style="width: 100%; resize: none; border:1px solid black;"></textarea>
 								<div id="text_cnt">글자수(0 / 500)</div>
 							</div>
 						</div>
