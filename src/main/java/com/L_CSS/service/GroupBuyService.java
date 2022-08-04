@@ -47,16 +47,21 @@ public class GroupBuyService {
 		ArrayList<String> productType = gbdao.getPdType();
 
 		String loginId = (String) session.getAttribute("loginId");
-
-		String region = gbdao.getAddress(loginId);
-
-		if (region != null) {
-			region = region.split("_")[1].split(" ")[0];
+		
+		if(loginId == null) {
+			
+		}else {
+			
+			String region = gbdao.getAddress(loginId);
+			
+			if (region != null) {
+				region = region.split("_")[1].split(" ")[0];
+			}
+			
+			mav.addObject("region", region);
+			mav.addObject("productType", productType);
+			mav.setViewName("GroupBuy/GroupBuyWrite_form");
 		}
-
-		mav.addObject("region", region);
-		mav.addObject("productType", productType);
-		mav.setViewName("GroupBuy/GroupBuyWrite_form");
 		return mav;
 	}
 
