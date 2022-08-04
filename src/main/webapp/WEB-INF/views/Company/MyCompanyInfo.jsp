@@ -135,7 +135,22 @@ label {
 						<div class="hero__text">
 							<label>회사이미지</label>
 							<br>
-							<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${mycompanyInfo.cmimg}">
+							<c:choose>
+									<c:when test="${mycompanyInfo.cmimg == null }">
+										<div class="blog__item__pic">
+											<a href="compnayInfo?cmcode=${mycompanyInfo.cmcode }">
+												<img class="imgclass" alt=""src="${pageContext.request.contextPath }/resources/fileUpLoad/MenuFile/BasicMenu/BS011.png">
+											</a>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="blog__item__pic">
+											<a href="compnayInfo?cmcode=${mycompanyInfo.cmcode }">
+												<img class="imgclass" alt="" src="${pageContext.request.contextPath }/resources/fileUpLoad/CompanyFile/${mycompanyInfo.cmimg.split('/')[1]}">
+											</a>
+										</div>
+									</c:otherwise>
+								</c:choose>
 						</div>
 					</div>
 				</div>

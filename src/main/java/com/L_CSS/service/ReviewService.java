@@ -46,11 +46,11 @@ public class ReviewService {
 	
 	}
 	//리뷰 작성요청
-	public String insertReview(String pdcode, String recomment, int rvrecommend, RedirectAttributes ra, String recode) {
+	public String insertReview(String pdcode, String recomment, RedirectAttributes ra, String recode) {
 		System.out.println("insertReView()호출");
 		String loginId = (String)session.getAttribute("loginId");
 		
-		int insertResult = rdao.insertResult(pdcode,recomment,rvrecommend,loginId,recode);
+		int insertResult = rdao.insertResult(pdcode,recomment,loginId,recode);
 			
 			if(insertResult > 0) {
 				redao.updateResult(recode);

@@ -11,6 +11,7 @@
 		</select>
   		
   		<insert id="insertResult">
-  			insert into REVIEW values(#{rvrecode},#{loginId},#{pdcode},#{recomment},sysdate,#{rvrecommend})
+  			insert into REVIEW (RVRECODE, RVMID, RVPDCODE, RVCOMMENT, RVDATE) 
+  			values(#{rvrecode},#{loginId},#{pdcode},#{recomment},sysdate)
   		</insert>
   </mapper>
