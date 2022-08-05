@@ -43,11 +43,23 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<a href="inquirePage">고객문의</a>
-					</div>
-				</div>
+				<c:choose>
+               <c:when test="${sessionScope.loginId !=null}">
+                  <div class="col-lg-4 col-md-12">
+                     <div class="footer__widget">
+                        <a href="inquirePage">고객문의</a>
+                     </div>
+                  </div>
+               </c:when>
+               <c:otherwise>
+                  <div class="col-lg-4 col-md-12">
+                     <div class="footer__widget">
+                        <a href="memberLoginPage" onclick="loginCheck()">고객문의</a>
+                     </div>
+                  </div>
+
+               </c:otherwise>
+            </c:choose>
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
@@ -57,4 +69,10 @@
 		</div>
 	</footer>
 </body>
+<script type="text/javascript">
+function loginCheck() {
+   alert("로그인 후 이용가능합니다.");
+}
+</script>
+
 </html>

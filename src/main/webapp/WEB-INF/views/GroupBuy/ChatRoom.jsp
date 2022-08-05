@@ -322,7 +322,8 @@
 		console.log(receiveData.chdate);
 
 		var date = receiveData.chdate.split(" ")[1];
-
+		date = date.split(":")[0]+":"+date.split(":")[1];
+		
 		var output = "<div class=\"text-left\">";
 		output += "<span class=\"recev\">" + receiveData.chmid + "</span><br>";
 		output += "<span class=\"chatting2 font-weight-bold\">"
@@ -351,6 +352,7 @@
 		var date = time.getDate();
 		var hours = time.getHours();
 		var minutes = time.getMinutes();
+		var seconds = time.getSeconds();
 
 		if (minutes < 10) {
 			var thisTime = hours + ":0" + minutes;
@@ -365,8 +367,12 @@
 		if (date < 10) {
 			date = "0" + date;
 		}
+		
+		if (seconds<10){
+			seconds = "0" + seconds;
+		}
 
-		var thisDay = year + "/" + month + "/" + date + " " + thisTime;
+		var thisDay = year + "/" + month + "/" + date + " " + thisTime + ":" + seconds;
 
 		console.log(thisDay);
 
